@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
                     fontFamily: 'Pattaya',
                     color: kPrimaryColor),
               ),
-              SvgPicture.asset("assets/icons/popcorn.svg",
+              SvgPicture.asset("assets/icons/movie.svg",
                   width: size.width * 0.45),
               Padding(
                 padding: const EdgeInsets.all(36.0),
@@ -40,8 +40,8 @@ class Body extends StatelessWidget {
                 child: TextField(
                   obscureText: true,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
                   ),
                 ),
               ),
