@@ -1,4 +1,4 @@
-import 'package:ciak_time/Login/welcome_screen.dart';
+import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: WelcomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
