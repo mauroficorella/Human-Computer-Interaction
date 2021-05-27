@@ -1,4 +1,5 @@
 import 'package:ciak_time/Screens/Login/components/background.dart';
+import 'package:ciak_time/Screens/Login/components/or_divider.dart';
 import 'package:ciak_time/Screens/Signup/signup_screen.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
 import 'package:ciak_time/components/rounded_button.dart';
@@ -137,8 +138,55 @@ class _BodyState extends State<Body> {
                   );
                 },
               ),
+              OrDivider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SocialIcon(
+                    iconSrc: "assets/icons/google.svg",
+                    press: () {},
+                  ),
+                  SocialIcon(
+                    iconSrc: "assets/icons/facebook.svg",
+                    press: () {},
+                  ),
+                ],
+              )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class SocialIcon extends StatelessWidget {
+  final String iconSrc;
+  final Function press;
+  const SocialIcon({
+    Key key,
+    this.iconSrc,
+    this.press,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: press,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 2,
+            color: kPrimaryLightColor,
+          ),
+          shape: BoxShape.circle,
+        ),
+        child: SvgPicture.asset(
+          iconSrc,
+          height: 20,
+          width: 20,
         ),
       ),
     );

@@ -3,39 +3,9 @@ import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/*class RoundedPasswordField extends StatelessWidget {
-  final ValueChanged<String> onChanged;
-  const RoundedPasswordField({
-    Key key,
-    this.onChanged,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFieldContainer(
-      child: TextField(
-        obscureText: true,
-        onChanged: onChanged,
-        decoration: InputDecoration(
-          hintText: "Password",
-          icon: Icon(
-            Icons.lock,
-            color: kPrimaryColor,
-          ),
-          suffixIcon: Icon(
-            Icons.visibility,
-            color: kPrimaryColor,
-          ),
-          border: InputBorder.none,
-        ),
-      ),
-    );
-  }
-}*/
-
-class RoundedPasswordField extends StatefulWidget {
+class RoundedPasswordFieldConfirm extends StatefulWidget {
   final TextEditingController controller;
-  const RoundedPasswordField({
+  const RoundedPasswordFieldConfirm({
     Key key,
     @required this.controller,
   }) : super(key: key);
@@ -44,7 +14,7 @@ class RoundedPasswordField extends StatefulWidget {
   _RoundedPasswordField createState() => _RoundedPasswordField();
 }
 
-class _RoundedPasswordField extends State<RoundedPasswordField> {
+class _RoundedPasswordField extends State<RoundedPasswordFieldConfirm> {
   bool isHidden = true;
 
   @override
@@ -57,7 +27,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
             controller: widget.controller,
             obscureText: isHidden,
             decoration: InputDecoration(
-              hintText: "Password",
+              hintText: "Confirm Password",
               icon: Icon(
                 Icons.lock,
                 color: kPrimaryColor,
