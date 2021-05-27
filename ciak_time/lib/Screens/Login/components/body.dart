@@ -1,4 +1,7 @@
 import 'package:ciak_time/Screens/Login/components/background.dart';
+import 'package:ciak_time/Screens/Signup/signup_screen.dart';
+import 'package:ciak_time/components/already_have_an_account_check.dart';
+import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/components/rounded_input_field.dart';
 import 'package:ciak_time/components/rounded_password_field.dart';
 import 'package:ciak_time/components/text_field_container.dart';
@@ -72,38 +75,71 @@ class Body extends StatelessWidget {
   }
 }*/
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({
     Key key,
   }) : super(key: key);
 
   @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  final passwordController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Background(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            "CiakTime",
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 75.0,
-                fontFamily: 'Pattaya',
-                color: kPrimaryColor),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0.0, 35.0, 0.0, 0.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Text(
+                "CiakTime",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 75.0,
+                    fontFamily: 'Pattaya',
+                    color: kPrimaryColor),
+              ),
+              SvgPicture.asset(
+                "assets/icons/movie.svg",
+                height: size.height * 0.25,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
+                child: Column(
+                  children: <Widget>[
+                    RoundedInputField(
+                      hintText: "Username",
+                      onChanged: (value) {},
+                    ),
+                    RoundedPasswordField(
+                      controller: passwordController,
+                    ),
+                    RoundedButton(
+                      text: "LOGIN",
+                      press: () {},
+                    ),
+                  ],
+                ),
+              ),
+              AlreadyHaveAnAccountCheck(
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SignUpScreen();
+                      },
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
-          SvgPicture.asset(
-            "assets/icons/movie.svg",
-            height: size.height * 0.3,
-          ),
-          RoundedInputField(
-            hintText: "Username",
-            onChanged: (value) {},
-          ),
-          RoundedPasswordField(
-            onChanged: (value) {},
-          )
-        ],
+        ),
       ),
     );
   }
