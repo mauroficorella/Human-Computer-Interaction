@@ -1,6 +1,7 @@
-import 'package:ciak_time/Screens/Search/search.dart';
-import 'package:ciak_time/Screens/User/user.dart';
+import 'package:ciak_time/components/card_list.dart';
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,41 +9,51 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _currentIndex = 0;
-
-  final _pages = [
-    Search(),
-    Search(),
-    User(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        iconSize: size.width * 0.1,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+      body: Column(
+        children: [
+          SizedBox(
+            height: size.height * 0.05,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                "assets/icons/movie.svg",
+                height: size.height * 0.055,
+              ),
+              SizedBox(
+                width: size.width * 0.03,
+              ),
+              Text(
+                "CiakTime",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: size.height * 0.05,
+                    fontFamily: 'Pattaya',
+                    color: kPrimaryColor),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'User',
+          SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                CardList(
+                    size: size, title: "Upcoming movies", icon: Icons.history),
+                CardList(
+                    size: size, title: "Popular movies", icon: Icons.movie),
+                CardList(
+                    size: size,
+                    title: "Popular people",
+                    icon: Icons.movie_creation),
+              ],
+            ),
           ),
         ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
       ),
     );
   }

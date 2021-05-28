@@ -1,7 +1,7 @@
-import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
 import 'package:ciak_time/Screens/Signup/signup_screen.dart';
+import 'package:ciak_time/Screens/navbar.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
 import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/components/rounded_input_field.dart';
@@ -73,7 +73,7 @@ class _BodyState extends State<Body> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return Home();
+                              return NavBar();
                             },
                           ),
                         );
