@@ -8,8 +8,30 @@ class User extends StatefulWidget {
 class _UserState extends State<User> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        SizedBox(
+          height: size.height * 0.1,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundImage: AssetImage('assets/images/vittoria.png'),
+              radius: 80,
+            ),
+          ],
+        ),
+        Text(
+                "Vittoria",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: size.height * 0.05,
+                    fontFamily: 'Quicksand-Medium',
+                  ),
+              ),
+      ],
     );
   }
 }
