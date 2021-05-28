@@ -7,25 +7,8 @@ import 'package:ciak_time/components/rounded_password_field.dart';
 import 'package:ciak_time/components/rounded_password_field_confirm.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-/*class Body extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Background(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            "SIGNUP",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          RoundedInputField()
-        ],
-      ),
-    );
-  }
-}*/
 class Body extends StatefulWidget {
   const Body({
     Key key,
@@ -42,22 +25,43 @@ class _BodyState extends State<Body> {
     Size size = MediaQuery.of(context).size;
     return Background(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0, 35.0, 0.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Text(
-                "SIGN-UP",
+                "CiakTime",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 45.0,
-                    //fontFamily: 'Pattaya',
+                    fontSize: size.height * 0.08,
+                    fontFamily: 'Pattaya',
                     color: kPrimaryColor),
+              ),
+              SvgPicture.asset(
+                "assets/icons/movie.svg",
+                height: size.height * 0.15,
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
                 child: Column(
                   children: <Widget>[
+                    Container(
+                      //color: Colors.black,
+                      width: size.width * 0.75,
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: size.height * 0.03,
+                            fontFamily: 'Quicksand-Medium',
+                            color: kPrimaryColor),
+                      ),
+                    ),
+                    RoundedInputField(
+                      icon: Icons.email,
+                      hintText: "Email",
+                      onChanged: (value) {},
+                    ),
                     RoundedInputField(
                       hintText: "Username",
                       onChanged: (value) {},
@@ -69,7 +73,7 @@ class _BodyState extends State<Body> {
                       controller: passwordController,
                     ),
                     RoundedButton(
-                      text: "SIGNUP",
+                      text: "REGISTER",
                       press: () {},
                     ),
                     AlreadyHaveAnAccountCheck(

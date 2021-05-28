@@ -14,10 +14,11 @@ class OrDivider extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              "OR",
+              "OR SIGN IN WITH A PLATFORM",
               style: TextStyle(
                 color: kPrimaryColor,
                 fontWeight: FontWeight.w600,
+                fontFamily: 'Quicksand',
               ),
             ),
           ),
