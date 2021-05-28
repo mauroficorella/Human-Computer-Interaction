@@ -22,7 +22,9 @@ class CardList extends StatelessWidget {
               icon,
               size: size.height * 0.03,
             ),
-            SizedBox(width: size.width * 0.03,),
+            SizedBox(
+              width: size.width * 0.03,
+            ),
             Text(
               title,
               style: TextStyle(
@@ -32,18 +34,16 @@ class CardList extends StatelessWidget {
         ),
         Container(
           height: size.height * 0.23,
-          child: Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: 15,
-              itemBuilder: (BuildContext context, int index) => Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Card(
-                  color: Colors.amber,
-                  child: Center(
-                    child: Text('Dummy Card Text'),
-                  ),
+          child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: 16,
+            itemBuilder: (BuildContext context, int index) => Padding(
+              padding: const EdgeInsets.all(3.0),
+              child: Card(
+                color: Colors.amber,
+                child: Center(
+                  child: Text('Dummy Card Text'),
                 ),
               ),
             ),

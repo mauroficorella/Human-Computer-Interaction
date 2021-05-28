@@ -38,19 +38,23 @@ class _HomeState extends State<Home> {
               ),
             ],
           ),
-          SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                CardList(
-                    size: size, title: "Upcoming movies", icon: Icons.history),
-                CardList(
-                    size: size, title: "Popular movies", icon: Icons.movie),
-                CardList(
-                    size: size,
-                    title: "Popular people",
-                    icon: Icons.movie_creation),
-              ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  CardList(
+                      size: size,
+                      title: "Upcoming movies",
+                      icon: Icons.history),
+                  CardList(
+                      size: size, title: "Popular movies", icon: Icons.movie),
+                  CardList(
+                      size: size,
+                      title: "Popular people",
+                      icon: Icons.movie_creation),
+                ],
+              ),
             ),
           ),
         ],
