@@ -6,11 +6,14 @@ class CardList extends StatelessWidget {
     @required this.size,
     this.title,
     this.icon,
+    this.number, this.height,
   }) : super(key: key);
 
   final Size size;
   final String title;
   final IconData icon;
+  final int number;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +36,11 @@ class CardList extends StatelessWidget {
           ],
         ),
         Container(
-          height: size.height * 0.23,
+          height: height,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: 16,
+            itemCount: number,
             itemBuilder: (BuildContext context, int index) => Padding(
               padding: const EdgeInsets.all(3.0),
               child: Card(

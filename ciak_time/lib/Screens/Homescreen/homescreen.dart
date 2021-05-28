@@ -44,15 +44,26 @@ class _HomeState extends State<Home> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   CardList(
-                      size: size,
-                      title: "Upcoming movies",
-                      icon: Icons.history),
+                    size: size,
+                    title: "Upcoming movies",
+                    icon: Icons.history,
+                    number: 16,
+                    height: size.height * 0.23,
+                  ),
                   CardList(
-                      size: size, title: "Popular movies", icon: Icons.movie),
+                    size: size,
+                    title: "Popular movies",
+                    icon: Icons.movie,
+                    number: 16,
+                    height: size.height * 0.23,
+                  ),
                   CardList(
-                      size: size,
-                      title: "Popular people",
-                      icon: Icons.movie_creation),
+                    size: size,
+                    title: "Popular people",
+                    icon: Icons.movie_creation,
+                    number: 16,
+                    height: size.height * 0.23
+                  ),
                 ],
               ),
             ),
