@@ -13,29 +13,19 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(
+          'CiakTime',
+          style: TextStyle(
+            fontSize: size.height * 0.05,
+            fontFamily: 'Pattaya',
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  "assets/icons/movie.svg",
-                  height: size.height * 0.055,
-                ),
-                SizedBox(
-                  width: size.width * 0.03,
-                ),
-                Text(
-                  "CiakTime",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: size.height * 0.05,
-                      fontFamily: 'Pattaya',
-                      color: kPrimaryColor),
-                ),
-              ],
-            ),
             SizedBox(
               height: size.height * 0.01,
             ),

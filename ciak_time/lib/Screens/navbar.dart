@@ -24,8 +24,9 @@ class _NavBarState extends State<NavBar> {
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: kPrimaryColor,
-        //unselectedItemColor: kPrimaryLightColor, //TODO
+        backgroundColor: kPrimaryColor,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.deepPurpleAccent[100], 
         currentIndex: _currentIndex,
         iconSize: size.width * 0.1,
         items: [

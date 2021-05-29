@@ -26,10 +26,9 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Background(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-        child: SingleChildScrollView(
-          child: Column(
+      child: SingleChildScrollView(
+        child: SafeArea(
+                  child: Column(
             children: <Widget>[
               Text(
                 "CiakTime",
