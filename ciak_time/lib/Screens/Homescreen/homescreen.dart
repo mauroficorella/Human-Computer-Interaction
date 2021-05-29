@@ -49,6 +49,7 @@ class _HomeState extends State<Home> {
                     icon: Icons.history,
                     number: 16,
                     height: size.height * 0.23,
+                    width: size.width * 0.01,
                   ),
                   CardList(
                     size: size,
@@ -56,13 +57,15 @@ class _HomeState extends State<Home> {
                     icon: Icons.movie,
                     number: 16,
                     height: size.height * 0.23,
+                    width: size.width * 0.01,
                   ),
                   CardList(
                     size: size,
                     title: "Popular people",
                     icon: Icons.movie_creation,
                     number: 16,
-                    height: size.height * 0.23
+                    height: size.height * 0.23,
+                    width: size.width * 0.01,
                   ),
                 ],
               ),

@@ -6,7 +6,8 @@ class CardList extends StatelessWidget {
     @required this.size,
     this.title,
     this.icon,
-    this.number, this.height,
+    this.number,
+    this.height, this.width,
   }) : super(key: key);
 
   final Size size;
@@ -14,6 +15,7 @@ class CardList extends StatelessWidget {
   final IconData icon;
   final int number;
   final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,9 @@ class CardList extends StatelessWidget {
       children: [
         Row(
           children: [
+            SizedBox(
+              width: width,
+            ),
             Icon(
               icon,
               size: size.height * 0.03,

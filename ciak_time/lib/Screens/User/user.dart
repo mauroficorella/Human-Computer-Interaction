@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/User/user_settings.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:flutter/material.dart';
 
@@ -12,15 +13,27 @@ class _UserState extends State<User> {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
-        SizedBox(
-          height: size.height * 0.07,
-        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Icon(Icons.settings),
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return UserSettings();
+                      },
+                    ),
+                  );
+              },
+              iconSize: size.width * 0.09,
+              splashRadius: size.width * 0.05,
+            ),
             SizedBox(
               width: size.width * 0.05,
+              height: size.height * 0.12,
             )
           ],
         ),
@@ -29,7 +42,7 @@ class _UserState extends State<User> {
           children: [
             CircleAvatar(
               backgroundImage: AssetImage('assets/images/vittoria.png'),
-              radius: 80,
+              radius: size.height * 0.1,
             ),
           ],
         ),
@@ -52,6 +65,7 @@ class _UserState extends State<User> {
                   icon: Icons.list,
                   number: 3,
                   height: size.height * 0.15,
+                  width: size.width * 0.035,
                 ),
                 CardList(
                   size: size,
@@ -59,6 +73,7 @@ class _UserState extends State<User> {
                   icon: Icons.done,
                   number: 3,
                   height: size.height * 0.15,
+                  width: size.width * 0.035,
                 ),
                 CardList(
                   size: size,
@@ -66,6 +81,7 @@ class _UserState extends State<User> {
                   icon: Icons.favorite,
                   number: 3,
                   height: size.height * 0.15,
+                  width: size.width * 0.035,
                 ),
               ],
             ),
