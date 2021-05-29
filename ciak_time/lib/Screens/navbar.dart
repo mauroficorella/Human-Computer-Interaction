@@ -1,6 +1,7 @@
 import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/user.dart';
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatefulWidget {
@@ -23,6 +24,8 @@ class _NavBarState extends State<NavBar> {
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: kPrimaryColor,
+        //unselectedItemColor: kPrimaryLightColor, //TODO
         currentIndex: _currentIndex,
         iconSize: size.width * 0.1,
         items: [

@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CardList extends StatelessWidget {
   const CardList({
     Key key,
     @required this.size,
     this.title,
-    this.icon,
+    //this.icon,
+    this.assetName,
     this.number,
-    this.height, this.width,
+    this.height,
+    this.width,
   }) : super(key: key);
 
   final Size size;
   final String title;
-  final IconData icon;
+  //final IconData icon;
+  final String assetName;
   final int number;
   final double height;
   final double width;
@@ -26,9 +30,9 @@ class CardList extends StatelessWidget {
             SizedBox(
               width: width,
             ),
-            Icon(
-              icon,
-              size: size.height * 0.03,
+            SvgPicture.asset(
+              assetName,
+              height: size.height * 0.03,
             ),
             SizedBox(
               width: size.width * 0.03,
@@ -56,6 +60,9 @@ class CardList extends StatelessWidget {
               ),
             ),
           ),
+        ),
+        SizedBox(
+          height: size.height * 0.01,
         ),
       ],
     );

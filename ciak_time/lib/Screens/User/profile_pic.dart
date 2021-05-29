@@ -1,3 +1,4 @@
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -28,9 +29,9 @@ class ProfilePic extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                   side: BorderSide(color: Colors.white),
                 ),
-                color: Color(0xFFF5F6F9),
+                color: kPrimaryColor,
                 onPressed: () {},
-                child: SvgPicture.asset("assets/icons/photo-camera.svg"),
+                child: SvgPicture.asset("assets/icons/camera-white.svg"),
               ),
             ),
           ),
