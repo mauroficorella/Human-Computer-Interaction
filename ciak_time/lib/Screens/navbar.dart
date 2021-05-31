@@ -26,7 +26,7 @@ class _NavBarState extends State<NavBar> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: kPrimaryColor,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.deepPurpleAccent[100], 
+        unselectedItemColor: navBarColor, 
         currentIndex: _currentIndex,
         iconSize: size.width * 0.1,
         items: [

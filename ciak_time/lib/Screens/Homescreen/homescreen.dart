@@ -14,6 +14,7 @@ class _HomeState extends State<Home> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
         title: Text(
           'CiakTime',
