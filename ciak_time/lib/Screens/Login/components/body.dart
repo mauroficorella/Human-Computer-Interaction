@@ -1,5 +1,6 @@
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
+import 'package:ciak_time/Screens/Movie/movie.dart';
 import 'package:ciak_time/Screens/Signup/signup_screen.dart';
 import 'package:ciak_time/Screens/navbar.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
@@ -28,7 +29,7 @@ class _BodyState extends State<Body> {
     return Background(
       child: SingleChildScrollView(
         child: SafeArea(
-                  child: Column(
+          child: Column(
             children: <Widget>[
               Text(
                 "CiakTime",
@@ -87,7 +88,16 @@ class _BodyState extends State<Body> {
                 children: <Widget>[
                   SocialIcon(
                     iconSrc: "assets/icons/google.svg",
-                    press: () {},
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Movie();
+                          },
+                        ),
+                      );
+                    },
                   ),
                   SocialIcon(
                     iconSrc: "assets/icons/facebook.svg",
