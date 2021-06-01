@@ -1,7 +1,7 @@
 import 'package:ciak_time/components/card_list.dart';
+import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:like_button/like_button.dart';
 
@@ -14,13 +14,83 @@ class _MovieState extends State<Movie> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    //FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
     return Scaffold(
+      floatingActionButton: Stack(children: [
+        Positioned(
+          right: size.width * 0,
+          bottom: size.height * 0.58,
+          child: FloatingActionButton(
+            child: const Icon(Icons.add, color: Colors.white, size: 40),
+            backgroundColor: kPrimaryColor,
+            elevation: 10,
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (_) {
+                    return new AlertDialog(
+                      content: StatefulBuilder(
+                        builder: (context, setState) {
+                          return Container(
+                            width: size.width * 0.8,
+                            height: size.height * 0.2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Add to a list",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: size.height * 0.03,
+                                    fontFamily: 'Quicksand-Medium',
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: size.height * 0.04,
+                                ),
+                                TextButton.icon(
+                                  onPressed: () {},
+                                  icon: SvgPicture.asset(
+                                      "assets/icons/list.svg",
+                                      height: size.height * 0.03),
+                                  label: Text(
+                                    "Watchlist",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: size.height * 0.02,
+                                        fontFamily: 'Quicksand-Medium'),
+                                  ),
+                                ),
+                                TextButton.icon(
+                                  onPressed: () {},
+                                  icon: SvgPicture.asset(
+                                      "assets/icons/check.svg",
+                                      height: size.height * 0.03),
+                                  label: Text(
+                                    "Already watched",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: size.height * 0.02,
+                                        fontFamily: 'Quicksand-Medium'),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  });
+            },
+          ),
+        ),
+      ]),
       body: Column(
         children: [
           Stack(
             children: [
               Center(
+                // MOVIE COVER
                 child: Container(
                   height: size.height * 0.35,
                   decoration: BoxDecoration(
@@ -39,6 +109,7 @@ class _MovieState extends State<Movie> {
                   ),
                 ),
               ),
+              // BACK ARROW //TODO METTERE L'onPressed
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
@@ -48,6 +119,7 @@ class _MovieState extends State<Movie> {
                   onPressed: () {},
                 ),
               ),
+              // BLACK SHADOW BOX UNDER TITLE AND INFO
               Positioned(
                 top: size.width * 0.35,
                 child: Container(
@@ -65,6 +137,7 @@ class _MovieState extends State<Movie> {
                   ),
                 ),
               ),
+              // TITLE, DURATION, DATE, GENRE AND RATE
               Positioned(
                 left: size.width * 0.03,
                 bottom: size.width * 0.05,
@@ -83,7 +156,7 @@ class _MovieState extends State<Movie> {
                           fontFamily: 'Quicksand-Medium',
                         ),
                       ),
-                      RatingWidget(),
+                      RatingUnclickable(),
                       SizedBox(
                         width: size.width * 0.03,
                       ),
@@ -99,6 +172,7 @@ class _MovieState extends State<Movie> {
                   ),
                 ),
               ),
+              // LIKE BUTTON
               Positioned(
                 right: size.width * 0.04,
                 top: size.width * 0.12,
@@ -106,6 +180,7 @@ class _MovieState extends State<Movie> {
               ),
             ],
           ),
+          // SCROLLABLE PART OF THE PAGE
           Expanded(
             child: SingleChildScrollView(
               child: Column(
@@ -114,6 +189,7 @@ class _MovieState extends State<Movie> {
                   SizedBox(
                     height: size.height * 0.01,
                   ),
+                  // MOVIE DESCRIPTION //TODO METTERE L'URL TRAMITE API
                   Container(
                     width: size.width * 0.98,
                     decoration: BoxDecoration(
@@ -142,6 +218,7 @@ class _MovieState extends State<Movie> {
                   SizedBox(
                     height: size.height * 0.01,
                   ),
+                  // HOW TO VIEW //TODO AGGIUNGERE ICONA PIATTAFORMA
                   Container(
                     width: size.width * 0.98,
                     height: size.height * 0.05,
@@ -175,6 +252,7 @@ class _MovieState extends State<Movie> {
                   SizedBox(
                     height: size.height * 0.02,
                   ),
+                  // CAST E MOVIE DIRECTOR
                   Container(
                     width: size.width * 0.98,
                     decoration: BoxDecoration(
@@ -204,7 +282,7 @@ class _MovieState extends State<Movie> {
                           Row(
                             children: [
                               SvgPicture.asset(
-                                "assets/icons/actor.svg",
+                                "assets/icons/director.svg",
                                 height: size.height * 0.03,
                               ),
                               SizedBox(
@@ -236,6 +314,7 @@ class _MovieState extends State<Movie> {
                   SizedBox(
                     height: size.height * 0.01,
                   ),
+                  // REVIEW CONTAINER
                   Container(
                     width: size.width * 0.98,
                     decoration: BoxDecoration(
@@ -262,6 +341,7 @@ class _MovieState extends State<Movie> {
                               fontFamily: 'Quicksand-Medium',
                             ),
                           ),
+                          // REVIEW NUMBER
                           Row(
                             children: [
                               Text(
@@ -275,29 +355,38 @@ class _MovieState extends State<Movie> {
                               SizedBox(
                                 width: size.width * 0.03,
                               ),
-                              TextButton(
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        kPrimaryColor)),
-                                onPressed: () {},
-                                child: Text(
-                                  "View all reviews",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: size.height * 0.02,
-                                      fontFamily: 'Quicksand-Medium'),
+                              // VIEW ALL REVIEWS BTN //TODO mettere onPressed
+                              Container(
+                                width: size.width * 0.57,
+                                child: TextButton.icon(
+                                  onPressed: () {},
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              kPrimaryColor)),
+                                  label: Icon(Icons.arrow_right_alt,
+                                      color: Colors.white),
+                                  icon: Text(
+                                    "View all reviews",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: size.height * 0.02,
+                                        fontFamily: 'Quicksand-Medium'),
+                                  ),
                                 ),
-                              ),
+                              )
                             ],
                           ),
+                          // INSERT A REVIEW BTN //TODO mettere onPressed
                           Container(
                             width: size.width * 0.98,
-                            child: TextButton(
+                            child: TextButton.icon(
+                              onPressed: () {},
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all(kPrimaryColor)),
-                              onPressed: () {},
-                              child: Text(
+                              icon: Icon(Icons.edit, color: Colors.white),
+                              label: Text(
                                 "Insert a review",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -305,7 +394,7 @@ class _MovieState extends State<Movie> {
                                     fontFamily: 'Quicksand-Medium'),
                               ),
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -319,6 +408,7 @@ class _MovieState extends State<Movie> {
     );
   }
 }
+
 
 class LikeBtn extends StatelessWidget {
   const LikeBtn({
@@ -348,28 +438,3 @@ class LikeBtn extends StatelessWidget {
   }
 }
 
-class RatingWidget extends StatelessWidget {
-  const RatingWidget({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RatingBar.builder(
-      initialRating: 3,
-      minRating: 1,
-      direction: Axis.horizontal,
-      allowHalfRating: true,
-      itemCount: 5,
-      itemSize: 25,
-      unratedColor: Colors.white,
-      itemBuilder: (context, _) => Icon(
-        Icons.star,
-        color: Colors.amber,
-      ),
-      onRatingUpdate: (rating) {
-        print(rating);
-      },
-    );
-  }
-}

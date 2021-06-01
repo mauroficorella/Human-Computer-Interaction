@@ -1,6 +1,7 @@
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
 import 'package:ciak_time/Screens/Movie/movie.dart';
+import 'package:ciak_time/Screens/Person/person.dart';
 import 'package:ciak_time/Screens/Signup/signup_screen.dart';
 import 'package:ciak_time/Screens/navbar.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
@@ -101,7 +102,16 @@ class _BodyState extends State<Body> {
                   ),
                   SocialIcon(
                     iconSrc: "assets/icons/facebook.svg",
-                    press: () {},
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Person();
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
