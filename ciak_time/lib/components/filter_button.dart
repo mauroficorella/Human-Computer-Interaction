@@ -17,6 +17,7 @@ class _FilterButtonState extends State<FilterButton> {
   bool selected = false;
   Color textColor = Colors.black;
   Color checkmarkColor = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -29,83 +30,86 @@ class _FilterButtonState extends State<FilterButton> {
       backgroundColor: Colors.transparent,
       selectedColor: kPrimaryColor,
       shape: StadiumBorder(
-          side: BorderSide(color: kPrimaryColor, width: size.width * 0.0055)),
+        side: BorderSide(
+          color: kPrimaryColor,
+          width: size.width * 0.0055,
+        ),
+      ),
       selected: _selectButton(),
       onSelected: (bool value) {
-        _toggleSelectedButton();
-        if (_selectButton() == false) {
-          checkmarkColor = Colors.black;
-          textColor = Colors.black;
-        } else {
-          checkmarkColor = Colors.white;
-          textColor = Colors.white;
-        }
+        setState(() {
+          _toggleSelectedButton();
+          if (!_selectButton()) {
+            checkmarkColor = Colors.black;
+            textColor = Colors.black;
+          } else {
+            checkmarkColor = Colors.white;
+            textColor = Colors.white;
+          }
+        });
       },
     );
   }
 
   bool _selectButton() {
-    setState(() {
-      if (widget.filterName == "Drama") {
-        selected = drama;
-      }
-      if (widget.filterName == "Comedy") {
-        selected = comedy;
-      }
-      if (widget.filterName == "Action") {
-        selected = action;
-      }
-      if (widget.filterName == "Crime") {
-        selected = crime;
-      }
-      if (widget.filterName == "Fantasy") {
-        selected = fantasy;
-      }
-      if (widget.filterName == "Thriller") {
-        selected = thriller;
-      }
-      if (widget.filterName == "Family") {
-        selected = fantasy;
-      }
-      if (widget.filterName == "Anime") {
-        selected = anime;
-      }
-      if (widget.filterName == "Horror") {
-        selected = horror;
-      }
-    });
+    if (widget.filterName == "Drama") {
+      selected = drama;
+    }
+    if (widget.filterName == "Comedy") {
+      selected = comedy;
+    }
+    if (widget.filterName == "Action") {
+      selected = action;
+    }
+    if (widget.filterName == "Crime") {
+      selected = crime;
+    }
+    if (widget.filterName == "Fantasy") {
+      selected = fantasy;
+    }
+    if (widget.filterName == "Thriller") {
+      selected = thriller;
+    }
+    if (widget.filterName == "Family") {
+      selected = fantasy;
+    }
+    if (widget.filterName == "Anime") {
+      selected = anime;
+    }
+    if (widget.filterName == "Horror") {
+      selected = horror;
+    }
+
     return selected;
   }
 
   _toggleSelectedButton() {
-    setState(() {
-      if (widget.filterName == "Drama") {
-        drama = !drama;
-      }
-      if (widget.filterName == "Comedy") {
-        comedy = !comedy;
-      }
-      if (widget.filterName == "Action") {
-        action = !action;
-      }
-      if (widget.filterName == "Crime") {
-        crime = !crime;
-      }
-      if (widget.filterName == "Fantasy") {
-        fantasy = !fantasy;
-      }
-      if (widget.filterName == "Thriller") {
-        thriller = !thriller;
-      }
-      if (widget.filterName == "Family") {
-        family = !family;
-      }
-      if (widget.filterName == "Anime") {
-        anime = !anime;
-      }
-      if (widget.filterName == "Horror") {
-        horror = !horror;
-      }
-    });
+    if (widget.filterName == "Drama") {
+      drama = !drama;
+    }
+    if (widget.filterName == "Comedy") {
+      comedy = !comedy;
+    }
+    if (widget.filterName == "Action") {
+      action = !action;
+    }
+    if (widget.filterName == "Crime") {
+      crime = !crime;
+    }
+    if (widget.filterName == "Fantasy") {
+      fantasy = !fantasy;
+    }
+    if (widget.filterName == "Thriller") {
+      thriller = !thriller;
+    }
+    if (widget.filterName == "Family") {
+      family = !family;
+    }
+    if (widget.filterName == "Anime") {
+      anime = !anime;
+    }
+    if (widget.filterName == "Horror") {
+      horror = !horror;
+    }
   }
 }
