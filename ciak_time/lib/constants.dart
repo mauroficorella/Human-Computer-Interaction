@@ -34,9 +34,6 @@ Color colorHorror = Colors.black;
 Color applyColor = kPrimaryLightColor;
 Color applyTextColor = Colors.grey;
 
-Color floatingBackground = kPrimaryColor;
-Color floatingBorder = kPrimaryColor;
-
 //TODO DISATTIVARE BOTTONE APPLICA SE NON SI SELEZIONANO I FILTRI
 //TODO LINKARE GOOGLE E FB
 //TODO LEVARE IL BACK TRAMITE GESTURE DOVE NON E' PREVISTO

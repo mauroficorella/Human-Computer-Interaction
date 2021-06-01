@@ -243,7 +243,7 @@ class _SearchState extends State<Search> {
                   content: StatefulBuilder(
                     builder: (context, setState) {
                       return Container(
-                        height: size.height * 0.6,
+                        height: size.height * 0.63,
                         child: Column(
                           children: <Widget>[
                             Container(
