@@ -1,7 +1,5 @@
 import 'package:ciak_time/components/card_list.dart';
-import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Home extends StatefulWidget {
   @override

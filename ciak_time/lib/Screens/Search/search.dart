@@ -1,7 +1,9 @@
 import 'package:ciak_time/components/card_list.dart';
+import 'package:ciak_time/components/filter_button.dart';
 import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -80,19 +82,9 @@ class _SearchState extends State<Search> {
     super.dispose();
   }
 
-  bool selected_rate = false;
-  bool selected_most_added = false;
-  bool selected_most_recent = false;
-  bool drama = false;
-  bool comedy = false;
-  bool action = false;
-  bool crime = false;
-  bool fantasy = false;
-  bool thriller = false;
-  bool family = false;
-  bool anime = false;
-  bool horror = false;
-  bool add_movie = false;
+  Color colorRate = Colors.black;
+  Color colorMostAdded = Colors.black;
+  Color colorMostRecent = Colors.black;
 
   @override
   Widget build(BuildContext context) {
@@ -255,21 +247,37 @@ class _SearchState extends State<Search> {
                                   color: kPrimaryColor),
                             ),
                           ),
+                          SizedBox(
+                            height: size.height * 0.02,
+                          ),
                           Row(
                             children: [
                               FilterChip(
-                                label: Text("Rate"),
+                                label: Text(
+                                  "Rate",
+                                ),
+                                labelStyle: TextStyle(color: colorRate),
+                                checkmarkColor: colorRate,
                                 backgroundColor: Colors.transparent,
+                                selectedColor: kPrimaryColor,
                                 shape: StadiumBorder(
                                     side: BorderSide(
                                         color: kPrimaryColor,
-                                        width: size.width * 0.01)),
+                                        width: size.width * 0.0055)),
                                 selected: selected_rate,
                                 onSelected: (bool value) {
                                   setState(() {
                                     selected_rate = !selected_rate;
-                                    selected_most_recent = false;
                                     selected_most_added = false;
+                                    selected_most_recent = false;
+
+                                    if (!selected_rate) {
+                                      colorRate = Colors.black;
+                                    } else {
+                                      colorRate = Colors.white;
+                                      colorMostAdded = Colors.black;
+                                      colorMostRecent = Colors.black;
+                                    }
                                   });
                                 },
                               ),
@@ -277,18 +285,31 @@ class _SearchState extends State<Search> {
                                 width: size.width * 0.05,
                               ),
                               FilterChip(
-                                label: Text("Most added"),
+                                label: Text(
+                                  "Most added",
+                                ),
+                                labelStyle: TextStyle(color: colorMostAdded),
+                                checkmarkColor: colorMostAdded,
                                 backgroundColor: Colors.transparent,
+                                selectedColor: kPrimaryColor,
                                 shape: StadiumBorder(
                                     side: BorderSide(
                                         color: kPrimaryColor,
-                                        width: size.width * 0.01)),
+                                        width: size.width * 0.0055)),
                                 selected: selected_most_added,
                                 onSelected: (bool value) {
                                   setState(() {
                                     selected_most_added = !selected_most_added;
                                     selected_rate = false;
                                     selected_most_recent = false;
+
+                                    if (!selected_most_added) {
+                                      colorMostAdded = Colors.black;
+                                    } else {
+                                      colorMostAdded = Colors.white;
+                                      colorRate = Colors.black;
+                                      colorMostRecent = Colors.black;
+                                    }
                                   });
                                 },
                               ),
@@ -298,12 +319,17 @@ class _SearchState extends State<Search> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               FilterChip(
-                                label: Text("Most recent"),
+                                label: Text(
+                                  "Most recent",
+                                ),
+                                labelStyle: TextStyle(color: colorMostRecent),
+                                checkmarkColor: colorMostRecent,
                                 backgroundColor: Colors.transparent,
+                                selectedColor: kPrimaryColor,
                                 shape: StadiumBorder(
                                     side: BorderSide(
                                         color: kPrimaryColor,
-                                        width: size.width * 0.01)),
+                                        width: size.width * 0.0055)),
                                 selected: selected_most_recent,
                                 onSelected: (bool value) {
                                   setState(() {
@@ -311,6 +337,14 @@ class _SearchState extends State<Search> {
                                         !selected_most_recent;
                                     selected_rate = false;
                                     selected_most_added = false;
+
+                                    if (!selected_most_recent) {
+                                      colorMostRecent = Colors.black;
+                                    } else {
+                                      colorMostRecent = Colors.white;
+                                      colorMostAdded = Colors.black;
+                                      colorRate = Colors.black;
+                                    }
                                   });
                                 },
                               ),
@@ -331,173 +365,82 @@ class _SearchState extends State<Search> {
                                   color: kPrimaryColor),
                             ),
                           ),
-                          SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                FilterChip(
-                                  label: Text("Drama"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                      side: BorderSide(
-                                          color: kPrimaryColor,
-                                          width: size.width * 0.01)),
-                                  selected: drama,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      drama = !drama;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: size.width * 0.05,
-                                ),
-                                FilterChip(
-                                  label: Text("Comedy"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                      side: BorderSide(
-                                          color: kPrimaryColor,
-                                          width: size.width * 0.01)),
-                                  selected: comedy,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      comedy = !comedy;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: size.width * 0.05,
-                                ),
-                                FilterChip(
-                                  label: Text("Action"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                      side: BorderSide(
-                                          color: kPrimaryColor,
-                                          width: size.width * 0.01)),
-                                  selected: action,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      action = !action;
-                                    });
-                                  },
-                                ),
-                              ],
-                            ),
+                          SizedBox(
+                            height: size.height * 0.02,
                           ),
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                FilterChip(
-                                  label: Text("Crime"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                      side: BorderSide(
-                                          color: kPrimaryColor,
-                                          width: size.width * 0.01)),
-                                  selected: crime,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      crime = !crime;
-                                    });
-                                  },
+                                Row(
+                                  children: [
+                                    FilterButton(
+                                      filterName: "Drama",
+                                    ),
+                                    SizedBox(
+                                      width: size.width * 0.05,
+                                    ),
+                                    FilterButton(
+                                      filterName: "Comedy",
+                                    ),
+                                    SizedBox(
+                                      width: size.width * 0.05,
+                                    ),
+                                    FilterButton(
+                                      filterName: "Action",
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(
-                                  width: size.width * 0.05,
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    FilterButton(
+                                      filterName: "Crime",
+                                    ),
+                                    SizedBox(
+                                      width: size.width * 0.05,
+                                    ),
+                                    FilterButton(
+                                      filterName: "Fantasy",
+                                    ),
+                                    SizedBox(
+                                      width: size.width * 0.05,
+                                    ),
+                                    FilterButton(
+                                      filterName: "Thriller",
+                                    ),
+                                    SizedBox(
+                                      width: size.width * 0.05,
+                                    ),
+                                  ],
                                 ),
-                                FilterChip(
-                                  label: Text("Fantasy"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                      side: BorderSide(
-                                          color: kPrimaryColor,
-                                          width: size.width * 0.01)),
-                                  selected: fantasy,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      fantasy = !fantasy;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: size.width * 0.05,
-                                ),
-                                FilterChip(
-                                  label: Text("Thriller"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                      side: BorderSide(
-                                          color: kPrimaryColor,
-                                          width: size.width * 0.01)),
-                                  selected: thriller,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      thriller = !thriller;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: size.width * 0.05,
-                                ),
-                              ],
-                            ),
-                          ),
-                          SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                FilterChip(
-                                  label: Text("Family"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                      side: BorderSide(
-                                          color: kPrimaryColor,
-                                          width: size.width * 0.01)),
-                                  selected: family,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      family = !family;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: size.width * 0.05,
-                                ),
-                                FilterChip(
-                                  label: Text("Anime"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                    side: BorderSide(
-                                        color: kPrimaryColor,
-                                        width: size.width * 0.01),
-                                  ),
-                                  selected: anime,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      anime = !anime;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: size.width * 0.05,
-                                ),
-                                FilterChip(
-                                  label: Text("Horror"),
-                                  backgroundColor: Colors.transparent,
-                                  shape: StadiumBorder(
-                                      side: BorderSide(
-                                          color: kPrimaryColor,
-                                          width: size.width * 0.01)),
-                                  selected: horror,
-                                  onSelected: (bool value) {
-                                    setState(() {
-                                      horror = !horror;
-                                    });
-                                  },
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    FilterButton(
+                                      filterName: "Family",
+                                    ),
+
+                                    SizedBox(
+                                      width: size.width * 0.05,
+                                    ),
+                                    FilterButton(
+                                      filterName: "Anime",
+                                    ),
+
+                                    SizedBox(
+                                      width: size.width * 0.05,
+                                    ),
+                                    FilterButton(
+                                      filterName: "Horror",
+                                    ),
+
+                                    //TODO CAMBIARE RIEMPIMENTO BOTTONI
+                                    //TODO RIMPICCIOLIRE ALERT DIALOG DEI FILTRI
+                                    //TODO METTERE BOTTONE PER ANNULLARE/USCIRE
+                                    //TODO DISATTIVARE BOTTONE APPLICA SE NON SI SELEZIONANO I FILTRI
+                                  ],
                                 ),
                               ],
                             ),
