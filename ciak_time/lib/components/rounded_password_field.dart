@@ -49,35 +49,41 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldContainer(
-      child: Stack(
-        alignment: Alignment.centerRight,
-        children: <Widget>[
-          TextFormField(
-            controller: widget.controller,
-            obscureText: isHidden,
-            decoration: InputDecoration(
-              hintText: "Password",
-              icon: Icon(
-                Icons.lock,
-                color: kPrimaryColor,
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        TextFieldContainer(
+          child: Stack(
+            alignment: Alignment.centerRight,
+            children: <Widget>[
+              TextFormField(
+                controller: widget.controller,
+                obscureText: isHidden,
+                decoration: InputDecoration(
+                  hintText: "Password",
+                  icon: Icon(
+                    Icons.lock,
+                    color: kPrimaryColor,
+                  ),
+                  border: InputBorder.none,
+                ),
+                keyboardType: TextInputType.visiblePassword,
+                autofillHints: [AutofillHints.password],
+                onEditingComplete: () => TextInput.finishAutofillContext(),
               ),
-              border: InputBorder.none,
-            ),
-            keyboardType: TextInputType.visiblePassword,
-            autofillHints: [AutofillHints.password],
-            onEditingComplete: () => TextInput.finishAutofillContext(),
+              IconButton(
+                icon: isHidden
+                    ? Icon(Icons.visibility_off)
+                    : Icon(Icons.visibility),
+                onPressed: togglePasswordVisibility,
+                color: kPrimaryColor,
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+              ),
+            ],
           ),
-          IconButton(
-            icon:
-                isHidden ? Icon(Icons.visibility_off) : Icon(Icons.visibility),
-            onPressed: togglePasswordVisibility,
-            color: kPrimaryColor,
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

@@ -25,7 +25,7 @@ class _BodyState extends State<Body> {
     Size size = MediaQuery.of(context).size;
     return Background(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -42,7 +42,7 @@ class _BodyState extends State<Body> {
                 height: size.height * 0.15,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -76,18 +76,9 @@ class _BodyState extends State<Body> {
                       text: "REGISTER",
                       press: () {},
                     ),
+                    SizedBox(height: size.height * 0.078,),
                     AlreadyHaveAnAccountCheck(
                       login: false,
-                      press: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return LoginScreen();
-                            },
-                          ),
-                        );
-                      },
                     ),
                   ],
                 ),
