@@ -15,6 +15,7 @@ class RoundedInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return TextFieldContainer(
       child: TextField(
         onChanged: onChanged,
@@ -24,6 +25,10 @@ class RoundedInputField extends StatelessWidget {
             color: kPrimaryColor,
           ),
           hintText: hintText,
+          hintStyle: TextStyle(
+            fontSize: size.height * 0.02,
+            fontFamily: 'Quicksand',
+          ),
           border: InputBorder.none,
         ),
       ),

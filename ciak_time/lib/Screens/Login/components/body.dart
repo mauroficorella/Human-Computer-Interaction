@@ -89,9 +89,12 @@ class _BodyState extends State<Body> {
                         ),
                       ),
                     ),
-                    SizedBox(height: size.height * 0.03,),
+                    SizedBox(
+                      height: size.height * 0.03,
+                    ),
                     RoundedButton(
                       text: "LOGIN",
+                      radius: 29,
                       press: () {
                         Navigator.push(
                           context,

@@ -1,13 +1,14 @@
-import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/Signup/components/background.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
 import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/components/rounded_input_field.dart';
 import 'package:ciak_time/components/rounded_password_field.dart';
 import 'package:ciak_time/components/rounded_password_field_confirm.dart';
+import 'package:ciak_time/components/rounded_password_field_signin.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:passwordfield/passwordfield.dart';
 
 class Body extends StatefulWidget {
   const Body({
@@ -20,6 +21,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   final passwordController = TextEditingController();
+  final passwordConfirmController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -66,35 +68,27 @@ class _BodyState extends State<Body> {
                       hintText: "Username",
                       onChanged: (value) {},
                     ),
-                    RoundedPasswordField(
+                    RoundedPasswordFieldSignIn(
                       controller: passwordController,
                     ),
+                    
                     RoundedPasswordFieldConfirm(
-                      controller: passwordController,
+                      controller: passwordConfirmController,
                     ),
                     RoundedButton(
                       text: "REGISTER",
+                      radius: 29,
                       press: () {},
                     ),
-                    SizedBox(height: size.height * 0.078,),
+                    SizedBox(
+                      height: size.height * 0.078,
+                    ),
                     AlreadyHaveAnAccountCheck(
                       login: false,
                     ),
                   ],
                 ),
               ),
-              /*AlreadyHaveAnAccountCheck(
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SignUpScreen();
-                      },
-                    ),
-                  );
-                },
-              ),*/
             ],
           ),
         ),

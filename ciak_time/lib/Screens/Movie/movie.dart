@@ -1,3 +1,4 @@
+import 'package:ciak_time/Review/review.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
@@ -381,7 +382,16 @@ class _MovieState extends State<Movie> {
                           Container(
                             width: size.width * 0.98,
                             child: TextButton.icon(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return InsertReview();
+                            },
+                          ),
+                        );
+                              },
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all(kPrimaryColor)),

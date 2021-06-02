@@ -107,6 +107,7 @@ class _UserSettingsState extends State<UserSettings> {
                   SizedBox(height: size.height * 0.05),
                   RoundedButton(
                     text: "LOGOUT",
+                    radius: 29,
                     press: () {
                       Navigator.push(
                         context,
