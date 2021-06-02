@@ -1,6 +1,5 @@
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
-import 'package:ciak_time/Screens/Movie/movie.dart';
 import 'package:ciak_time/Screens/Person/person.dart';
 import 'package:ciak_time/Screens/Signup/signup_screen.dart';
 import 'package:ciak_time/Screens/navbar.dart';
@@ -13,6 +12,7 @@ import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+
 class Body extends StatefulWidget {
   const Body({
     Key key,
@@ -24,6 +24,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   final passwordController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -90,14 +91,7 @@ class _BodyState extends State<Body> {
                   SocialIcon(
                     iconSrc: "assets/icons/google.svg",
                     press: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return Movie();
-                          },
-                        ),
-                      );
+                      
                     },
                   ),
                   SocialIcon(
