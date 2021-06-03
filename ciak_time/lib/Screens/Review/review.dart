@@ -11,8 +11,15 @@ class InsertReview extends StatefulWidget {
 }
 
 class _InsertReviewState extends State<InsertReview> {
+  FocusNode _focusNode = FocusNode();
+  Color color;
   @override
   Widget build(BuildContext context) {
+    _focusNode.addListener(() {
+      setState(() {
+        color = _focusNode.hasFocus ? Colors.blue : Colors.red;
+      });
+    });
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -38,10 +45,18 @@ class _InsertReviewState extends State<InsertReview> {
             Container(
               width: size.width * 0.8,
               child: TextField(
+                focusNode: _focusNode,
                 maxLines: 10,
+                cursorColor: Colors.black,
                 decoration: InputDecoration(
+                  focusedBorder: new OutlineInputBorder(
+                      borderSide: new BorderSide(color: kPrimaryColor)),
                   border: OutlineInputBorder(),
+                  focusColor: kPrimaryColor,
                   labelText: 'Write a review',
+                  labelStyle: TextStyle(
+                    color: _focusNode.hasFocus ? kPrimaryColor : Colors.grey,
+                  ),
                 ),
               ),
             ),

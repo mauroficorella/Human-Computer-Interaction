@@ -1,4 +1,4 @@
-import 'package:ciak_time/Review/review.dart';
+import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
@@ -384,13 +384,13 @@ class _MovieState extends State<Movie> {
                             child: TextButton.icon(
                               onPressed: () {
                                 Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return InsertReview();
-                            },
-                          ),
-                        );
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return InsertReview();
+                                    },
+                                  ),
+                                );
                               },
                               style: ButtonStyle(
                                   backgroundColor:
@@ -419,7 +419,6 @@ class _MovieState extends State<Movie> {
   }
 }
 
-
 class LikeBtn extends StatelessWidget {
   const LikeBtn({
     Key key,
@@ -447,4 +446,3 @@ class LikeBtn extends StatelessWidget {
     );
   }
 }
-
