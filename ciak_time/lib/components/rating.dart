@@ -24,15 +24,16 @@ class RatingWidget extends StatelessWidget {
       onRatingUpdate: (rating) {
         print(rating);
       },
-      
     );
   }
-} 
+}
 
 class RatingUnclickable extends StatelessWidget {
   const RatingUnclickable({
-    Key key,
+    Key key, @required this.unratedColor,
   }) : super(key: key);
+
+  final Color unratedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class RatingUnclickable extends StatelessWidget {
       ),
       itemCount: 5,
       itemSize: 25.0,
-      unratedColor: Colors.white.withOpacity(0.5),
+      unratedColor: unratedColor,
       direction: Axis.horizontal,
     );
   }
