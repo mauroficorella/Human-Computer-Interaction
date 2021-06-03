@@ -33,6 +33,8 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   like_button: ^2.0.2
   passwordfield: ^0.0.82
+  http: ^0.13.3
+  rxdart: ^0.27.1
 
 dev_dependencies:
   flutter_test:
