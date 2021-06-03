@@ -1,4 +1,7 @@
-import 'package:ciak_time/components/card_list.dart';
+import 'package:ciak_time/components/icon_text.dart';
+import 'package:ciak_time/components/popular_movie_list.dart';
+import 'package:ciak_time/components/popular_people_list.dart';
+import 'package:ciak_time/components/upcoming_movie_list.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -24,7 +27,30 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        body: SafeArea(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: size.height * 0.02,
+              ),
+              IconText(
+                  size: size,
+                  assetName: "assets/icons/history.svg",
+                  label: "Upcoming Movies"),
+              UpcomingMovieList(),
+              IconText(
+                  size: size,
+                  assetName: "assets/icons/movie2.svg",
+                  label: "Popular Movies"),
+              PopularMovieList(),
+              IconText(
+                  size: size,
+                  assetName: "assets/icons/actor.svg",
+                  label: "Popular People"),
+              PopularPeopleList(),
+            ],
+          ),
+        ), /*SafeArea(
           child: Column(
             children: [
               SizedBox(
@@ -35,7 +61,8 @@ class _HomeState extends State<Home> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      CardList(
+                      MovieList(),
+                      /*CardList(
                         size: size,
                         title: "Upcoming movies",
                         assetName: "assets/icons/history.svg",
@@ -58,14 +85,14 @@ class _HomeState extends State<Home> {
                         number: 16,
                         height: size.height * 0.23,
                         width: size.width * 0.01,
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
               ),
             ],
           ),
-        ),
+        ),*/
       ),
     );
   }

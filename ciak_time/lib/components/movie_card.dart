@@ -45,16 +45,18 @@ class MovieCard extends StatelessWidget {
     return Column(
       children: [
         Card(
-          //color: Colors.amber,
           child: Stack(
             children: [
               Container(
                 height: size.width * 0.45,
                 width: size.width * 0.3,
                 //width: 50.0,
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.network(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Positioned(
@@ -99,7 +101,6 @@ class MovieCard extends StatelessWidget {
     );
   }
 }
-
 
 /* 
 Stack(

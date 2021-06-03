@@ -1,6 +1,8 @@
 import 'package:ciak_time/Screens/Search/components/floating_button.dart';
 import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
 import 'package:ciak_time/components/card_list.dart';
+import 'package:ciak_time/components/icon_text.dart';
+import 'package:ciak_time/components/popular_movie_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -243,14 +245,20 @@ class CardsWidget extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  CardList(
+                  IconText(
+                      size: size,
+                      assetName: "assets/icons/movie2.svg",
+                      label: "Popular movies searches"),
+                  PopularMovieList(),
+
+                  /*CardList(
                     size: size,
                     title: "Popular movies searches",
                     assetName: "assets/icons/movie2.svg",
                     number: 16,
                     height: size.height * 0.23,
                     width: size.width * 0.01,
-                  ),
+                  ),*/
                   CardList(
                     size: size,
                     title: "Popular people searches",

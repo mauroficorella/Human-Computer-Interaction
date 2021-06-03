@@ -1,29 +1,35 @@
+import 'package:ciak_time/blocs/upcoming_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
 import 'package:flutter/material.dart';
-import '../models/item_model.dart';
-import '../blocs/movies_bloc.dart';
 
-class MovieList extends StatelessWidget {
+import '../models/movie_model.dart';
+
+class UpcomingMovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    bloc.fetchAllMovies();
+    bloc.fetchUpcomingMovies();
     return StreamBuilder(
-      stream: bloc.allMovies,
-      builder: (context, AsyncSnapshot<ItemModel> snapshot) {
+      stream: bloc.upcomingMovies,
+      builder: (context, AsyncSnapshot<MovieModel> snapshot) {
         if (snapshot.hasData) {
           return buildList(snapshot, size);
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
         }
-        return Center(child: CircularProgressIndicator());
+
+        return Center(
+            child: CircularProgressIndicator(
+          //backgroundColor: Colors.amber,
+          color: Colors.amber,
+        ));
       },
     );
   }
 
-  Widget buildList(AsyncSnapshot<ItemModel> snapshot, size) {
+  Widget buildList(AsyncSnapshot<MovieModel> snapshot, size) {
     return Container(
-      height: size.height * 0.24,
+      height: size.height * 0.26,
       color: Colors.white,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,

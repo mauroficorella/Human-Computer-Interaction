@@ -1,12 +1,12 @@
-class ItemModel {
+class MovieModel {
   int page;
   List<Results> results;
   int totalPages;
   int totalResults;
 
-  ItemModel({this.page, this.results, this.totalPages, this.totalResults});
+  MovieModel({this.page, this.results, this.totalPages, this.totalResults});
 
-  ItemModel.fromJson(Map<String, dynamic> json) {
+  MovieModel.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
       results = [];
