@@ -10,34 +10,7 @@ class MovieCard extends StatelessWidget {
   final String imageUrl;
   final String movieTitle;
 
-  /* @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Card(
-          //color: Colors.amber,
-          child: Container(
-            color: Colors.greenAccent[400],
-            child: Column(
-              children: [
-                Container(
-                  height: 150.0,
-                  //width: 50.0,
-                  child: Image.network(
-                    imageUrl,
-                    //fit: BoxFit.cover,
-                  ),
-                ),
-                Text(movieTitle),
-                Text(voteAverage),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}*/
+  
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +57,7 @@ class MovieCard extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: size.width * 0.03,
+                            fontSize: size.width * 0.035,
                             fontFamily: 'Quicksand-Regular',
                           ),
                         ),

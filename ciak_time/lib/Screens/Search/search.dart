@@ -3,6 +3,7 @@ import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:ciak_time/components/icon_text.dart';
 import 'package:ciak_time/components/popular_movie_list.dart';
+import 'package:ciak_time/components/popular_people_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -145,7 +146,7 @@ class _SearchState extends State<Search> {
             );
           }*/
         },
-        body: /*CardsWidget(size: size)*/ bodyIndex == 1
+        body: /*CardsWidget(size: size)*/ bodyIndex == 0
             ? SearchResultsListView(searchTerm: "")
             : CardsWidget(size: size),
         builder: (BuildContext context, Animation<double> transition) {
@@ -250,28 +251,16 @@ class CardsWidget extends StatelessWidget {
                       assetName: "assets/icons/movie2.svg",
                       label: "Popular movies searches"),
                   PopularMovieList(),
-
-                  /*CardList(
-                    size: size,
-                    title: "Popular movies searches",
-                    assetName: "assets/icons/movie2.svg",
-                    number: 16,
-                    height: size.height * 0.23,
-                    width: size.width * 0.01,
-                  ),*/
-                  CardList(
-                    size: size,
-                    title: "Popular people searches",
-                    assetName: "assets/icons/actor.svg",
-                    number: 16,
-                    height: size.height * 0.23,
-                    width: size.width * 0.01,
-                  ),
+                  IconText(
+                      size: size,
+                      assetName: "assets/icons/actor.svg",
+                      label: "Popular people searches",),
+                  PopularPeopleList(),
                 ],
               ),
             ),
           ),
-          FloatingButton(size: size),
+          
         ],
       ),
     );

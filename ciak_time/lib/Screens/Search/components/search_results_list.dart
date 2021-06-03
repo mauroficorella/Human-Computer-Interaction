@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Search/components/floating_button.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultsListView extends StatelessWidget {
@@ -10,6 +11,7 @@ class SearchResultsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     if (searchTerm == null) {
       return Center(
         child: Column(
@@ -28,14 +30,24 @@ class SearchResultsListView extends StatelessWidget {
       );
     }
 
-    return ListView(
-      children: List.generate(
-        50,
-        (index) => ListTile(
-          title: Text('$searchTerm search result'),
-          subtitle: Text(index.toString()),
+    return Stack(
+      children: <Widget>[
+        ListView(
+          children: List.generate(
+            50,
+            (index) => ListTile(
+              title: Text('$searchTerm search result'),
+              subtitle: Text(index.toString()),
+            ),
+          ),
         ),
-      ),
+        Positioned(
+          bottom: size.width * 0.02,
+          right: size.width * 0.28,
+          left: size.width * 0.28,
+          child: FloatingButton(size: size),
+        ),
+      ],
     );
   }
 }

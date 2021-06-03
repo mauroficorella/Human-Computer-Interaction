@@ -1,5 +1,6 @@
 import 'package:ciak_time/blocs/popular_person_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
+import 'package:ciak_time/components/person_card.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:flutter/material.dart';
 
@@ -37,10 +38,10 @@ class PopularPeopleList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.results.length,
           itemBuilder: (BuildContext context, int index) {
-            return MovieCard(
+            return PersonCard(
               imageUrl:
                   'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].profilePath}',
-              movieTitle: snapshot.data.results[index].name,
+              personName: snapshot.data.results[index].name,
             );
           }),
     );
