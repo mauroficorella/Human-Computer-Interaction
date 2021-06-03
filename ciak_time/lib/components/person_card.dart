@@ -32,6 +32,7 @@ class PersonCard extends StatelessWidget {
             ),
             child: CircleAvatar(
               radius: size.width * 0.18,
+              backgroundColor: Colors.transparent,
               backgroundImage: NetworkImage(
                 imageUrl,
               ),

@@ -1,3 +1,5 @@
+import 'package:ciak_time/Screens/Search/body_widget.dart';
+import 'package:ciak_time/Screens/Search/components/cards_widget.dart';
 import 'package:ciak_time/Screens/Search/components/floating_button.dart';
 import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
 import 'package:ciak_time/components/card_list.dart';
@@ -18,7 +20,6 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
   static const historyLength = 5;
-  int bodyIndex = 0;
 
   // The "raw" history that we don't access from the UI, prefilled with values
   List<String> _searchHistory = [
@@ -85,184 +86,162 @@ class _SearchState extends State<Search> {
     super.dispose();
   }
 
-  _changeBody(int index) {
-    setState(() {
-      if (index == 1) {
-        bodyIndex = 1;
-      }
-    });
-    setState(() {
-      if (index == 0) {
-        bodyIndex = 0;
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: FloatingSearchBar(
-        onFocusChanged: _changeBody(0),
-        controller: controller,
-        automaticallyImplyBackButton: false,
-        transition: CircularFloatingSearchBarTransition(),
-        // Bouncing physics for the search history
-        physics: BouncingScrollPhysics(),
-        leadingActions: [
-          FloatingSearchBarAction.back(),
-        ],
-        // Title is displayed on an unopened (inactive) search bar
-        title: Text(
-          selectedTerm ?? 'Search',
-          style: Theme.of(context).textTheme.headline6,
-        ),
-        // Hint gets displayed once the search bar is tapped and opened
-        hint: 'Search and find out...',
-        actions: [
-          FloatingSearchBarAction.searchToClear(),
-        ],
-        onQueryChanged: (query) {
-          setState(() {
-            filteredSearchHistory = filterSearchTerms(filter: query);
-          });
-        },
-        onSubmitted: (query) {
-          setState(() {
-            addSearchTerm(query);
-            selectedTerm = query;
-          });
+    int bodyIndex = 1;
 
-          controller.close();
-          /*if (query == "The Lord of the Rings: The Fellowship of the Ring") {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return Movie();
-                },
+    Widget content = CardsWidget(size: size);
+    FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
+    return Scaffold(
+      body: StatefulBuilder(builder: (context, setState) {
+        return FloatingSearchBar(
+          onFocusChanged: (isFocused) {
+            setState(() {
+              if (isFocused && bodyIndex == 1) {
+                bodyIndex = 0;
+                content = new SearchResultsListView(searchTerm: "");
+              }
+
+              debugPrint("body index: " + bodyIndex.toString());
+            });
+          },
+
+          controller: controller,
+          automaticallyImplyBackButton: false,
+
+          transition: CircularFloatingSearchBarTransition(),
+          // Bouncing physics for the search history
+          physics: BouncingScrollPhysics(),
+          leadingActions: [
+            FloatingSearchBarAction(
+              showIfClosed: false,
+              showIfOpened: true,
+              child: CircularButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {},
               ),
-            );
-          }*/
-        },
-        body: /*CardsWidget(size: size)*/ bodyIndex == 0
-            ? SearchResultsListView(searchTerm: "")
-            : CardsWidget(size: size),
-        builder: (BuildContext context, Animation<double> transition) {
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Material(
-              color: Colors.white,
-              elevation: 4,
-              child: Builder(
-                builder: (context) {
-                  if (filteredSearchHistory.isEmpty &&
-                      controller.query.isEmpty) {
-                    return Container(
-                      height: 56,
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Start searching',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.caption,
-                      ),
-                    );
-                  } else if (filteredSearchHistory.isEmpty) {
-                    return ListTile(
-                      title: Text(controller.query),
-                      leading: const Icon(Icons.search),
-                      onTap: () {
-                        setState(() {
-                          addSearchTerm(controller.query);
-                          selectedTerm = controller.query;
-                        });
-                        controller.close();
-                      },
-                    );
-                  } else {
-                    return Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: filteredSearchHistory
-                          .map(
-                            (term) => ListTile(
-                              title: Text(
-                                term,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              leading: const Icon(Icons.history),
-                              trailing: IconButton(
-                                icon: const Icon(Icons.clear),
-                                onPressed: () {
+            ),
+          ],
+          // Title is displayed on an unopened (inactive) search bar
+          title: Text(
+            selectedTerm ?? 'Search',
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: size.height * 0.025,
+              fontFamily: 'Quicksand-Medium',
+            ),
+            //style: Theme.of(context).textTheme.headline6,
+          ),
+          // Hint gets displayed once the search bar is tapped and opened
+          hint: 'Search...',
+          actions: [
+            FloatingSearchBarAction.searchToClear(),
+          ],
+          onQueryChanged: (query) {
+            setState(() {
+              filteredSearchHistory = filterSearchTerms(filter: query);
+            });
+          },
+          onSubmitted: (query) {
+            setState(() {
+              addSearchTerm(query);
+              selectedTerm = query;
+            });
+
+            controller.close();
+            /*if (query == "The Lord of the Rings: The Fellowship of the Ring") {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Movie();
+                  },
+                ),
+              );
+            }*/
+          },
+          body: new Container(
+            child: content,
+          ),
+          //body: BodyWidget(bodyIndex: bodyIndex),
+          /*bodyIndex == 1
+              ? SearchResultsListView(searchTerm: "")
+              : CardsWidget(size: size)*/
+
+          builder: (BuildContext context, Animation<double> transition) {
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Material(
+                color: Colors.white,
+                elevation: 4,
+                child: Builder(
+                  builder: (context) {
+                    if (filteredSearchHistory.isEmpty &&
+                        controller.query.isEmpty) {
+                      return Container(
+                        height: 56,
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Start searching',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.caption,
+                        ),
+                      );
+                    } else if (filteredSearchHistory.isEmpty) {
+                      return ListTile(
+                        title: Text(controller.query),
+                        leading: const Icon(Icons.search),
+                        onTap: () {
+                          setState(() {
+                            addSearchTerm(controller.query);
+                            selectedTerm = controller.query;
+                          });
+                          controller.close();
+                        },
+                      );
+                    } else {
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: filteredSearchHistory
+                            .map(
+                              (term) => ListTile(
+                                title: Text(
+                                  term,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                leading: const Icon(Icons.history),
+                                trailing: IconButton(
+                                  icon: const Icon(Icons.clear),
+                                  onPressed: () {
+                                    setState(() {
+                                      deleteSearchTerm(term);
+                                    });
+                                  },
+                                ),
+                                onTap: () {
                                   setState(() {
-                                    deleteSearchTerm(term);
+                                    putSearchTermFirst(term);
+                                    selectedTerm = term;
                                   });
+                                  controller.close();
                                 },
                               ),
-                              onTap: () {
-                                setState(() {
-                                  putSearchTermFirst(term);
-                                  selectedTerm = term;
-                                });
-                                controller.close();
-                              },
-                            ),
-                          )
-                          .toList(),
-                    );
-                  }
-                },
+                            )
+                            .toList(),
+                      );
+                    }
+                  },
+                ),
               ),
-            ),
-          );
-        },
-      ),
+            );
+          },
+        );
+      }),
       /*floatingActionButton: FloatingButton(size: size),*/
-    );
-  }
-}
-
-class CardsWidget extends StatelessWidget {
-  const CardsWidget({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          SizedBox(
-            height: size.height * 0.0785,
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  IconText(
-                      size: size,
-                      assetName: "assets/icons/movie2.svg",
-                      label: "Popular movies searches"),
-                  PopularMovieList(),
-                  IconText(
-                      size: size,
-                      assetName: "assets/icons/actor.svg",
-                      label: "Popular people searches",),
-                  PopularPeopleList(),
-                ],
-              ),
-            ),
-          ),
-          
-        ],
-      ),
     );
   }
 }

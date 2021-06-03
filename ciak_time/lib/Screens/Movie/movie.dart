@@ -1,4 +1,5 @@
 import 'package:ciak_time/Screens/Review/review.dart';
+import 'package:ciak_time/Screens/Review/reviews_page.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
@@ -19,10 +20,18 @@ class _MovieState extends State<Movie> {
       floatingActionButton: Stack(children: [
         Positioned(
           right: size.width * 0,
-          bottom: size.height * 0.58,
-          child: FloatingActionButton(
-            child: const Icon(Icons.add, color: Colors.white, size: 40),
-            backgroundColor: kPrimaryColor,
+          bottom: size.height * 0.02,
+          child: FloatingActionButton.extended(
+            label: Text(
+              "Add to list",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: size.height * 0.02,
+                fontFamily: 'Quicksand-Medium',
+              ),
+            ),
+            icon: const Icon(Icons.add, color: Colors.black, size: 30),
+            backgroundColor: Colors.amber,
             elevation: 10,
             onPressed: () {
               showDialog(
@@ -33,7 +42,7 @@ class _MovieState extends State<Movie> {
                         builder: (context, setState) {
                           return Container(
                             width: size.width * 0.8,
-                            height: size.height * 0.2,
+                            height: size.height * 0.255,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -69,6 +78,17 @@ class _MovieState extends State<Movie> {
                                       height: size.height * 0.03),
                                   label: Text(
                                     "Already watched",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: size.height * 0.02,
+                                        fontFamily: 'Quicksand-Medium'),
+                                  ),
+                                ),
+                                TextButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.favorite, color: Colors.red,),
+                                  label: Text(
+                                    "Favourite",
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: size.height * 0.02,
@@ -174,11 +194,11 @@ class _MovieState extends State<Movie> {
                 ),
               ),
               // LIKE BUTTON
-              Positioned(
+              /*Positioned(
                 right: size.width * 0.04,
                 top: size.width * 0.12,
                 child: LikeBtn(size: size),
-              ),
+              ),*/
             ],
           ),
           // SCROLLABLE PART OF THE PAGE
@@ -356,11 +376,19 @@ class _MovieState extends State<Movie> {
                               SizedBox(
                                 width: size.width * 0.03,
                               ),
-                              // VIEW ALL REVIEWS BTN //TODO mettere onPressed
                               Container(
                                 width: size.width * 0.57,
                                 child: TextButton.icon(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return ReviewsPage();
+                                        },
+                                      ),
+                                    );
+                                  },
                                   style: ButtonStyle(
                                       backgroundColor:
                                           MaterialStateProperty.all(
@@ -378,7 +406,7 @@ class _MovieState extends State<Movie> {
                               )
                             ],
                           ),
-                          // INSERT A REVIEW BTN //TODO mettere onPressed
+
                           Container(
                             width: size.width * 0.98,
                             child: TextButton.icon(

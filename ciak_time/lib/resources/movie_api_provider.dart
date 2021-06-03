@@ -9,11 +9,11 @@ class MovieApiProvider {
   final _apiKey = '2d5faa7cea05a407ab79da921919b5f3';
 
   Future<MovieModel> fetchPopularMovieList() async {
-    print("entered");
+    //print("entered");
     final response = await client.get(Uri.parse(
         "http://api.themoviedb.org/3/movie/popular?api_key=$_apiKey"));
 
-    print(response.body.toString());
+    //print(response.body.toString());
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON
       return MovieModel.fromJson(json.decode(response.body));
@@ -24,11 +24,11 @@ class MovieApiProvider {
   }
 
   Future<MovieModel> fetchUpcomingMovieList() async {
-    print("entered");
+    //print("entered");
     final response = await client.get(Uri.parse(
         "http://api.themoviedb.org/3/movie/upcoming?api_key=$_apiKey"));
 
-    print(response.body.toString());
+    //print(response.body.toString());
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON
       return MovieModel.fromJson(json.decode(response.body));
@@ -39,11 +39,11 @@ class MovieApiProvider {
   }
 
   Future<PersonModel> fetchPopularPeopleList() async {
-    print("entered");
+    //print("entered");
     final response = await client.get(Uri.parse(
         "https://api.themoviedb.org/3/person/popular?api_key=$_apiKey"));
 
-    print(response.body.toString());
+    //print(response.body.toString());
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON
       return PersonModel.fromJson(json.decode(response.body));
