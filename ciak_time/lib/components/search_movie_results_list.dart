@@ -38,26 +38,46 @@ class SearchMovieResultsList extends StatelessWidget {
   }
 
   Widget buildList(AsyncSnapshot<MovieModel> snapshot, size) {
-    return ListView.builder(
-      
-        scrollDirection: Axis.vertical,
-        itemCount: snapshot.data.results.length,
-        itemBuilder: (BuildContext context, int index) {
-          
-          return Card(
-            child: ListTile(
-              leading: Image.network(
+    return Padding(
+      padding: EdgeInsets.only(top: size.height * 0.08),
+      child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: snapshot.data.results.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: size.height * 0.2,
+              width: size.width * 0.05,
+              child: Card(
+                child: Row(
+
+                    //contentPadding: EdgeInsets.all(25),
+                    children: <Widget>[
+                      Image.network(
+                        'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(width: size.width * 0.04),
+                      Container(
+                        width: size.width * 0.6,
+                        child: Text(
+                          snapshot.data.results[index].title,
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: size.height * 0.025,
+                            fontFamily: 'Quicksand',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ]),
+              ),
+            );
+            /*return MovieCard(
+              imageUrl:
                   'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
-                  fit: BoxFit.cover,
-                ),
-              title: Text(snapshot.data.results[index].title),
-            ),
-          );
-          /*return MovieCard(
-            imageUrl:
-                'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
-            movieTitle: snapshot.data.results[index].title,
-          );*/
-        });
+              movieTitle: snapshot.data.results[index].title,
+            );*/
+          }),
+    );
   }
 }
