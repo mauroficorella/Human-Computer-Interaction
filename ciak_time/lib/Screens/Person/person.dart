@@ -168,7 +168,7 @@ class MovieCard extends StatelessWidget {
                 fontFamily: 'Quicksand-Regular',
               ),
             ),
-            RatingUnclickable() //TODO passare parametri stelle
+            RatingUnclickable(unratedColor: Colors.grey,) //TODO passare parametri stelle
           ],
         ),
       ],

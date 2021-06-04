@@ -1,4 +1,5 @@
 import 'package:ciak_time/Screens/Search/components/floating_button.dart';
+import 'package:ciak_time/components/search_movie_results_list.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultsListView extends StatelessWidget {
@@ -32,7 +33,9 @@ class SearchResultsListView extends StatelessWidget {
 
     return Stack(
       children: <Widget>[
-        ListView(
+
+        SearchMovieResultsList(queryString: 'harry',),
+        /*ListView(
           children: List.generate(
             50,
             (index) => ListTile(
@@ -40,7 +43,7 @@ class SearchResultsListView extends StatelessWidget {
               subtitle: Text(index.toString()),
             ),
           ),
-        ),
+        ),*/
         Positioned(
           bottom: size.width * 0.02,
           right: size.width * 0.28,

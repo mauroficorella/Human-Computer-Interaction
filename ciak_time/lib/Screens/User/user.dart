@@ -84,7 +84,7 @@ class _UserState extends State<User> {
                     CardList(
                       size: size,
                       title: "Favourite",
-                      assetName: "assets/icons/heart.svg",
+                      assetName: "assets/icons/heart-red.svg",
                       number: 3,
                       height: size.height * 0.15,
                       width: size.width * 0.035,

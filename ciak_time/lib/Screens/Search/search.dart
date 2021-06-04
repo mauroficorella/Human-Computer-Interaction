@@ -141,6 +141,7 @@ class _SearchState extends State<Search> {
           onQueryChanged: (query) {
             setState(() {
               filteredSearchHistory = filterSearchTerms(filter: query);
+              //start showing results
             });
           },
           onSubmitted: (query) {

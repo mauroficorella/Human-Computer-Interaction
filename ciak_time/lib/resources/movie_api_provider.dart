@@ -52,4 +52,21 @@ class MovieApiProvider {
       throw Exception('Failed to load post');
     }
   }
+
+Future<MovieModel> fetchSearchResultsList(queryString) async {
+    //print("entered");
+    final response = await client.get(Uri.parse(
+        "https://api.themoviedb.org/3/search/movie?api_key=$_apiKey&query=$queryString&include_adult=false"));
+
+    //print(response.body.toString());
+    if (response.statusCode == 200) {
+      // If the call to the server was successful, parse the JSON
+      return MovieModel.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load post');
+    }
+  }
+
+
 }
