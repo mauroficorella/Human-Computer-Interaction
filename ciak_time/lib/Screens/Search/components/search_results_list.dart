@@ -34,7 +34,7 @@ class SearchResultsListView extends StatelessWidget {
     return Stack(
       children: <Widget>[
 
-        SearchMovieResultsList(queryString: 'harry',),
+        SearchMovieResultsList(queryString: searchTerm,),
         /*ListView(
           children: List.generate(
             50,

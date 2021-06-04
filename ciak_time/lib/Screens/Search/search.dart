@@ -103,7 +103,7 @@ class _SearchState extends State<Search> {
                 content = new SearchResultsListView(searchTerm: "");
               }
 
-              debugPrint("body index: " + bodyIndex.toString());
+              
             });
           },
 
@@ -141,6 +141,7 @@ class _SearchState extends State<Search> {
           onQueryChanged: (query) {
             setState(() {
               filteredSearchHistory = filterSearchTerms(filter: query);
+              content = new SearchResultsListView(searchTerm: query);
               //start showing results
             });
           },
@@ -163,8 +164,8 @@ class _SearchState extends State<Search> {
             }*/
           },
           body: new Container(
-            child: content,
-          ),
+              child: content,
+            ),
           //body: BodyWidget(bodyIndex: bodyIndex),
           /*bodyIndex == 1
               ? SearchResultsListView(searchTerm: "")
