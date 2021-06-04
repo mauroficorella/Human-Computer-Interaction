@@ -1,11 +1,5 @@
-import 'package:ciak_time/Screens/Search/body_widget.dart';
 import 'package:ciak_time/Screens/Search/components/cards_widget.dart';
-import 'package:ciak_time/Screens/Search/components/floating_button.dart';
 import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
-import 'package:ciak_time/components/card_list.dart';
-import 'package:ciak_time/components/icon_text.dart';
-import 'package:ciak_time/components/popular_movie_list.dart';
-import 'package:ciak_time/components/popular_people_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -100,10 +94,8 @@ class _SearchState extends State<Search> {
             setState(() {
               if (isFocused && bodyIndex == 1) {
                 bodyIndex = 0;
-                content = new SearchResultsListView(searchTerm: "");
+                //content = new SearchResultsListView(searchTerm: "");
               }
-
-              
             });
           },
 
@@ -126,11 +118,17 @@ class _SearchState extends State<Search> {
           // Title is displayed on an unopened (inactive) search bar
           title: Text(
             selectedTerm ?? 'Search',
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: size.height * 0.025,
-              fontFamily: 'Quicksand-Medium',
-            ),
+            style: selectedTerm == null
+                ? TextStyle(
+                    color: Colors.grey,
+                    fontSize: size.height * 0.02,
+                    fontFamily: 'Quicksand-Medium',
+                  )
+                : TextStyle(
+                    color: Colors.black87,
+                    fontSize: size.height * 0.02,
+                    fontFamily: 'Quicksand-Medium',
+                  ),
             //style: Theme.of(context).textTheme.headline6,
           ),
           // Hint gets displayed once the search bar is tapped and opened
@@ -145,6 +143,15 @@ class _SearchState extends State<Search> {
               //start showing results
             });
           },
+          queryStyle: TextStyle(
+              color: Colors.black87,
+              fontSize: size.height * 0.02,
+              fontFamily: 'Quicksand-Medium'),
+          hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: size.height * 0.02,
+              fontFamily: 'Quicksand-Medium'),
+          clearQueryOnClose: false,
           onSubmitted: (query) {
             setState(() {
               addSearchTerm(query);
@@ -164,8 +171,8 @@ class _SearchState extends State<Search> {
             }*/
           },
           body: new Container(
-              child: content,
-            ),
+            child: content,
+          ),
           //body: BodyWidget(bodyIndex: bodyIndex),
           /*bodyIndex == 1
               ? SearchResultsListView(searchTerm: "")
@@ -228,6 +235,8 @@ class _SearchState extends State<Search> {
                                   setState(() {
                                     putSearchTermFirst(term);
                                     selectedTerm = term;
+                                    content = new SearchResultsListView(
+                                        searchTerm: selectedTerm);
                                   });
                                   controller.close();
                                 },

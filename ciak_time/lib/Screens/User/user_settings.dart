@@ -4,7 +4,9 @@ import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/components/social_icon.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class UserSettings extends StatefulWidget {
   @override
@@ -17,12 +19,32 @@ class _UserSettingsState extends State<UserSettings> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        /*leading: Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.arrow_back_ios, ),
+              onPressed: () => Navigator.of(context).pop(),
+              
+            ),
+            Text("User"),
+          ],
+        ),*/
+        leading: TextButton.icon(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.amber,
+          ),
+          label: Text(
+            "User",
+            style:
+                TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          ),
+        ),
+        leadingWidth: size.width * 0.2,
         title: Text(
           'Settings',
-          style: TextStyle(
-            fontSize: size.height * 0.030,
-            fontFamily: 'Quicksand',
-          ),
         ),
       ),
       body: SafeArea(
@@ -104,19 +126,21 @@ class _UserSettingsState extends State<UserSettings> {
                       ),
                     ],
                   ),
-                  SizedBox(height: size.height * 0.05),
+                  SizedBox(height: size.height * 0.01),
                   RoundedButton(
                     text: "LOGOUT",
                     radius: 29,
                     press: () {
-                      Navigator.push(
+                      /*Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return LoginScreen();
+                            return new LoginScreen();
                           },
                         ),
-                      );
+                      );*/
+                      pushNewScreen(context, screen: LoginScreen(), withNavBar: false,);
+                      FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
                     },
                   ),
                 ],

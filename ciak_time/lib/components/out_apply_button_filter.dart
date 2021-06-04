@@ -15,7 +15,7 @@ class OutApplyButtonFilter extends StatefulWidget {
 }
 
 class _OutButtonFilterState extends State<OutApplyButtonFilter> {
-  Color backgroundColor = kPrimaryLightColor;
+  Color backgroundColor = Colors.amber[50];
   Color textColor = Colors.grey;
 
   @override
@@ -33,7 +33,7 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
               ),
             );
           } else {
-            null;
+            
           }
         });
       },
@@ -41,7 +41,7 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
         primary: Colors.white,
         minimumSize: Size(widget.size.width * 0.25, widget.size.height * 0.05),
         backgroundColor: setBackgroundButtonColor(),
-        side: BorderSide(color: kPrimaryColor, width: 2),
+        side: BorderSide(color: Colors.amber, width: 2),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
@@ -59,13 +59,13 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
   }
 
   Color setBackgroundButtonColor() {
-    Color backgroundColor = kPrimaryLightColor;
+    Color backgroundColor = Colors.amber[50];
 
     setState(() {
       if (isFilterSelected()) {
-        backgroundColor = kPrimaryColor;
+        backgroundColor = Colors.amber;
       } else {
-        backgroundColor = kPrimaryLightColor;
+        backgroundColor = Colors.amber[50];
       }
     });
     return backgroundColor;

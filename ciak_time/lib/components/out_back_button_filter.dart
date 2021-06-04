@@ -15,13 +15,13 @@ class OutBackButtonFilter extends StatefulWidget {
 
 class _OutButtonFilterState extends State<OutBackButtonFilter> {
   Color backgroundColor = Colors.white;
-  Color textColor = kPrimaryColor;
+  Color textColor = Colors.amber;
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
       onPressed: () {
         setState(() {
-          backgroundColor = kPrimaryColor;
+          backgroundColor = Colors.amber;
           textColor = Colors.white;
         });
 
@@ -31,7 +31,7 @@ class _OutButtonFilterState extends State<OutBackButtonFilter> {
         primary: Colors.white,
         minimumSize: Size(widget.size.width * 0.25, widget.size.height * 0.05),
         backgroundColor: backgroundColor,
-        side: BorderSide(color: kPrimaryColor, width: 2),
+        side: BorderSide(color: Colors.amber, width: 2),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),

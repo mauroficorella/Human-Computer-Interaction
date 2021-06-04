@@ -11,11 +11,39 @@ class _UserState extends State<User> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    
     return Scaffold(
       appBar: AppBar(
+        title: Text("User"),
         automaticallyImplyLeading: false,
         actions: <Widget>[
-          IconButton(
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return UserSettings();
+                  },
+                ),
+              );
+            },
+            child: Row(
+              children: [
+                //Icon(Icons.settings, color: Colors.amber,),
+                Text(
+                  "Settings",
+                  style: TextStyle(
+                    color: Colors.amber,
+                    //fontSize: h,
+                  ),
+                ),
+                
+              ],
+            ),
+          ),
+          /*IconButton(
+            
             icon: Icon(
               Icons.settings,
               color: Colors.white,
@@ -30,7 +58,7 @@ class _UserState extends State<User> {
                 ),
               );
             },
-          )
+          )*/
         ],
       ),
       body: SafeArea(
