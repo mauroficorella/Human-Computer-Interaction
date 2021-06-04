@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
 import 'package:ciak_time/components/card_list.dart';
@@ -24,24 +25,7 @@ class _MovieState extends State<Movie> {
           Stack(
             children: [
               Center(
-                // MOVIE COVER
-                child: Container(
-                  height: size.height * 0.35,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            "http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
-                        fit: BoxFit.cover),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                ),
+                child: MovieCover(size: size),
               ),
               // BACK ARROW //TODO METTERE L'onPressed
               Positioned(
@@ -65,13 +49,12 @@ class _MovieState extends State<Movie> {
                         color: Colors.black.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 18,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset: Offset(0, 3),
                       ),
                     ],
                   ),
                 ),
               ),
-              // TITLE, DURATION, DATE, GENRE AND RATE
               Positioned(
                 left: size.width * 0.03,
                 bottom: size.width * 0.05,
@@ -136,7 +119,16 @@ class _MovieState extends State<Movie> {
                                 ),
                               ),
                               TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return MovieDetails();
+                                      },
+                                    ),
+                                  );
+                                },
                                 label: Icon(Icons.arrow_forward,
                                     color: kPrimaryColor),
                                 icon: Text(
@@ -205,7 +197,16 @@ class _MovieState extends State<Movie> {
                                 ),
                               ),
                               TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return ReviewsPage();
+                                      },
+                                    ),
+                                  );
+                                },
                                 label: Icon(Icons.arrow_forward,
                                     color: kPrimaryColor),
                                 icon: Text(
@@ -247,6 +248,36 @@ class _MovieState extends State<Movie> {
                 ],
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MovieCover extends StatelessWidget {
+  const MovieCover({
+    Key key,
+    @required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: size.height * 0.35,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: NetworkImage(
+                "http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
+            fit: BoxFit.cover),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
           ),
         ],
       ),
@@ -340,122 +371,6 @@ class InsertReviewBtn extends StatelessWidget {
               color: Colors.white,
               fontSize: size.height * 0.02,
               fontFamily: 'Quicksand-Medium'),
-        ),
-      ),
-    );
-  }
-}
-
-class cast extends StatelessWidget {
-  //TODO nome widget
-  const cast({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size.width * 0.98,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(5),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 2)),
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CardList(
-              size: size,
-              title: "Cast",
-              assetName: "assets/icons/actor.svg",
-              number: 16,
-              height: size.height * 0.15,
-              width: size.width * 0.01,
-            ),
-            Row(
-              children: [
-                SvgPicture.asset(
-                  "assets/icons/director.svg",
-                  height: size.height * 0.03,
-                ),
-                SizedBox(
-                  width: size.width * 0.03,
-                ),
-                Text(
-                  "Movie director",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: size.height * 0.03,
-                      fontFamily: 'Quicksand-Medium'),
-                ),
-              ],
-            ),
-            Container(
-              width: size.width * 0.3,
-              height: size.width * 0.3,
-              child: Card(
-                color: Colors.amber,
-                child: Center(
-                  child: Text('Dummy Card Text'),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class howToView extends StatelessWidget {
-  //TODO nome widget
-  const howToView({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size.width * 0.98,
-      height: size.height * 0.05,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(5),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 2)),
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            Text(
-              "How to view:",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: size.height * 0.02,
-                fontFamily: 'Quicksand-Regular',
-              ),
-            ),
-          ],
         ),
       ),
     );
@@ -560,34 +475,6 @@ class AddButton extends StatelessWidget {
                 ),
               );
             });
-      },
-    );
-  }
-}
-
-class LikeBtn extends StatelessWidget {
-  const LikeBtn({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return LikeButton(
-      size: 30,
-      circleColor: CircleColor(start: Colors.red[50], end: Colors.red[100]),
-      bubblesColor: BubblesColor(
-        dotPrimaryColor: Colors.red[200],
-        dotSecondaryColor: Colors.redAccent[400],
-      ),
-      likeBuilder: (bool isLiked) {
-        return Icon(
-          Icons.favorite,
-          color: isLiked ? Colors.redAccent[700] : Colors.white,
-          size: size.width * 0.08,
-        );
       },
     );
   }
