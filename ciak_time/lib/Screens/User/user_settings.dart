@@ -6,7 +6,6 @@ import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class UserSettings extends StatefulWidget {
   @override
@@ -132,16 +131,20 @@ class _UserSettingsState extends State<UserSettings> {
                     text: "LOGOUT",
                     radius: 29,
                     press: () {
-                      Navigator.push(
+                      Navigator.of(context, rootNavigator: true)
+                          .pushReplacement(MaterialPageRoute(
+                              builder: (context) => new LoginScreen()));
+                      /*Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return new LoginScreen();
+                            return LoginScreen();
                           },
                         ),
-                      );
+                      );*/
                       //pushNewScreen(context, screen: LoginScreen(), withNavBar: false,);
-                      FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+                      FlutterStatusbarcolor.setStatusBarColor(
+                          Colors.transparent);
                     },
                   ),
                 ],

@@ -33,7 +33,7 @@ class _UserState extends State<User> {
                 ),
               );*/
 
-              Navigator.pushNamed(context, '/settings');
+              Navigator.pushNamed(context, '/list');
             },
             child: Row(
               children: [

@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  flutter_launcher_icons: ^0.9.0
   flutter_rating_bar: ^4.0.0
   flutter_statusbarcolor_ns: ^0.3.0-nullsafety
   flutter_svg: ^0.22.0
@@ -31,12 +32,16 @@ dependencies:
   like_button: ^2.0.2
   material_floating_search_bar: ^0.3.4
   passwordfield: ^0.0.82
-  persistent_bottom_nav_bar: ^4.0.2
   rxdart: ^0.27.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/movie-icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

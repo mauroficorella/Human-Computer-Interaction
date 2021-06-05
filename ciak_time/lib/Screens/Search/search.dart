@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+
 
 class Search extends StatefulWidget {
   @override
@@ -155,8 +155,6 @@ class _SearchState extends State<Search> {
           clearQueryOnClose: false,
           onSubmitted: (query) {
             setState(() {
-              pushNewScreen(context,
-                  screen: SearchResultsListView(searchTerm: query));
               addSearchTerm(query);
               selectedTerm = query;
               content = new SearchResultsListView(searchTerm: query);
