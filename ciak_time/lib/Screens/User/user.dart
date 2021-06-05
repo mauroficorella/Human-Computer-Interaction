@@ -1,3 +1,5 @@
+import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
+import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/user_settings.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:flutter/material.dart';
@@ -11,22 +13,27 @@ class _UserState extends State<User> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text("User"),
+        centerTitle: true,
         automaticallyImplyLeading: false,
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.push(
+              /*Navigator.push(
+                
                 context,
                 MaterialPageRoute(
                   builder: (context) {
+                    
                     return UserSettings();
                   },
                 ),
-              );
+              );*/
+
+              Navigator.pushNamed(context, '/settings');
             },
             child: Row(
               children: [
@@ -38,7 +45,6 @@ class _UserState extends State<User> {
                     //fontSize: h,
                   ),
                 ),
-                
               ],
             ),
           ),
@@ -124,6 +130,45 @@ class _UserState extends State<User> {
           ],
         ),
       ),
+    );
+  }
+}
+
+
+
+class DestinationView extends StatefulWidget {
+  const DestinationView({
+    Key key,
+    
+  }) : super(key: key);
+  
+
+  @override
+  _DestinationViewState createState() => _DestinationViewState();
+}
+
+class _DestinationViewState extends State<DestinationView> {
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (BuildContext context) {
+            switch (settings.name) {
+              case '/':
+                return Home();
+              case '/search':
+                return Search();
+              case '/user':
+                return User();
+              case '/settings':
+                return UserSettings();
+            }
+          },
+        );
+      },
     );
   }
 }

@@ -46,6 +46,7 @@ class _UserSettingsState extends State<UserSettings> {
         title: Text(
           'Settings',
         ),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: Column(
@@ -131,15 +132,15 @@ class _UserSettingsState extends State<UserSettings> {
                     text: "LOGOUT",
                     radius: 29,
                     press: () {
-                      /*Navigator.push(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
                             return new LoginScreen();
                           },
                         ),
-                      );*/
-                      pushNewScreen(context, screen: LoginScreen(), withNavBar: false,);
+                      );
+                      //pushNewScreen(context, screen: LoginScreen(), withNavBar: false,);
                       FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
                     },
                   ),

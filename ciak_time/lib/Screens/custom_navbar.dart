@@ -60,13 +60,16 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
       inactiveColorPrimary: CupertinoColors.white,
     ),
     PersistentBottomNavBarItem(
-      icon: Icon(
-        CupertinoIcons.search,
-      ),
-      title: ("Search"),
-      activeColorPrimary: Colors.amber,
-      inactiveColorPrimary: CupertinoColors.white,
-    ),
+        icon: Icon(
+          CupertinoIcons.search,
+        ),
+        title: ("Search"),
+        activeColorPrimary: Colors.amber,
+        inactiveColorPrimary: CupertinoColors.white,
+        
+        /*onPressed: (context) {
+          pushNewScreen(context, screen: Search(), withNavBar: true);
+        }),*/),
     PersistentBottomNavBarItem(
       icon: Icon(CupertinoIcons.person),
       title: ("User"),
