@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
@@ -321,7 +323,9 @@ class MovieCover extends StatelessWidget {
   Widget buildCover(AsyncSnapshot<MovieImagesModel> snapshot, size) {
     return Container(
       height: size.height * 0.35,
-      decoration: BoxDecoration(
+      width: size.width,
+      child: Image.network('https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[0].filePath}',),
+      /*decoration: BoxDecoration(
         image: DecorationImage(
           image: NetworkImage(
               'https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[0].filePath}',
@@ -337,7 +341,7 @@ class MovieCover extends StatelessWidget {
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
-      ),
+      ),*/
     );
     /*return ListView.builder(
         scrollDirection: Axis.vertical,
