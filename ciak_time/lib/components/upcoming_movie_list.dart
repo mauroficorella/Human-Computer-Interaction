@@ -1,8 +1,11 @@
 import 'package:ciak_time/blocs/upcoming_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 import '../models/movie_model.dart';
+
+Results movieSelected;
 
 class UpcomingMovieList extends StatelessWidget {
   @override
@@ -13,6 +16,7 @@ class UpcomingMovieList extends StatelessWidget {
       stream: bloc.upcomingMovies,
       builder: (context, AsyncSnapshot<MovieModel> snapshot) {
         if (snapshot.hasData) {
+          
           return buildList(snapshot, size);
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
@@ -35,10 +39,17 @@ class UpcomingMovieList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.results.length,
           itemBuilder: (BuildContext context, int index) {
-            return MovieCard(
-              imageUrl:
-                  'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
-              movieTitle: snapshot.data.results[index].title,
+            return GestureDetector(
+              child: MovieCard(
+                imageUrl:
+                    'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
+                movieTitle: snapshot.data.results[index].title,
+              ),
+              onTap: () {
+                movieSelected = snapshot.data.results[index];
+                Navigator.pushNamed(context, '/movie');
+                FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+              },
             );
           }),
     );

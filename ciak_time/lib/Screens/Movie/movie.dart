@@ -1,9 +1,12 @@
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
+import 'package:ciak_time/blocs/movie_images_bloc.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:ciak_time/components/rating.dart';
+import 'package:ciak_time/components/upcoming_movie_list.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie_images_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:like_button/like_button.dart';
@@ -31,10 +34,19 @@ class _MovieState extends State<Movie> {
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
-                child: IconButton(
-                  icon: Icon(Icons.arrow_back_ios),
-                  color: Colors.white,
-                  onPressed: () {},
+                child: TextButton.icon(
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  ),
+                  label: Text(
+                    "Back",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  //color: Colors.white,
+                  onPressed: () {
+                    debugPrint("Snapshot: " + movieSelected.id.toString());
+                  },
                 ),
               ),
               // BLACK SHADOW BOX UNDER TITLE AND INFO
@@ -65,7 +77,8 @@ class _MovieState extends State<Movie> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Lo Svarione degli Anelli e la compagnia del verginello",
+                        movieSelected.title,
+                        //"Lo Svarione degli Anelli e la compagnia del verginello",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -265,13 +278,57 @@ class MovieCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = MovieImagesBloc(movieSelected.id.toString());
+    bloc.fetchMovieImagesResults();
+    return StreamBuilder(
+      stream: bloc.moviesImages,
+      builder: (context, AsyncSnapshot<MovieImagesModel> snapshot) {
+        if (snapshot.hasData) {
+          return buildCover(snapshot, size);
+        } else if (snapshot.hasError) {
+          return Text(snapshot.error.toString());
+        }
+
+        return Center(
+            child: CircularProgressIndicator(
+          //backgroundColor: Colors.amber,
+          color: Colors.amber,
+        ));
+      },
+    );
+
+    /*return Container(
+      height: size.height * 0.35,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(
+              'https://image.tmdb.org/t/p/w185${movieSelected.posterPath}'),
+          //"http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
+          fit: BoxFit.contain,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+    );*/
+  }
+
+  Widget buildCover(AsyncSnapshot<MovieImagesModel> snapshot, size) {
     return Container(
       height: size.height * 0.35,
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: NetworkImage(
-                "http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
-            fit: BoxFit.cover),
+          image: NetworkImage(
+              'https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[0].filePath}',
+              ),
+          //"http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
+          fit: BoxFit.fitWidth,
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.5),
@@ -282,6 +339,44 @@ class MovieCover extends StatelessWidget {
         ],
       ),
     );
+    /*return ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: snapshot.data.backdrops.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            height: size.height * 0.2,
+            width: size.width * 0.05,
+            child: Card(
+              child: Row(
+
+                  //contentPadding: EdgeInsets.all(25),
+                  children: <Widget>[
+                    Image.network(
+                      'https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[index].posterPath}',
+                      fit: BoxFit.cover,
+                    ),
+                    SizedBox(width: size.width * 0.04),
+                    Container(
+                      width: size.width * 0.6,
+                      child: Text(
+                        snapshot.data.results[index].title,
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: size.height * 0.025,
+                          fontFamily: 'Quicksand',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ]),
+            ),
+          );
+          /*return MovieCard(
+            imageUrl:
+                'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
+            movieTitle: snapshot.data.results[index].title,
+          );*/
+        });*/
   }
 }
 

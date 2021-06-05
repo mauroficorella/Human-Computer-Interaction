@@ -1,4 +1,5 @@
 import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
+import 'package:ciak_time/Screens/Movie/movie.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/user.dart';
 import 'package:ciak_time/Screens/User/user_settings.dart';
@@ -7,7 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class Destination {
-  const Destination(this.index, this.title, this.icon, this.color);
+  const Destination(
+    this.index,
+    this.title,
+    this.icon,
+    this.color,
+  );
   final int index;
   final String title;
   final IconData icon;
@@ -67,6 +73,8 @@ class _DestinationViewState extends State<DestinationView> {
               switch (settings.name) {
                 case '/':
                   return Home();
+                case '/movie':
+                  return Movie();
               }
             } else if (widget.destination.title == "Search") {
               switch (settings.name) {
