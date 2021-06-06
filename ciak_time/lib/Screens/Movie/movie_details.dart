@@ -1,4 +1,5 @@
 import 'package:ciak_time/components/cast_list.dart';
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -14,11 +15,13 @@ class _MovieDetailsState extends State<MovieDetails> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
+        centerTitle: true,
         title: Text(
-          'Titolo film',
+          movieSelected.title,
+          //'Titolo film',
           style: TextStyle(
-            fontSize: size.height * 0.03,
-            fontFamily: 'Quicksand',
+            //fontSize: size.height * 0.03,
+            fontFamily: 'Quicksand-Medium',
           ),
         ),
       ),
@@ -58,7 +61,8 @@ class _MovieDetailsState extends State<MovieDetails> {
                         ),
                         SizedBox(height: size.height * 0.01),
                         Text(
-                          "Un giovane hobbit e un variegato gruppo, composto da umani, un nano, un elfo e altri hobbit, partono per un delicata missione, guidati dal potente mago Gandalf. ",
+                          movieSelected.overview,
+                          //"Un giovane hobbit e un variegato gruppo, composto da umani, un nano, un elfo e altri hobbit, partono per un delicata missione, guidati dal potente mago Gandalf. ",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: size.height * 0.02,
@@ -145,13 +149,15 @@ class _MovieDetailsState extends State<MovieDetails> {
                             label: "Cast",
                             assertIcon: "assets/icons/actor.svg"),
                         SizedBox(height: size.height * 0.005),
-                        Container(height: size.height * 0.18, child: CastList()),
+                        Container(
+                            height: size.height * 0.18, child: CastList()),
                         IconTextBold(
                             size: size,
                             label: "Movie director",
                             assertIcon: "assets/icons/director.svg"),
                         SizedBox(height: size.height * 0.005),
-                        Container(height: size.height * 0.18, child: CastList()),
+                        Container(
+                            height: size.height * 0.18, child: CastList()),
                       ],
                     ),
                   ),

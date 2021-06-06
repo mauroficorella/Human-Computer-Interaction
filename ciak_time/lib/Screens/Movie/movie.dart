@@ -158,7 +158,7 @@ class _MovieState extends State<Movie> {
                             ],
                           ),
                           SizedBox(
-                            height: size.height * 0.02,
+                            height: size.height * 0.01,
                           ),
                           MovieBasicInfo(size: size),
                           SizedBox(
@@ -439,53 +439,61 @@ class MovieBasicInfo extends StatelessWidget {
   }
 
   Widget buildDetails(AsyncSnapshot<MovieDetailsModel> snapshot, size) {
-    return Container(
-      height: size.height * 0.035,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            movieSelected.releaseDate,
-            //DateFormat.dMMMy(movieSelected.releaseDate).toString(), //TODO
-            //"Date",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: size.height * 0.02,
-              fontFamily: 'Quicksand-Regular',
-            ),
+    return Column(
+      children: [
+        Container(
+          height: size.height * 0.035,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                movieSelected.releaseDate,
+                //DateFormat.dMMMy(movieSelected.releaseDate).toString(), //TODO
+                //"Date",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: size.height * 0.02,
+                  fontFamily: 'Quicksand-Regular',
+                ),
+              ),
+              VerticalDivider(
+                color: Colors.grey,
+                thickness: 1,
+              ),
+              Text(
+                //movieSelected.
+                durationToString(snapshot.data.runtime),
+                //"Duration",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: size.height * 0.02,
+                  fontFamily: 'Quicksand-Regular',
+                ),
+              ),
+              /*VerticalDivider(
+                color: Colors.grey,
+                thickness: 1,
+              ),*/
+            ],
           ),
-          VerticalDivider(
-            color: Colors.grey,
-            thickness: 1,
+        ),
+        SizedBox(
+          height: size.height * 0.015,
+        ),
+        Text(
+          getGenresNames(snapshot.data.genres), //TODO 
+          //snapshot.data.genres.length.toString(),
+          //"Genre",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: size.height * 0.02,
+            fontFamily: 'Quicksand-Regular',
           ),
-          Text(
-            //movieSelected.
-            durationToString(snapshot.data.runtime),
-            //"Duration",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: size.height * 0.02,
-              fontFamily: 'Quicksand-Regular',
-            ),
-          ),
-          VerticalDivider(
-            color: Colors.grey,
-            thickness: 1,
-          ),
-          Text(
-            getGenresNames(snapshot.data.genres),
-            //snapshot.data.genres.length.toString(),
-            //"Genre",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: size.height * 0.02,
-              fontFamily: 'Quicksand-Regular',
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
+
     /*return ListView.builder(
         scrollDirection: Axis.vertical,
         itemCount: snapshot.data.backdrops.length,
