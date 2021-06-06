@@ -1,11 +1,13 @@
 import 'package:ciak_time/blocs/upcoming_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
+import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
-import '../models/movie_model.dart';
 
-Results movieSelected;
+
+
 
 class UpcomingMovieList extends StatelessWidget {
   @override

@@ -1,12 +1,9 @@
-import 'dart:math';
-
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
 import 'package:ciak_time/blocs/movie_details_bloc.dart';
 import 'package:ciak_time/blocs/movie_images_bloc.dart';
 import 'package:ciak_time/components/rating.dart';
-import 'package:ciak_time/components/upcoming_movie_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
@@ -47,7 +44,7 @@ class _MovieState extends State<Movie> {
                   ),
                   //color: Colors.white,
                   onPressed: () {
-                    debugPrint("Snapshot: " + movieSelected.id.toString());
+                    Navigator.pop(context);
                   },
                 ),
               ),

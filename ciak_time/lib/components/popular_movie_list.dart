@@ -1,8 +1,13 @@
+import 'package:ciak_time/blocs/popular_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
+import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
-import '../models/movie_model.dart';
-import '../blocs/popular_movies_bloc.dart';
+
+
+
 
 class PopularMovieList extends StatelessWidget {
   @override
@@ -35,10 +40,17 @@ class PopularMovieList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.results.length,
           itemBuilder: (BuildContext context, int index) {
-            return MovieCard(
-              imageUrl:
-                  'https://image.tmdb.org/t/p/original${snapshot.data.results[index].posterPath}',
-              movieTitle: snapshot.data.results[index].title,
+            return GestureDetector(
+              child: MovieCard(
+                imageUrl:
+                    'https://image.tmdb.org/t/p/original${snapshot.data.results[index].posterPath}',
+                movieTitle: snapshot.data.results[index].title,
+              ),
+              onTap: () {
+                movieSelected = snapshot.data.results[index];
+                Navigator.pushNamed(context, '/movie');
+                FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+              },
             );
           }),
     );

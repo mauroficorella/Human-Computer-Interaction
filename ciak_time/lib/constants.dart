@@ -1,3 +1,4 @@
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xFF6F35A5);
@@ -33,6 +34,8 @@ Color colorHorror = Colors.black;
 
 Color applyColor = kPrimaryLightColor;
 Color applyTextColor = Colors.grey;
+
+Results movieSelected;
 
 
 //TODO LINKARE GOOGLE E FB
