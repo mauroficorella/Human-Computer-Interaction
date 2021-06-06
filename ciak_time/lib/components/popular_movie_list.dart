@@ -37,7 +37,7 @@ class PopularMovieList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return MovieCard(
               imageUrl:
-                  'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
+                  'https://image.tmdb.org/t/p/original${snapshot.data.results[index].posterPath}',
               movieTitle: snapshot.data.results[index].title,
             );
           }),

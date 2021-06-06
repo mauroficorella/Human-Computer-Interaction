@@ -40,7 +40,7 @@ class PopularPeopleList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return PersonCard(
               imageUrl:
-                  'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].profilePath}',
+                  'https://image.tmdb.org/t/p/original${snapshot.data.results[index].profilePath}',
               personName: snapshot.data.results[index].name,
             );
           }),

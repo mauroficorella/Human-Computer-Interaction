@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:http/http.dart' show Client;
@@ -77,6 +78,19 @@ class MovieApiProvider {
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON
       return MovieImagesModel.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load post');
+    }
+  }
+
+  Future<MovieDetailsModel> fetchMovieDetailsList(movieId) async {
+    final response = await client.get(Uri.parse(
+        "https://api.themoviedb.org/3/movie/$movieId?api_key=$_apiKey&language=en-US"));
+    //print(response.body.toString());
+    if (response.statusCode == 200) {
+      // If the call to the server was successful, parse the JSON
+      return MovieDetailsModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
       throw Exception('Failed to load post');

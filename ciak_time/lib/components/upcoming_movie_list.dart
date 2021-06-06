@@ -42,7 +42,7 @@ class UpcomingMovieList extends StatelessWidget {
             return GestureDetector(
               child: MovieCard(
                 imageUrl:
-                    'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
+                    'https://image.tmdb.org/t/p/original${snapshot.data.results[index].posterPath}',
                 movieTitle: snapshot.data.results[index].title,
               ),
               onTap: () {

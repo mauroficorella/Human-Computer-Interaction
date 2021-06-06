@@ -3,15 +3,15 @@ import 'dart:math';
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
+import 'package:ciak_time/blocs/movie_details_bloc.dart';
 import 'package:ciak_time/blocs/movie_images_bloc.dart';
-import 'package:ciak_time/components/card_list.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/components/upcoming_movie_list.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:like_button/like_button.dart';
 
 class Movie extends StatefulWidget {
   @override
@@ -167,12 +167,17 @@ class _MovieState extends State<Movie> {
                           SizedBox(
                             height: size.height * 0.02,
                           ),
-                          Text(
-                            "Un giovane hobbit e un variegato gruppo, composto da umani, un nano, un elfo e altri hobbit, partono per un delicata missione, guidati dal potente mago Gandalf. ",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: size.height * 0.02,
-                              fontFamily: 'Quicksand-Regular',
+                          Container(
+                            child: Text(
+                              movieSelected.overview,
+                              //"Un giovane hobbit e un variegato gruppo, composto da umani, un nano, un elfo e altri hobbit, partono per un delicata missione, guidati dal potente mago Gandalf. ",
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 3,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: size.height * 0.02,
+                                fontFamily: 'Quicksand-Regular',
+                              ),
                             ),
                           ),
                         ],
@@ -321,27 +326,31 @@ class MovieCover extends StatelessWidget {
   }
 
   Widget buildCover(AsyncSnapshot<MovieImagesModel> snapshot, size) {
-    return Container(
-      height: size.height * 0.35,
-      width: size.width,
-      child: Image.network('https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[0].filePath}',),
-      /*decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(
-              'https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[0].filePath}',
+    return Column(
+      children: [
+        Container(
+          height: size.height * 0.35,
+          width: size.width,
+          //child: Image.network('https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[0].filePath}',),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                'https://image.tmdb.org/t/p/original${snapshot.data.backdrops[0].filePath}',
               ),
-          //"http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
-          fit: BoxFit.fitWidth,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
+              //"http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
+              fit: BoxFit.cover,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
           ),
-        ],
-      ),*/
+        ),
+      ],
     );
     /*return ListView.builder(
         scrollDirection: Axis.vertical,
@@ -384,6 +393,23 @@ class MovieCover extends StatelessWidget {
   }
 }
 
+String durationToString(int minutes) {
+  var d = Duration(minutes: minutes);
+  List<String> parts = d.toString().split(':');
+  return '${parts[0]} h ${parts[1].padLeft(2, '0')} min';
+}
+
+String getGenresNames(List<Genres> genres) {
+  String allGenres = '';
+  for (var i = 0; i < genres.length; i++) {
+    allGenres = allGenres + genres[i].name;
+    if (i != genres.length - 1) {
+      allGenres = allGenres + ", ";
+    }
+  }
+  return allGenres;
+}
+
 class MovieBasicInfo extends StatelessWidget {
   const MovieBasicInfo({
     Key key,
@@ -394,6 +420,28 @@ class MovieBasicInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = MovieDetailsBloc(movieSelected.id.toString());
+    bloc.fetchMovieDetailsResults();
+
+    return StreamBuilder(
+      stream: bloc.movieDetails,
+      builder: (context, AsyncSnapshot<MovieDetailsModel> snapshot) {
+        if (snapshot.hasData) {
+          return buildDetails(snapshot, size);
+        } else if (snapshot.hasError) {
+          return Text(snapshot.error.toString());
+        }
+
+        return Center(
+            child: CircularProgressIndicator(
+          //backgroundColor: Colors.amber,
+          color: Colors.amber,
+        ));
+      },
+    );
+  }
+
+  Widget buildDetails(AsyncSnapshot<MovieDetailsModel> snapshot, size) {
     return Container(
       height: size.height * 0.035,
       child: Row(
@@ -401,7 +449,9 @@ class MovieBasicInfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-            "Date",
+            movieSelected.releaseDate,
+            //DateFormat.dMMMy(movieSelected.releaseDate).toString(), //TODO
+            //"Date",
             style: TextStyle(
               color: Colors.black,
               fontSize: size.height * 0.02,
@@ -413,7 +463,9 @@ class MovieBasicInfo extends StatelessWidget {
             thickness: 1,
           ),
           Text(
-            "Duration",
+            //movieSelected.
+            durationToString(snapshot.data.runtime),
+            //"Duration",
             style: TextStyle(
               color: Colors.black,
               fontSize: size.height * 0.02,
@@ -425,7 +477,9 @@ class MovieBasicInfo extends StatelessWidget {
             thickness: 1,
           ),
           Text(
-            "Genre",
+            getGenresNames(snapshot.data.genres),
+            //snapshot.data.genres.length.toString(),
+            //"Genre",
             style: TextStyle(
               color: Colors.black,
               fontSize: size.height * 0.02,
@@ -435,6 +489,44 @@ class MovieBasicInfo extends StatelessWidget {
         ],
       ),
     );
+    /*return ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: snapshot.data.backdrops.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            height: size.height * 0.2,
+            width: size.width * 0.05,
+            child: Card(
+              child: Row(
+
+                  //contentPadding: EdgeInsets.all(25),
+                  children: <Widget>[
+                    Image.network(
+                      'https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[index].posterPath}',
+                      fit: BoxFit.cover,
+                    ),
+                    SizedBox(width: size.width * 0.04),
+                    Container(
+                      width: size.width * 0.6,
+                      child: Text(
+                        snapshot.data.results[index].title,
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: size.height * 0.025,
+                          fontFamily: 'Quicksand',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ]),
+            ),
+          );
+          /*return MovieCard(
+            imageUrl:
+                'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
+            movieTitle: snapshot.data.results[index].title,
+          );*/
+        });*/
   }
 }
 

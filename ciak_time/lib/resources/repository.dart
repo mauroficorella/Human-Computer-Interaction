@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'package:ciak_time/Screens/Movie/movie_details.dart';
+import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:ciak_time/models/person_model.dart';
 
 import 'movie_api_provider.dart';
-import '../models/movie_model.dart';
 
 class Repository {
   final moviesApiProvider = MovieApiProvider();
@@ -19,4 +21,6 @@ class Repository {
       moviesApiProvider.fetchSearchResultsList(queryString);
   Future<MovieImagesModel> fetchMovieImagesResults(movieId) =>
       moviesApiProvider.fetchMovieImagesList(movieId);
+  Future<MovieDetailsModel> fetchMovieDetailsResults(movieId) =>
+      moviesApiProvider.fetchMovieDetailsList(movieId);
 }
