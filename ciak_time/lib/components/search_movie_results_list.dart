@@ -1,6 +1,8 @@
 import 'package:ciak_time/blocs/search_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 import '../models/movie_model.dart';
 
@@ -47,29 +49,37 @@ class SearchMovieResultsList extends StatelessWidget {
             return Container(
               height: size.height * 0.2,
               width: size.width * 0.05,
-              child: Card(
-                child: Row(
+              child: GestureDetector(
+                child: Card(
+                  child: Row(
 
-                    //contentPadding: EdgeInsets.all(25),
-                    children: <Widget>[
-                      Image.network(
-                        'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
-                        fit: BoxFit.cover,
-                      ),
-                      SizedBox(width: size.width * 0.04),
-                      Container(
-                        width: size.width * 0.6,
-                        child: Text(
-                          snapshot.data.results[index].title,
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: size.height * 0.025,
-                            fontFamily: 'Quicksand',
-                            fontWeight: FontWeight.bold,
+                      //contentPadding: EdgeInsets.all(25),
+                      children: <Widget>[
+                        Image.network(
+                          'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(width: size.width * 0.04),
+                        Container(
+                          width: size.width * 0.6,
+                          child: Text(
+                            snapshot.data.results[index].title,
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: size.height * 0.025,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                    ]),
+                      ]),
+                ),
+                onTap: () {
+                  movieSelected = snapshot.data.results[index];
+                  debugPrint(movieSelected.title);
+                  Navigator.pushNamed(context, '/movie');
+                  FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+                },
               ),
             );
             /*return MovieCard(

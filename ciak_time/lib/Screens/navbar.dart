@@ -80,6 +80,8 @@ class _DestinationViewState extends State<DestinationView> {
               switch (settings.name) {
                 case '/':
                   return Search();
+                case '/movie':
+                  return Movie();
               }
             }
           },

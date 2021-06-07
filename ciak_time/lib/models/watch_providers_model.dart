@@ -179,43 +179,59 @@ class Results {
 
 class AR {
   String link;
-  List<Rent> rent;
+  List<Providers> providers = [];
 
-  AR({this.link, this.rent});
+  AR({this.link, this.providers});
 
   AR.fromJson(Map<String, dynamic> json) {
     link = json['link'];
-    if (json['rent'] != null) {
-      rent = new List<Rent>();
-      json['rent'].forEach((v) {
-        rent.add(new Rent.fromJson(v));
+    if (json['flatrate'] != null) {
+      //providers = new List<Providers>();
+      json['flatrate'].forEach((v) {
+        providers.add(new Providers.fromJson(v));
       });
     }
+
+    if (json['rent'] != null) {
+      //providers = new List<Providers>();
+      json['rent'].forEach((v) {
+        providers.add(new Providers.fromJson(v));
+      });
+    }
+
+    /*if (json['buy'] != null) {
+      //providers = new List<Providers>();
+      json['buy'].forEach((v) {
+        if (!providers.contains(Providers.fromJson(v))) {
+          providers.add(new Providers.fromJson(v));
+        }
+      });
+    }*/
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['link'] = this.link;
-    if (this.rent != null) {
-      data['rent'] = this.rent.map((v) => v.toJson()).toList();
+    if (this.providers != null) {
+      data['providers'] = this.providers.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class Rent {
+class Providers {
   int displayPriority;
   String logoPath;
   int providerId;
   String providerName;
 
-  Rent(
+  Providers(
       {this.displayPriority,
       this.logoPath,
       this.providerId,
       this.providerName});
 
-  Rent.fromJson(Map<String, dynamic> json) {
+  Providers.fromJson(Map<String, dynamic> json) {
     displayPriority = json['display_priority'];
     logoPath = json['logo_path'];
     providerId = json['provider_id'];
@@ -231,6 +247,61 @@ class Rent {
     return data;
   }
 }
+
+/*class AR {
+  String link;
+  List<Providers> providers;
+
+  AR({this.link, this.providers});
+
+  AR.fromJson(Map<String, dynamic> json) {
+    link = json['link'];
+    if (json['providers'] != null) {
+      providers = new List<Providers>();
+      json['providers'].forEach((v) {
+        providers.add(new Providers.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['link'] = this.link;
+    if (this.providers != null) {
+      data['providers'] = this.providers.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Providers {
+  int displayPriority;
+  String logoPath;
+  int providerId;
+  String providerName;
+
+  Providers(
+      {this.displayPriority,
+      this.logoPath,
+      this.providerId,
+      this.providerName});
+
+  Providers.fromJson(Map<String, dynamic> json) {
+    displayPriority = json['display_priority'];
+    logoPath = json['logo_path'];
+    providerId = json['provider_id'];
+    providerName = json['provider_name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['display_priority'] = this.displayPriority;
+    data['logo_path'] = this.logoPath;
+    data['provider_id'] = this.providerId;
+    data['provider_name'] = this.providerName;
+    return data;
+  }
+}*/
 
 /*class JP {
   String link;

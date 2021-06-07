@@ -1,4 +1,6 @@
 import 'package:ciak_time/components/cast_list.dart';
+import 'package:ciak_time/components/movie_cast_list.dart';
+import 'package:ciak_time/components/watch_providers_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -102,7 +104,8 @@ class _MovieDetailsState extends State<MovieDetails> {
                           ),
                         ),
                         SizedBox(height: size.height * 0.01),
-                        Container(
+                        WatchProvidersList(),
+                        /*Container(
                           height: size.width * 0.1,
                           width: size.width * 0.1,
                           decoration: BoxDecoration(
@@ -120,7 +123,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                               ),
                             ],
                           ),
-                        ),
+                        ),*/
                       ],
                     ),
                   ),
@@ -150,14 +153,14 @@ class _MovieDetailsState extends State<MovieDetails> {
                             assertIcon: "assets/icons/actor.svg"),
                         SizedBox(height: size.height * 0.005),
                         Container(
-                            height: size.height * 0.18, child: CastList()),
+                            height: size.height * 0.18, child: MovieCastList()),
                         IconTextBold(
                             size: size,
                             label: "Movie director",
                             assertIcon: "assets/icons/director.svg"),
                         SizedBox(height: size.height * 0.005),
                         Container(
-                            height: size.height * 0.18, child: CastList()),
+                            height: size.height * 0.18, child: MovieCastList()),
                       ],
                     ),
                   ),

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
+import 'package:ciak_time/models/movie_cast_model.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
 import 'package:ciak_time/models/movie_model.dart';
@@ -26,5 +27,6 @@ class Repository {
       moviesApiProvider.fetchMovieDetailsList(movieId);
   Future<WatchProvidersModel> fetchWatchProvidersResults(movieId) =>
       moviesApiProvider.fetchWatchProvidersList(movieId);
-    
+  Future<MovieCastModel> fetchMovieCastResults(movieId) =>
+      moviesApiProvider.fetchMovieCastList(movieId);
 }

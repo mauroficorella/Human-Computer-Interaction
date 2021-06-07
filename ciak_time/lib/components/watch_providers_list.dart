@@ -1,0 +1,67 @@
+import 'package:ciak_time/blocs/watch_providers_bloc.dart';
+
+import 'package:ciak_time/constants.dart';
+
+import 'package:ciak_time/models/watch_providers_model.dart';
+import 'package:flutter/material.dart';
+
+class WatchProvidersList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    final bloc = WatchProvidersBloc(movieSelected.id.toString());
+    bloc.fetchWatchProvidersResults();
+    return StreamBuilder(
+      stream: bloc.watchProviders,
+      builder: (context, AsyncSnapshot<WatchProvidersModel> snapshot) {
+        if (snapshot.hasData) {
+          return buildList(snapshot, size);
+        } else if (snapshot.hasError) {
+          return Text(snapshot.error.toString());
+        }
+
+        return Center(
+            child: CircularProgressIndicator(
+          //backgroundColor: Colors.amber,
+          color: Colors.amber,
+        ));
+      },
+    );
+  }
+
+  Widget buildList(AsyncSnapshot<WatchProvidersModel> snapshot, size) {
+    return Container(
+      height: size.width * 0.1,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: snapshot.data.results.iT.providers.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Row(
+              children: [
+                Container(
+                  //height: size.width * 0.1,
+                  width: size.width * 0.1,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://image.tmdb.org/t/p/original${snapshot.data.results.iT.providers[index].logoPath}'),
+                    ),
+                    //fit: BoxFit.cover),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 7,
+                        offset: Offset(0, 4), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: size.width * 0.02),
+              ],
+            );
+          }),
+    );
+  }
+}
