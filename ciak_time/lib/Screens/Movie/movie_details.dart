@@ -1,5 +1,6 @@
 import 'package:ciak_time/components/cast_list.dart';
 import 'package:ciak_time/components/movie_cast_list.dart';
+import 'package:ciak_time/components/movie_directors_list.dart';
 import 'package:ciak_time/components/watch_providers_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
@@ -160,7 +161,8 @@ class _MovieDetailsState extends State<MovieDetails> {
                             assertIcon: "assets/icons/director.svg"),
                         SizedBox(height: size.height * 0.005),
                         Container(
-                            height: size.height * 0.18, child: MovieCastList()),
+                            height: size.height * 0.18,
+                            child: MovieDirectorsList()),
                       ],
                     ),
                   ),

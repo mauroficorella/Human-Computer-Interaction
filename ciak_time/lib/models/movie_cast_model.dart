@@ -1,20 +1,28 @@
 class MovieCastModel {
   int id;
   List<Cast> cast;
+  List<Cast> directors;
   List<Crew> crew;
 
   MovieCastModel({this.id, this.cast, this.crew});
 
   MovieCastModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    //print(json['cast'][0].values.toList()[3]);
     if (json['cast'] != null) {
-      cast = new List<Cast>();
+      cast = [];
+      directors = [];
       json['cast'].forEach((v) {
-        cast.add(new Cast.fromJson(v));
+        if (v.values.toList()[3] == 'Acting') {
+          cast.add(new Cast.fromJson(v));
+        }
+        if (v.values.toList()[3] == 'Directing') {
+          directors.add(new Cast.fromJson(v));
+        }
       });
     }
     if (json['crew'] != null) {
-      crew = new List<Crew>();
+      crew = [];
       json['crew'].forEach((v) {
         crew.add(new Crew.fromJson(v));
       });
@@ -24,9 +32,9 @@ class MovieCastModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
+    //print(data['cast'][0].values.toList()[3]);
     if (this.cast != null) {
       data['cast'] = this.cast.map((v) => v.toJson()).toList();
-      
     }
     if (this.crew != null) {
       data['crew'] = this.crew.map((v) => v.toJson()).toList();
