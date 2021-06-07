@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage>
     if (notification.depth == 0) {
       if (notification is UserScrollNotification) {
         final UserScrollNotification userScroll = notification;
-        switch (userScroll.direction) {
+        /* switch (userScroll.direction) {
           case ScrollDirection.forward:
             _hide.forward();
             break;
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage>
             break;
           case ScrollDirection.idle:
             break;
-        }
+        }*/
       }
     }
     return false;

@@ -32,19 +32,34 @@ class MovieDirectorsList extends StatelessWidget {
   }
 
   Widget buildList(AsyncSnapshot<MovieCastModel> snapshot, size) {
-    return Container(
-      height: size.height * 0.26,
-      //color: Colors.amber,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: snapshot.data.directors.length,
-          itemBuilder: (BuildContext context, int index) {
-            return CastCard(
-              imageUrl:
-                  'https://image.tmdb.org/t/p/original${snapshot.data.directors[index].profilePath}',
-              personName: snapshot.data.directors[index].name,
-            );
-          }),
-    );
+    print(snapshot.data.directors);
+
+    if (snapshot.data.directors.length != 0) {
+      print("Sono nell'if");
+      return Container(
+        height: size.height * 0.26,
+        //color: Colors.amber,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: snapshot.data.directors.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CastCard(
+                imageUrl:
+                    'https://image.tmdb.org/t/p/original${snapshot.data.directors[index].profilePath}',
+                personName: snapshot.data.directors[index].name,
+              );
+            }),
+      );
+    } else {
+      print("Sono nell'else");
+      return Text(
+        "No movie director available",
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: size.height * 0.02,
+          fontFamily: 'Quicksand-Regular',
+        ),
+      );
+    }
   }
 }

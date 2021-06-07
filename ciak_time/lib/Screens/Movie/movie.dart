@@ -166,7 +166,8 @@ class _MovieState extends State<Movie> {
                           ),
                           Container(
                             child: Text(
-                              movieSelected.overview,
+                              getOverview(),
+
                               //"Un giovane hobbit e un variegato gruppo, composto da umani, un nano, un elfo e altri hobbit, partono per un delicata missione, guidati dal potente mago Gandalf. ",
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
@@ -244,7 +245,8 @@ class _MovieState extends State<Movie> {
                           Row(
                             children: [
                               RatingUnclickable(
-                                  unratedColor: Colors.grey.withOpacity(0.5)),
+                                  unratedColor: Colors.grey.withOpacity(0.5),
+                                  rate: movieSelected.voteAverage),
                               SizedBox(width: size.width * 0.03),
                               Text(
                                 "Numero",
@@ -272,6 +274,15 @@ class _MovieState extends State<Movie> {
   }
 }
 
+String getOverview() {
+  print("Overview: " + movieSelected.overview);
+  if (movieSelected.overview != null) {
+    return movieSelected.overview;
+  } else {
+    return "Unknown";
+  }
+}
+
 class MovieCover extends StatelessWidget {
   const MovieCover({
     Key key,
@@ -284,6 +295,7 @@ class MovieCover extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = MovieImagesBloc(movieSelected.id.toString());
     bloc.fetchMovieImagesResults();
+
     return StreamBuilder(
       stream: bloc.moviesImages,
       builder: (context, AsyncSnapshot<MovieImagesModel> snapshot) {
@@ -323,6 +335,21 @@ class MovieCover extends StatelessWidget {
   }
 
   Widget buildCover(AsyncSnapshot<MovieImagesModel> snapshot, size) {
+    String imagePath;
+    if (snapshot.data.backdrops.length != 0) {
+      //imagePath = snapshot.data.backdrops[0].filePath;
+      imagePath =
+          'https://image.tmdb.org/t/p/original${snapshot.data.backdrops[0].filePath}';
+    } else if (snapshot.data.posters.length != 0) {
+      imagePath =
+          'https://image.tmdb.org/t/p/original${snapshot.data.posters[0].filePath}';
+      //imagePath =
+    } else {
+      imagePath =
+          //"https://lh3.googleusercontent.com/proxy/-tJZj9wqcieT716gYHDAt8fS8ItBKqBhSJhmgprXrO5Pqae90gHAIxuZt0xTIcmXvqecIu84xMsu1bu56S-VpYboyJDMaRPt";
+          //"https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg";
+          "https://cdn.hipwallpaper.com/i/59/45/2QvigJ.jpg";
+    }
     return Column(
       children: [
         Container(
@@ -332,7 +359,8 @@ class MovieCover extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
-                'https://image.tmdb.org/t/p/original${snapshot.data.backdrops[0].filePath}',
+                imagePath,
+                //'https://image.tmdb.org/t/p/original${imagePath}',
               ),
               //"http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
               fit: BoxFit.cover,
@@ -391,20 +419,39 @@ class MovieCover extends StatelessWidget {
 }
 
 String durationToString(int minutes) {
-  var d = Duration(minutes: minutes);
-  List<String> parts = d.toString().split(':');
-  return '${parts[0]} h ${parts[1].padLeft(2, '0')} min';
+  print("minutes: " + minutes.toString());
+  if (minutes != null) {
+    var d = Duration(minutes: minutes);
+    List<String> parts = d.toString().split(':');
+    return '${parts[0]} h ${parts[1].padLeft(2, '0')} min';
+  } else {
+    return "Unknown";
+  }
 }
 
 String getGenresNames(List<Genres> genres) {
-  String allGenres = '';
-  for (var i = 0; i < genres.length; i++) {
-    allGenres = allGenres + genres[i].name;
-    if (i != genres.length - 1) {
-      allGenres = allGenres + ", ";
+  print("genres: " + genres.toString());
+  if (genres.length != 0) {
+    String allGenres = '';
+    for (var i = 0; i < genres.length; i++) {
+      allGenres = allGenres + genres[i].name;
+      if (i != genres.length - 1) {
+        allGenres = allGenres + ", ";
+      }
     }
+    return allGenres;
+  } else {
+    return "Genre: Unknown";
   }
-  return allGenres;
+}
+
+String getReleaseDate() {
+  print("release date: " + movieSelected.releaseDate);
+  if (movieSelected.releaseDate.toString() != "") {
+    return movieSelected.releaseDate;
+  } else {
+    return "Date: Unknown";
+  }
 }
 
 class MovieBasicInfo extends StatelessWidget {
@@ -448,7 +495,8 @@ class MovieBasicInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                movieSelected.releaseDate,
+                getReleaseDate(),
+
                 //DateFormat.dMMMy(movieSelected.releaseDate).toString(), //TODO
                 //"Date",
                 style: TextStyle(
@@ -482,7 +530,7 @@ class MovieBasicInfo extends StatelessWidget {
           height: size.height * 0.015,
         ),
         Text(
-          getGenresNames(snapshot.data.genres), //TODO 
+          getGenresNames(snapshot.data.genres), //TODO
           //snapshot.data.genres.length.toString(),
           //"Genre",
           style: TextStyle(

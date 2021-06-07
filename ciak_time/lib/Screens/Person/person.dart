@@ -117,9 +117,10 @@ class _PersonState extends State<Person> {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: 4,
                       itemBuilder: (BuildContext context, int index) => Padding(
-                        padding: const EdgeInsets.all(3.0),
-                        child: MovieCard(size: size,)
-                      ),
+                          padding: const EdgeInsets.all(3.0),
+                          child: MovieCard(
+                            size: size,
+                          )),
                     ),
                   ],
                 ),
@@ -168,7 +169,9 @@ class MovieCard extends StatelessWidget {
                 fontFamily: 'Quicksand-Regular',
               ),
             ),
-            RatingUnclickable(unratedColor: Colors.grey,) //TODO passare parametri stelle
+            RatingUnclickable(
+                unratedColor: Colors.grey,
+                rate: 2.0) //TODO passare parametri stelle
           ],
         ),
       ],

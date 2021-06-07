@@ -30,15 +30,18 @@ class RatingWidget extends StatelessWidget {
 
 class RatingUnclickable extends StatelessWidget {
   const RatingUnclickable({
-    Key key, @required this.unratedColor,
+    Key key,
+    @required this.unratedColor,
+    @required this.rate,
   }) : super(key: key);
 
   final Color unratedColor;
+  final double rate;
 
   @override
   Widget build(BuildContext context) {
     return RatingBarIndicator(
-      rating: 4,
+      rating: rate / 2,
       itemBuilder: (context, index) => Icon(
         Icons.star,
         color: Colors.amber,

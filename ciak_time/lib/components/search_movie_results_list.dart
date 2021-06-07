@@ -1,5 +1,6 @@
 import 'package:ciak_time/blocs/search_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
+import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
@@ -39,7 +40,32 @@ class SearchMovieResultsList extends StatelessWidget {
     );
   }
 
+  Widget returnImage(snapshot, index, size) {
+    if (snapshot.data.results[index].posterPath != null) {
+      return Container(
+        height: size.width * 0.45,
+        width: size.width * 0.25,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(5),
+          child: Image.network(
+            'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
+    } else {
+      print(snapshot.data.results[index].title);
+      return Container(
+          height: size.width * 0.45,
+          width: size.width * 0.25,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5), color: Colors.grey),
+          child: Icon(Icons.image));
+    }
+  }
+
   Widget buildList(AsyncSnapshot<MovieModel> snapshot, size) {
+    //snapshot.data.results[]
     return Padding(
       padding: EdgeInsets.only(top: size.height * 0.08),
       child: ListView.builder(
@@ -55,21 +81,32 @@ class SearchMovieResultsList extends StatelessWidget {
 
                       //contentPadding: EdgeInsets.all(25),
                       children: <Widget>[
-                        Image.network(
+                        returnImage(snapshot, index, size),
+                        /*Image.network(
                           'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
                           fit: BoxFit.cover,
-                        ),
+                        ),*/
                         SizedBox(width: size.width * 0.04),
                         Container(
                           width: size.width * 0.6,
-                          child: Text(
-                            snapshot.data.results[index].title,
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: size.height * 0.025,
-                              fontFamily: 'Quicksand',
-                              fontWeight: FontWeight.bold,
-                            ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                snapshot.data.results[index].title,
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: size.height * 0.025,
+                                  fontFamily: 'Quicksand',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              RatingUnclickable(
+                                  unratedColor: Colors.grey,
+                                  rate:
+                                      snapshot.data.results[index].voteAverage),
+                            ],
                           ),
                         ),
                       ]),

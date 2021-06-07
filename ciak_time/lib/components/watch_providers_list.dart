@@ -30,38 +30,49 @@ class WatchProvidersList extends StatelessWidget {
   }
 
   Widget buildList(AsyncSnapshot<WatchProvidersModel> snapshot, size) {
-    return Container(
-      height: size.width * 0.1,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: snapshot.data.results.iT.providers.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Row(
-              children: [
-                Container(
-                  //height: size.width * 0.1,
-                  width: size.width * 0.1,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          'https://image.tmdb.org/t/p/original${snapshot.data.results.iT.providers[index].logoPath}'),
-                    ),
-                    //fit: BoxFit.cover),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0, 4), // changes position of shadow
+    if (snapshot.data.results.iT != null) {
+      return Container(
+        height: size.width * 0.1,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: snapshot.data.results.iT.providers.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Row(
+                children: [
+                  Container(
+                    //height: size.width * 0.1,
+                    width: size.width * 0.1,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                            'https://image.tmdb.org/t/p/original${snapshot.data.results.iT.providers[index].logoPath}'),
                       ),
-                    ],
+                      //fit: BoxFit.cover),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 7,
+                          offset: Offset(0, 4), // changes position of shadow
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(width: size.width * 0.02),
-              ],
-            );
-          }),
-    );
+                  SizedBox(width: size.width * 0.02),
+                ],
+              );
+            }),
+      );
+    } else {
+      return Text(
+        "No providers available",
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: size.height * 0.02,
+          fontFamily: 'Quicksand-Regular',
+        ),
+      );
+    }
   }
 }
