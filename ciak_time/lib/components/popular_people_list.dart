@@ -4,9 +4,6 @@ import 'package:ciak_time/components/person_card.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class PopularPeopleList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,6 +27,23 @@ class PopularPeopleList extends StatelessWidget {
     );
   }
 
+  Widget returnImage(snapshot, index, size) {
+    if (snapshot.data.results[index].profilePath != null) {
+      return PersonCard(
+        imageUrl:
+            'https://image.tmdb.org/t/p/original${snapshot.data.results[index].profilePath}',
+        personName: snapshot.data.results[index].name,
+      );
+    } else {
+      //print(snapshot.data.results[index].title);
+      return PersonCard(
+        imageUrl:
+            'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif',
+        personName: snapshot.data.results[index].name,
+      );
+    }
+  }
+
   Widget buildList(AsyncSnapshot<PersonModel> snapshot, size) {
     return Container(
       height: size.height * 0.26,
@@ -38,11 +52,7 @@ class PopularPeopleList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.results.length,
           itemBuilder: (BuildContext context, int index) {
-            return PersonCard(
-              imageUrl:
-                  'https://image.tmdb.org/t/p/original${snapshot.data.results[index].profilePath}',
-              personName: snapshot.data.results[index].name,
-            );
+            return returnImage(snapshot, index, size);
           }),
     );
   }

@@ -1,3 +1,6 @@
+import 'package:ciak_time/components/list_card.dart';
+import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,6 +14,7 @@ class CardList extends StatelessWidget {
     this.number,
     this.height,
     this.width,
+    this.movieSelected, this.list,
   }) : super(key: key);
 
   final Size size;
@@ -20,6 +24,8 @@ class CardList extends StatelessWidget {
   final int number;
   final double height;
   final double width;
+  final Results movieSelected;
+  final List<Results> list;
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +58,10 @@ class CardList extends StatelessWidget {
             itemCount: number,
             itemBuilder: (BuildContext context, int index) => Padding(
               padding: const EdgeInsets.all(3.0),
-              child: Card(
-                color: Colors.amber,
-                child: Center(
-                  child: Text('Dummy Card Text'),
-                ),
+              child: ListCard(
+                movieTitle: list[index].title,
+                imageUrl:
+                    'https://image.tmdb.org/t/p/original${list[index].posterPath}',
               ),
             ),
           ),

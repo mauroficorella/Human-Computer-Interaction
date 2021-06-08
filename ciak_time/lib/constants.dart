@@ -37,6 +37,11 @@ Color applyTextColor = Colors.grey;
 
 Results movieSelected;
 
+List<Results> watchList = [];
+List<Results> alreadyWatchedList = [];
+List<Results> favouriteList = [];
+
+String watchListTitle = "Add to watchlist";
 
 //TODO LINKARE GOOGLE E FB
 //TODO LEVARE IL BACK TRAMITE GESTURE DOVE NON E' PREVISTO

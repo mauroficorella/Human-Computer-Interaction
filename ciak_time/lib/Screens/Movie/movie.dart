@@ -9,6 +9,7 @@ import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Movie extends StatefulWidget {
   @override
@@ -275,7 +276,7 @@ class _MovieState extends State<Movie> {
 }
 
 String getOverview() {
-  print("Overview: " + movieSelected.overview);
+  //print("Overview: " + movieSelected.overview);
   if (movieSelected.overview != null) {
     return movieSelected.overview;
   } else {
@@ -419,7 +420,7 @@ class MovieCover extends StatelessWidget {
 }
 
 String durationToString(int minutes) {
-  print("minutes: " + minutes.toString());
+  //print("minutes: " + minutes.toString());
   if (minutes != null) {
     var d = Duration(minutes: minutes);
     List<String> parts = d.toString().split(':');
@@ -430,7 +431,7 @@ String durationToString(int minutes) {
 }
 
 String getGenresNames(List<Genres> genres) {
-  print("genres: " + genres.toString());
+  //print("genres: " + genres.toString());
   if (genres.length != 0) {
     String allGenres = '';
     for (var i = 0; i < genres.length; i++) {
@@ -446,7 +447,7 @@ String getGenresNames(List<Genres> genres) {
 }
 
 String getReleaseDate() {
-  print("release date: " + movieSelected.releaseDate);
+  //print("release date: " + movieSelected.releaseDate);
   if (movieSelected.releaseDate.toString() != "") {
     return movieSelected.releaseDate;
   } else {
@@ -621,6 +622,15 @@ class InsertReviewBtn extends StatelessWidget {
   }
 }
 
+String getTitle() {
+  if (watchList.contains(movieSelected)) {
+    watchListTitle = "Remove from watchlist";
+  } else {
+    watchListTitle = "Add to watchlist";
+  }
+  return watchListTitle;
+}
+
 class AddButton extends StatelessWidget {
   const AddButton({
     Key key,
@@ -675,11 +685,28 @@ class AddButton extends StatelessWidget {
                             height: size.height * 0.04,
                           ),
                           TextButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              if (watchListTitle == "Remove from watchlist") {
+                                watchList.remove(movieSelected);
+                              } else {
+                                watchList.add(movieSelected);
+                                Fluttertoast.showToast(
+                                  msg: movieSelected.title +
+                                      " added to watchlist",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 2,
+                                  backgroundColor: kPrimaryLightColor,
+                                  textColor: Colors.black,
+                                  fontSize: 16.0,
+                                );
+                                Navigator.pop(context);
+                              }
+                            },
                             icon: SvgPicture.asset("assets/icons/list.svg",
                                 height: size.height * 0.03),
                             label: Text(
-                              "Watchlist",
+                              getTitle(),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,
@@ -699,7 +726,9 @@ class AddButton extends StatelessWidget {
                             ),
                           ),
                           TextButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              favouriteList.add(movieSelected);
+                            },
                             icon: Icon(
                               Icons.favorite,
                               color: Colors.red,

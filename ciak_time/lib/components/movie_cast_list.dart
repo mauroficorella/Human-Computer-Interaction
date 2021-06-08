@@ -1,10 +1,7 @@
 import 'package:ciak_time/blocs/movie_cast_bloc.dart';
-import 'package:ciak_time/blocs/popular_person_bloc.dart';
 import 'package:ciak_time/components/cast_card.dart';
-import 'package:ciak_time/components/person_card.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie_cast_model.dart';
-import 'package:ciak_time/models/person_model.dart';
 import 'package:flutter/material.dart';
 
 class MovieCastList extends StatelessWidget {
@@ -31,6 +28,23 @@ class MovieCastList extends StatelessWidget {
     );
   }
 
+  Widget returnImage(snapshot, index, size) {
+    if (snapshot.data.cast[index].profilePath != null) {
+      return CastCard(
+        imageUrl:
+            'https://image.tmdb.org/t/p/original${snapshot.data.cast[index].profilePath}',
+        personName: snapshot.data.cast[index].name,
+      );
+    } else {
+      //print(snapshot.data.results[index].title);
+      return CastCard(
+        imageUrl:
+            'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif',
+        personName: snapshot.data.cast[index].name,
+      );
+    }
+  }
+
   Widget buildList(AsyncSnapshot<MovieCastModel> snapshot, size) {
     return Container(
       height: size.height * 0.26,
@@ -39,11 +53,7 @@ class MovieCastList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.cast.length,
           itemBuilder: (BuildContext context, int index) {
-            return CastCard(
-              imageUrl:
-                  'https://image.tmdb.org/t/p/original${snapshot.data.cast[index].profilePath}',
-              personName: snapshot.data.cast[index].name,
-            );
+            return returnImage(snapshot, index, size);
           }),
     );
   }

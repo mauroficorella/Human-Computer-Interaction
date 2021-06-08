@@ -54,7 +54,7 @@ class SearchMovieResultsList extends StatelessWidget {
         ),
       );
     } else {
-      print(snapshot.data.results[index].title);
+      //print(snapshot.data.results[index].title);
       return Container(
           height: size.width * 0.45,
           width: size.width * 0.25,
@@ -113,7 +113,7 @@ class SearchMovieResultsList extends StatelessWidget {
                 ),
                 onTap: () {
                   movieSelected = snapshot.data.results[index];
-                  debugPrint(movieSelected.title);
+                  //debugPrint(movieSelected.title);
                   Navigator.pushNamed(context, '/movie');
                   FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
                 },

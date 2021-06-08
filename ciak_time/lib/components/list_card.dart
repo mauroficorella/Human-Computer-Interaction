@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MovieCard extends StatelessWidget {
-  const MovieCard({
+class ListCard extends StatelessWidget {
+  const ListCard({
     Key key,
     @required this.imageUrl,
     @required this.movieTitle,
@@ -16,13 +16,14 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Card(
           child: Stack(
             children: [
               Container(
-                height: size.width * 0.45,
-                width: size.width * 0.3,
+                height: size.width * 0.3,
+                width: size.width * 0.2,
                 //width: 50.0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
@@ -35,7 +36,7 @@ class MovieCard extends StatelessWidget {
               Positioned(
                 bottom: 2.0,
                 child: Container(
-                  width: size.width * 0.28,
+                  width: size.width * 0.18,
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -74,4 +75,3 @@ class MovieCard extends StatelessWidget {
     );
   }
 }
-

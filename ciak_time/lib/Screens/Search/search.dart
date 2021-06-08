@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-
 class Search extends StatefulWidget {
   @override
   _SearchState createState() => _SearchState();
@@ -140,6 +139,7 @@ class _SearchState extends State<Search> {
           onQueryChanged: (query) {
             setState(() {
               filteredSearchHistory = filterSearchTerms(filter: query);
+              selectedTerm = query;
               content = new SearchResultsListView(searchTerm: query);
               //start showing results
             });
@@ -172,6 +172,7 @@ class _SearchState extends State<Search> {
               );
             }*/
           },
+
           body: new Container(
             child: content,
           ),

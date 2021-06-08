@@ -2,6 +2,7 @@ import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/user_settings.dart';
 import 'package:ciak_time/components/card_list.dart';
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
 class User extends StatefulWidget {
@@ -103,25 +104,29 @@ class _UserState extends State<User> {
                       size: size,
                       title: "Watchlist",
                       assetName: "assets/icons/list.svg",
-                      number: 3,
-                      height: size.height * 0.15,
+                      number: watchList.length,
+                      height: size.height * 0.16,
                       width: size.width * 0.035,
+                      movieSelected: movieSelected,
+                      list: watchList,
                     ),
                     CardList(
                       size: size,
                       title: "Already watched",
                       assetName: "assets/icons/check.svg",
-                      number: 3,
-                      height: size.height * 0.15,
+                      number: alreadyWatchedList.length,
+                      height: size.height * 0.16,
                       width: size.width * 0.035,
+                      list: alreadyWatchedList,
                     ),
                     CardList(
                       size: size,
                       title: "Favourite",
                       assetName: "assets/icons/heart-red.svg",
-                      number: 3,
-                      height: size.height * 0.15,
+                      number: favouriteList.length,
+                      height: size.height * 0.16,
                       width: size.width * 0.035,
+                      list: favouriteList,
                     ),
                   ],
                 ),

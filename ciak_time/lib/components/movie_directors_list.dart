@@ -31,11 +31,28 @@ class MovieDirectorsList extends StatelessWidget {
     );
   }
 
+  Widget returnImage(snapshot, index, size) {
+    if (snapshot.data.directors[index].profilePath != null) {
+      return CastCard(
+        imageUrl:
+            'https://image.tmdb.org/t/p/original${snapshot.data.directors[index].profilePath}',
+        personName: snapshot.data.directors[index].name,
+      );
+    } else {
+      //print(snapshot.data.results[index].title);
+      return CastCard(
+        imageUrl:
+            'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif',
+        personName: snapshot.data.directors[index].name,
+      );
+    }
+  }
+
   Widget buildList(AsyncSnapshot<MovieCastModel> snapshot, size) {
-    print(snapshot.data.directors);
+    //print(snapshot.data.directors);
 
     if (snapshot.data.directors.length != 0) {
-      print("Sono nell'if");
+      //print("Sono nell'if");
       return Container(
         height: size.height * 0.26,
         //color: Colors.amber,
@@ -43,15 +60,11 @@ class MovieDirectorsList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: snapshot.data.directors.length,
             itemBuilder: (BuildContext context, int index) {
-              return CastCard(
-                imageUrl:
-                    'https://image.tmdb.org/t/p/original${snapshot.data.directors[index].profilePath}',
-                personName: snapshot.data.directors[index].name,
-              );
+              return returnImage(snapshot, index, size);
             }),
       );
     } else {
-      print("Sono nell'else");
+      //print("Sono nell'else");
       return Text(
         "No movie director available",
         style: TextStyle(

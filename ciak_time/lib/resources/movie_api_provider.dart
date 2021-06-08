@@ -60,7 +60,7 @@ class MovieApiProvider {
   Future<MovieModel> fetchSearchResultsList(queryString) async {
     //print("entered");
     final response = await client.get(Uri.parse(
-        "https://api.themoviedb.org/3/search/movie?api_key=$_apiKey&query=$queryString&include_adult=false"));
+        "https://api.themoviedb.org/3/search/movie?api_key=$_apiKey&query=$queryString&include_adult=true"));
 
     //print(response.body.toString());
     if (response.statusCode == 200) {
