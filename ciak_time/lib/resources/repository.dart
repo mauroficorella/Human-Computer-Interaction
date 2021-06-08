@@ -1,10 +1,12 @@
 import 'dart:async';
-import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/models/movie_cast_model.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
 import 'package:ciak_time/models/movie_model.dart';
+import 'package:ciak_time/models/person_details_model.dart';
 import 'package:ciak_time/models/person_model.dart';
+import 'package:ciak_time/models/person_movies_model.dart';
+import 'package:ciak_time/models/reviews_model.dart';
 import 'package:ciak_time/models/watch_providers_model.dart';
 
 import 'movie_api_provider.dart';
@@ -29,4 +31,10 @@ class Repository {
       moviesApiProvider.fetchWatchProvidersList(movieId);
   Future<MovieCastModel> fetchMovieCastResults(movieId) =>
       moviesApiProvider.fetchMovieCastList(movieId);
+  Future<PersonDetailsModel> fetchPersonDetailsResults(personId) =>
+      moviesApiProvider.fetchPersonDetails(personId);
+  Future<PersonMoviesModel> fetchPersonMoviesResults(personId) =>
+      moviesApiProvider.fetchPersonMoviesList(personId);
+  Future<ReviewsModel> fetchReviewsResults(movieId) =>
+      moviesApiProvider.fetchReviewsList(movieId);
 }

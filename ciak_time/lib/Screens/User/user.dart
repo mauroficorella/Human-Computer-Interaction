@@ -23,24 +23,19 @@ class _UserState extends State<User> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              
-
               Navigator.pushNamed(context, '/settings');
             },
             child: Row(
               children: [
-                
                 Text(
                   "Settings",
                   style: TextStyle(
                     color: Colors.amber,
-                    
                   ),
                 ),
               ],
             ),
           ),
-          
         ],
       ),
       body: SafeArea(
@@ -80,7 +75,7 @@ class _UserState extends State<User> {
                       title: "Watchlist",
                       assetName: "assets/icons/list.svg",
                       number: watchList.length,
-                      height: size.height * 0.16,
+                      height: size.height * 0.17,
                       width: size.width * 0.035,
                       list: watchList,
                     ),
@@ -89,7 +84,7 @@ class _UserState extends State<User> {
                       title: "Already watched",
                       assetName: "assets/icons/check.svg",
                       number: alreadyWatchedList.length,
-                      height: size.height * 0.16,
+                      height: size.height * 0.17,
                       width: size.width * 0.035,
                       list: alreadyWatchedList,
                     ),
@@ -98,7 +93,7 @@ class _UserState extends State<User> {
                       title: "Favourite",
                       assetName: "assets/icons/heart-red.svg",
                       number: favouriteList.length,
-                      height: size.height * 0.16,
+                      height: size.height * 0.17,
                       width: size.width * 0.035,
                       list: favouriteList,
                     ),

@@ -2,7 +2,10 @@ import 'dart:async';
 import 'package:ciak_time/models/movie_cast_model.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
+import 'package:ciak_time/models/person_details_model.dart';
 import 'package:ciak_time/models/person_model.dart';
+import 'package:ciak_time/models/person_movies_model.dart';
+import 'package:ciak_time/models/reviews_model.dart';
 import 'package:ciak_time/models/watch_providers_model.dart';
 import 'package:http/http.dart' show Client;
 import 'dart:convert';
@@ -23,7 +26,7 @@ class MovieApiProvider {
       return MovieModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load popular movies');
     }
   }
 
@@ -38,7 +41,7 @@ class MovieApiProvider {
       return MovieModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load upcoming movies');
     }
   }
 
@@ -53,7 +56,7 @@ class MovieApiProvider {
       return PersonModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load popular people');
     }
   }
 
@@ -68,7 +71,7 @@ class MovieApiProvider {
       return MovieModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load search results');
     }
   }
 
@@ -82,7 +85,7 @@ class MovieApiProvider {
       return MovieImagesModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load movie images');
     }
   }
 
@@ -95,7 +98,7 @@ class MovieApiProvider {
       return MovieDetailsModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load movie details');
     }
   }
 
@@ -109,7 +112,7 @@ class MovieApiProvider {
       return WatchProvidersModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load watch providers');
     }
   }
 
@@ -123,7 +126,49 @@ class MovieApiProvider {
       return MovieCastModel.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load movie cast');
+    }
+  }
+
+  Future<PersonDetailsModel> fetchPersonDetails(personId) async {
+    final response = await client.get(Uri.parse(
+        "https://api.themoviedb.org/3/person/$personId?api_key=$_apiKey&language=en-US"));
+
+    //print(response.body.toString());
+    if (response.statusCode == 200) {
+      // If the call to the server was successful, parse the JSON
+      return PersonDetailsModel.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load person details');
+    }
+  }
+
+  Future<PersonMoviesModel> fetchPersonMoviesList(personId) async {
+    final response = await client.get(Uri.parse(
+        "https://api.themoviedb.org/3/person/$personId/movie_credits?api_key=$_apiKey&language=en-US"));
+
+    //print(response.body.toString())
+    if (response.statusCode == 200) {
+      // If the call to the server was successful, parse the JSON
+      return PersonMoviesModel.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load person movies');
+    }
+  }
+
+  Future<ReviewsModel> fetchReviewsList(movieId) async {
+    final response = await client.get(Uri.parse(
+        "https://api.themoviedb.org/3/movie/$movieId/reviews?api_key=$_apiKey&language=en-US"));
+
+    //print(response.body.toString());
+    if (response.statusCode == 200) {
+      // If the call to the server was successful, parse the JSON
+      return ReviewsModel.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load reviews');
     }
   }
 }

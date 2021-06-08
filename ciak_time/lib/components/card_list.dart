@@ -83,8 +83,10 @@ class CardList extends StatelessWidget {
             label: Icon(Icons.arrow_forward, color: kPrimaryColor),
             icon: Container(
               width: size.width * 0.11,
+              //width: size.width * 0.15,
               child: Text(
                 "View all",
+                //textAlign: TextAlign.end,
                 style: TextStyle(
                     color: kPrimaryColor,
                     fontSize: size.height * 0.02,
