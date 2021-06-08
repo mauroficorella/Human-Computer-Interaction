@@ -40,8 +40,18 @@ class RatingUnclickable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double value;
+    print("rate: " + rate.toString());
+    if (rate == null || rate == 0.0) {
+      print("ciao");
+      
+      value = 0.0;
+    } else {
+      value = rate / 2;
+    }
+
     return RatingBarIndicator(
-      rating: rate / 2,
+      rating: value,
       itemBuilder: (context, index) => Icon(
         Icons.star,
         color: Colors.amber,

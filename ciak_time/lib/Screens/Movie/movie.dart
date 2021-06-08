@@ -350,12 +350,14 @@ class MovieCover extends StatelessWidget {
 }
 
 String durationToString(int minutes) {
-  //print("minutes: " + minutes.toString());
+  print("minutes: " + minutes.toString());
   if (minutes != null) {
+    print("if della durata");
     var d = Duration(minutes: minutes);
     List<String> parts = d.toString().split(':');
     return '${parts[0]} h ${parts[1].padLeft(2, '0')} min';
   } else {
+    print("else della durata");
     return "Unknown";
   }
 }
@@ -377,9 +379,12 @@ String getGenresNames(List<Genres> genres) {
 }
 
 String getReleaseDate() {
-  //print("release date: " + movieSelected.releaseDate);
-  if (movieSelected.releaseDate.toString() != "") {
+  print("Inside getReleaseData. release date: " + movieSelected.releaseDate);
+  if (movieSelected.releaseDate.toString() != "" ||
+      movieSelected.releaseDate != null) {
     return movieSelected.releaseDate;
+  } else if (movieSelected.releaseDate.toString() == "") {
+    return "Date: Unknown";
   } else {
     return "Date: Unknown";
   }
@@ -417,6 +422,7 @@ class MovieBasicInfo extends StatelessWidget {
   }
 
   Widget buildDetails(AsyncSnapshot<MovieDetailsModel> snapshot, size) {
+    //print("CIAO MAREEEEEEEELLLLLLLLLLLL" + movieSelected.releaseDate);
     return Column(
       children: [
         Container(
@@ -426,6 +432,7 @@ class MovieBasicInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
+                //"prova",
                 getReleaseDate(),
                 style: TextStyle(
                   color: Colors.black,
@@ -632,7 +639,7 @@ class AddButton extends StatelessWidget {
                   builder: (context, setState) {
                     return Container(
                       width: size.width * 0.8,
-                      height: size.height * 0.21,
+                      height: size.height * 0.22,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
