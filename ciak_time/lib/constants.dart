@@ -42,6 +42,8 @@ List<Results> alreadyWatchedList = [];
 List<Results> favouriteList = [];
 
 String watchListTitle = "Add to watchlist";
+String alreadyWatchedListTitle = "Add to already watched list";
+String favouriteListTitle = "Add to favourite list";
 
 //TODO LINKARE GOOGLE E FB
 //TODO LEVARE IL BACK TRAMITE GESTURE DOVE NON E' PREVISTO

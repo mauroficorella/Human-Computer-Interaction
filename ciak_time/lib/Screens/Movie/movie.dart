@@ -78,7 +78,6 @@ class _MovieState extends State<Movie> {
                     children: [
                       Text(
                         movieSelected.title,
-                        //"Lo Svarione degli Anelli e la compagnia del verginello",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -168,8 +167,6 @@ class _MovieState extends State<Movie> {
                           Container(
                             child: Text(
                               getOverview(),
-
-                              //"Un giovane hobbit e un variegato gruppo, composto da umani, un nano, un elfo e altri hobbit, partono per un delicata missione, guidati dal potente mago Gandalf. ",
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                               style: TextStyle(
@@ -276,7 +273,6 @@ class _MovieState extends State<Movie> {
 }
 
 String getOverview() {
-  //print("Overview: " + movieSelected.overview);
   if (movieSelected.overview != null) {
     return movieSelected.overview;
   } else {
@@ -308,62 +304,33 @@ class MovieCover extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
           color: Colors.amber,
         ));
       },
     );
-
-    /*return Container(
-      height: size.height * 0.35,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(
-              'https://image.tmdb.org/t/p/w185${movieSelected.posterPath}'),
-          //"http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
-          fit: BoxFit.contain,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-      ),
-    );*/
   }
 
   Widget buildCover(AsyncSnapshot<MovieImagesModel> snapshot, size) {
     String imagePath;
     if (snapshot.data.backdrops.length != 0) {
-      //imagePath = snapshot.data.backdrops[0].filePath;
       imagePath =
           'https://image.tmdb.org/t/p/original${snapshot.data.backdrops[0].filePath}';
     } else if (snapshot.data.posters.length != 0) {
       imagePath =
           'https://image.tmdb.org/t/p/original${snapshot.data.posters[0].filePath}';
-      //imagePath =
     } else {
-      imagePath =
-          //"https://lh3.googleusercontent.com/proxy/-tJZj9wqcieT716gYHDAt8fS8ItBKqBhSJhmgprXrO5Pqae90gHAIxuZt0xTIcmXvqecIu84xMsu1bu56S-VpYboyJDMaRPt";
-          //"https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg";
-          "https://cdn.hipwallpaper.com/i/59/45/2QvigJ.jpg";
+      imagePath = "https://cdn.hipwallpaper.com/i/59/45/2QvigJ.jpg";
     }
     return Column(
       children: [
         Container(
           height: size.height * 0.35,
           width: size.width,
-          //child: Image.network('https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[0].filePath}',),
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
                 imagePath,
-                //'https://image.tmdb.org/t/p/original${imagePath}',
               ),
-              //"http://vulcanostatale.it/wp-content/uploads/2016/03/lord-of-the-rings-1-the-fellowship-of-the-ring-movie-poster-2001-1020195991.jpg"),
               fit: BoxFit.cover,
             ),
             boxShadow: [
@@ -378,44 +345,6 @@ class MovieCover extends StatelessWidget {
         ),
       ],
     );
-    /*return ListView.builder(
-        scrollDirection: Axis.vertical,
-        itemCount: snapshot.data.backdrops.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: size.height * 0.2,
-            width: size.width * 0.05,
-            child: Card(
-              child: Row(
-
-                  //contentPadding: EdgeInsets.all(25),
-                  children: <Widget>[
-                    Image.network(
-                      'https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[index].posterPath}',
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(width: size.width * 0.04),
-                    Container(
-                      width: size.width * 0.6,
-                      child: Text(
-                        snapshot.data.results[index].title,
-                        style: TextStyle(
-                          color: Colors.black87,
-                          fontSize: size.height * 0.025,
-                          fontFamily: 'Quicksand',
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ]),
-            ),
-          );
-          /*return MovieCard(
-            imageUrl:
-                'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
-            movieTitle: snapshot.data.results[index].title,
-          );*/
-        });*/
   }
 }
 
@@ -497,9 +426,6 @@ class MovieBasicInfo extends StatelessWidget {
             children: [
               Text(
                 getReleaseDate(),
-
-                //DateFormat.dMMMy(movieSelected.releaseDate).toString(), //TODO
-                //"Date",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: size.height * 0.02,
@@ -511,19 +437,13 @@ class MovieBasicInfo extends StatelessWidget {
                 thickness: 1,
               ),
               Text(
-                //movieSelected.
                 durationToString(snapshot.data.runtime),
-                //"Duration",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: size.height * 0.02,
                   fontFamily: 'Quicksand-Regular',
                 ),
               ),
-              /*VerticalDivider(
-                color: Colors.grey,
-                thickness: 1,
-              ),*/
             ],
           ),
         ),
@@ -532,8 +452,6 @@ class MovieBasicInfo extends StatelessWidget {
         ),
         Text(
           getGenresNames(snapshot.data.genres), //TODO
-          //snapshot.data.genres.length.toString(),
-          //"Genre",
           style: TextStyle(
             color: Colors.black,
             fontSize: size.height * 0.02,
@@ -542,45 +460,6 @@ class MovieBasicInfo extends StatelessWidget {
         ),
       ],
     );
-
-    /*return ListView.builder(
-        scrollDirection: Axis.vertical,
-        itemCount: snapshot.data.backdrops.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: size.height * 0.2,
-            width: size.width * 0.05,
-            child: Card(
-              child: Row(
-
-                  //contentPadding: EdgeInsets.all(25),
-                  children: <Widget>[
-                    Image.network(
-                      'https://image.tmdb.org/t/p/w185${snapshot.data.backdrops[index].posterPath}',
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(width: size.width * 0.04),
-                    Container(
-                      width: size.width * 0.6,
-                      child: Text(
-                        snapshot.data.results[index].title,
-                        style: TextStyle(
-                          color: Colors.black87,
-                          fontSize: size.height * 0.025,
-                          fontFamily: 'Quicksand',
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ]),
-            ),
-          );
-          /*return MovieCard(
-            imageUrl:
-                'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
-            movieTitle: snapshot.data.results[index].title,
-          );*/
-        });*/
   }
 }
 
@@ -622,13 +501,64 @@ class InsertReviewBtn extends StatelessWidget {
   }
 }
 
-String getTitle() {
-  if (watchList.contains(movieSelected)) {
+String getWatchListTitle() {
+  bool isContained = false;
+  for (var i = 0; i < watchList.length; i++) {
+    if (watchList[i].id == movieSelected.id) {
+      isContained = true;
+    }
+  }
+  if (isContained) {
+    print("ciao");
     watchListTitle = "Remove from watchlist";
   } else {
+    print("sono nell'else");
     watchListTitle = "Add to watchlist";
   }
+
   return watchListTitle;
+}
+
+String getAlreadyWatchedListTitle() {
+  bool isContained = false;
+  for (var i = 0; i < alreadyWatchedList.length; i++) {
+    if (alreadyWatchedList[i].id == movieSelected.id) {
+      isContained = true;
+    }
+  }
+  if (isContained) {
+    alreadyWatchedListTitle = "Remove from already watched list";
+  } else {
+    alreadyWatchedListTitle = "Add to already watched list";
+  }
+  return alreadyWatchedListTitle;
+}
+
+String getFavouriteListTitle() {
+  bool isContained = false;
+  for (var i = 0; i < favouriteList.length; i++) {
+    if (favouriteList[i].id == movieSelected.id) {
+      isContained = true;
+    }
+  }
+  if (isContained) {
+    favouriteListTitle = "Remove from favourite list";
+  } else {
+    favouriteListTitle = "Add to favourite list";
+  }
+  return favouriteListTitle;
+}
+
+buildFlutterToast(list) {
+  Fluttertoast.showToast(
+    msg: movieSelected.title + list,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 2,
+    backgroundColor: kPrimaryLightColor,
+    textColor: Colors.black,
+    fontSize: 16.0,
+  );
 }
 
 class AddButton extends StatelessWidget {
@@ -688,37 +618,20 @@ class AddButton extends StatelessWidget {
                             onPressed: () {
                               if (watchListTitle == "Remove from watchlist") {
                                 watchList.remove(movieSelected);
+
+                                buildFlutterToast(" removed from watchlist");
+                                Navigator.pop(context);
                               } else {
                                 watchList.add(movieSelected);
-                                Fluttertoast.showToast(
-                                  msg: movieSelected.title +
-                                      " added to watchlist",
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.BOTTOM,
-                                  timeInSecForIosWeb: 2,
-                                  backgroundColor: kPrimaryLightColor,
-                                  textColor: Colors.black,
-                                  fontSize: 16.0,
-                                );
+
+                                buildFlutterToast(" added to watchlist");
                                 Navigator.pop(context);
                               }
                             },
                             icon: SvgPicture.asset("assets/icons/list.svg",
                                 height: size.height * 0.03),
                             label: Text(
-                              getTitle(),
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: size.height * 0.02,
-                                  fontFamily: 'Quicksand-Medium'),
-                            ),
-                          ),
-                          TextButton.icon(
-                            onPressed: () {},
-                            icon: SvgPicture.asset("assets/icons/check.svg",
-                                height: size.height * 0.03),
-                            label: Text(
-                              "Already watched",
+                              getWatchListTitle(),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,
@@ -727,14 +640,53 @@ class AddButton extends StatelessWidget {
                           ),
                           TextButton.icon(
                             onPressed: () {
-                              favouriteList.add(movieSelected);
+                              if (alreadyWatchedListTitle ==
+                                  "Remove from already watched list") {
+                                alreadyWatchedList.remove(movieSelected);
+                                buildFlutterToast(
+                                    " removed from already watched list");
+                                Navigator.pop(context);
+                              } else {
+                                alreadyWatchedList.add(movieSelected);
+                                buildFlutterToast(
+                                    " added to already watched list");
+                                Navigator.pop(context);
+                              }
+                            },
+                            icon: SvgPicture.asset("assets/icons/check.svg",
+                                height: size.height * 0.03),
+                            label: Container(
+                              width: size.width * 0.5,
+                              child: Text(
+                                getAlreadyWatchedListTitle(),
+                                maxLines: 2,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: size.height * 0.02,
+                                    fontFamily: 'Quicksand-Medium'),
+                              ),
+                            ),
+                          ),
+                          TextButton.icon(
+                            onPressed: () {
+                              if (favouriteListTitle ==
+                                  "Remove from favourite list") {
+                                favouriteList.remove(movieSelected);
+                                buildFlutterToast(
+                                    " removed from favourite list");
+                                Navigator.pop(context);
+                              } else {
+                                favouriteList.add(movieSelected);
+                                buildFlutterToast(" added to favourite list");
+                                Navigator.pop(context);
+                              }
                             },
                             icon: Icon(
                               Icons.favorite,
                               color: Colors.red,
                             ),
                             label: Text(
-                              "Favourite",
+                              getFavouriteListTitle(),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,

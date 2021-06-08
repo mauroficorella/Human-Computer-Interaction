@@ -14,7 +14,8 @@ class CardList extends StatelessWidget {
     this.number,
     this.height,
     this.width,
-    this.movieSelected, this.list,
+    this.movieSelected,
+    this.list,
   }) : super(key: key);
 
   final Size size;
@@ -26,6 +27,36 @@ class CardList extends StatelessWidget {
   final double width;
   final Results movieSelected;
   final List<Results> list;
+
+  Widget getListContent() {
+    if (list.isNotEmpty) {
+      return Container(
+        height: height,
+        child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: number,
+          itemBuilder: (BuildContext context, int index) => Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: ListCard(
+              movieTitle: list[index].title,
+              imageUrl:
+                  'https://image.tmdb.org/t/p/original${list[index].posterPath}',
+            ),
+          ),
+        ),
+      );
+    } else {
+      return Text(
+        "No movie added yet to this list",
+        style: TextStyle(
+          fontSize: size.height * 0.02,
+          fontFamily: 'Quicksand',
+          color: Colors.grey,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,22 +81,7 @@ class CardList extends StatelessWidget {
             ),
           ],
         ),
-        Container(
-          height: height,
-          child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: number,
-            itemBuilder: (BuildContext context, int index) => Padding(
-              padding: const EdgeInsets.all(3.0),
-              child: ListCard(
-                movieTitle: list[index].title,
-                imageUrl:
-                    'https://image.tmdb.org/t/p/original${list[index].posterPath}',
-              ),
-            ),
-          ),
-        ),
+        getListContent(),
         SizedBox(
           height: size.height * 0.01,
         ),
