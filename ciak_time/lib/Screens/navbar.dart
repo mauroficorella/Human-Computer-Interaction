@@ -1,6 +1,9 @@
 import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Movie/movie.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
+import 'package:ciak_time/Screens/User/all_movies_aw_list.dart';
+import 'package:ciak_time/Screens/User/all_movies_f_list.dart';
+import 'package:ciak_time/Screens/User/all_movies_w_list.dart';
 import 'package:ciak_time/Screens/User/user.dart';
 import 'package:ciak_time/Screens/User/user_settings.dart';
 import 'package:ciak_time/constants.dart';
@@ -66,8 +69,16 @@ class _DestinationViewState extends State<DestinationView> {
               switch (settings.name) {
                 case '/':
                   return User();
-                case '/list':
+                case '/settings':
                   return UserSettings();
+                case '/watchlist':
+                  return AllMoviesInWList();
+                case '/alreadywatchedlist':
+                  return AllMoviesInAWList();
+                case '/favouritelist':
+                  return AllMoviesInFList();
+                case '/movie':
+                  return Movie();
               }
             } else if (widget.destination.title == "Home") {
               switch (settings.name) {

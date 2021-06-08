@@ -7,6 +7,7 @@ import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -561,6 +562,39 @@ buildFlutterToast(list) {
   );
 }
 
+checkDisabledButton(context) {
+  bool isContained = false;
+  for (var i = 0; i < alreadyWatchedList.length; i++) {
+    if (alreadyWatchedList[i].id == movieSelected.id) {
+      isContained = true;
+    }
+  }
+  if (isContained) {
+    Fluttertoast.showToast(
+      msg:
+          "You have already added this movie to already watched list! Remove it from there before adding it to watchlist.",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 5,
+      backgroundColor: kPrimaryLightColor,
+      textColor: Colors.black,
+      fontSize: 16.0,
+    );
+  } else {
+    if (watchListTitle == "Remove from watchlist") {
+      watchList.remove(movieSelected);
+
+      buildFlutterToast(" removed from watchlist");
+      Navigator.pop(context);
+    } else {
+      watchList.add(movieSelected);
+
+      buildFlutterToast(" added to watchlist");
+      Navigator.pop(context);
+    }
+  }
+}
+
 class AddButton extends StatelessWidget {
   const AddButton({
     Key key,
@@ -598,35 +632,13 @@ class AddButton extends StatelessWidget {
                   builder: (context, setState) {
                     return Container(
                       width: size.width * 0.8,
-                      height: size.height * 0.255,
+                      height: size.height * 0.21,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Add to a list",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: size.height * 0.03,
-                              fontFamily: 'Quicksand-Medium',
-                            ),
-                          ),
-                          SizedBox(
-                            height: size.height * 0.04,
-                          ),
                           TextButton.icon(
                             onPressed: () {
-                              if (watchListTitle == "Remove from watchlist") {
-                                watchList.remove(movieSelected);
-
-                                buildFlutterToast(" removed from watchlist");
-                                Navigator.pop(context);
-                              } else {
-                                watchList.add(movieSelected);
-
-                                buildFlutterToast(" added to watchlist");
-                                Navigator.pop(context);
-                              }
+                              checkDisabledButton(context);
                             },
                             icon: SvgPicture.asset("assets/icons/list.svg",
                                 height: size.height * 0.03),
@@ -638,6 +650,7 @@ class AddButton extends StatelessWidget {
                                   fontFamily: 'Quicksand-Medium'),
                             ),
                           ),
+                          PopupMenuDivider(),
                           TextButton.icon(
                             onPressed: () {
                               if (alreadyWatchedListTitle ==
@@ -647,6 +660,17 @@ class AddButton extends StatelessWidget {
                                     " removed from already watched list");
                                 Navigator.pop(context);
                               } else {
+                                bool isContainedInWatchList = false;
+                                Results movie;
+                                for (var i = 0; i < watchList.length; i++) {
+                                  if (watchList[i].id == movieSelected.id) {
+                                    isContainedInWatchList = true;
+                                    movie = watchList[i];
+                                  }
+                                }
+                                if (isContainedInWatchList) {
+                                  watchList.remove(movie);
+                                }
                                 alreadyWatchedList.add(movieSelected);
                                 buildFlutterToast(
                                     " added to already watched list");
@@ -667,6 +691,7 @@ class AddButton extends StatelessWidget {
                               ),
                             ),
                           ),
+                          PopupMenuDivider(),
                           TextButton.icon(
                             onPressed: () {
                               if (favouriteListTitle ==

@@ -23,49 +23,24 @@ class _UserState extends State<User> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              /*Navigator.push(
-                
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    
-                    return UserSettings();
-                  },
-                ),
-              );*/
+              
 
-              Navigator.pushNamed(context, '/list');
+              Navigator.pushNamed(context, '/settings');
             },
             child: Row(
               children: [
-                //Icon(Icons.settings, color: Colors.amber,),
+                
                 Text(
                   "Settings",
                   style: TextStyle(
                     color: Colors.amber,
-                    //fontSize: h,
+                    
                   ),
                 ),
               ],
             ),
           ),
-          /*IconButton(
-            
-            icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return UserSettings();
-                  },
-                ),
-              );
-            },
-          )*/
+          
         ],
       ),
       body: SafeArea(
@@ -107,7 +82,6 @@ class _UserState extends State<User> {
                       number: watchList.length,
                       height: size.height * 0.16,
                       width: size.width * 0.035,
-                      movieSelected: movieSelected,
                       list: watchList,
                     ),
                     CardList(
@@ -139,14 +113,10 @@ class _UserState extends State<User> {
   }
 }
 
-
-
 class DestinationView extends StatefulWidget {
   const DestinationView({
     Key key,
-    
   }) : super(key: key);
-  
 
   @override
   _DestinationViewState createState() => _DestinationViewState();
@@ -156,7 +126,6 @@ class _DestinationViewState extends State<DestinationView> {
   @override
   Widget build(BuildContext context) {
     return Navigator(
-      
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(
           settings: settings,

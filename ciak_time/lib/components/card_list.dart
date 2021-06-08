@@ -2,6 +2,7 @@ import 'package:ciak_time/components/list_card.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CardList extends StatelessWidget {
@@ -14,7 +15,6 @@ class CardList extends StatelessWidget {
     this.number,
     this.height,
     this.width,
-    this.movieSelected,
     this.list,
   }) : super(key: key);
 
@@ -25,26 +25,74 @@ class CardList extends StatelessWidget {
   final int number;
   final double height;
   final double width;
-  final Results movieSelected;
+
   final List<Results> list;
 
-  Widget getListContent() {
+  int setLenght(List list) {
+    int len;
+    if (list.length <= 3) {
+      len = list.length;
+    } else {
+      len = 3;
+    }
+    return len;
+  }
+
+  Widget getListContent(context) {
     if (list.isNotEmpty) {
-      return Container(
-        height: height,
-        child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: number,
-          itemBuilder: (BuildContext context, int index) => Padding(
-            padding: const EdgeInsets.all(3.0),
-            child: ListCard(
-              movieTitle: list[index].title,
-              imageUrl:
-                  'https://image.tmdb.org/t/p/original${list[index].posterPath}',
+      return Row(
+        children: [
+          SizedBox(
+            width: size.width * 0.025,
+          ),
+          Container(
+            height: height,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: setLenght(list),
+              itemBuilder: (BuildContext context, int index) => Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: GestureDetector(
+                  child: ListCard(
+                    movieTitle: list[index].title,
+                    imageUrl:
+                        'https://image.tmdb.org/t/p/original${list[index].posterPath}',
+                  ),
+                  onTap: () {
+                    movieSelected = list[index];
+                    Navigator.pushNamed(context, '/movie');
+                    FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+                  },
+                ),
+              ),
             ),
           ),
-        ),
+          TextButton.icon(
+            onPressed: () {
+              if (list == watchList) {
+                Navigator.pushNamed(context, '/watchlist');
+              }
+              if (list == alreadyWatchedList) {
+                Navigator.pushNamed(context, '/alreadywatchedlist');
+              }
+              if (list == favouriteList) {
+                Navigator.pushNamed(context, '/favouritelist');
+              }
+            },
+            label: Icon(Icons.arrow_forward, color: kPrimaryColor),
+            icon: Container(
+              width: size.width * 0.11,
+              child: Text(
+                "View all",
+                style: TextStyle(
+                    color: kPrimaryColor,
+                    fontSize: size.height * 0.02,
+                    fontFamily: 'Quicksand-Medium'),
+              ),
+            ),
+          ),
+        ],
       );
     } else {
       return Text(
@@ -81,7 +129,7 @@ class CardList extends StatelessWidget {
             ),
           ],
         ),
-        getListContent(),
+        getListContent(context),
         SizedBox(
           height: size.height * 0.01,
         ),
