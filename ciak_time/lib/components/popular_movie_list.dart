@@ -1,6 +1,7 @@
 import 'package:ciak_time/blocs/popular_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
@@ -47,7 +48,15 @@ class PopularMovieList extends StatelessWidget {
               ),
               onTap: () {
                 if (fromWhere == "Home") {
-                  movieSelectedFromHome = snapshot.data.results[index];
+                  //movieSelectedFromHome = snapshot.data.results[index];
+                  movieSelectedFromHome = new Movie(
+                  title: snapshot.data.results[index].title,
+                  overview: snapshot.data.results[index].overview,
+                  voteAverage: snapshot.data.results[index].voteAverage,
+                  id: snapshot.data.results[index].id,
+                  releaseDate: snapshot.data.results[index].releaseDate,
+                  posterPath: snapshot.data.results[index].posterPath,
+                );
                 }
                 if (fromWhere == "Search") {
                   movieSelectedFromSearch = snapshot.data.results[index];

@@ -1,14 +1,15 @@
 import 'package:ciak_time/blocs/upcoming_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 class UpcomingMovieList extends StatelessWidget {
-  
-
-  const UpcomingMovieList({Key key, }) : super(key: key);
+  const UpcomingMovieList({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -46,7 +47,15 @@ class UpcomingMovieList extends StatelessWidget {
                 movieTitle: snapshot.data.results[index].title,
               ),
               onTap: () {
-                movieSelectedFromHome = snapshot.data.results[index];
+                //movieSelectedFromHome = snapshot.data.results[index];
+                movieSelectedFromHome = new Movie(
+                  title: snapshot.data.results[index].title,
+                  overview: snapshot.data.results[index].overview,
+                  voteAverage: snapshot.data.results[index].voteAverage,
+                  id: snapshot.data.results[index].id,
+                  releaseDate: snapshot.data.results[index].releaseDate,
+                  posterPath: snapshot.data.results[index].posterPath,
+                );
                 Navigator.pushNamed(context, '/movie');
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },

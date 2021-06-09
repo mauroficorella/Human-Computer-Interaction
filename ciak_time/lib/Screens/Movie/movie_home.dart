@@ -140,7 +140,7 @@ class _MovieHomeState extends State<MovieHome> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) {
-                                        return MovieDetails(movieSelected: movieSelectedFromHome,);
+                                        //return MovieDetails(movieSelected: movieSelectedFromHome,);
                                       },
                                     ),
                                   );
@@ -596,7 +596,7 @@ checkDisabledButton(context) {
       buildFlutterToast(" removed from watchlist");
       Navigator.pop(context);
     } else {
-      watchList.add(movieSelectedFromHome);
+      //watchList.add(movieSelectedFromHome);
 
       buildFlutterToast(" added to watchlist");
       Navigator.pop(context);
@@ -680,7 +680,7 @@ class AddButton extends StatelessWidget {
                                 if (isContainedInWatchList) {
                                   watchList.remove(movie);
                                 }
-                                alreadyWatchedList.add(movieSelectedFromHome);
+                                //alreadyWatchedList.add(movieSelectedFromHome);
                                 buildFlutterToast(
                                     " added to already watched list");
                                 Navigator.pop(context);
@@ -710,7 +710,7 @@ class AddButton extends StatelessWidget {
                                     " removed from favourite list");
                                 Navigator.pop(context);
                               } else {
-                                favouriteList.add(movieSelectedFromHome);
+                                //favouriteList.add(movieSelectedFromHome);
                                 buildFlutterToast(" added to favourite list");
                                 Navigator.pop(context);
                               }

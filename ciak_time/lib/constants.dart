@@ -1,3 +1,4 @@
+import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_model.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:ciak_time/models/person_movies_model.dart';
@@ -37,9 +38,10 @@ Color colorHorror = Colors.black;
 Color applyColor = kPrimaryLightColor;
 Color applyTextColor = Colors.grey;
 
-MovieResults movieSelectedFromHome;
-MovieResults movieSelectedFromSearch;
-MovieResults movieSelectedFromUser;
+//MovieResults movieSelectedFromHome;
+Movie movieSelectedFromHome;
+MovieResults movieSelectedFromSearch; //TODO
+MovieResults movieSelectedFromUser; //TODO
 
 PersonResults personSelectedFromHome;
 PersonResults personSelectedFromSearch;
@@ -49,9 +51,9 @@ PersonMovie personMovieSelectedFromHome;
 PersonMovie personMovieSelectedFromSearch;
 PersonMovie personMovieSelectedFromUser;
 
-List<PersonMovie> selectedPersonMoviesFromHome;
-List<PersonMovie> selectedPersonMoviesFromSearch;
-List<PersonMovie> selectedPersonMoviesFromUser;
+List<Movie> selectedPersonMoviesFromHome = [];
+List<PersonMovie> selectedPersonMoviesFromSearch; //TODO 
+List<PersonMovie> selectedPersonMoviesFromUser; //TODO
 
 List<MovieResults> watchList = [];
 List<MovieResults> alreadyWatchedList = [];

@@ -3,12 +3,18 @@ import 'package:ciak_time/components/list_card.dart';
 import 'package:ciak_time/components/person_overview.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/person_movies_model.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
+List<Movie> list;
+
 class PersonHome extends StatefulWidget {
+  const PersonHome({
+    Key key,
+  }) : super(key: key);
   @override
   _PersonHomeState createState() => _PersonHomeState();
 }
@@ -86,7 +92,7 @@ class _PersonHomeState extends State<PersonHome> {
                         ),
                         TextButton.icon(
                           onPressed: () {
-                            selectedPersonMoviesFromHome = 
+                            //selectedPersonMoviesFromHome = list; //TODO dobbiamo farlo cambiare da persona a persona
                             Navigator.pushNamed(context, '/filmography'); //TODO
                           },
                           label:
@@ -143,6 +149,17 @@ class FilmographyList extends StatelessWidget {
       stream: bloc.personMovies,
       builder: (context, AsyncSnapshot<PersonMoviesModel> snapshot) {
         if (snapshot.hasData) {
+          for (var i = 0; i < snapshot.data.movies.length; i++) {
+            selectedPersonMoviesFromHome.add(new Movie(
+              title: snapshot.data.movies[i].title,
+              overview: snapshot.data.movies[i].overview,
+              voteAverage: snapshot.data.movies[i].voteAverage,
+              id: snapshot.data.movies[i].id,
+              releaseDate: snapshot.data.movies[i].releaseDate,
+              posterPath: snapshot.data.movies[i].posterPath,
+            ));
+          }
+
           return buildFilmography(snapshot, size);
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
@@ -185,7 +202,15 @@ class FilmographyList extends StatelessWidget {
                   'https://image.tmdb.org/t/p/original${snapshot.data.movies[index].posterPath}',
             ),
             onTap: () {
-              personMovieSelectedFromHome = snapshot.data.movies[index];
+              //personMovieSelectedFromHome = snapshot.data.movies[index];
+              movieSelectedFromHome = new Movie(
+                title: snapshot.data.movies[index].title,
+                overview: snapshot.data.movies[index].overview,
+                voteAverage: snapshot.data.movies[index].voteAverage,
+                id: snapshot.data.movies[index].id,
+                releaseDate: snapshot.data.movies[index].releaseDate,
+                posterPath: snapshot.data.movies[index].posterPath,
+              );
               Navigator.pushNamed(context, '/movie');
               FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
             },

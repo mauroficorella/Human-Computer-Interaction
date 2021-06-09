@@ -2,6 +2,7 @@ import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Movie/movie_home.dart';
 import 'package:ciak_time/Screens/Movie/movie_search.dart';
 import 'package:ciak_time/Screens/Movie/movie_user.dart';
+import 'package:ciak_time/Screens/Person/filmography_grid_view.dart';
 import 'package:ciak_time/Screens/Person/person_home.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/all_movies_aw_list.dart';
