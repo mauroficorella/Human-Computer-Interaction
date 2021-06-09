@@ -1,6 +1,6 @@
 class PersonModel {
   int page;
-  List<Results> results;
+  List<PersonResults> results;
   int totalPages;
   int totalResults;
 
@@ -12,7 +12,7 @@ class PersonModel {
       //results = new List<Results>();
       results = [];
       json['results'].forEach((v) {
-        results.add(new Results.fromJson(v));
+        results.add(new PersonResults.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
@@ -31,7 +31,7 @@ class PersonModel {
   }
 }
 
-class Results {
+class PersonResults {
   bool adult;
   int gender;
   int id;
@@ -41,7 +41,7 @@ class Results {
   double popularity;
   String profilePath;
 
-  Results(
+  PersonResults(
       {this.adult,
       this.gender,
       this.id,
@@ -51,7 +51,7 @@ class Results {
       this.popularity,
       this.profilePath});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  PersonResults.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     gender = json['gender'];
     id = json['id'];

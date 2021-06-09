@@ -1,5 +1,8 @@
 import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
-import 'package:ciak_time/Screens/Movie/movie.dart';
+import 'package:ciak_time/Screens/Movie/movie_home.dart';
+import 'package:ciak_time/Screens/Movie/movie_search.dart';
+import 'package:ciak_time/Screens/Movie/movie_user.dart';
+import 'package:ciak_time/Screens/Person/person_home.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/all_movies_aw_list.dart';
 import 'package:ciak_time/Screens/User/all_movies_f_list.dart';
@@ -78,21 +81,23 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/favouritelist':
                   return AllMoviesInFList();
                 case '/movie':
-                  return Movie();
+                  return MovieUser();
               }
             } else if (widget.destination.title == "Home") {
               switch (settings.name) {
                 case '/':
                   return Home();
                 case '/movie':
-                  return Movie();
+                  return MovieHome();
+                case '/person':
+                  return PersonHome();
               }
             } else if (widget.destination.title == "Search") {
               switch (settings.name) {
                 case '/':
                   return Search();
                 case '/movie':
-                  return Movie();
+                  return MovieSearch();
               }
             }
           },

@@ -112,7 +112,7 @@ class SearchMovieResultsList extends StatelessWidget {
                       ]),
                 ),
                 onTap: () {
-                  movieSelected = snapshot.data.results[index];
+                  movieSelectedFromSearch = snapshot.data.results[index];
                   //debugPrint(movieSelected.title);
                   Navigator.pushNamed(context, '/movie');
                   FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);

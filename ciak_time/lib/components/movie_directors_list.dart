@@ -4,10 +4,14 @@ import 'package:ciak_time/components/cast_card.dart';
 import 'package:ciak_time/components/person_card.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie_cast_model.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:flutter/material.dart';
 
 class MovieDirectorsList extends StatelessWidget {
+  final MovieResults movieSelected;
+
+  const MovieDirectorsList({Key key, @required this.movieSelected}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -49,13 +53,9 @@ class MovieDirectorsList extends StatelessWidget {
   }
 
   Widget buildList(AsyncSnapshot<MovieCastModel> snapshot, size) {
-    //print(snapshot.data.directors);
-
     if (snapshot.data.directors.length != 0) {
-      //print("Sono nell'if");
       return Container(
         height: size.height * 0.26,
-        //color: Colors.amber,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: snapshot.data.directors.length,
@@ -64,7 +64,6 @@ class MovieDirectorsList extends StatelessWidget {
             }),
       );
     } else {
-      //print("Sono nell'else");
       return Text(
         "No movie director available",
         style: TextStyle(

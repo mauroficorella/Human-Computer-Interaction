@@ -1,6 +1,6 @@
 class MovieModel {
   int page;
-  List<Results> results;
+  List<MovieResults> results;
   int totalPages;
   int totalResults;
 
@@ -10,9 +10,9 @@ class MovieModel {
     page = json['page'];
     if (json['results'] != null) {
       results = [];
-      //results = new List<Results>(); -> here the List in this way is deprecated
+      //results = new List<MovieResults>(); -> here the List in this way is deprecated
       json['results'].forEach((v) {
-        results.add(new Results.fromJson(v));
+        results.add(new MovieResults.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
@@ -31,7 +31,7 @@ class MovieModel {
   }
 }
 
-class Results {
+class MovieResults {
   bool adult;
   String backdropPath;
   List<int> genreIds;
@@ -47,7 +47,7 @@ class Results {
   double voteAverage;
   int voteCount;
 
-  Results(
+  MovieResults(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -63,7 +63,7 @@ class Results {
       this.voteAverage,
       this.voteCount});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  MovieResults.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();

@@ -26,7 +26,7 @@ class CardList extends StatelessWidget {
   final double height;
   final double width;
 
-  final List<Results> list;
+  final List<MovieResults> list;
 
   int setLenght(List list) {
     int len;
@@ -60,7 +60,7 @@ class CardList extends StatelessWidget {
                         'https://image.tmdb.org/t/p/original${list[index].posterPath}',
                   ),
                   onTap: () {
-                    movieSelected = list[index];
+                    movieSelectedFromUser = list[index];
                     Navigator.pushNamed(context, '/movie');
                     FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
                   },

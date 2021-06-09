@@ -61,7 +61,7 @@ class _AllMoviesInWListState extends State<AllMoviesInWList> {
                       'https://image.tmdb.org/t/p/original${watchList[index].posterPath}',
                   movieTitle: watchList[index].title),
               onTap: () {
-                movieSelected = watchList[index];
+                movieSelectedFromUser = watchList[index];
                 Navigator.pushNamed(context, '/movie');
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },

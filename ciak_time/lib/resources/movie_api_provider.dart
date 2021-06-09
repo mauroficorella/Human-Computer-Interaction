@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:ciak_time/models/movie_cast_model.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:ciak_time/models/person_details_model.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:ciak_time/models/person_movies_model.dart';
@@ -9,7 +10,7 @@ import 'package:ciak_time/models/reviews_model.dart';
 import 'package:ciak_time/models/watch_providers_model.dart';
 import 'package:http/http.dart' show Client;
 import 'dart:convert';
-import '../models/movie_model.dart';
+
 
 class MovieApiProvider {
   Client client = Client();

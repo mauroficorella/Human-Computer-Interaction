@@ -1,4 +1,4 @@
-import 'package:ciak_time/Screens/Person/person.dart';
+
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -24,14 +24,7 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
       onPressed: () {
         setState(() {
           if (isFilterSelected() == true) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return Person();
-                },
-              ),
-            );
+            
           } else {
             
           }

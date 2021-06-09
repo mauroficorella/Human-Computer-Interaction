@@ -1,12 +1,12 @@
 import 'package:ciak_time/components/rating.dart';
 import 'package:flutter/material.dart';
 
-class Person extends StatefulWidget {
+class PersonUser extends StatefulWidget {
   @override
-  _PersonState createState() => _PersonState();
+  _PersonUserState createState() => _PersonUserState();
 }
 
-class _PersonState extends State<Person> {
+class _PersonUserState extends State<PersonUser> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

@@ -1,4 +1,5 @@
 import 'package:ciak_time/models/movie_model.dart';
+import 'package:ciak_time/models/person_model.dart';
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xFF6F35A5);
@@ -35,18 +36,23 @@ Color colorHorror = Colors.black;
 Color applyColor = kPrimaryLightColor;
 Color applyTextColor = Colors.grey;
 
-Results movieSelected;
+MovieResults movieSelectedFromHome;
+MovieResults movieSelectedFromSearch;
+MovieResults movieSelectedFromUser;
 
-List<Results> watchList = [];
-List<Results> alreadyWatchedList = [];
-List<Results> favouriteList = [];
+PersonResults personSelectedFromHome;
+PersonResults personSelectedFromSearch;
+PersonResults personSelectedFromUser;
+
+List<MovieResults> watchList = [];
+List<MovieResults> alreadyWatchedList = [];
+List<MovieResults> favouriteList = [];
 
 String watchListTitle = "Add to watchlist";
 String alreadyWatchedListTitle = "Add to already watched list";
 String favouriteListTitle = "Add to favourite list";
 
-
-//TODO QUANDO NON C'è IL CAST METTERE NO CAST AVAILABLE
+//TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
 //TODO LINKARE PERSONS PER FARE LA QUERY
 //TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
 //TODO FARE I BOTTONI DEI GENERI NEI FILTRI TUTTI UGUALI
@@ -54,4 +60,3 @@ String favouriteListTitle = "Add to favourite list";
 //TODO LEVARE IL BACK TRAMITE GESTURE DOVE NON E' PREVISTO
 //TODO LINKARE CARD A PAGINA ATTORI E FILM
 //TODO RISOLVERE GAY BATMAN
-

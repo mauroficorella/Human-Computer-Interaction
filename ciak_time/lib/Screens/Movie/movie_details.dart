@@ -3,10 +3,14 @@ import 'package:ciak_time/components/movie_cast_list.dart';
 import 'package:ciak_time/components/movie_directors_list.dart';
 import 'package:ciak_time/components/watch_providers_list.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MovieDetails extends StatefulWidget {
+  final MovieResults movieSelected;
+
+  const MovieDetails({Key key, @required this.movieSelected}) : super(key: key);
   @override
   _MovieDetailsState createState() => _MovieDetailsState();
 }
@@ -20,7 +24,7 @@ class _MovieDetailsState extends State<MovieDetails> {
         automaticallyImplyLeading: true,
         centerTitle: true,
         title: Text(
-          movieSelected.title,
+          widget.movieSelected.title,
           //'Titolo film',
           style: TextStyle(
             //fontSize: size.height * 0.03,
@@ -64,7 +68,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                         ),
                         SizedBox(height: size.height * 0.01),
                         Text(
-                          movieSelected.overview,
+                          widget.movieSelected.overview,
                           //"Un giovane hobbit e un variegato gruppo, composto da umani, un nano, un elfo e altri hobbit, partono per un delicata missione, guidati dal potente mago Gandalf. ",
                           style: TextStyle(
                             color: Colors.black,
@@ -105,7 +109,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                           ),
                         ),
                         SizedBox(height: size.height * 0.01),
-                        WatchProvidersList(),
+                        WatchProvidersList(movieSelected: widget.movieSelected,),
                         /*Container(
                           height: size.width * 0.1,
                           width: size.width * 0.1,
@@ -154,7 +158,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                             assertIcon: "assets/icons/actor.svg"),
                         SizedBox(height: size.height * 0.005),
                         Container(
-                            height: size.height * 0.18, child: MovieCastList()),
+                            height: size.height * 0.18, child: MovieCastList(movieSelected: widget.movieSelected)),
                         IconTextBold(
                             size: size,
                             label: "Movie director",
@@ -162,7 +166,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                         SizedBox(height: size.height * 0.005),
                         Container(
                             height: size.height * 0.18,
-                            child: MovieDirectorsList()),
+                            child: MovieDirectorsList(movieSelected: widget.movieSelected,)),
                       ],
                     ),
                   ),

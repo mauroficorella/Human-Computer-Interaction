@@ -5,11 +5,10 @@ import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
-
-
-
-
 class UpcomingMovieList extends StatelessWidget {
+  
+
+  const UpcomingMovieList({Key key, }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -18,7 +17,6 @@ class UpcomingMovieList extends StatelessWidget {
       stream: bloc.upcomingMovies,
       builder: (context, AsyncSnapshot<MovieModel> snapshot) {
         if (snapshot.hasData) {
-          
           return buildList(snapshot, size);
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
@@ -48,7 +46,7 @@ class UpcomingMovieList extends StatelessWidget {
                 movieTitle: snapshot.data.results[index].title,
               ),
               onTap: () {
-                movieSelected = snapshot.data.results[index];
+                movieSelectedFromHome = snapshot.data.results[index];
                 Navigator.pushNamed(context, '/movie');
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },

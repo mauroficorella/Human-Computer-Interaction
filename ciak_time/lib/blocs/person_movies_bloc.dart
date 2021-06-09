@@ -1,6 +1,7 @@
 
 import 'package:ciak_time/models/person_movies_model.dart';
-import '../resources/repository.dart';
+import 'package:ciak_time/resources/repository.dart';
+
 import 'package:rxdart/rxdart.dart';
 
 class PersonMoviesBloc {

@@ -1,10 +1,13 @@
 import 'package:ciak_time/blocs/movie_cast_bloc.dart';
 import 'package:ciak_time/components/cast_card.dart';
-import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie_cast_model.dart';
+import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 
 class MovieCastList extends StatelessWidget {
+  final MovieResults movieSelected;
+
+  const MovieCastList({Key key, @required this.movieSelected}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -46,15 +49,25 @@ class MovieCastList extends StatelessWidget {
   }
 
   Widget buildList(AsyncSnapshot<MovieCastModel> snapshot, size) {
-    return Container(
-      height: size.height * 0.26,
-      //color: Colors.amber,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: snapshot.data.cast.length,
-          itemBuilder: (BuildContext context, int index) {
-            return returnImage(snapshot, index, size);
-          }),
-    );
+    if (snapshot.data.cast.length != 0) {
+      return Container(
+        height: size.height * 0.26,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: snapshot.data.cast.length,
+            itemBuilder: (BuildContext context, int index) {
+              return returnImage(snapshot, index, size);
+            }),
+      );
+    } else {
+      return Text(
+        "No cast member available",
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: size.height * 0.02,
+          fontFamily: 'Quicksand-Regular',
+        ),
+      );
+    }
   }
 }
