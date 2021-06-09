@@ -28,15 +28,7 @@ class CardList extends StatelessWidget {
 
   final List<MovieResults> list;
 
-  int setLenght(List list) {
-    int len;
-    if (list.length <= 3) {
-      len = list.length;
-    } else {
-      len = 3;
-    }
-    return len;
-  }
+  
 
   Widget getListContent(context) {
     if (list.isNotEmpty) {
@@ -82,11 +74,11 @@ class CardList extends StatelessWidget {
             },
             label: Icon(Icons.arrow_forward, color: kPrimaryColor),
             icon: Container(
-              width: size.width * 0.11,
-              //width: size.width * 0.15,
+              width: size.width * 0.15,
+              //width: size.width * 0.11,
               child: Text(
                 "View all",
-                //textAlign: TextAlign.end,
+                textAlign: TextAlign.end,
                 style: TextStyle(
                     color: kPrimaryColor,
                     fontSize: size.height * 0.02,

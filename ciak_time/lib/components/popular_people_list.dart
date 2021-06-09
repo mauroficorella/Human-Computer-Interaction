@@ -1,5 +1,4 @@
 import 'package:ciak_time/blocs/popular_person_bloc.dart';
-import 'package:ciak_time/components/movie_card.dart';
 import 'package:ciak_time/components/person_card.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/person_model.dart';
@@ -9,7 +8,8 @@ import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 class PopularPeopleList extends StatelessWidget {
   final String fromWhere;
 
-  const PopularPeopleList({Key key, @required this.fromWhere}) : super(key: key);
+  const PopularPeopleList({Key key, @required this.fromWhere})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -33,20 +33,6 @@ class PopularPeopleList extends StatelessWidget {
   }
 
   Widget returnImage(snapshot, index, size, context) {
-    /*if (snapshot.data.results[index].profilePath != null) {
-      return PersonCard(
-        imageUrl:
-            'https://image.tmdb.org/t/p/original${snapshot.data.results[index].profilePath}',
-        personName: snapshot.data.results[index].name,
-      );
-    } else {
-      //print(snapshot.data.results[index].title);
-      return PersonCard(
-        imageUrl:
-            'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif',
-        personName: snapshot.data.results[index].name,
-      );
-    }*/
     String imagePath;
     if (snapshot.data.results[index].profilePath != null) {
       imagePath =

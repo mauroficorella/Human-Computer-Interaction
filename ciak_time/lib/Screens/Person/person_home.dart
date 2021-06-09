@@ -1,8 +1,12 @@
-import 'package:ciak_time/blocs/person_details_bloc.dart';
+import 'package:ciak_time/blocs/person_movies_bloc.dart';
+import 'package:ciak_time/components/list_card.dart';
+import 'package:ciak_time/components/person_overview.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
-import 'package:ciak_time/models/person_details_model.dart';
+import 'package:ciak_time/models/person_movies_model.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 class PersonHome extends StatefulWidget {
   @override
@@ -16,16 +20,6 @@ class _PersonHomeState extends State<PersonHome> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        /*leading: Row(
-          children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back_ios, ),
-              onPressed: () => Navigator.of(context).pop(),
-              
-            ),
-            Text("User"),
-          ],
-        ),*/
         leading: TextButton.icon(
           onPressed: () => Navigator.of(context).pop(),
           icon: Icon(
@@ -48,12 +42,14 @@ class _PersonHomeState extends State<PersonHome> {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-            PersonOverview(),
+            PersonOverview(
+              fromWhere: "Home",
+            ),
             SizedBox(
               height: size.height * 0.01,
             ),
             Container(
-              width: size.width,
+              //width: size.width,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
@@ -66,7 +62,7 @@ class _PersonHomeState extends State<PersonHome> {
                 ],
               ),
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(15.0, 8.0, 15.0, 8.0),
+                padding: const EdgeInsets.fromLTRB(12.0, 8.0, 0.0, 8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -81,15 +77,34 @@ class _PersonHomeState extends State<PersonHome> {
                     SizedBox(
                       height: size.height * 0.01,
                     ),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: 4,
-                      itemBuilder: (BuildContext context, int index) => Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: MovieCard(
-                            size: size,
-                          )),
+
+                    //FilmographyList()
+                    Row(
+                      children: [
+                        FilmographyList(
+                          fromWhere: "Home",
+                        ),
+                        TextButton.icon(
+                          onPressed: () {
+                            selectedPersonMoviesFromHome = 
+                            Navigator.pushNamed(context, '/filmography'); //TODO
+                          },
+                          label:
+                              Icon(Icons.arrow_forward, color: kPrimaryColor),
+                          icon: Container(
+                            width: size.width * 0.15,
+                            //width: size.width * 0.11,
+                            child: Text(
+                              "View all",
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                  color: kPrimaryColor,
+                                  fontSize: size.height * 0.02,
+                                  fontFamily: 'Quicksand-Medium'),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -102,20 +117,33 @@ class _PersonHomeState extends State<PersonHome> {
   }
 }
 
-class PersonOverview extends StatelessWidget {
-  const PersonOverview({Key key}) : super(key: key);
+class FilmographyList extends StatelessWidget {
+  const FilmographyList({
+    Key key,
+    @required this.fromWhere,
+  }) : super(key: key);
+
+  //final Size size;
+  final String fromWhere;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final bloc = PersonDetailsBloc(personSelectedFromHome.id.toString());
-    bloc.fetchPersonDetailsResults();
+    PersonMoviesBloc bloc;
+
+    if (fromWhere == "Home") {
+      bloc = PersonMoviesBloc(personSelectedFromHome.id.toString());
+    } else {
+      bloc = PersonMoviesBloc(personSelectedFromSearch.id.toString());
+    }
+
+    bloc.fetchPersonMoviesResults();
 
     return StreamBuilder(
-      stream: bloc.personDetails,
-      builder: (context, AsyncSnapshot<PersonDetailsModel> snapshot) {
+      stream: bloc.personMovies,
+      builder: (context, AsyncSnapshot<PersonMoviesModel> snapshot) {
         if (snapshot.hasData) {
-          return buildOverview(snapshot, size);
+          return buildFilmography(snapshot, size);
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
         }
@@ -126,121 +154,84 @@ class PersonOverview extends StatelessWidget {
         ));
       },
     );
-
-    
   }
 
-  Widget buildOverview(AsyncSnapshot<PersonDetailsModel> snapshot, size) {
-    String imagePath;
-    if (snapshot.data.profilePath.length != 0) {
-      imagePath =
-          'https://image.tmdb.org/t/p/original${snapshot.data.profilePath}';
-    
-    } else {
-      imagePath = 'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif';
-    }
-    return Column(
-      children: [
-        SizedBox(
-          height: size.height * 0.05,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              backgroundImage: NetworkImage(
-                  imagePath),
-              radius: size.height * 0.1,
+  Widget buildFilmography(AsyncSnapshot<PersonMoviesModel> snapshot, size) {
+    /*return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: snapshot.data.cast.length,
+      itemBuilder: (BuildContext context, int index) => Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: MovieFilmographyCard(
+            imageUrl:
+                'https://image.tmdb.org/t/p/original${snapshot.data.cast[index].posterPath}',
+            title: snapshot.data.cast[index].title,
+          )),
+    );*/
+    return Container(
+      height: size.height * 0.17,
+      //color: Colors.amber,
+      child: ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: setLenght(snapshot.data.movies),
+        itemBuilder: (BuildContext context, int index) => Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: GestureDetector(
+            child: ListCard(
+              movieTitle: snapshot.data.movies[index].title,
+              imageUrl:
+                  'https://image.tmdb.org/t/p/original${snapshot.data.movies[index].posterPath}',
             ),
-          ],
-        ),
-        Text(
-          snapshot.data.name,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: size.height * 0.035,
-            fontFamily: 'Quicksand-Medium',
+            onTap: () {
+              personMovieSelectedFromHome = snapshot.data.movies[index];
+              Navigator.pushNamed(context, '/movie');
+              FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+            },
           ),
         ),
-        SizedBox(
-          height: size.height * 0.03,
-        ),
-        Container(
-          width: size.width,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(5),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 2)),
-            ],
-          ),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(15.0, 8.0, 15.0, 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Biography",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: size.height * 0.023,
-                    fontFamily: 'Quicksand-Medium',
-                  ),
-                ),
-                SizedBox(
-                  height: size.height * 0.01,
-                ),
-                Text(
-                  snapshot.data.biography,
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Quicksand',
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
 
-class MovieCard extends StatelessWidget {
-  const MovieCard({
+class MovieFilmographyCard extends StatelessWidget {
+  const MovieFilmographyCard({
     Key key,
-    @required this.size,
+    @required this.imageUrl,
+    @required this.title,
   }) : super(key: key);
 
-  final Size size;
+  final String imageUrl;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: size.width * 0.3,
-          height: size.width * 0.3,
-          child: Card(
-            color: Colors.amber,
-            child: Center(
-              child: Text('Dummy Card Text'),
+          height: size.width * 0.4,
+          width: size.width * 0.25,
+          //width: 50.0,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(5),
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
             ),
           ),
         ),
         SizedBox(
           width: size.width * 0.02,
         ),
-        Column(
+        /*Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Titolo film",
+              title,
               style: TextStyle(
                 fontSize: size.width * 0.05,
                 fontFamily: 'Quicksand-Regular',
@@ -250,6 +241,27 @@ class MovieCard extends StatelessWidget {
                 unratedColor: Colors.grey,
                 rate: 2.0) //TODO passare parametri stelle
           ],
+        ),*/
+
+        Container(
+          width: size.width * 0.6,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: size.height * 0.025,
+                  fontFamily: 'Quicksand',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: size.height * 0.01),
+              RatingUnclickable(unratedColor: Colors.grey, rate: 2.0),
+              //snapshot.data.results[index].voteAverage),
+            ],
+          ),
         ),
       ],
     );

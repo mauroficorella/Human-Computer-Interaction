@@ -1,5 +1,6 @@
 import 'package:ciak_time/models/movie_model.dart';
 import 'package:ciak_time/models/person_model.dart';
+import 'package:ciak_time/models/person_movies_model.dart';
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xFF6F35A5);
@@ -44,6 +45,14 @@ PersonResults personSelectedFromHome;
 PersonResults personSelectedFromSearch;
 PersonResults personSelectedFromUser;
 
+PersonMovie personMovieSelectedFromHome;
+PersonMovie personMovieSelectedFromSearch;
+PersonMovie personMovieSelectedFromUser;
+
+List<PersonMovie> selectedPersonMoviesFromHome;
+List<PersonMovie> selectedPersonMoviesFromSearch;
+List<PersonMovie> selectedPersonMoviesFromUser;
+
 List<MovieResults> watchList = [];
 List<MovieResults> alreadyWatchedList = [];
 List<MovieResults> favouriteList = [];
@@ -51,6 +60,16 @@ List<MovieResults> favouriteList = [];
 String watchListTitle = "Add to watchlist";
 String alreadyWatchedListTitle = "Add to already watched list";
 String favouriteListTitle = "Add to favourite list";
+
+int setLenght(List list) {
+  int len;
+  if (list.length <= 3) {
+    len = list.length;
+  } else {
+    len = 3;
+  }
+  return len;
+}
 
 //TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
 //TODO LINKARE PERSONS PER FARE LA QUERY

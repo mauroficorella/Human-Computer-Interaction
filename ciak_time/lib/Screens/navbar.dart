@@ -13,6 +13,8 @@ import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'Person/person_search.dart';
+
 class Destination {
   const Destination(
     this.index,
@@ -91,6 +93,8 @@ class _DestinationViewState extends State<DestinationView> {
                   return MovieHome();
                 case '/person':
                   return PersonHome();
+                case '/filmography':
+                  return FilmographyGridView();
               }
             } else if (widget.destination.title == "Search") {
               switch (settings.name) {
@@ -98,6 +102,8 @@ class _DestinationViewState extends State<DestinationView> {
                   return Search();
                 case '/movie':
                   return MovieSearch();
+                case '/person':
+                  return PersonSearch();
               }
             }
           },

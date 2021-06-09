@@ -1,15 +1,15 @@
 class PersonMoviesModel {
-  List<Cast> cast;
+  List<PersonMovie> movies;
   List<Crew> crew;
   int id;
 
-  PersonMoviesModel({this.cast, this.crew, this.id});
+  PersonMoviesModel({this.movies, this.crew, this.id});
 
   PersonMoviesModel.fromJson(Map<String, dynamic> json) {
     if (json['cast'] != null) {
-      cast = [];
+      movies = [];
       json['cast'].forEach((v) {
-        cast.add(new Cast.fromJson(v));
+        movies.add(new PersonMovie.fromJson(v));
       });
     }
     if (json['crew'] != null) {
@@ -23,8 +23,8 @@ class PersonMoviesModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.cast != null) {
-      data['cast'] = this.cast.map((v) => v.toJson()).toList();
+    if (this.movies != null) {
+      data['cast'] = this.movies.map((v) => v.toJson()).toList();
     }
     if (this.crew != null) {
       data['crew'] = this.crew.map((v) => v.toJson()).toList();
@@ -34,7 +34,7 @@ class PersonMoviesModel {
   }
 }
 
-class Cast {
+class PersonMovie {
   bool adult;
   String backdropPath;
   List<int> genreIds;
@@ -53,7 +53,7 @@ class Cast {
   String creditId;
   int order;
 
-  Cast(
+  PersonMovie(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -72,7 +72,7 @@ class Cast {
       this.creditId,
       this.order});
 
-  Cast.fromJson(Map<String, dynamic> json) {
+  PersonMovie.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();
