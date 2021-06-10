@@ -59,7 +59,14 @@ class PopularMovieList extends StatelessWidget {
                 );
                 }
                 if (fromWhere == "Search") {
-                  movieSelectedFromSearch = snapshot.data.results[index];
+                  movieSelectedFromSearch = new Movie(
+                  title: snapshot.data.results[index].title,
+                  overview: snapshot.data.results[index].overview,
+                  voteAverage: snapshot.data.results[index].voteAverage,
+                  id: snapshot.data.results[index].id,
+                  releaseDate: snapshot.data.results[index].releaseDate,
+                  posterPath: snapshot.data.results[index].posterPath,
+                );
                 }
                 
                 Navigator.pushNamed(context, '/movie');

@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 class FilmographyGridView extends StatefulWidget {
-  const FilmographyGridView({Key key}) : super(key: key);
+  final String personName;
+  final String fromWhere;
+  const FilmographyGridView(
+      {Key key, @required this.personName, @required this.fromWhere})
+      : super(key: key);
 
   @override
   _FilmographyGridViewState createState() => _FilmographyGridViewState();
@@ -17,7 +21,7 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Already Watched List"),
+        title: Text("Filmography"),
         centerTitle: true,
         automaticallyImplyLeading: false,
         leading: TextButton.icon(
@@ -26,56 +30,103 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
             Icons.arrow_back_ios,
             color: Colors.amber,
           ),
-          label: Text(
-            "User",
-            style:
-                TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
-          ),
-        ),
-        leadingWidth: size.width * 0.2,
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/settings');
-            },
-            child: Row(
-              children: [
-                Text(
-                  "Edit",
-                  style: TextStyle(
-                    color: Colors.amber,
-                  ),
-                ),
-              ],
+          label: Container(
+            width: size.width * 0.2,
+            child: Text(
+              widget.personName,
+              style: TextStyle(
+                  color: Colors.amber, fontFamily: 'Quicksand-Regular'),
             ),
           ),
-        ],
+        ),
+        leadingWidth: size.width * 0.32,
       ),
       body: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, childAspectRatio: (9 / 13)),
-          itemCount: selectedPersonMoviesFromHome.length,
+          itemCount: getCount(),
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                movieSelectedFromHome = new Movie(
-                  title: selectedPersonMoviesFromHome[index].title,
-                  overview: selectedPersonMoviesFromHome[index].overview,
-                  voteAverage: selectedPersonMoviesFromHome[index].voteAverage,
-                  id: selectedPersonMoviesFromHome[index].id,
-                  releaseDate: selectedPersonMoviesFromHome[index].releaseDate,
-                  posterPath: selectedPersonMoviesFromHome[index].posterPath,
-                );
+                if (widget.fromWhere == "Home") {
+                  movieSelectedFromHome = new Movie(
+                    title: selectedPersonMoviesFromHome[index].title,
+                    overview: selectedPersonMoviesFromHome[index].overview,
+                    voteAverage:
+                        selectedPersonMoviesFromHome[index].voteAverage,
+                    id: selectedPersonMoviesFromHome[index].id,
+                    releaseDate:
+                        selectedPersonMoviesFromHome[index].releaseDate,
+                    posterPath: selectedPersonMoviesFromHome[index].posterPath,
+                  );
+                }
+                if (widget.fromWhere == "Search") {
+                  movieSelectedFromSearch = new Movie(
+                    title: selectedPersonMoviesFromSearch[index].title,
+                    overview: selectedPersonMoviesFromSearch[index].overview,
+                    voteAverage:
+                        selectedPersonMoviesFromSearch[index].voteAverage,
+                    id: selectedPersonMoviesFromSearch[index].id,
+                    releaseDate:
+                        selectedPersonMoviesFromSearch[index].releaseDate,
+                    posterPath:
+                        selectedPersonMoviesFromSearch[index].posterPath,
+                  );
+                }
+                if (widget.fromWhere == "User") {
+                  movieSelectedFromUser = new Movie(
+                    title: selectedPersonMoviesFromUser[index].title,
+                    overview: selectedPersonMoviesFromUser[index].overview,
+                    voteAverage:
+                        selectedPersonMoviesFromUser[index].voteAverage,
+                    id: selectedPersonMoviesFromUser[index].id,
+                    releaseDate:
+                        selectedPersonMoviesFromUser[index].releaseDate,
+                    posterPath: selectedPersonMoviesFromUser[index].posterPath,
+                  );
+                }
                 Navigator.pushNamed(context, '/movie');
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },
-                          child: MovieCard(
-                imageUrl:
-                    'https://image.tmdb.org/t/p/original${selectedPersonMoviesFromHome[index].posterPath}',
-                movieTitle: selectedPersonMoviesFromHome[index].title,
-              ),
+              child: getMovieCard(index),
             );
           }),
     );
+  }
+
+  int getCount() {
+    if (widget.fromWhere == "Home") {
+      return selectedPersonMoviesFromHome.length;
+    }
+    if (widget.fromWhere == "Search") {
+      return selectedPersonMoviesFromSearch.length;
+    }
+    if (widget.fromWhere == "User") {
+      return selectedPersonMoviesFromUser.length;
+    }
+  }
+
+  Widget getMovieCard(index) {
+    if (widget.fromWhere == "Home") {
+      return MovieCard(
+        imageUrl:
+            'https://image.tmdb.org/t/p/original${selectedPersonMoviesFromHome[index].posterPath}',
+        movieTitle: selectedPersonMoviesFromHome[index].title,
+      );
+    }
+    if (widget.fromWhere == "Search") {
+      return MovieCard(
+        imageUrl:
+            'https://image.tmdb.org/t/p/original${selectedPersonMoviesFromSearch[index].posterPath}',
+        movieTitle: selectedPersonMoviesFromSearch[index].title,
+      );
+    }
+    if (widget.fromWhere == "User") {
+      return MovieCard(
+        imageUrl:
+            'https://image.tmdb.org/t/p/original${selectedPersonMoviesFromUser[index].posterPath}',
+        movieTitle: selectedPersonMoviesFromUser[index].title,
+      );
+    }
   }
 }

@@ -40,24 +40,24 @@ Color applyTextColor = Colors.grey;
 
 //MovieResults movieSelectedFromHome;
 Movie movieSelectedFromHome;
-MovieResults movieSelectedFromSearch; //TODO
-MovieResults movieSelectedFromUser; //TODO
+Movie movieSelectedFromSearch; 
+Movie movieSelectedFromUser; 
 
 PersonResults personSelectedFromHome;
 PersonResults personSelectedFromSearch;
 PersonResults personSelectedFromUser;
 
-PersonMovie personMovieSelectedFromHome;
+Movie personMovieSelectedFromHome;
 PersonMovie personMovieSelectedFromSearch;
 PersonMovie personMovieSelectedFromUser;
 
 List<Movie> selectedPersonMoviesFromHome = [];
-List<PersonMovie> selectedPersonMoviesFromSearch; //TODO 
-List<PersonMovie> selectedPersonMoviesFromUser; //TODO
+List<Movie> selectedPersonMoviesFromSearch = []; //TODO 
+List<Movie> selectedPersonMoviesFromUser = []; //TODO
 
-List<MovieResults> watchList = [];
-List<MovieResults> alreadyWatchedList = [];
-List<MovieResults> favouriteList = [];
+List<Movie> watchList = [];
+List<Movie> alreadyWatchedList = [];
+List<Movie> favouriteList = [];
 
 String watchListTitle = "Add to watchlist";
 String alreadyWatchedListTitle = "Add to already watched list";
@@ -65,16 +65,16 @@ String favouriteListTitle = "Add to favourite list";
 
 int setLenght(List list) {
   int len;
-  if (list.length <= 3) {
+  if (list.length <= 4) {
     len = list.length;
   } else {
-    len = 3;
+    len = 4;
   }
   return len;
 }
 
+//TODO CANCELLARE RISULTATI DI RICERCA QUANDO SI PREME LA X PER CANCELLARE LA QUERY
 //TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
-//TODO LINKARE PERSONS PER FARE LA QUERY
 //TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
 //TODO FARE I BOTTONI DEI GENERI NEI FILTRI TUTTI UGUALI
 //TODO LINKARE GOOGLE E FB

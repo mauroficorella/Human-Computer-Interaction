@@ -1,5 +1,6 @@
 import 'package:ciak_time/components/list_card.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
@@ -10,7 +11,6 @@ class CardList extends StatelessWidget {
     Key key,
     @required this.size,
     this.title,
-    //this.icon,
     this.assetName,
     this.number,
     this.height,
@@ -20,15 +20,22 @@ class CardList extends StatelessWidget {
 
   final Size size;
   final String title;
-  //final IconData icon;
   final String assetName;
   final int number;
   final double height;
   final double width;
 
-  final List<MovieResults> list;
+  final List<Movie> list;
 
-  
+  Widget getViewAllButton(context) {
+    if ((list == watchList && watchList.isNotEmpty) ||
+        (list == alreadyWatchedList && alreadyWatchedList.isNotEmpty) ||
+        (list == favouriteList && favouriteList.isNotEmpty)) {
+      return ViewAllButton(list: list, size: size);
+    } else {
+      return Container();
+    }
+  }
 
   Widget getListContent(context) {
     if (list.isNotEmpty) {
@@ -60,32 +67,6 @@ class CardList extends StatelessWidget {
               ),
             ),
           ),
-          TextButton.icon(
-            onPressed: () {
-              if (list == watchList) {
-                Navigator.pushNamed(context, '/watchlist');
-              }
-              if (list == alreadyWatchedList) {
-                Navigator.pushNamed(context, '/alreadywatchedlist');
-              }
-              if (list == favouriteList) {
-                Navigator.pushNamed(context, '/favouritelist');
-              }
-            },
-            label: Icon(Icons.arrow_forward, color: kPrimaryColor),
-            icon: Container(
-              width: size.width * 0.15,
-              //width: size.width * 0.11,
-              child: Text(
-                "View all",
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                    color: kPrimaryColor,
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Quicksand-Medium'),
-              ),
-            ),
-          ),
         ],
       );
     } else {
@@ -105,22 +86,29 @@ class CardList extends StatelessWidget {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              width: width,
+            Row(
+              children: [
+                SizedBox(
+                  width: width,
+                ),
+                SvgPicture.asset(
+                  assetName,
+                  height: size.height * 0.03,
+                ),
+                SizedBox(
+                  width: size.width * 0.03,
+                ),
+                Text(
+                  title,
+                  style: TextStyle(
+                      fontSize: size.height * 0.03,
+                      fontFamily: 'Quicksand-Medium'),
+                ),
+              ],
             ),
-            SvgPicture.asset(
-              assetName,
-              height: size.height * 0.03,
-            ),
-            SizedBox(
-              width: size.width * 0.03,
-            ),
-            Text(
-              title,
-              style: TextStyle(
-                  fontSize: size.height * 0.03, fontFamily: 'Quicksand-Medium'),
-            ),
+            getViewAllButton(context),
           ],
         ),
         getListContent(context),
@@ -128,6 +116,42 @@ class CardList extends StatelessWidget {
           height: size.height * 0.01,
         ),
       ],
+    );
+  }
+}
+
+class ViewAllButton extends StatelessWidget {
+  const ViewAllButton({
+    Key key,
+    @required this.list,
+    @required this.size,
+  }) : super(key: key);
+
+  final List<Movie> list;
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton.icon(
+      onPressed: () {
+        if (list == watchList) {
+          Navigator.pushNamed(context, '/watchlist');
+        }
+        if (list == alreadyWatchedList) {
+          Navigator.pushNamed(context, '/alreadywatchedlist');
+        }
+        if (list == favouriteList) {
+          Navigator.pushNamed(context, '/favouritelist');
+        }
+      },
+      label: Icon(Icons.arrow_forward, color: kPrimaryColor),
+      icon: Text(
+        "View all",
+        style: TextStyle(
+            color: kPrimaryColor,
+            fontSize: size.height * 0.02,
+            fontFamily: 'Quicksand-Medium'),
+      ),
     );
   }
 }

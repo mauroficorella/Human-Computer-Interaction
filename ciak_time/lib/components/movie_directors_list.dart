@@ -1,17 +1,17 @@
 import 'package:ciak_time/blocs/movie_cast_bloc.dart';
-import 'package:ciak_time/blocs/popular_person_bloc.dart';
 import 'package:ciak_time/components/cast_card.dart';
-import 'package:ciak_time/components/person_card.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_cast_model.dart';
-import 'package:ciak_time/models/movie_model.dart';
-import 'package:ciak_time/models/person_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 class MovieDirectorsList extends StatelessWidget {
-  final MovieResults movieSelected;
+  final Movie movieSelected;
+  final String fromWhere;
 
-  const MovieDirectorsList({Key key, @required this.movieSelected}) : super(key: key);
+  const MovieDirectorsList({Key key, @required this.movieSelected, @required this.fromWhere,})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -35,21 +35,33 @@ class MovieDirectorsList extends StatelessWidget {
     );
   }
 
-  Widget returnImage(snapshot, index, size) {
+  Widget returnImage(snapshot, index, size, context) {
+    String imagePath;
     if (snapshot.data.directors[index].profilePath != null) {
-      return CastCard(
-        imageUrl:
-            'https://image.tmdb.org/t/p/original${snapshot.data.directors[index].profilePath}',
-        personName: snapshot.data.directors[index].name,
-      );
+      imagePath =
+          'https://image.tmdb.org/t/p/original${snapshot.data.directors[index].profilePath}';
     } else {
-      //print(snapshot.data.results[index].title);
-      return CastCard(
-        imageUrl:
-            'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif',
-        personName: snapshot.data.directors[index].name,
-      );
+      imagePath =
+          'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif';
     }
+    return GestureDetector(
+      onTap: () {
+        if (fromWhere == "Home") {
+          personSelectedFromHome = snapshot.data.results[index];
+        }
+        if (fromWhere == "Search") {
+          personSelectedFromSearch = snapshot.data.results[index]; //TODO
+        }
+        if (fromWhere == "User") {
+          personSelectedFromUser = snapshot.data.results[index];
+        }
+
+        Navigator.pushNamed(context, '/person');
+        FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+      },
+      child: CastCard(
+          imageUrl: imagePath, personName: snapshot.data.directors[index].name),
+    );
   }
 
   Widget buildList(AsyncSnapshot<MovieCastModel> snapshot, size) {
@@ -60,7 +72,7 @@ class MovieDirectorsList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: snapshot.data.directors.length,
             itemBuilder: (BuildContext context, int index) {
-              return returnImage(snapshot, index, size);
+              return returnImage(snapshot, index, size, context);
             }),
       );
     } else {

@@ -15,24 +15,24 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   static const historyLength = 5;
 
-  // The "raw" history that we don't access from the UI, prefilled with values
+  
   List<String> _searchHistory = [
     "Harry Potter and the philosofer's stone",
     "Harry Potter and the prisoner of Azkaban",
     "The Lord of the Rings: The Fellowship of the Ring",
     "The fast and the furious",
   ];
-  // The filtered & ordered history that's accessed from the UI
+  
   List<String> filteredSearchHistory;
 
-  // The currently searched-for term
+  
   String selectedTerm;
 
   List<String> filterSearchTerms({
     @required String filter,
   }) {
     if (filter != null && filter.isNotEmpty) {
-      // Reversed because we want the last added items to appear first in the UI
+      
       return _searchHistory.reversed
           .where((term) => term.startsWith(filter))
           .toList();
@@ -43,7 +43,7 @@ class _SearchState extends State<Search> {
 
   void addSearchTerm(String term) {
     if (_searchHistory.contains(term)) {
-      // This method will be implemented soon
+      
       putSearchTermFirst(term);
       return;
     }
@@ -51,7 +51,7 @@ class _SearchState extends State<Search> {
     if (_searchHistory.length > historyLength) {
       _searchHistory.removeRange(0, _searchHistory.length - historyLength);
     }
-    // Changes in _searchHistory mean that we have to update the filteredSearchHistory
+    
     filteredSearchHistory = filterSearchTerms(filter: null);
   }
 
@@ -94,7 +94,7 @@ class _SearchState extends State<Search> {
             setState(() {
               if (isFocused && bodyIndex == 1) {
                 bodyIndex = 0;
-                //content = new SearchResultsListView(searchTerm: "");
+                
               }
             });
           },
@@ -103,7 +103,7 @@ class _SearchState extends State<Search> {
           automaticallyImplyBackButton: false,
 
           transition: CircularFloatingSearchBarTransition(),
-          // Bouncing physics for the search history
+          
           physics: BouncingScrollPhysics(),
           leadingActions: [
             FloatingSearchBarAction(
@@ -115,7 +115,7 @@ class _SearchState extends State<Search> {
               ),
             ),
           ],
-          // Title is displayed on an unopened (inactive) search bar
+          
           title: Text(
             selectedTerm ?? 'Search',
             style: selectedTerm == null
@@ -129,9 +129,9 @@ class _SearchState extends State<Search> {
                     fontSize: size.height * 0.02,
                     fontFamily: 'Quicksand-Medium',
                   ),
-            //style: Theme.of(context).textTheme.headline6,
+            
           ),
-          // Hint gets displayed once the search bar is tapped and opened
+          
           hint: 'Search...',
           actions: [
             FloatingSearchBarAction.searchToClear(),
@@ -141,7 +141,7 @@ class _SearchState extends State<Search> {
               filteredSearchHistory = filterSearchTerms(filter: query);
               selectedTerm = query;
               content = new SearchResultsListView(searchTerm: query);
-              //start showing results
+              
             });
           },
           queryStyle: TextStyle(
@@ -161,26 +161,12 @@ class _SearchState extends State<Search> {
             });
 
             controller.close();
-            /*if (query == "The Lord of the Rings: The Fellowship of the Ring") {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return Movie();
-                  },
-                ),
-              );
-            }*/
+            
           },
 
           body: new Container(
             child: content,
           ),
-
-          //body: BodyWidget(bodyIndex: bodyIndex),
-          /*bodyIndex == 1
-              ? SearchResultsListView(searchTerm: "")
-              : CardsWidget(size: size)*/
 
           builder: (BuildContext context, Animation<double> transition) {
             return ClipRRect(
@@ -256,7 +242,7 @@ class _SearchState extends State<Search> {
           },
         );
       }),
-      /*floatingActionButton: FloatingButton(size: size),*/
+      
     );
   }
 }

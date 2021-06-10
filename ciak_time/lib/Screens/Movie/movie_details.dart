@@ -1,16 +1,15 @@
-import 'package:ciak_time/components/cast_list.dart';
 import 'package:ciak_time/components/movie_cast_list.dart';
 import 'package:ciak_time/components/movie_directors_list.dart';
 import 'package:ciak_time/components/watch_providers_list.dart';
-import 'package:ciak_time/constants.dart';
-import 'package:ciak_time/models/movie_model.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MovieDetails extends StatefulWidget {
-  final MovieResults movieSelected;
+  final Movie movieSelected;
+  final String fromWhere;
 
-  const MovieDetails({Key key, @required this.movieSelected}) : super(key: key);
+  const MovieDetails({Key key, @required this.movieSelected, @required this.fromWhere}) : super(key: key);
   @override
   _MovieDetailsState createState() => _MovieDetailsState();
 }
@@ -110,25 +109,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                         ),
                         SizedBox(height: size.height * 0.01),
                         WatchProvidersList(movieSelected: widget.movieSelected,),
-                        /*Container(
-                          height: size.width * 0.1,
-                          width: size.width * 0.1,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Netflix_icon.svg/1200px-Netflix_icon.svg.png"),
-                                fit: BoxFit.cover),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 7,
-                                offset:
-                                    Offset(0, 4), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                        ),*/
+                        
                       ],
                     ),
                   ),
@@ -158,7 +139,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                             assertIcon: "assets/icons/actor.svg"),
                         SizedBox(height: size.height * 0.005),
                         Container(
-                            height: size.height * 0.18, child: MovieCastList(movieSelected: widget.movieSelected)),
+                            height: size.height * 0.18, child: MovieCastList(movieSelected: widget.movieSelected, fromWhere: widget.fromWhere,)),
                         IconTextBold(
                             size: size,
                             label: "Movie director",
@@ -166,7 +147,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                         SizedBox(height: size.height * 0.005),
                         Container(
                             height: size.height * 0.18,
-                            child: MovieDirectorsList(movieSelected: widget.movieSelected,)),
+                            child: MovieDirectorsList(movieSelected: widget.movieSelected, fromWhere: widget.fromWhere,)),
                       ],
                     ),
                   ),

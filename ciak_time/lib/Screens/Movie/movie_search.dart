@@ -5,6 +5,7 @@ import 'package:ciak_time/blocs/movie_details_bloc.dart';
 import 'package:ciak_time/blocs/movie_images_bloc.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
 import 'package:ciak_time/models/movie_model.dart';
@@ -136,14 +137,7 @@ class _MovieSearchState extends State<MovieSearch> {
                               ),
                               TextButton.icon(
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return MovieDetails(movieSelected: movieSelectedFromSearch,);
-                                      },
-                                    ),
-                                  );
+                                  Navigator.pushNamed(context, '/moviedetails');
                                 },
                                 label: Icon(Icons.arrow_forward,
                                     color: kPrimaryColor),
@@ -669,7 +663,7 @@ class AddButton extends StatelessWidget {
                                 Navigator.pop(context);
                               } else {
                                 bool isContainedInWatchList = false;
-                                MovieResults movie;
+                                Movie movie;
                                 for (var i = 0; i < watchList.length; i++) {
                                   if (watchList[i].id == movieSelectedFromSearch.id) {
                                     isContainedInWatchList = true;

@@ -2,6 +2,7 @@ import 'package:ciak_time/blocs/search_movies_bloc.dart';
 import 'package:ciak_time/components/movie_card.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
@@ -13,9 +14,7 @@ class SearchMovieResultsList extends StatelessWidget {
   const SearchMovieResultsList({Key key, @required this.queryString})
       : super(key: key);
 
-  /*SearchMovieResultsList(String queryString) {
-    this.queryString = queryString;
-  }*/
+  
 
   @override
   Widget build(BuildContext context) {
@@ -78,14 +77,9 @@ class SearchMovieResultsList extends StatelessWidget {
               child: GestureDetector(
                 child: Card(
                   child: Row(
-
-                      //contentPadding: EdgeInsets.all(25),
                       children: <Widget>[
                         returnImage(snapshot, index, size),
-                        /*Image.network(
-                          'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
-                          fit: BoxFit.cover,
-                        ),*/
+                        
                         SizedBox(width: size.width * 0.04),
                         Container(
                           width: size.width * 0.6,
@@ -112,18 +106,22 @@ class SearchMovieResultsList extends StatelessWidget {
                       ]),
                 ),
                 onTap: () {
-                  movieSelectedFromSearch = snapshot.data.results[index];
-                  //debugPrint(movieSelected.title);
+
+                  movieSelectedFromSearch = new Movie(
+                  title: snapshot.data.results[index].title,
+                  overview: snapshot.data.results[index].overview,
+                  voteAverage: snapshot.data.results[index].voteAverage,
+                  id: snapshot.data.results[index].id,
+                  releaseDate: snapshot.data.results[index].releaseDate,
+                  posterPath: snapshot.data.results[index].posterPath,
+                );
+                  
                   Navigator.pushNamed(context, '/movie');
                   FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
                 },
               ),
             );
-            /*return MovieCard(
-              imageUrl:
-                  'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
-              movieTitle: snapshot.data.results[index].title,
-            );*/
+            
           }),
     );
   }

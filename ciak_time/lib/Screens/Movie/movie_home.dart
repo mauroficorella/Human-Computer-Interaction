@@ -5,6 +5,7 @@ import 'package:ciak_time/blocs/movie_details_bloc.dart';
 import 'package:ciak_time/blocs/movie_images_bloc.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
 import 'package:ciak_time/models/movie_model.dart';
@@ -136,14 +137,7 @@ class _MovieHomeState extends State<MovieHome> {
                               ),
                               TextButton.icon(
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        //return MovieDetails(movieSelected: movieSelectedFromHome,);
-                                      },
-                                    ),
-                                  );
+                                  Navigator.pushNamed(context, '/moviedetails');
                                 },
                                 label: Icon(Icons.arrow_forward,
                                     color: kPrimaryColor),
@@ -596,7 +590,7 @@ checkDisabledButton(context) {
       buildFlutterToast(" removed from watchlist");
       Navigator.pop(context);
     } else {
-      //watchList.add(movieSelectedFromHome);
+      watchList.add(movieSelectedFromHome);
 
       buildFlutterToast(" added to watchlist");
       Navigator.pop(context);
@@ -670,7 +664,7 @@ class AddButton extends StatelessWidget {
                                 Navigator.pop(context);
                               } else {
                                 bool isContainedInWatchList = false;
-                                MovieResults movie;
+                                Movie movie;
                                 for (var i = 0; i < watchList.length; i++) {
                                   if (watchList[i].id == movieSelectedFromHome.id) {
                                     isContainedInWatchList = true;
@@ -680,7 +674,7 @@ class AddButton extends StatelessWidget {
                                 if (isContainedInWatchList) {
                                   watchList.remove(movie);
                                 }
-                                //alreadyWatchedList.add(movieSelectedFromHome);
+                                alreadyWatchedList.add(movieSelectedFromHome);
                                 buildFlutterToast(
                                     " added to already watched list");
                                 Navigator.pop(context);
@@ -710,7 +704,7 @@ class AddButton extends StatelessWidget {
                                     " removed from favourite list");
                                 Navigator.pop(context);
                               } else {
-                                //favouriteList.add(movieSelectedFromHome);
+                                favouriteList.add(movieSelectedFromHome);
                                 buildFlutterToast(" added to favourite list");
                                 Navigator.pop(context);
                               }
