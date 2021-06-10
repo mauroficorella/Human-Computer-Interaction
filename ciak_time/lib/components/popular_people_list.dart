@@ -1,6 +1,7 @@
 import 'package:ciak_time/blocs/popular_person_bloc.dart';
 import 'package:ciak_time/components/person_card.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/person.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
@@ -44,13 +45,23 @@ class PopularPeopleList extends StatelessWidget {
     }
     return GestureDetector(
       onTap: () {
+        //TODO
+        personSelectedFromHome = new Person(id: snapshot.data.results[index].id, name:snapshot.data.results[index].name);
+        /* Person person = new Person(
+            id: snapshot.data.results[index].id,
+            biography: snapshot.data.results[index].biography,
+            name: snapshot.data.results[index].name,
+            imagePath: snapshot.data.results[index].profilePath);
+
         if (fromWhere == "Home") {
-          personSelectedFromHome = snapshot.data.results[index];
+          //personSelectedFromHome = snapshot.data.results[index];
+          personSelectedFromHome = person;
         }
         if (fromWhere == "Search") {
-          personSelectedFromSearch = snapshot.data.results[index];
+          //personSelectedFromSearch = snapshot.data.results[index];
+          personSelectedFromSearch = person; //TODO
         }
-
+*/
         Navigator.pushNamed(context, '/person');
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
       },
@@ -62,6 +73,8 @@ class PopularPeopleList extends StatelessWidget {
   }
 
   Widget buildList(AsyncSnapshot<PersonModel> snapshot, size) {
+    //get person details
+
     return Container(
       height: size.height * 0.26,
       //color: Colors.amber,

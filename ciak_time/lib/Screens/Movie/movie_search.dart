@@ -1,6 +1,7 @@
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
+import 'package:ciak_time/api_utils.dart';
 import 'package:ciak_time/blocs/movie_details_bloc.dart';
 import 'package:ciak_time/blocs/movie_images_bloc.dart';
 import 'package:ciak_time/components/rating.dart';
@@ -14,9 +15,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class MovieSearch extends StatefulWidget {
-  
-
-  const MovieSearch({Key key,}) : super(key: key);
+  const MovieSearch({
+    Key key,
+  }) : super(key: key);
   @override
   _MovieSearchState createState() => _MovieSearchState();
 }
@@ -35,7 +36,7 @@ class _MovieSearchState extends State<MovieSearch> {
               Center(
                 child: MovieCover(size: size),
               ),
-              // BACK ARROW 
+              // BACK ARROW
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
@@ -270,14 +271,6 @@ class _MovieSearchState extends State<MovieSearch> {
   }
 }
 
-String getOverview() {
-  if (movieSelectedFromSearch.overview != null) {
-    return movieSelectedFromSearch.overview;
-  } else {
-    return "Unknown";
-  }
-}
-
 class MovieCover extends StatelessWidget {
   const MovieCover({
     Key key,
@@ -346,45 +339,6 @@ class MovieCover extends StatelessWidget {
   }
 }
 
-String durationToString(int minutes) {
-  print("minutes: " + minutes.toString());
-  if (minutes != null) {
-    print("if della durata");
-    var d = Duration(minutes: minutes);
-    List<String> parts = d.toString().split(':');
-    return '${parts[0]} h ${parts[1].padLeft(2, '0')} min';
-  } else {
-    print("else della durata");
-    return "Unknown";
-  }
-}
-
-String getGenresNames(List<Genres> genres) {
-  if (genres.length != 0) {
-    String allGenres = '';
-    for (var i = 0; i < genres.length; i++) {
-      allGenres = allGenres + genres[i].name;
-      if (i != genres.length - 1) {
-        allGenres = allGenres + ", ";
-      }
-    }
-    return allGenres;
-  } else {
-    return "Genre: Unknown";
-  }
-}
-
-String getReleaseDate() {
-  if (movieSelectedFromSearch.releaseDate.toString() != "" ||
-      movieSelectedFromSearch.releaseDate != null) {
-    return movieSelectedFromSearch.releaseDate;
-  } else if (movieSelectedFromSearch.releaseDate.toString() == "") {
-    return "Date: Unknown";
-  } else {
-    return "Date: Unknown";
-  }
-}
-
 class MovieBasicInfo extends StatelessWidget {
   const MovieBasicInfo({
     Key key,
@@ -409,7 +363,6 @@ class MovieBasicInfo extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          
           color: Colors.amber,
         ));
       },
@@ -427,8 +380,7 @@ class MovieBasicInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                
-                getReleaseDate(),
+                getReleaseDate(snapshot.data.releaseDate),
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: size.height * 0.02,
@@ -454,7 +406,7 @@ class MovieBasicInfo extends StatelessWidget {
           height: size.height * 0.015,
         ),
         Text(
-          getGenresNames(snapshot.data.genres), 
+          getGenresNames(snapshot.data.genres),
           style: TextStyle(
             color: Colors.black,
             fontSize: size.height * 0.02,
@@ -512,10 +464,8 @@ String getWatchListTitle() {
     }
   }
   if (isContained) {
-    print("ciao");
     watchListTitle = "Remove from watchlist";
   } else {
-    print("sono nell'else");
     watchListTitle = "Add to watchlist";
   }
 
@@ -657,7 +607,8 @@ class AddButton extends StatelessWidget {
                             onPressed: () {
                               if (alreadyWatchedListTitle ==
                                   "Remove from already watched list") {
-                                alreadyWatchedList.remove(movieSelectedFromSearch);
+                                alreadyWatchedList
+                                    .remove(movieSelectedFromSearch);
                                 buildFlutterToast(
                                     " removed from already watched list");
                                 Navigator.pop(context);
@@ -665,7 +616,8 @@ class AddButton extends StatelessWidget {
                                 bool isContainedInWatchList = false;
                                 Movie movie;
                                 for (var i = 0; i < watchList.length; i++) {
-                                  if (watchList[i].id == movieSelectedFromSearch.id) {
+                                  if (watchList[i].id ==
+                                      movieSelectedFromSearch.id) {
                                     isContainedInWatchList = true;
                                     movie = watchList[i];
                                   }

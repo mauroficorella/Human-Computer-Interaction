@@ -1,8 +1,12 @@
 import 'package:ciak_time/models/movie.dart';
+import 'package:ciak_time/models/movie_cast_model.dart';
 import 'package:ciak_time/models/movie_model.dart';
+import 'package:ciak_time/models/person_details_model.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:ciak_time/models/person_movies_model.dart';
 import 'package:flutter/material.dart';
+
+import 'models/person.dart';
 
 const kPrimaryColor = Color(0xFF6F35A5);
 const kPrimaryLightColor = Color(0xFFF1E6FF);
@@ -40,20 +44,28 @@ Color applyTextColor = Colors.grey;
 
 //MovieResults movieSelectedFromHome;
 Movie movieSelectedFromHome;
-Movie movieSelectedFromSearch; 
-Movie movieSelectedFromUser; 
+Movie movieSelectedFromSearch;
+Movie movieSelectedFromUser;
 
-PersonResults personSelectedFromHome;
-PersonResults personSelectedFromSearch;
-PersonResults personSelectedFromUser;
+/*PersonDetailsModel personSelectedFromHome;
+PersonDetailsModel personSelectedFromSearch; //TODO
+PersonDetailsModel personSelectedFromUser;*/ //TODO
+
+/*String personIdSelectedFromHome;
+String personIdSelectedFromSearch;
+String personIdSelectedFromUser;*/
+
+Person personSelectedFromHome; //id, name
+Person personSelectedFromSearch;
+Person personSelectedFromUser;
 
 Movie personMovieSelectedFromHome;
-PersonMovie personMovieSelectedFromSearch;
-PersonMovie personMovieSelectedFromUser;
+Movie personMovieSelectedFromSearch;
+Movie personMovieSelectedFromUser;
 
 List<Movie> selectedPersonMoviesFromHome = [];
-List<Movie> selectedPersonMoviesFromSearch = []; //TODO 
-List<Movie> selectedPersonMoviesFromUser = []; //TODO
+List<Movie> selectedPersonMoviesFromSearch = [];
+List<Movie> selectedPersonMoviesFromUser = [];
 
 List<Movie> watchList = [];
 List<Movie> alreadyWatchedList = [];
@@ -73,11 +85,14 @@ int setLenght(List list) {
   return len;
 }
 
-//TODO CANCELLARE RISULTATI DI RICERCA QUANDO SI PREME LA X PER CANCELLARE LA QUERY
-//TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
-//TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
-//TODO FARE I BOTTONI DEI GENERI NEI FILTRI TUTTI UGUALI
 //TODO LINKARE GOOGLE E FB
-//TODO LEVARE IL BACK TRAMITE GESTURE DOVE NON E' PREVISTO
-//TODO LINKARE CARD A PAGINA ATTORI E FILM
-//TODO RISOLVERE GAY BATMAN
+//TODO CANCELLARE RISULTATI DI RICERCA QUANDO SI PREME LA X PER CANCELLARE LA QUERY!!!
+//TODO RECENSIONI E COMMENTI
+//TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
+//TODO DIRE ALL'UTENTE CHE DEVE ACCENDERE INTERNET SE NON E' ACCESO
+//TODO FARE I BOTTONI DEI GENERI NEI FILTRI TUTTI UGUALI
+//TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
+
+
+
+

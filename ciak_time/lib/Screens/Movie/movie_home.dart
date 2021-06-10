@@ -1,6 +1,7 @@
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
+import 'package:ciak_time/api_utils.dart';
 import 'package:ciak_time/blocs/movie_details_bloc.dart';
 import 'package:ciak_time/blocs/movie_images_bloc.dart';
 import 'package:ciak_time/components/rating.dart';
@@ -14,9 +15,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class MovieHome extends StatefulWidget {
-  
-
-  const MovieHome({Key key,}) : super(key: key);
+  const MovieHome({
+    Key key,
+  }) : super(key: key);
   @override
   _MovieHomeState createState() => _MovieHomeState();
 }
@@ -270,14 +271,6 @@ class _MovieHomeState extends State<MovieHome> {
   }
 }
 
-String getOverview() {
-  if (movieSelectedFromHome.overview != null) {
-    return movieSelectedFromHome.overview;
-  } else {
-    return "Unknown";
-  }
-}
-
 class MovieCover extends StatelessWidget {
   const MovieCover({
     Key key,
@@ -346,46 +339,6 @@ class MovieCover extends StatelessWidget {
   }
 }
 
-String durationToString(int minutes) {
-  print("minutes: " + minutes.toString());
-  if (minutes != null) {
-    print("if della durata");
-    var d = Duration(minutes: minutes);
-    List<String> parts = d.toString().split(':');
-    return '${parts[0]} h ${parts[1].padLeft(2, '0')} min';
-  } else {
-    print("else della durata");
-    return "Unknown";
-  }
-}
-
-String getGenresNames(List<Genres> genres) {
-  //print("genres: " + genres.toString());
-  if (genres.length != 0) {
-    String allGenres = '';
-    for (var i = 0; i < genres.length; i++) {
-      allGenres = allGenres + genres[i].name;
-      if (i != genres.length - 1) {
-        allGenres = allGenres + ", ";
-      }
-    }
-    return allGenres;
-  } else {
-    return "Genre: Unknown";
-  }
-}
-
-String getReleaseDate() {
-  if (movieSelectedFromHome.releaseDate.toString() != "" ||
-      movieSelectedFromHome.releaseDate != null) {
-    return movieSelectedFromHome.releaseDate;
-  } else if (movieSelectedFromHome.releaseDate.toString() == "") {
-    return "Date: Unknown";
-  } else {
-    return "Date: Unknown";
-  }
-}
-
 class MovieBasicInfo extends StatelessWidget {
   const MovieBasicInfo({
     Key key,
@@ -428,8 +381,7 @@ class MovieBasicInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                
-                getReleaseDate(),
+                getReleaseDate(snapshot.data.releaseDate),
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: size.height * 0.02,
@@ -513,10 +465,8 @@ String getWatchListTitle() {
     }
   }
   if (isContained) {
-    print("ciao");
     watchListTitle = "Remove from watchlist";
   } else {
-    print("sono nell'else");
     watchListTitle = "Add to watchlist";
   }
 
@@ -658,7 +608,8 @@ class AddButton extends StatelessWidget {
                             onPressed: () {
                               if (alreadyWatchedListTitle ==
                                   "Remove from already watched list") {
-                                alreadyWatchedList.remove(movieSelectedFromHome);
+                                alreadyWatchedList
+                                    .remove(movieSelectedFromHome);
                                 buildFlutterToast(
                                     " removed from already watched list");
                                 Navigator.pop(context);
@@ -666,7 +617,8 @@ class AddButton extends StatelessWidget {
                                 bool isContainedInWatchList = false;
                                 Movie movie;
                                 for (var i = 0; i < watchList.length; i++) {
-                                  if (watchList[i].id == movieSelectedFromHome.id) {
+                                  if (watchList[i].id ==
+                                      movieSelectedFromHome.id) {
                                     isContainedInWatchList = true;
                                     movie = watchList[i];
                                   }

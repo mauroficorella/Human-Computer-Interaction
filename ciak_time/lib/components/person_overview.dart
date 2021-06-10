@@ -15,8 +15,15 @@ class PersonOverview extends StatelessWidget {
     PersonDetailsBloc bloc;
     if (fromWhere == "Home") {
       bloc = PersonDetailsBloc(personSelectedFromHome.id.toString());
-    } else {
+      //bloc = PersonDetailsBloc(personIdSelectedFromHome);
+    }
+    if (fromWhere == "Search") {
       bloc = PersonDetailsBloc(personSelectedFromSearch.id.toString());
+      //bloc = PersonDetailsBloc(personIdSelectedFromHome);
+    }
+    if (fromWhere == "User") {
+      bloc = PersonDetailsBloc(personSelectedFromUser.id.toString());
+      //bloc = PersonDetailsBloc(personIdSelectedFromHome);
     }
 
     bloc.fetchPersonDetailsResults();
@@ -101,18 +108,33 @@ class PersonOverview extends StatelessWidget {
                 SizedBox(
                   height: size.height * 0.01,
                 ),
-                Text(
-                  snapshot.data.biography,
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Quicksand',
-                  ),
-                ),
+                getBiography(snapshot.data.biography, size),
               ],
             ),
           ),
         ),
       ],
     );
+  }
+
+  Widget getBiography(biography, size) {
+    if (biography != "") {
+      return Text(
+        biography,
+        style: TextStyle(
+          fontSize: size.height * 0.02,
+          fontFamily: 'Quicksand',
+        ),
+      );
+    } else {
+      return Text(
+        "Biography not available",
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: size.height * 0.02,
+          fontFamily: 'Quicksand',
+        ),
+      );
+    }
   }
 }

@@ -10,8 +10,6 @@ class MovieCard extends StatelessWidget {
   final String imageUrl;
   final String movieTitle;
 
-  
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -73,5 +71,8 @@ class MovieCard extends StatelessWidget {
       ],
     );
   }
-}
 
+  String getImageUrl() {
+    
+  }
+}

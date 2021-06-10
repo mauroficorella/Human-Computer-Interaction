@@ -41,7 +41,7 @@ class RatingUnclickable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double value;
-    print("rate: " + rate.toString());
+    
     if (rate == null || rate == 0.0) {
       print("ciao");
       

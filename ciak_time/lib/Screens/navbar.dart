@@ -5,6 +5,7 @@ import 'package:ciak_time/Screens/Movie/movie_search.dart';
 import 'package:ciak_time/Screens/Movie/movie_user.dart';
 import 'package:ciak_time/Screens/Person/filmography_grid_view.dart';
 import 'package:ciak_time/Screens/Person/person_home.dart';
+import 'package:ciak_time/Screens/Person/person_user.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/all_movies_aw_list.dart';
 import 'package:ciak_time/Screens/User/all_movies_f_list.dart';
@@ -87,9 +88,17 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/movie':
                   return MovieUser();
                 case '/filmography':
-                  return FilmographyGridView(personName: personSelectedFromUser.name, fromWhere: "User",);
+                  return FilmographyGridView(
+                    personName: personSelectedFromUser.name,
+                    fromWhere: "User",
+                  );
                 case '/moviedetails':
-                  return MovieDetails(movieSelected: movieSelectedFromUser, fromWhere: "User",);
+                  return MovieDetails(
+                    movieSelected: movieSelectedFromUser,
+                    fromWhere: "User",
+                  );
+                case '/person':
+                  return PersonUser();
               }
             } else if (widget.destination.title == "Home") {
               switch (settings.name) {
@@ -100,9 +109,15 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/person':
                   return PersonHome();
                 case '/filmography':
-                  return FilmographyGridView(personName: personSelectedFromHome.name, fromWhere: "Home",);
+                  return FilmographyGridView(
+                    personName: personSelectedFromHome.name,
+                    fromWhere: "Home",
+                  );
                 case '/moviedetails':
-                  return MovieDetails(movieSelected: movieSelectedFromHome, fromWhere: "Home",);
+                  return MovieDetails(
+                    movieSelected: movieSelectedFromHome,
+                    fromWhere: "Home",
+                  );
               }
             } else if (widget.destination.title == "Search") {
               switch (settings.name) {
@@ -113,9 +128,15 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/person':
                   return PersonSearch();
                 case '/filmography':
-                  return FilmographyGridView(personName: personSelectedFromSearch.name, fromWhere: "Search",);
+                  return FilmographyGridView(
+                    personName: personSelectedFromSearch.name,
+                    fromWhere: "Search",
+                  );
                 case '/moviedetails':
-                  return MovieDetails(movieSelected: movieSelectedFromSearch, fromWhere: "Search",);
+                  return MovieDetails(
+                    movieSelected: movieSelectedFromSearch,
+                    fromWhere: "Search",
+                  );
               }
             }
           },

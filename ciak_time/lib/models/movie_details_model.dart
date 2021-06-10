@@ -85,6 +85,7 @@ class MovieDetailsModel {
         productionCountries.add(new ProductionCountries.fromJson(v));
       });
     }
+
     releaseDate = json['release_date'];
     revenue = json['revenue'];
     runtime = json['runtime'];

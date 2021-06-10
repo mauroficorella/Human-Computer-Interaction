@@ -1,9 +1,11 @@
 import 'package:ciak_time/blocs/movie_cast_bloc.dart';
 import 'package:ciak_time/components/cast_card.dart';
 import 'package:ciak_time/constants.dart';
+
 import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_cast_model.dart';
-import 'package:ciak_time/models/movie_model.dart';
+import 'package:ciak_time/models/person.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
@@ -11,7 +13,8 @@ class MovieCastList extends StatelessWidget {
   final Movie movieSelected;
   final String fromWhere;
 
-  const MovieCastList({Key key, @required this.movieSelected, @required this.fromWhere})
+  const MovieCastList(
+      {Key key, @required this.movieSelected, @required this.fromWhere})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,6 @@ class MovieCastList extends StatelessWidget {
   }
 
   Widget returnImage(snapshot, index, size, context) {
-    
     String imagePath;
     if (snapshot.data.cast[index].profilePath != null) {
       imagePath =
@@ -48,15 +50,20 @@ class MovieCastList extends StatelessWidget {
     }
     return GestureDetector(
       onTap: () {
-        /*if (fromWhere == "Home") {
-          personSelectedFromHome = snapshot.data.results[index];
+        Person person = new Person(
+          id: snapshot.data.cast[index].id,
+          name: snapshot.data.cast[index].name,
+        );
+
+        if (fromWhere == "Home") {
+          personSelectedFromHome = person;
         }
         if (fromWhere == "Search") {
-          personSelectedFromSearch = snapshot.data.results[index]; //TODO
+          personSelectedFromSearch = person;
         }
         if (fromWhere == "User") {
-          personSelectedFromUser = snapshot.data.results[index];
-        }*/
+          personSelectedFromUser = person;
+        }
 
         Navigator.pushNamed(context, '/person');
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
@@ -74,7 +81,7 @@ class MovieCastList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: snapshot.data.cast.length,
             itemBuilder: (BuildContext context, int index) {
-              return returnImage(snapshot, index, size,context);
+              return returnImage(snapshot, index, size, context);
             }),
       );
     } else {

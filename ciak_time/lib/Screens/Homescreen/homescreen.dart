@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Login/components/or_divider.dart';
 import 'package:ciak_time/components/icon_text.dart';
 import 'package:ciak_time/components/popular_movie_list.dart';
 import 'package:ciak_time/components/popular_people_list.dart';
@@ -41,12 +42,16 @@ class _HomeState extends State<Home> {
                 size: size,
                 assetName: "assets/icons/movie2.svg",
                 label: "Popular Movies"),
-            PopularMovieList(fromWhere: "Home",),
+            PopularMovieList(
+              fromWhere: "Home",
+            ),
             IconText(
                 size: size,
                 assetName: "assets/icons/actor.svg",
                 label: "Popular People"),
-            PopularPeopleList(fromWhere: "Home",),
+            PopularPeopleList(
+              fromWhere: "Home",
+            ),
           ],
         ),
       ),

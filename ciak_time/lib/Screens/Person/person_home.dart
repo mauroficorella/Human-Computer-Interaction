@@ -4,9 +4,7 @@ import 'package:ciak_time/components/person_overview.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
 
-
 import 'package:flutter/material.dart';
-
 
 List<Movie> list;
 
@@ -114,5 +112,3 @@ class _PersonHomeState extends State<PersonHome> {
     );
   }
 }
-
-

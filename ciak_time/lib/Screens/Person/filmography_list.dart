@@ -20,12 +20,18 @@ class FilmographyList extends StatelessWidget {
     PersonMoviesBloc bloc;
 
     if (fromWhere == "Home") {
+      //bloc = PersonMoviesBloc(personSelectedFromHome.id.toString());
+      //bloc = PersonMoviesBloc(personIdSelectedFromHome);
       bloc = PersonMoviesBloc(personSelectedFromHome.id.toString());
     }
     if (fromWhere == "Search") {
+      //bloc = PersonMoviesBloc(personSelectedFromSearch.id.toString());
+      //bloc = PersonMoviesBloc(personIdSelectedFromSearch);
       bloc = PersonMoviesBloc(personSelectedFromSearch.id.toString());
     }
     if (fromWhere == "User") {
+      //bloc = PersonMoviesBloc(personSelectedFromUser.id.toString());
+      //bloc = PersonMoviesBloc(personIdSelectedFromUser);
       bloc = PersonMoviesBloc(personSelectedFromUser.id.toString());
     }
 
@@ -51,7 +57,6 @@ class FilmographyList extends StatelessWidget {
               selectedPersonMoviesFromHome.add(movie);
             }
             if (fromWhere == "Search") {
-              print("martina stupida");
               selectedPersonMoviesFromSearch.add(movie);
             }
             if (fromWhere == "User") {

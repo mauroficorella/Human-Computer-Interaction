@@ -108,25 +108,36 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
 
   Widget getMovieCard(index) {
     if (widget.fromWhere == "Home") {
+      String imagePath =
+          getImagePath(selectedPersonMoviesFromHome[index].posterPath);
       return MovieCard(
-        imageUrl:
-            'https://image.tmdb.org/t/p/original${selectedPersonMoviesFromHome[index].posterPath}',
+        imageUrl: imagePath,
         movieTitle: selectedPersonMoviesFromHome[index].title,
       );
     }
     if (widget.fromWhere == "Search") {
+      String imagePath =
+          getImagePath(selectedPersonMoviesFromSearch[index].posterPath);
       return MovieCard(
-        imageUrl:
-            'https://image.tmdb.org/t/p/original${selectedPersonMoviesFromSearch[index].posterPath}',
+        imageUrl: imagePath,
         movieTitle: selectedPersonMoviesFromSearch[index].title,
       );
     }
     if (widget.fromWhere == "User") {
+      String imagePath =
+          getImagePath(selectedPersonMoviesFromUser[index].posterPath);
       return MovieCard(
-        imageUrl:
-            'https://image.tmdb.org/t/p/original${selectedPersonMoviesFromUser[index].posterPath}',
+        imageUrl: imagePath,
         movieTitle: selectedPersonMoviesFromUser[index].title,
       );
     }
+  }
+}
+
+String getImagePath(String posterPath) {
+  if (posterPath == null) {
+    return "http://www.persefone.it/blog/wp-content/themes/photobook/images/blank.png";
+  } else {
+    return 'https://image.tmdb.org/t/p/original$posterPath';
   }
 }

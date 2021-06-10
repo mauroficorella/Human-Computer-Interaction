@@ -3,6 +3,7 @@ import 'package:ciak_time/components/cast_card.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_cast_model.dart';
+import 'package:ciak_time/models/person.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
@@ -10,8 +11,11 @@ class MovieDirectorsList extends StatelessWidget {
   final Movie movieSelected;
   final String fromWhere;
 
-  const MovieDirectorsList({Key key, @required this.movieSelected, @required this.fromWhere,})
-      : super(key: key);
+  const MovieDirectorsList({
+    Key key,
+    @required this.movieSelected,
+    @required this.fromWhere,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -46,14 +50,37 @@ class MovieDirectorsList extends StatelessWidget {
     }
     return GestureDetector(
       onTap: () {
-        if (fromWhere == "Home") {
-          personSelectedFromHome = snapshot.data.results[index];
+        /*if (fromWhere == "Home") {
+          //personSelectedFromHome = snapshot.data.results[index];
+          personSelectedFromHome =
+              new Person(id: snapshot.data.results[index].id);
         }
         if (fromWhere == "Search") {
-          personSelectedFromSearch = snapshot.data.results[index]; //TODO
+          //personSelectedFromSearch = snapshot.data.results[index];
+          personSelectedFromSearch = person;
         }
         if (fromWhere == "User") {
           personSelectedFromUser = snapshot.data.results[index];
+          //personSelectedFromUser = new Person(id: snapshot.data.results[index].id); //TODO
+        }*/
+        Person person = new Person(
+          id: snapshot.data.results[index].id,
+          name: snapshot.data.results[index].name,
+        );
+        if (fromWhere == "Home") {
+          //personSelectedFromHome = snapshot.data.cast[index];
+          personSelectedFromHome = person;
+          //personIdSelectedFromHome = snapshot.data.cast[index].id.toString();
+        }
+        if (fromWhere == "Search") {
+          //personSelectedFromSearch = snapshot.data.cast[index];
+          personSelectedFromSearch = person;
+          //personIdSelectedFromSearch = snapshot.data.cast[index].id.toString();
+        }
+        if (fromWhere == "User") {
+          //personSelectedFromUser = snapshot.data.cast[index];
+          personSelectedFromUser = person;
+          //personIdSelectedFromSearch = snapshot.data.cast[index].id.toString();
         }
 
         Navigator.pushNamed(context, '/person');
