@@ -1,11 +1,5 @@
 import 'package:ciak_time/models/movie.dart';
-import 'package:ciak_time/models/movie_cast_model.dart';
-import 'package:ciak_time/models/movie_model.dart';
-import 'package:ciak_time/models/person_details_model.dart';
-import 'package:ciak_time/models/person_model.dart';
-import 'package:ciak_time/models/person_movies_model.dart';
 import 'package:flutter/material.dart';
-
 import 'models/person.dart';
 
 const kPrimaryColor = Color(0xFF6F35A5);

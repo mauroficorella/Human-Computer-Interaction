@@ -23,11 +23,23 @@ class _InsertReviewState extends State<InsertReview> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
+        leading: TextButton.icon(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.amber,
+          ),
+          label: Text(
+            "Reviews", //TODO mettere nome del film
+            style:
+                TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          ),
+        ),
+        leadingWidth: size.width * 0.26,
         title: Text(
-          'Rate the movie',
+          'Review the movie',
           style: TextStyle(
-            fontSize: size.height * 0.030,
             fontFamily: 'Quicksand',
           ),
         ),

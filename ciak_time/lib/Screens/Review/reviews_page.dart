@@ -1,3 +1,6 @@
+import 'package:ciak_time/Screens/Review/comments_page.dart';
+import 'package:ciak_time/Screens/Review/review.dart';
+
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -11,34 +14,57 @@ class _ReviewsPageState extends State<ReviewsPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButton: AddReviewButton(
+        size: size,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
+        leading: TextButton.icon(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.amber,
+          ),
+          label: Text(
+            "Back", //TODO mettere nome del film
+            style:
+                TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          ),
+        ),
+        leadingWidth: size.width * 0.26,
         title: Text(
           'Reviews',
           style: TextStyle(
-            fontSize: size.height * 0.03,
             fontFamily: 'Quicksand',
           ),
         ),
       ),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: size.height * 0.01),
-              reviewWidget(size: size),
-              reviewWidget(size: size),
-              reviewWidget(size: size),
-            ],
-          ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: 4,
+                itemBuilder: (BuildContext context, int index) => Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: ReviewWidget(
+                    size: size,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
-class reviewWidget extends StatelessWidget {
-  const reviewWidget({
+class ReviewWidget extends StatefulWidget {
+  const ReviewWidget({
     Key key,
     @required this.size,
   }) : super(key: key);
@@ -46,11 +72,23 @@ class reviewWidget extends StatelessWidget {
   final Size size;
 
   @override
+  _ReviewWidgetState createState() => _ReviewWidgetState();
+}
+
+class _ReviewWidgetState extends State<ReviewWidget> {
+  int like = 10;
+  setLike() {
+    setState(() {
+      like = like + 1;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          width: size.width * 0.98,
+          width: widget.size.width * 0.98,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(5),
@@ -66,90 +104,146 @@ class reviewWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(15.0, 8.0, 15.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(
+                    15.0, 8.0, 15.0, 8.0), //0.0 bottom
                 child: Column(
                   children: [
-                    circleAvatarText(size: size),
+                    CircleAvatarText(size: widget.size),
                     SizedBox(
-                      height: size.height * 0.01,
+                      height: widget.size.height * 0.01,
                     ),
                     Text(
                       "Questa è una recensione su quanto Marrel sia Cattivissimo Me",
                       style: TextStyle(
-                        fontSize: size.height * 0.02,
+                        fontSize: widget.size.height * 0.02,
                         fontFamily: 'Quicksand-Regular',
                       ),
                     ),
                     SizedBox(
-                      height: size.height * 0.015,
+                      height: widget.size.height * 0.015,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.favorite,
+                          size: widget.size.width * 0.05,
+                          color: kPrimaryColor,
+                        ),
+                        SizedBox(width: widget.size.width * 0.01),
+                        Text(
+                          like.toString(),
+                          style: TextStyle(
+                            fontSize: widget.size.height * 0.015,
+                            fontFamily: 'Quicksand-Regular',
+                          ),
+                        ),
+                        SizedBox(width: widget.size.width * 0.02),
+                        TextButton.icon(
+                          onPressed: () {
+                            Navigator.of(context, rootNavigator: true).push(
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                              return CommentsPage();
+                            }));
+                          },
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.transparent),
+                            overlayColor: MaterialStateColor.resolveWith(
+                                (states) => kPrimaryLightColor),
+                          ),
+                          icon: Icon(
+                            Icons.comment,
+                            color: kPrimaryColor,
+                            size: widget.size.width * 0.05,
+                          ),
+                          label: Text(
+                            "10",
+                            style: TextStyle(
+                                color: kPrimaryColor,
+                                fontSize: widget.size.height * 0.015,
+                                fontFamily: 'Quicksand-Medium'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      color: Colors.grey,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: widget.size.width * 0.43,
+                          child: TextButton.icon(
+                            onPressed: () {
+                              setLike();
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.transparent),
+                              overlayColor: MaterialStateColor.resolveWith(
+                                  (states) => kPrimaryLightColor),
+                            ),
+                            icon: Icon(Icons.favorite, color: kPrimaryColor),
+                            label: Text(
+                              "Like",
+                              style: TextStyle(
+                                  color: kPrimaryColor,
+                                  fontSize: widget.size.height * 0.018,
+                                  fontFamily: 'Quicksand-Medium'),
+                            ),
+                          ),
+                        ),
+                        Container(
+                            height: widget.size.height * 0.04,
+                            width: widget.size.width * 0.02,
+                            child: VerticalDivider(
+                              color: Colors.grey,
+                            )),
+                        Container(
+                          width: widget.size.width * 0.43,
+                          child: TextButton.icon(
+                            onPressed: () {
+                              Navigator.of(context, rootNavigator: true).push(
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) {
+                                return CommentsPage();
+                              }));
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.transparent),
+                              overlayColor: MaterialStateColor.resolveWith(
+                                  (states) => kPrimaryLightColor),
+                            ),
+                            icon: Icon(Icons.comment, color: kPrimaryColor),
+                            label: Text(
+                              "Comment",
+                              style: TextStyle(
+                                  color: kPrimaryColor,
+                                  fontSize: widget.size.height * 0.018,
+                                  fontFamily: 'Quicksand-Medium'),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    height: size.height * 0.04,
-                    width: (size.width * 0.98) / 2,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: kPrimaryColor, width: 1.5),
-                        color: kPrimaryLightColor),
-                    child: TextButton.icon(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        overlayColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.white),
-                      ),
-                      icon: Icon(Icons.favorite, color: kPrimaryColor),
-                      label: Text(
-                        "Like",
-                        style: TextStyle(
-                            color: kPrimaryColor,
-                            fontSize: size.height * 0.018,
-                            fontFamily: 'Quicksand-Medium'),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: size.height * 0.04,
-                    width: (size.width * 0.98) / 2,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: kPrimaryColor, width: 1.5),
-                        color: kPrimaryLightColor),
-                    child: TextButton.icon(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        overlayColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.white),
-                      ),
-                      icon: Icon(Icons.comment, color: kPrimaryColor),
-                      label: Text(
-                        "Comment",
-                        style: TextStyle(
-                            color: kPrimaryColor,
-                            fontSize: size.height * 0.018,
-                            fontFamily: 'Quicksand-Medium'),
-                      ),
-                    ),
-                  ),
-                ],
-              )
             ],
           ),
         ),
-        SizedBox(height: size.height * 0.01),
+        SizedBox(height: widget.size.height * 0.01),
       ],
     );
   }
 }
 
-class circleAvatarText extends StatelessWidget {
-  const circleAvatarText({
+class CircleAvatarText extends StatelessWidget {
+  const CircleAvatarText({
     Key key,
     @required this.size,
   }) : super(key: key);
@@ -179,5 +273,42 @@ class circleAvatarText extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class AddReviewButton extends StatelessWidget {
+  const AddReviewButton({
+    Key key,
+    @required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.extended(
+        label: Padding(
+          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 80.0, 0.0),
+          child: Text(
+            "Add a review",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: size.height * 0.02,
+              fontFamily: 'Quicksand-Medium',
+            ),
+          ),
+        ),
+        icon: Padding(
+          padding: const EdgeInsets.fromLTRB(80.0, 0.0, 0.0, 0.0),
+          child: const Icon(Icons.add, color: Colors.black, size: 30),
+        ),
+        backgroundColor: Colors.amber,
+        elevation: 10,
+        onPressed: () {
+          Navigator.of(context, rootNavigator: true)
+              .push(MaterialPageRoute(builder: (BuildContext context) {
+            return InsertReview();
+          }));
+        });
   }
 }
