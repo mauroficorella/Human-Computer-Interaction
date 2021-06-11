@@ -10,12 +10,12 @@ class RatingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return RatingBar.builder(
-      initialRating: 3,
-      minRating: 1,
+      initialRating: 0,
+      minRating: 0.5,
       direction: Axis.horizontal,
       allowHalfRating: true,
       itemCount: 5,
-      itemSize: size.width * 0.15,
+      itemSize: size.width * 0.1,
       unratedColor: Colors.grey[400],
       itemBuilder: (context, _) => Icon(
         Icons.star,
