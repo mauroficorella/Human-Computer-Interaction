@@ -69,29 +69,45 @@ String watchListTitle = "Add to watchlist";
 String alreadyWatchedListTitle = "Add to already watched list";
 String favouriteListTitle = "Add to favourite list";
 
+double newRating;
+
 //TODO
 List reviewsData = [
-    {
-      'name': 'Fabio',
-      'pic': 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      'message': 'I love this movie too!'
-    },
-    {
-      'name': 'Federica',
-      'pic': 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
-      'message': 'I completely agree with you.'
-    },
-    {
-      'name': 'George',
-      'pic': 'https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70',
-      'message': 'Very cool acting.'
-    },
-    {
-      'name': 'Grace',
-      'pic': 'https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXNpYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
-      'message': 'I disagree, they could have done better.'
-    },
-  ];
+  {
+    'name': 'Maria',
+    'pic':
+        'https://github.com/pixelastic/fakeusers/blob/master/pictures/women/60.jpg?raw=true',
+    'message':
+        'What a surprise! To be really honest, I had very low positive thoughts about this movie.',
+    'rate': 4.5,
+    'likes': 5,
+  },
+  {
+    'name': 'Geremia',
+    'pic':
+        'https://github.com/pixelastic/fakeusers/blob/master/pictures/algolia/men/jeremy.png?raw=true',
+    'message':
+        'Good movie. Some reviews say the story is predictable but I disagree.',
+    'rate': 4.0,
+    'likes': 8,
+  },
+  {
+    'name': 'Stella',
+    'pic':
+        'https://github.com/pixelastic/fakeusers/blob/master/pictures/women/26.jpg?raw=true',
+    'message': 'Really good movie. I loved it. The music is awesome.',
+    'rate': 5.0,
+    'likes': 15,
+  },
+  {
+    'name': 'Francesco',
+    'pic':
+        'https://github.com/pixelastic/fakeusers/blob/master/pictures/algolia/men/lucas.png?raw=true',
+    'message': 'This movie is boring and pointless.',
+    'rate': 2.0,
+    'likes': 2,
+  },
+];
 
 int setLenght(List list) {
   int len;
@@ -110,7 +126,3 @@ int setLenght(List list) {
 //TODO DIRE ALL'UTENTE CHE DEVE ACCENDERE INTERNET SE NON E' ACCESO
 //TODO FARE I BOTTONI DEI GENERI NEI FILTRI TUTTI UGUALI
 //TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
-
-
-
-

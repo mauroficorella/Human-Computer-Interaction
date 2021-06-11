@@ -213,14 +213,7 @@ class _MovieUserState extends State<MovieUser> {
                               ),
                               TextButton.icon(
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return ReviewsPage();
-                                      },
-                                    ),
-                                  );
+                                  Navigator.pushNamed(context, '/reviewslist');
                                 },
                                 label: Icon(Icons.arrow_forward,
                                     color: kPrimaryColor),

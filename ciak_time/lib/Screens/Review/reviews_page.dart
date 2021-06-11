@@ -15,14 +15,11 @@ class _ReviewsPageState extends State<ReviewsPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      /*floatingActionButton: AddReviewButton(
-        size: size,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,*/
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: TextButton.icon(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () =>
+              Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
             color: Colors.amber,
@@ -37,10 +34,8 @@ class _ReviewsPageState extends State<ReviewsPage> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(context, rootNavigator: true)
-                  .push(MaterialPageRoute(builder: (BuildContext context) {
-                return InsertReview();
-              }));
+              
+              Navigator.pushNamed(context, '/insertreview').then((_) => setState(() {}));
             },
             child: Row(
               children: [
@@ -73,6 +68,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
                 itemBuilder: (BuildContext context, int index) => Padding(
                   padding: const EdgeInsets.all(3.0),
                   child: ReviewWidget(
+                    index: index,
                     size: size,
                   ),
                 ),
@@ -89,20 +85,29 @@ class ReviewWidget extends StatefulWidget {
   const ReviewWidget({
     Key key,
     @required this.size,
+    @required this.index,
   }) : super(key: key);
 
   final Size size;
+  final int index;
 
   @override
   _ReviewWidgetState createState() => _ReviewWidgetState();
 }
 
 class _ReviewWidgetState extends State<ReviewWidget> {
-  int like = 10;
-  setLike() {
+  IconData likeIcon = Icons.favorite_border_outlined;
+  IconData setLike() {
     setState(() {
-      like = like + 1;
+      if (likeIcon == Icons.favorite) {
+        reviewsData[widget.index]['likes'] -= 1;
+        likeIcon = Icons.favorite_border_outlined;
+      } else {
+        reviewsData[widget.index]['likes'] += 1;
+        likeIcon = Icons.favorite;
+      }
     });
+    return likeIcon;
   }
 
   @override
@@ -127,16 +132,19 @@ class _ReviewWidgetState extends State<ReviewWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatarText(size: widget.size),
+                CircleAvatarText(
+                  size: widget.size,
+                  index: widget.index,
+                ),
                 SizedBox(
                   height: widget.size.height * 0.01,
                 ),
                 RatingUnclickable(
                     unratedColor: Colors.grey,
-                    rate:
-                        4), //TODO fare un'altra funzione perché il rate qui è diviso per 2
+                    rate: reviewsData[widget.index]['rate'] *
+                        2), //TODO fare un'altra funzione perché il rate qui è diviso per 2
                 Text(
-                  "Questa è una recensione su quanto Marrel sia Cattivissimo Me",
+                  reviewsData[widget.index]['message'],
                   style: TextStyle(
                     fontSize: widget.size.height * 0.02,
                     fontFamily: 'Quicksand-Regular',
@@ -155,7 +163,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                     ),
                     SizedBox(width: widget.size.width * 0.01),
                     Text(
-                      like.toString(),
+                      reviewsData[widget.index]['likes'].toString(),
                       style: TextStyle(
                         fontSize: widget.size.height * 0.015,
                         fontFamily: 'Quicksand-Regular',
@@ -208,7 +216,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                           overlayColor: MaterialStateColor.resolveWith(
                               (states) => kPrimaryLightColor),
                         ),
-                        icon: Icon(Icons.favorite, color: kPrimaryColor),
+                        icon: Icon(likeIcon, color: kPrimaryColor),
                         label: Text(
                           "Like",
                           style: TextStyle(
@@ -266,8 +274,10 @@ class CircleAvatarText extends StatelessWidget {
   const CircleAvatarText({
     Key key,
     @required this.size,
+    @required this.index,
   }) : super(key: key);
 
+  final int index;
   final Size size;
 
   @override
@@ -276,15 +286,14 @@ class CircleAvatarText extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: Colors.white,
-          backgroundImage: NetworkImage(
-              'https://www.casaprogettata.it/wp-content/uploads/2016/01/Users-User-Male-4-icon.png'),
-          radius: size.width * 0.03,
+          backgroundImage: NetworkImage(reviewsData[index]['pic']),
+          radius: size.width * 0.06,
         ),
         SizedBox(
           width: size.width * 0.02,
         ),
         Text(
-          "User",
+          reviewsData[index]['name'],
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: size.height * 0.02,

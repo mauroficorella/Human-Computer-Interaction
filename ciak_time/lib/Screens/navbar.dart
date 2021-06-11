@@ -6,6 +6,8 @@ import 'package:ciak_time/Screens/Movie/movie_user.dart';
 import 'package:ciak_time/Screens/Person/filmography_grid_view.dart';
 import 'package:ciak_time/Screens/Person/person_home.dart';
 import 'package:ciak_time/Screens/Person/person_user.dart';
+import 'package:ciak_time/Screens/Review/review.dart';
+import 'package:ciak_time/Screens/Review/reviews_page.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/all_movies_aw_list.dart';
 import 'package:ciak_time/Screens/User/all_movies_f_list.dart';
@@ -99,6 +101,10 @@ class _DestinationViewState extends State<DestinationView> {
                   );
                 case '/person':
                   return PersonUser();
+                case '/reviewslist':
+                  return ReviewsPage();
+                case '/insertreview':
+                  return InsertReview();
               }
             } else if (widget.destination.title == "Home") {
               switch (settings.name) {
@@ -118,6 +124,10 @@ class _DestinationViewState extends State<DestinationView> {
                     movieSelected: movieSelectedFromHome,
                     fromWhere: "Home",
                   );
+                case '/reviewslist':
+                  return ReviewsPage();
+                case '/insertreview':
+                  return InsertReview();
               }
             } else if (widget.destination.title == "Search") {
               switch (settings.name) {
@@ -137,6 +147,10 @@ class _DestinationViewState extends State<DestinationView> {
                     movieSelected: movieSelectedFromSearch,
                     fromWhere: "Search",
                   );
+                case '/reviewslist':
+                  return ReviewsPage();
+                case '/insertreview':
+                  return InsertReview();
               }
             }
           },

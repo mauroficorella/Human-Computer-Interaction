@@ -1,3 +1,4 @@
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -23,6 +24,7 @@ class RatingWidget extends StatelessWidget {
       ),
       onRatingUpdate: (rating) {
         //print(rating);
+        newRating = rating;
       },
     );
   }
@@ -41,10 +43,10 @@ class RatingUnclickable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double value;
-    
+
     if (rate == null || rate == 0.0) {
       print("ciao");
-      
+
       value = 0.0;
     } else {
       value = rate / 2;
