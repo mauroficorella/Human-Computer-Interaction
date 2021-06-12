@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Movie/insert_review_btn.dart';
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
@@ -40,20 +41,34 @@ class _MovieHomeState extends State<MovieHome> {
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
-                child: TextButton.icon(
+                child:
+                    Container(
+                      decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 30,
+                        
+                      ),
+                    ],
+                  ),
+                      child: TextButton.icon(
                   icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
                   ),
                   label: Text(
-                    "Back",
-                    style: TextStyle(color: Colors.white),
+                      "Back",
+                      style: TextStyle(color: Colors.white),
                   ),
                   //color: Colors.white,
                   onPressed: () {
-                    Navigator.pop(context);
+                      Navigator.pop(context);
                   },
                 ),
+                    ),
+                    
               ),
               // BLACK SHADOW BOX UNDER TITLE AND INFO
               Positioned(
@@ -249,7 +264,10 @@ class _MovieHomeState extends State<MovieHome> {
                             ],
                           ),
                           SizedBox(height: size.height * 0.01),
-                          InsertReviewBtn(size: size)
+                          InsertReviewBtn(
+                            size: size,
+                            fromWhere: '/insertreviewfrommovie',
+                          )
                         ],
                       ),
                     ),
@@ -408,44 +426,6 @@ class MovieBasicInfo extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class InsertReviewBtn extends StatelessWidget {
-  const InsertReviewBtn({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size.width * 0.98,
-      child: TextButton.icon(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return InsertReview();
-              },
-            ),
-          );
-        },
-        style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(kPrimaryColor)),
-        icon: Icon(Icons.edit, color: Colors.white),
-        label: Text(
-          "Insert a review",
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: size.height * 0.02,
-              fontFamily: 'Quicksand-Medium'),
-        ),
-      ),
     );
   }
 }

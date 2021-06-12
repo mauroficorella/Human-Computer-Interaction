@@ -102,9 +102,11 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/person':
                   return PersonUser();
                 case '/reviewslist':
-                  return ReviewsPage();
-                case '/insertreview':
-                  return InsertReview();
+                  return ReviewsPage(title: movieSelectedFromUser.title,);
+                case '/insertreviewfrommovie':
+                  return InsertReview(title: movieSelectedFromUser.title,);
+                case '/insertreviewfromreviews':
+                  return InsertReview(title: "Reviews",);  
               }
             } else if (widget.destination.title == "Home") {
               switch (settings.name) {
@@ -125,9 +127,11 @@ class _DestinationViewState extends State<DestinationView> {
                     fromWhere: "Home",
                   );
                 case '/reviewslist':
-                  return ReviewsPage();
-                case '/insertreview':
-                  return InsertReview();
+                  return ReviewsPage(title: movieSelectedFromHome.title,);
+                case '/insertreviewfrommovie':
+                  return InsertReview(title: movieSelectedFromHome.title,);
+                case '/insertreviewfromreviews':
+                  return InsertReview(title: "Reviews",);  
               }
             } else if (widget.destination.title == "Search") {
               switch (settings.name) {
@@ -148,9 +152,11 @@ class _DestinationViewState extends State<DestinationView> {
                     fromWhere: "Search",
                   );
                 case '/reviewslist':
-                  return ReviewsPage();
-                case '/insertreview':
-                  return InsertReview();
+                  return ReviewsPage(title: movieSelectedFromSearch.title,);
+                case '/insertreviewfrommovie':
+                  return InsertReview(title: movieSelectedFromSearch.title,);
+                case '/insertreviewfromreviews':
+                  return InsertReview(title: "Reviews",);  
               }
             }
           },

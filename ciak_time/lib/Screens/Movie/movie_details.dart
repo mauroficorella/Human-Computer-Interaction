@@ -20,7 +20,21 @@ class _MovieDetailsState extends State<MovieDetails> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
+        leading: TextButton.icon(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.amber,
+          ),
+          label: Text(
+            'Back',
+            
+            style: TextStyle(
+                color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          ),
+        ),
+        leadingWidth: size.width * 0.2,
         centerTitle: true,
         title: Text(
           widget.movieSelected.title,

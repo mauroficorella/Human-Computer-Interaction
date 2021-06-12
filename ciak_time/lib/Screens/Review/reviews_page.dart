@@ -6,6 +6,10 @@ import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
 class ReviewsPage extends StatefulWidget {
+  final String title;
+
+  const ReviewsPage({Key key, @required this.title}) : super(key: key);
+
   @override
   _ReviewsPageState createState() => _ReviewsPageState();
 }
@@ -18,24 +22,28 @@ class _ReviewsPageState extends State<ReviewsPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: TextButton.icon(
-          onPressed: () =>
-              Navigator.pop(context),
+          onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
             color: Colors.amber,
           ),
-          label: Text(
-            "Back", //TODO mettere nome del film
-            style:
-                TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          label: Container(
+            width: size.width * 0.2,
+            child: Text(
+              widget.title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: TextStyle(
+                  color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+            ),
           ),
         ),
-        leadingWidth: size.width * 0.26,
+        leadingWidth: size.width * 0.5,
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              
-              Navigator.pushNamed(context, '/insertreview').then((_) => setState(() {}));
+              Navigator.pushNamed(context, '/insertreviewfromreviews')
+                  .then((_) => setState(() {}));
             },
             child: Row(
               children: [
@@ -142,7 +150,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                 RatingUnclickable(
                     unratedColor: Colors.grey,
                     rate: reviewsData[widget.index]['rate'] *
-                        2), //TODO fare un'altra funzione perché il rate qui è diviso per 2
+                        2), 
                 Text(
                   reviewsData[widget.index]['message'],
                   style: TextStyle(
@@ -305,7 +313,7 @@ class CircleAvatarText extends StatelessWidget {
   }
 }
 
-class AddReviewButton extends StatelessWidget {
+/*class AddReviewButton extends StatelessWidget {
   const AddReviewButton({
     Key key,
     @required this.size,
@@ -336,8 +344,8 @@ class AddReviewButton extends StatelessWidget {
         onPressed: () {
           Navigator.of(context, rootNavigator: true)
               .push(MaterialPageRoute(builder: (BuildContext context) {
-            return InsertReview();
+            return InsertReview(title: 'Reviews',);
           }));
         });
   }
-}
+}*/

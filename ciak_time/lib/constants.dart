@@ -6,6 +6,8 @@ const kPrimaryColor = Color(0xFF6F35A5);
 const kPrimaryLightColor = Color(0xFFF1E6FF);
 Color navBarColor = Colors.deepPurpleAccent[100];
 
+Color dividerColor = Colors.amber;
+
 bool selected_rate = false;
 bool selected_most_added = false;
 bool selected_most_recent = false;
@@ -36,20 +38,11 @@ Color colorHorror = Colors.black;
 Color applyColor = kPrimaryLightColor;
 Color applyTextColor = Colors.grey;
 
-//MovieResults movieSelectedFromHome;
 Movie movieSelectedFromHome;
 Movie movieSelectedFromSearch;
 Movie movieSelectedFromUser;
 
-/*PersonDetailsModel personSelectedFromHome;
-PersonDetailsModel personSelectedFromSearch; //TODO
-PersonDetailsModel personSelectedFromUser;*/ //TODO
-
-/*String personIdSelectedFromHome;
-String personIdSelectedFromSearch;
-String personIdSelectedFromUser;*/
-
-Person personSelectedFromHome; //id, name
+Person personSelectedFromHome;
 Person personSelectedFromSearch;
 Person personSelectedFromUser;
 
@@ -71,7 +64,6 @@ String favouriteListTitle = "Add to favourite list";
 
 double newRating;
 
-//TODO
 List reviewsData = [
   {
     'name': 'Maria',
@@ -81,6 +73,7 @@ List reviewsData = [
         'What a surprise! To be really honest, I had very low positive thoughts about this movie.',
     'rate': 4.5,
     'likes': 5,
+    'comments': ''
   },
   {
     'name': 'Geremia',
@@ -109,6 +102,31 @@ List reviewsData = [
   },
 ];
 
+List googleAccountsData = [
+  {
+    'name': 'Vale',
+    'mail': 'bigbang.kpop.2ne1@gmail.com',
+    'pic':
+        'assets/icons/b89299de9fb6571ca00a92eac32c9a1b.jpg',
+    'dividercolor': Colors.grey,
+  },
+  {
+    'name': 'Sistara',
+    'mail': 'bigbang.kpop.2ne1@gmail.com',
+    'pic':
+        'assets/images/vittoria.png',
+    'dividercolor': Colors.grey,
+  },
+  
+  {
+    'name': 'Aggiungi un altro account',
+    'mail': '',
+    'pic':
+        'assets/icons/add_account.png',
+    'dividercolor': Colors.white,
+  },
+];
+
 int setLenght(List list) {
   int len;
   if (list.length <= 4) {
@@ -121,8 +139,8 @@ int setLenght(List list) {
 
 //TODO LINKARE GOOGLE E FB
 //TODO CANCELLARE RISULTATI DI RICERCA QUANDO SI PREME LA X PER CANCELLARE LA QUERY!!!
-//TODO RECENSIONI E COMMENTI
 //TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
 //TODO DIRE ALL'UTENTE CHE DEVE ACCENDERE INTERNET SE NON E' ACCESO
 //TODO FARE I BOTTONI DEI GENERI NEI FILTRI TUTTI UGUALI
 //TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
+//TODO TOGLIERE FILM PORNO

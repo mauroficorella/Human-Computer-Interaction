@@ -5,7 +5,9 @@ import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
 class InsertReview extends StatefulWidget {
-  const InsertReview({Key key}) : super(key: key);
+  const InsertReview({Key key, @required this.title}) : super(key: key);
+
+  final String title;
 
   @override
   _InsertReviewState createState() => _InsertReviewState();
@@ -33,7 +35,7 @@ class _InsertReviewState extends State<InsertReview> {
             color: Colors.amber,
           ),
           label: Text(
-            "Reviews", //TODO mettere nome del film
+            widget.title,
             style:
                 TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
           ),
@@ -203,8 +205,8 @@ class ConfirmReview extends StatelessWidget {
                               reviewsData.insert(0, value);
                             },
                           );
-                          Navigator.pop(context); //TODO farlo tornare alla schermata della lista delle reviews
-                          
+                          Navigator.pop(
+                              context); //TODO farlo tornare alla schermata della lista delle reviews
                         },
                         label: Text(
                           "YES",

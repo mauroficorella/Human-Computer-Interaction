@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Movie/insert_review_btn.dart';
 import 'package:ciak_time/Screens/Movie/movie_details.dart';
 import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
@@ -40,19 +41,31 @@ class _MovieSearchState extends State<MovieSearch> {
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
-                child: TextButton.icon(
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 30,
+                        
+                      ),
+                    ],
                   ),
-                  label: Text(
-                    "Back",
-                    style: TextStyle(color: Colors.white),
+                  child: TextButton.icon(
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      "Back",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    //color: Colors.white,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                  //color: Colors.white,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
                 ),
               ),
               // BLACK SHADOW BOX UNDER TITLE AND INFO
@@ -249,7 +262,7 @@ class _MovieSearchState extends State<MovieSearch> {
                             ],
                           ),
                           SizedBox(height: size.height * 0.01),
-                          InsertReviewBtn(size: size)
+                          InsertReviewBtn(size: size, fromWhere: '/insertreviewfrommovie',)
                         ],
                       ),
                     ),
@@ -411,7 +424,7 @@ class MovieBasicInfo extends StatelessWidget {
   }
 }
 
-class InsertReviewBtn extends StatelessWidget {
+/*class InsertReviewBtn extends StatelessWidget {
   const InsertReviewBtn({
     Key key,
     @required this.size,
@@ -425,14 +438,7 @@ class InsertReviewBtn extends StatelessWidget {
       width: size.width * 0.98,
       child: TextButton.icon(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return InsertReview();
-              },
-            ),
-          );
+          Navigator.pushNamed(context, '/insertreviewfrommovie');
         },
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(kPrimaryColor)),
@@ -447,7 +453,7 @@ class InsertReviewBtn extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 String getWatchListTitle() {
   bool isContained = false;

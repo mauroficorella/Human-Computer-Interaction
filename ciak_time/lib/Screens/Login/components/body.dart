@@ -115,13 +115,99 @@ class _BodyState extends State<Body> {
                 children: <Widget>[
                   SocialIcon(
                     iconSrc: "assets/icons/google.svg",
-                    press: () {},
+                    press: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) {
+                          return new AlertDialog(
+                            content: StatefulBuilder(
+                              builder: (context, setState) {
+                                return Container(
+                                  width: size.width,
+                                  child: Column(
+                                    children: [
+                                      SvgPicture.asset(
+                                          "assets/icons/google.svg",
+                                          height: size.height * 0.05),
+                                      SizedBox(
+                                        height: size.height * 0.02,
+                                      ),
+                                      Text(
+                                        'Choose an account',
+                                        style: TextStyle(
+                                            fontSize: size.height * 0.025),
+                                      ),
+                                      SizedBox(height: size.height * 0.01,),
+                                      Text(
+                                        'to continue to CiakTime',
+                                        style: TextStyle(
+                                            fontSize: size.height * 0.018),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.04,
+                                      ),
+                                      Container(
+                                        child: ListView.builder( //TODO cambiare struttura ultimo elemento
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: googleAccountsData.length, //setLenght(list),
+                                          itemBuilder: (BuildContext context,
+                                                  int index) =>
+                                              Padding(
+                                            padding: const EdgeInsets.all(3.0),
+                                            child: GestureDetector(
+                                              child: Column(
+                                                children: [
+                                                  
+                                                  Row(
+                                                    children: [
+                                                      CircleAvatar(
+                                                        backgroundColor: Colors.white,
+                                                        radius: size.width * 0.05,
+                                                        backgroundImage: AssetImage(
+                                                            googleAccountsData[index]['pic']),
+                                                      ),
+                                                      SizedBox(
+                                                        width: size.width * 0.05,
+                                                      ),
+                                                      Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            googleAccountsData[index]['name'],
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          Text(googleAccountsData[index]['mail'], style: TextStyle(color: Colors.grey[600], fontSize: size.height * 0.015),),
+                                                        ],
+                                                      )
+                                                    ],
+                                                  ),
+                                                  Divider(color: googleAccountsData[index]['dividercolor'],)
+                                                ],
+                                              ),
+                                              onTap: () {},
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                   SocialIcon(
                     iconSrc: "assets/icons/facebook.svg",
-                    press: () {
-                      
-                    },
+                    press: () {},
                   ),
                 ],
               ),
