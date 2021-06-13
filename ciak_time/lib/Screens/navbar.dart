@@ -36,7 +36,7 @@ class Destination {
 const List<Destination> allDestinations = <Destination>[
   Destination(0, 'Home', Icons.home, Colors.teal),
   Destination(1, 'Search', Icons.search, Colors.cyan),
-  Destination(2, 'User', Icons.person, Colors.blue)
+  Destination(2, 'User', Icons.person, Colors.blue),
 ];
 
 class ViewNavigatorObserver extends NavigatorObserver {

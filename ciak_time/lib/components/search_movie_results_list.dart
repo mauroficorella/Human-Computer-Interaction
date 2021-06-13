@@ -14,8 +14,6 @@ class SearchMovieResultsList extends StatelessWidget {
   const SearchMovieResultsList({Key key, @required this.queryString})
       : super(key: key);
 
-  
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -65,7 +63,11 @@ class SearchMovieResultsList extends StatelessWidget {
 
   Widget buildList(AsyncSnapshot<MovieModel> snapshot, size) {
     //snapshot.data.results[]
-    return Padding(
+    if (snapshot.data.results.isEmpty) {
+      return Center(child: Text("No results found"));
+    }
+    else {
+      return Padding(
       padding: EdgeInsets.only(top: size.height * 0.08),
       child: ListView.builder(
           scrollDirection: Axis.vertical,
@@ -76,53 +78,50 @@ class SearchMovieResultsList extends StatelessWidget {
               width: size.width * 0.05,
               child: GestureDetector(
                 child: Card(
-                  child: Row(
-                      children: <Widget>[
-                        returnImage(snapshot, index, size),
-                        
-                        SizedBox(width: size.width * 0.04),
-                        Container(
-                          width: size.width * 0.6,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                snapshot.data.results[index].title,
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                  fontSize: size.height * 0.025,
-                                  fontFamily: 'Quicksand',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(height: size.height * 0.01),
-                              RatingUnclickable(
-                                  unratedColor: Colors.grey,
-                                  rate:
-                                      snapshot.data.results[index].voteAverage),
-                            ],
+                  child: Row(children: <Widget>[
+                    returnImage(snapshot, index, size),
+                    SizedBox(width: size.width * 0.04),
+                    Container(
+                      width: size.width * 0.6,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            snapshot.data.results[index].title,
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: size.height * 0.025,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                      ]),
+                          SizedBox(height: size.height * 0.01),
+                          RatingUnclickable(
+                              unratedColor: Colors.grey,
+                              rate: snapshot.data.results[index].voteAverage),
+                        ],
+                      ),
+                    ),
+                  ]),
                 ),
                 onTap: () {
-
                   movieSelectedFromSearch = new Movie(
-                  title: snapshot.data.results[index].title,
-                  overview: snapshot.data.results[index].overview,
-                  voteAverage: snapshot.data.results[index].voteAverage,
-                  id: snapshot.data.results[index].id,
-                  releaseDate: snapshot.data.results[index].releaseDate,
-                  posterPath: snapshot.data.results[index].posterPath,
-                );
-                  
+                    title: snapshot.data.results[index].title,
+                    overview: snapshot.data.results[index].overview,
+                    voteAverage: snapshot.data.results[index].voteAverage,
+                    id: snapshot.data.results[index].id,
+                    releaseDate: snapshot.data.results[index].releaseDate,
+                    posterPath: snapshot.data.results[index].posterPath,
+                  );
+
                   Navigator.pushNamed(context, '/movie');
                   FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
                 },
               ),
             );
-            
           }),
     );
+    }
+    
   }
 }

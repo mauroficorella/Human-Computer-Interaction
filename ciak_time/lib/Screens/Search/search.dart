@@ -15,24 +15,21 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   static const historyLength = 5;
 
-  
   List<String> _searchHistory = [
     "Harry Potter and the philosofer's stone",
     "Harry Potter and the prisoner of Azkaban",
     "The Lord of the Rings: The Fellowship of the Ring",
     "The fast and the furious",
   ];
-  
+
   List<String> filteredSearchHistory;
 
-  
   String selectedTerm;
 
   List<String> filterSearchTerms({
     @required String filter,
   }) {
     if (filter != null && filter.isNotEmpty) {
-      
       return _searchHistory.reversed
           .where((term) => term.startsWith(filter))
           .toList();
@@ -43,7 +40,6 @@ class _SearchState extends State<Search> {
 
   void addSearchTerm(String term) {
     if (_searchHistory.contains(term)) {
-      
       putSearchTermFirst(term);
       return;
     }
@@ -51,7 +47,7 @@ class _SearchState extends State<Search> {
     if (_searchHistory.length > historyLength) {
       _searchHistory.removeRange(0, _searchHistory.length - historyLength);
     }
-    
+
     filteredSearchHistory = filterSearchTerms(filter: null);
   }
 
@@ -94,16 +90,12 @@ class _SearchState extends State<Search> {
             setState(() {
               if (isFocused && bodyIndex == 1) {
                 bodyIndex = 0;
-                
               }
             });
           },
-
           controller: controller,
           automaticallyImplyBackButton: false,
-
           transition: CircularFloatingSearchBarTransition(),
-          
           physics: BouncingScrollPhysics(),
           leadingActions: [
             FloatingSearchBarAction(
@@ -115,7 +107,6 @@ class _SearchState extends State<Search> {
               ),
             ),
           ],
-          
           title: Text(
             selectedTerm ?? 'Search',
             style: selectedTerm == null
@@ -129,20 +120,37 @@ class _SearchState extends State<Search> {
                     fontSize: size.height * 0.02,
                     fontFamily: 'Quicksand-Medium',
                   ),
-            
           ),
-          
           hint: 'Search...',
           actions: [
-            FloatingSearchBarAction.searchToClear(),
+            FloatingSearchBarAction.searchToClear(
+              showIfClosed: false,
+            ),
+            FloatingSearchBarAction(
+              showIfClosed: true,
+              showIfOpened: false,
+              child: CircularButton(
+                icon: const Icon(Icons.close),
+                onPressed: () {
+                  setState(
+                    () {
+                      selectedTerm = null;
+                      content =
+                          new SearchResultsListView(searchTerm: selectedTerm);
+                    },
+                  );
+                },
+              ),
+            ),
           ],
           onQueryChanged: (query) {
-            setState(() {
-              filteredSearchHistory = filterSearchTerms(filter: query);
-              selectedTerm = query;
-              content = new SearchResultsListView(searchTerm: query);
-              
-            });
+            setState(
+              () {
+                filteredSearchHistory = filterSearchTerms(filter: query);
+                selectedTerm = query;
+                content = new SearchResultsListView(searchTerm: query);
+              },
+            );
           },
           queryStyle: TextStyle(
               color: Colors.black87,
@@ -161,13 +169,10 @@ class _SearchState extends State<Search> {
             });
 
             controller.close();
-            
           },
-
           body: new Container(
             child: content,
           ),
-
           builder: (BuildContext context, Animation<double> transition) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(8),
@@ -242,7 +247,6 @@ class _SearchState extends State<Search> {
           },
         );
       }),
-      
     );
   }
 }

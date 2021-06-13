@@ -178,7 +178,7 @@ class _MovieUserState extends State<MovieUser> {
                           ),
                           Container(
                             child: Text(
-                              getOverview(),
+                              getOverviewUser(),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                               style: TextStyle(

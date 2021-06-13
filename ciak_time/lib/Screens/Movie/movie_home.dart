@@ -180,7 +180,7 @@ class _MovieHomeState extends State<MovieHome> {
                           ),
                           Container(
                             child: Text(
-                              getOverview(),
+                              getOverviewHome(),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                               style: TextStyle(

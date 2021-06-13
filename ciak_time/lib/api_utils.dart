@@ -12,7 +12,6 @@ String durationToString(int minutes) {
 }
 
 String getGenresNames(List<Genres> genres) {
-  //print("genres: " + genres.toString());
   if (genres.length != 0) {
     String allGenres = '';
     for (var i = 0; i < genres.length; i++) {
@@ -37,10 +36,29 @@ String getReleaseDate(releaseDate) {
   }
 }
 
-String getOverview() {
+String getOverviewHome() {
   if (movieSelectedFromHome.overview != null) {
     return movieSelectedFromHome.overview;
-  } else {
+  }
+  else {
+    return "Unknown";
+  }
+}
+
+String getOverviewSearch() {
+  if (movieSelectedFromSearch.overview != null) {
+    return movieSelectedFromSearch.overview;
+  }
+  else {
+    return "Unknown";
+  }
+}
+
+String getOverviewUser() {
+  if (movieSelectedFromUser.overview != null) {
+    return movieSelectedFromUser.overview;
+  }
+  else {
     return "Unknown";
   }
 }

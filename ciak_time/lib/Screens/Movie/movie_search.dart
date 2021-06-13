@@ -178,7 +178,7 @@ class _MovieSearchState extends State<MovieSearch> {
                           ),
                           Container(
                             child: Text(
-                              getOverview(),
+                              getOverviewSearch(),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                               style: TextStyle(

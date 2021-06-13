@@ -8,6 +8,7 @@ Color navBarColor = Colors.deepPurpleAccent[100];
 
 Color dividerColor = Colors.amber;
 
+
 bool selected_rate = false;
 bool selected_most_added = false;
 bool selected_most_recent = false;
@@ -104,26 +105,16 @@ List reviewsData = [
 
 List googleAccountsData = [
   {
-    'name': 'Vale',
-    'mail': 'bigbang.kpop.2ne1@gmail.com',
-    'pic':
-        'assets/icons/b89299de9fb6571ca00a92eac32c9a1b.jpg',
+    'name': 'Vittoria',
+    'mail': 'vittoria@gmail.com',
+    'pic': 'assets/images/vittoria.png',
     'dividercolor': Colors.grey,
   },
   {
-    'name': 'Sistara',
-    'mail': 'bigbang.kpop.2ne1@gmail.com',
-    'pic':
-        'assets/images/vittoria.png',
+    'name': 'Vittoria',
+    'mail': 'vittoria.students@gmail.com',
+    'pic': 'assets/icons/b89299de9fb6571ca00a92eac32c9a1b.jpg',
     'dividercolor': Colors.grey,
-  },
-  
-  {
-    'name': 'Aggiungi un altro account',
-    'mail': '',
-    'pic':
-        'assets/icons/add_account.png',
-    'dividercolor': Colors.white,
   },
 ];
 
@@ -137,10 +128,9 @@ int setLenght(List list) {
   return len;
 }
 
-//TODO LINKARE GOOGLE E FB
-//TODO CANCELLARE RISULTATI DI RICERCA QUANDO SI PREME LA X PER CANCELLARE LA QUERY!!!
+//TODO RICERCA ATTORI
+//TODO IMPLEMENTARE FILTRI RICERCA
+//TODO FARE PUNTINI QUANDO IL TESTO E' TROPPO LUNGO NELLE COPERTINE DELLE WATCHLIST SU USER
 //TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
 //TODO DIRE ALL'UTENTE CHE DEVE ACCENDERE INTERNET SE NON E' ACCESO
-//TODO FARE I BOTTONI DEI GENERI NEI FILTRI TUTTI UGUALI
 //TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
-//TODO TOGLIERE FILM PORNO

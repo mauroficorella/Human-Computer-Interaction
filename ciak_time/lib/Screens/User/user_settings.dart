@@ -6,6 +6,7 @@ import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class UserSettings extends StatefulWidget {
   @override
@@ -118,11 +119,243 @@ class _UserSettingsState extends State<UserSettings> {
                     children: [
                       SocialIcon(
                         iconSrc: "assets/icons/google.svg",
-                        press: () {},
+                        press: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) {
+                              return new AlertDialog(
+                                content: StatefulBuilder(
+                                  builder: (context, setState) {
+                                    return Container(
+                                      height: size.height * 0.4,
+                                      width: size.width,
+                                      child: Column(
+                                        children: [
+                                          SvgPicture.asset(
+                                              "assets/icons/google.svg",
+                                              height: size.height * 0.05),
+                                          SizedBox(
+                                            height: size.height * 0.02,
+                                          ),
+                                          Text(
+                                            'Choose an account',
+                                            style: TextStyle(
+                                                fontSize: size.height * 0.025),
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.01,
+                                          ),
+                                          Text(
+                                            'to continue to CiakTime',
+                                            style: TextStyle(
+                                                fontSize: size.height * 0.018),
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.04,
+                                          ),
+                                          Container(
+                                            child: ListView.builder(
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount: googleAccountsData
+                                                  .length, //setLenght(list),
+                                              itemBuilder:
+                                                  (BuildContext context,
+                                                          int index) =>
+                                                      Padding(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                child: Column(
+                                                  children: [
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        Fluttertoast.showToast(
+                                                            msg:
+                                                                "Google account connected successfully");
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Row(
+                                                        children: [
+                                                          CircleAvatar(
+                                                            backgroundColor:
+                                                                Colors.white,
+                                                            radius: size.width *
+                                                                0.05,
+                                                            backgroundImage:
+                                                                AssetImage(
+                                                                    googleAccountsData[
+                                                                            index]
+                                                                        [
+                                                                        'pic']),
+                                                          ),
+                                                          SizedBox(
+                                                            width: size.width *
+                                                                0.05,
+                                                          ),
+                                                          Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(
+                                                                googleAccountsData[
+                                                                        index]
+                                                                    ['name'],
+                                                                style: TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                              Text(
+                                                                googleAccountsData[
+                                                                        index]
+                                                                    ['mail'],
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                            .grey[
+                                                                        600],
+                                                                    fontSize: size
+                                                                            .height *
+                                                                        0.015),
+                                                              ),
+                                                            ],
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Divider(
+                                                      color: googleAccountsData[
+                                                              index]
+                                                          ['dividercolor'],
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                16.0, 3.0, 0.0, 0.0),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.person_add_alt),
+                                                SizedBox(
+                                                  width: size.width * 0.05,
+                                                ),
+                                                Text(
+                                                  "Add another account",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                )
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          );
+                        },
                       ),
                       SocialIcon(
                         iconSrc: "assets/icons/facebook.svg",
-                        press: () {},
+                        press: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) {
+                              return new AlertDialog(
+                                content: StatefulBuilder(
+                                  builder: (context, setState) {
+                                    return Container(
+                                      height: size.height * 0.46,
+                                      width: size.width,
+                                      child: Column(
+                                        children: [
+                                          SvgPicture.asset(
+                                              "assets/icons/facebook.svg",
+                                              height: size.height * 0.05),
+                                          SizedBox(
+                                            height: size.height * 0.02,
+                                          ),
+                                          Text(
+                                            'Login with facebook',
+                                            style: TextStyle(
+                                                fontSize: size.height * 0.025,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.01,
+                                          ),
+                                          Text(
+                                            'to continue to CiakTime',
+                                            style: TextStyle(
+                                                fontSize: size.height * 0.018),
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.02,
+                                          ),
+                                          CircleAvatar(
+                                            backgroundImage: AssetImage(
+                                                'assets/images/vittoria.png'),
+                                            radius: size.width * 0.1,
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.01,
+                                          ),
+                                          Text(
+                                            'Vittoria',
+                                            style: TextStyle(
+                                                fontSize: size.width * 0.05,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          TextButton(
+                                            onPressed: () {
+                                              Fluttertoast.showToast(
+                                                  msg:
+                                                      "Facebook account connected successfully");
+                                              Navigator.pop(context);
+                                            },
+                                            style: TextButton.styleFrom(
+                                              backgroundColor: Colors.blue[800],
+                                            ),
+                                            child: Text(
+                                              'Login with this account',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: size.width * 0.04,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.03,
+                                          ),
+                                          Text(
+                                            "Aren't you?",
+                                            style: TextStyle(
+                                                fontSize: size.width * 0.035),
+                                          ),
+                                          TextButton(
+                                            onPressed: () {},
+                                            child: Text(
+                                              "Sign in with another account",
+                                              style: TextStyle(
+                                                  color: Colors.blue[800],
+                                                  fontSize: size.width * 0.035),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          );
+                        },
                       ),
                     ],
                   ),
