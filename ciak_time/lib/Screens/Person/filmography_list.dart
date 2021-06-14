@@ -53,6 +53,7 @@ class FilmographyList extends StatelessWidget {
               id: snapshot.data.movies[i].id,
               releaseDate: snapshot.data.movies[i].releaseDate,
               posterPath: snapshot.data.movies[i].posterPath,
+              voteCount: snapshot.data.movies[i].voteCount,
             );
             if (fromWhere == "Home") {
               selectedPersonMoviesFromHome.add(movie);
@@ -102,6 +103,7 @@ class FilmographyList extends StatelessWidget {
                 id: snapshot.data.movies[index].id,
                 releaseDate: snapshot.data.movies[index].releaseDate,
                 posterPath: snapshot.data.movies[index].posterPath,
+                voteCount: snapshot.data.movies[index].voteCount,
               );
               if (fromWhere == "Home") {
                 movieSelectedFromHome = movie;

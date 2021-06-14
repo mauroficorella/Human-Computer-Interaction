@@ -41,34 +41,31 @@ class _MovieHomeState extends State<MovieHome> {
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
-                child:
-                    Container(
-                      decoration: BoxDecoration(
+                child: Container(
+                  decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.5),
                         spreadRadius: 1,
                         blurRadius: 30,
-                        
                       ),
                     ],
                   ),
-                      child: TextButton.icon(
-                  icon: Icon(
+                  child: TextButton.icon(
+                    icon: Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
-                  ),
-                  label: Text(
+                    ),
+                    label: Text(
                       "Back",
                       style: TextStyle(color: Colors.white),
-                  ),
-                  //color: Colors.white,
-                  onPressed: () {
-                      Navigator.pop(context);
-                  },
-                ),
                     ),
-                    
+                    //color: Colors.white,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
               ),
               // BLACK SHADOW BOX UNDER TITLE AND INFO
               Positioned(
@@ -254,7 +251,7 @@ class _MovieHomeState extends State<MovieHome> {
                                   rate: movieSelectedFromHome.voteAverage),
                               SizedBox(width: size.width * 0.03),
                               Text(
-                                "Numero",
+                                movieSelectedFromHome.voteCount.toString(),
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,

@@ -5,8 +5,6 @@ import 'package:ciak_time/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
-
-
 class FilmographyGridView extends StatefulWidget {
   final String personName;
   final String fromWhere;
@@ -61,6 +59,7 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
                     releaseDate:
                         selectedPersonMoviesFromHome[index].releaseDate,
                     posterPath: selectedPersonMoviesFromHome[index].posterPath,
+                    voteCount: selectedPersonMoviesFromHome[index].voteCount,
                   );
                 }
                 if (widget.fromWhere == "Search") {
@@ -74,6 +73,7 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
                         selectedPersonMoviesFromSearch[index].releaseDate,
                     posterPath:
                         selectedPersonMoviesFromSearch[index].posterPath,
+                    voteCount: selectedPersonMoviesFromSearch[index].voteCount,
                   );
                 }
                 if (widget.fromWhere == "User") {
@@ -86,6 +86,7 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
                     releaseDate:
                         selectedPersonMoviesFromUser[index].releaseDate,
                     posterPath: selectedPersonMoviesFromUser[index].posterPath,
+                    voteCount: selectedPersonMoviesFromUser[index].voteCount,
                   );
                 }
                 Navigator.pushNamed(context, '/movie');
@@ -136,5 +137,3 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
     }
   }
 }
-
-

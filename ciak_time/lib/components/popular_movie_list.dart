@@ -56,6 +56,7 @@ class PopularMovieList extends StatelessWidget {
                   id: snapshot.data.results[index].id,
                   releaseDate: snapshot.data.results[index].releaseDate,
                   posterPath: snapshot.data.results[index].posterPath,
+                  voteCount: snapshot.data.results[index].voteCount,
                 );
                 }
                 if (fromWhere == "Search") {
@@ -66,6 +67,7 @@ class PopularMovieList extends StatelessWidget {
                   id: snapshot.data.results[index].id,
                   releaseDate: snapshot.data.results[index].releaseDate,
                   posterPath: snapshot.data.results[index].posterPath,
+                  voteCount: snapshot.data.results[index].voteCount,
                 );
                 }
                 

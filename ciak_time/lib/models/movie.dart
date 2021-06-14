@@ -5,6 +5,7 @@ class Movie {
   String releaseDate;
   double voteAverage;
   String posterPath;
+  int voteCount;
 
   Movie({
     this.title,
@@ -13,5 +14,6 @@ class Movie {
     this.releaseDate,
     this.voteAverage,
     this.posterPath,
+    this.voteCount,
   });
 }
