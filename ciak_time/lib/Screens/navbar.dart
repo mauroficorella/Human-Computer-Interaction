@@ -15,6 +15,7 @@ import 'package:ciak_time/Screens/User/all_movies_w_list.dart';
 import 'package:ciak_time/Screens/User/user.dart';
 import 'package:ciak_time/Screens/User/user_settings.dart';
 import 'package:ciak_time/constants.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -102,11 +103,17 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/person':
                   return PersonUser();
                 case '/reviewslist':
-                  return ReviewsPage(title: movieSelectedFromUser.title,);
+                  return ReviewsPage(
+                    title: movieSelectedFromUser.title,
+                  );
                 case '/insertreviewfrommovie':
-                  return InsertReview(title: movieSelectedFromUser.title,);
+                  return InsertReview(
+                    title: movieSelectedFromUser.title,
+                  );
                 case '/insertreviewfromreviews':
-                  return InsertReview(title: "Reviews",);  
+                  return InsertReview(
+                    title: "Reviews",
+                  );
               }
             } else if (widget.destination.title == "Home") {
               switch (settings.name) {
@@ -127,11 +134,17 @@ class _DestinationViewState extends State<DestinationView> {
                     fromWhere: "Home",
                   );
                 case '/reviewslist':
-                  return ReviewsPage(title: movieSelectedFromHome.title,);
+                  return ReviewsPage(
+                    title: movieSelectedFromHome.title,
+                  );
                 case '/insertreviewfrommovie':
-                  return InsertReview(title: movieSelectedFromHome.title,);
+                  return InsertReview(
+                    title: movieSelectedFromHome.title,
+                  );
                 case '/insertreviewfromreviews':
-                  return InsertReview(title: "Reviews",);  
+                  return InsertReview(
+                    title: "Reviews",
+                  );
               }
             } else if (widget.destination.title == "Search") {
               switch (settings.name) {
@@ -152,11 +165,17 @@ class _DestinationViewState extends State<DestinationView> {
                     fromWhere: "Search",
                   );
                 case '/reviewslist':
-                  return ReviewsPage(title: movieSelectedFromSearch.title,);
+                  return ReviewsPage(
+                    title: movieSelectedFromSearch.title,
+                  );
                 case '/insertreviewfrommovie':
-                  return InsertReview(title: movieSelectedFromSearch.title,);
+                  return InsertReview(
+                    title: movieSelectedFromSearch.title,
+                  );
                 case '/insertreviewfromreviews':
-                  return InsertReview(title: "Reviews",);  
+                  return InsertReview(
+                    title: "Reviews",
+                  );
               }
             }
           },

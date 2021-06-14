@@ -1,3 +1,5 @@
+import 'package:ciak_time/constants.dart';
+
 class SearchResultsModel {
   int page;
   List<SearchResults> results;
@@ -12,12 +14,106 @@ class SearchResultsModel {
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
-        //if media type == movie or person
-        if (v.values.toList()[5] == 'person' ||
+        //TODO finire di implementare la logica per i filtri, capire cosa fare anche per gli attori
+        //per il momento funziona se cambiamo le cose a mano, per esempio se mettiamo fantasy = true nelle costanti, se cerco harry mi mostra solo le corrispondenze con il genere fantasy
+        //if (v.values.toList()[4] == 'movie') { //mettere questo && isFilteredApplied (?) perché che succede nel caso in cui
+        //if media type == 'movie' -> serve perché altrimenti dice che contains non può essere chiamato su int (perché per le persone v.values.toList()[2] è un int)
+        /*print(
+            v.values.toList()[2].contains(genresIds[0]["Fantasy"]).toString() +
+                "Fantasy id: " +
+                genresIds[0]["Fantasy"].toString());*/
+
+        //TODO:
+        //facendo così mostra solo i film in base al genere, e mostra anche gli attori, capire come fare: se mette un filtro sul
+        //genere l'utente vuole cercare solo film e non attori
+        // --> aggiungere un filtro che permetta di decidere se cercare solo film o solo attori?
+        if (v.values.toList()[4] == 'movie' && drama == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Drama"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (v.values.toList()[4] == 'movie' && comedy == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Comedy"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (v.values.toList()[4] == 'movie' && action == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Action"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (v.values.toList()[4] == 'movie' && crime == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Crime"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (v.values.toList()[4] == 'movie' && fantasy == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Fantasy"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (v.values.toList()[4] == 'movie' && thriller == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Thriller"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (v.values.toList()[4] == 'movie' && family == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Family"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (v.values.toList()[4] == 'movie' && anime == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Animation"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (v.values.toList()[4] == 'movie' && horror == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Horror"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+          //caso in cui i filtri non sono applicati:
+        } else if (v.values.toList()[5] == 'person' ||
             v.values.toList()[4] == 'movie') {
-          print(v.values.toList()[5]);
+          //if media type == movie or media type == person
           results.add(new SearchResults.fromJson(v));
         }
+        //}
+        /*if (drama == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Drama"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (comedy == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Comedy"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (action == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Action"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (crime == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Crime"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (fantasy == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Fantasy"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (thriller == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Thriller"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (family == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Family"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (anime == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Animation"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+        } else if (horror == true) {
+          if (v.values.toList()[2].contains(genresIds[0]["Horror"])) {
+            results.add(new SearchResults.fromJson(v));
+          }
+          //caso in cui i filtri non sono applicati:
+        } */
+
+        //---PRIMA DI AVER MESSO I FILTRI AVEVAMO SOLO QUESTO---
+        /* if (v.values.toList()[5] == 'person' ||
+            v.values.toList()[4] == 'movie') { //if media type == movie or media type == person 
+          results.add(new SearchResults.fromJson(v));
+        }*/
       });
     }
     totalPages = json['total_pages'];
@@ -89,7 +185,10 @@ class SearchResults {
   SearchResults.fromJson(Map<String, dynamic> json) {
     backdropPath = json['backdrop_path'];
     firstAirDate = json['first_air_date'];
-    //genreIds = json['genre_ids'].cast<int>();
+    if (json['genre_ids'] != null) {
+      genreIds = json['genre_ids'].cast<int>();
+    }
+
     id = json['id'];
 
     mediaType = json['media_type'];

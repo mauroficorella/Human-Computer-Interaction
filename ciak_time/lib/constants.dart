@@ -11,6 +11,7 @@ Color dividerColor = Colors.amber;
 bool selected_rate = false;
 bool selected_most_added = false;
 bool selected_most_recent = false;
+
 bool drama = false;
 bool comedy = false;
 bool action = false;
@@ -20,6 +21,7 @@ bool thriller = false;
 bool family = false;
 bool anime = false;
 bool horror = false;
+
 bool add_movie = false;
 
 Color colorRate = Colors.black;
@@ -115,6 +117,33 @@ List googleAccountsData = [
     'pic': 'assets/icons/b89299de9fb6571ca00a92eac32c9a1b.jpg',
     'dividercolor': Colors.grey,
   },
+];
+
+/*List genresIds = [
+  {
+    '28': 'Action',
+    '16': 'Animation',
+    '35': 'Comedy',
+    '80': 'Crime',
+    '18': 'Drama',
+    '10751': 'Family',
+    '14': 'Fantasy',
+    '27': 'Horror',
+    '53': 'Thriller',
+  }
+];*/
+List genresIds = [
+  {
+    'Action': 28,
+    'Animation': 16,
+    'Comedy': 35,
+    'Crime': 80,
+    'Drama': 18,
+    'Family': 10751,
+    'Fantasy': 14,
+    'Horror': 27,
+    'Thriller': 53,
+  }
 ];
 
 int setLenght(List list) {

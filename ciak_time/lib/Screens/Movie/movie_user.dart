@@ -376,7 +376,7 @@ class MovieBasicInfo extends StatelessWidget {
   }
 
   Widget buildDetails(AsyncSnapshot<MovieDetailsModel> snapshot, size) {
-    //print("CIAO MAREEEEEEEELLLLLLLLLLLL" + movieSelected.releaseDate);
+   
     return Column(
       children: [
         Container(

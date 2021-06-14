@@ -45,8 +45,6 @@ class RatingUnclickable extends StatelessWidget {
     double value;
 
     if (rate == null || rate == 0.0) {
-      print("ciao");
-
       value = 0.0;
     } else {
       value = rate / 2;
