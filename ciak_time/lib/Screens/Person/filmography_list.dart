@@ -1,3 +1,4 @@
+import 'package:ciak_time/api_utils.dart';
 import 'package:ciak_time/blocs/person_movies_bloc.dart';
 import 'package:ciak_time/components/list_card.dart';
 import 'package:ciak_time/constants.dart';
@@ -89,8 +90,9 @@ class FilmographyList extends StatelessWidget {
           child: GestureDetector(
             child: ListCard(
               movieTitle: snapshot.data.movies[index].title,
-              imageUrl:
-                  'https://image.tmdb.org/t/p/original${snapshot.data.movies[index].posterPath}',
+              imageUrl: getImagePath(snapshot.data.movies[index].posterPath),
+              /*imageUrl:
+                  'https://image.tmdb.org/t/p/original${snapshot.data.movies[index].posterPath}',*/
             ),
             onTap: () {
               Movie movie = new Movie(

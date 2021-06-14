@@ -13,7 +13,7 @@ class MovieCastModel {
       cast = [];
       directors = [];
       json['cast'].forEach((v) {
-        if (v.values.toList()[3] == 'Acting') {
+        if (v.values.toList()[3] == 'Acting') { 
           cast.add(new Cast.fromJson(v));
         }
         if (v.values.toList()[3] == 'Directing') {

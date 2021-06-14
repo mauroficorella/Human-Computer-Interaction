@@ -1,3 +1,4 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
@@ -123,20 +124,11 @@ class _BodyState extends State<Body> {
                             ),
                           );
                         } else {
-                          showDialog(
-                            context: context,
-                            builder: (_) {
-                              return new AlertDialog(
-                                content: StatefulBuilder(
-                                  builder: (context, setState) {
-                                    return Container(
-                                      child: Text("ciao")
-                                    );
-                                  },
-                                ),
-                              );
-                            },
-                          );
+                          showOkAlertDialog(
+                              context: context,
+                              title: "Connectivity error",
+                              message:
+                                  "You need to turn on Internet on your device to continue.");
                         }
                       },
                     ),

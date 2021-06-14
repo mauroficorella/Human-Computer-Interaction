@@ -1,8 +1,6 @@
 import 'package:ciak_time/blocs/watch_providers_bloc.dart';
 
-import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
-import 'package:ciak_time/models/movie_model.dart';
 
 import 'package:ciak_time/models/watch_providers_model.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +8,8 @@ import 'package:flutter/material.dart';
 class WatchProvidersList extends StatelessWidget {
   final Movie movieSelected;
 
-  const WatchProvidersList({Key key, @required this.movieSelected}) : super(key: key);
+  const WatchProvidersList({Key key, @required this.movieSelected})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

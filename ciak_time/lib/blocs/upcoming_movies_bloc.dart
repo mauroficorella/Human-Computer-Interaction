@@ -1,6 +1,7 @@
-import '../resources/repository.dart';
+import 'package:ciak_time/models/movie_model.dart';
+import 'package:ciak_time/resources/repository.dart';
+
 import 'package:rxdart/rxdart.dart';
-import '../models/movie_model.dart';
 
 class UpcomingMoviesBloc {
   final _repository = Repository();

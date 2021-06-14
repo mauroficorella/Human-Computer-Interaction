@@ -45,23 +45,22 @@ class PopularPeopleList extends StatelessWidget {
     }
     return GestureDetector(
       onTap: () {
-        //TODO
-        personSelectedFromHome = new Person(id: snapshot.data.results[index].id, name:snapshot.data.results[index].name);
-        /* Person person = new Person(
-            id: snapshot.data.results[index].id,
-            biography: snapshot.data.results[index].biography,
-            name: snapshot.data.results[index].name,
-            imagePath: snapshot.data.results[index].profilePath);
-
         if (fromWhere == "Home") {
-          //personSelectedFromHome = snapshot.data.results[index];
-          personSelectedFromHome = person;
+          personSelectedFromHome = new Person(
+              id: snapshot.data.results[index].id,
+              name: snapshot.data.results[index].name);
         }
         if (fromWhere == "Search") {
-          //personSelectedFromSearch = snapshot.data.results[index];
-          personSelectedFromSearch = person; //TODO
+          personSelectedFromSearch = new Person(
+              id: snapshot.data.results[index].id,
+              name: snapshot.data.results[index].name);
         }
-*/
+        if (fromWhere == "User") {
+          personSelectedFromUser = new Person(
+              id: snapshot.data.results[index].id,
+              name: snapshot.data.results[index].name);
+        }
+
         Navigator.pushNamed(context, '/person');
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
       },

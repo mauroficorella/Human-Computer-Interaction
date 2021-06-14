@@ -7,6 +7,7 @@ import 'package:ciak_time/models/person_details_model.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:ciak_time/models/person_movies_model.dart';
 import 'package:ciak_time/models/reviews_model.dart';
+import 'package:ciak_time/models/search_results_model.dart';
 import 'package:ciak_time/models/watch_providers_model.dart';
 
 import 'movie_api_provider.dart';
@@ -21,8 +22,6 @@ class Repository {
       moviesApiProvider.fetchUpcomingMovieList();
   Future<PersonModel> fetchPopularPeople() =>
       moviesApiProvider.fetchPopularPeopleList();
-  Future<MovieModel> fetchSearchResults(queryString) =>
-      moviesApiProvider.fetchSearchResultsList(queryString);
   Future<MovieImagesModel> fetchMovieImagesResults(movieId) =>
       moviesApiProvider.fetchMovieImagesList(movieId);
   Future<MovieDetailsModel> fetchMovieDetailsResults(movieId) =>
@@ -37,4 +36,6 @@ class Repository {
       moviesApiProvider.fetchPersonMoviesList(personId);
   Future<ReviewsModel> fetchReviewsResults(movieId) =>
       moviesApiProvider.fetchReviewsList(movieId);
+  Future<SearchResultsModel> fetchSearchResults(queryString) =>
+      moviesApiProvider.fetchSearchResultsList(queryString);
 }

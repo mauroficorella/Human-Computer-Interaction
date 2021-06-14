@@ -52,6 +52,8 @@ class MovieCard extends StatelessWidget {
                         padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 4.0),
                         child: Text(
                           movieTitle,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -70,9 +72,5 @@ class MovieCard extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  String getImageUrl() {
-    
   }
 }

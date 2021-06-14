@@ -2,6 +2,7 @@ import 'package:ciak_time/blocs/person_details_bloc.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/person_details_model.dart';
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 class PersonOverview extends StatelessWidget {
   const PersonOverview({Key key, @required this.fromWhere}) : super(key: key);
@@ -47,7 +48,10 @@ class PersonOverview extends StatelessWidget {
 
   Widget buildOverview(AsyncSnapshot<PersonDetailsModel> snapshot, size) {
     String imagePath;
-    if (snapshot.data.profilePath.length != 0) {
+    if (snapshot.data.profilePath == null) {
+      imagePath =
+          'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif';
+    } else if (snapshot.data.profilePath.length != 0) {
       imagePath =
           'https://image.tmdb.org/t/p/original${snapshot.data.profilePath}';
     } else {
@@ -119,8 +123,15 @@ class PersonOverview extends StatelessWidget {
 
   Widget getBiography(biography, size) {
     if (biography != "") {
-      return Text(
+      return ReadMoreText(
         biography,
+        trimLines: 4,
+        colorClickableText: kPrimaryColor,
+        trimMode: TrimMode.Line,
+        trimCollapsedText: 'Read more',
+        trimExpandedText: 'Less',
+        moreStyle: TextStyle(
+            fontSize: 14, fontWeight: FontWeight.bold, color: kPrimaryColor),
         style: TextStyle(
           fontSize: size.height * 0.02,
           fontFamily: 'Quicksand',

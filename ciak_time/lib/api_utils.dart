@@ -62,3 +62,11 @@ String getOverviewUser() {
     return "Unknown";
   }
 }
+
+String getImagePath(String posterPath) {
+  if (posterPath == null) {
+    return "http://www.persefone.it/blog/wp-content/themes/photobook/images/blank.png";
+  } else {
+    return 'https://image.tmdb.org/t/p/original$posterPath';
+  }
+}

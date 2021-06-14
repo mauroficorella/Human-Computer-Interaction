@@ -1,7 +1,6 @@
 import 'package:ciak_time/components/list_card.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
-import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:flutter_svg/flutter_svg.dart';

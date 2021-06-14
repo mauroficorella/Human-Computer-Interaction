@@ -33,9 +33,11 @@ class _PersonSearchState extends State<PersonSearch> {
                 TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
           ),
         ),
-        leadingWidth: size.width * 0.23,
+        leadingWidth: size.width * 0.3,
         title: Text(
           personSelectedFromSearch.name,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
         ),
         centerTitle: true,
       ),

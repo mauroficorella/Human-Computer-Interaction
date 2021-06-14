@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/Signup/signup_screen.dart';
 import 'package:ciak_time/constants.dart';

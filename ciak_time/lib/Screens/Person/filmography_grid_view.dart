@@ -1,8 +1,11 @@
+import 'package:ciak_time/api_utils.dart';
 import 'package:ciak_time/components/movie_card.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
+
+
 
 class FilmographyGridView extends StatefulWidget {
   final String personName;
@@ -134,10 +137,4 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
   }
 }
 
-String getImagePath(String posterPath) {
-  if (posterPath == null) {
-    return "http://www.persefone.it/blog/wp-content/themes/photobook/images/blank.png";
-  } else {
-    return 'https://image.tmdb.org/t/p/original$posterPath';
-  }
-}
+

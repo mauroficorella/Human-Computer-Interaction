@@ -35,15 +35,7 @@ class SearchResultsListView extends StatelessWidget {
       children: <Widget>[
 
         SearchMovieResultsList(queryString: searchTerm,),
-        /*ListView(
-          children: List.generate(
-            50,
-            (index) => ListTile(
-              title: Text('$searchTerm search result'),
-              subtitle: Text(index.toString()),
-            ),
-          ),
-        ),*/
+        
         Positioned(
           bottom: size.width * 0.02,
           right: size.width * 0.28,

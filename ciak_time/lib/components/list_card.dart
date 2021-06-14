@@ -10,8 +10,6 @@ class ListCard extends StatelessWidget {
   final String imageUrl;
   final String movieTitle;
 
-  
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -55,6 +53,8 @@ class ListCard extends StatelessWidget {
                         padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 4.0),
                         child: Text(
                           movieTitle,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,

@@ -7,10 +7,10 @@ import 'package:ciak_time/models/person_details_model.dart';
 import 'package:ciak_time/models/person_model.dart';
 import 'package:ciak_time/models/person_movies_model.dart';
 import 'package:ciak_time/models/reviews_model.dart';
+import 'package:ciak_time/models/search_results_model.dart';
 import 'package:ciak_time/models/watch_providers_model.dart';
 import 'package:http/http.dart' show Client;
 import 'dart:convert';
-
 
 class MovieApiProvider {
   Client client = Client();
@@ -58,21 +58,6 @@ class MovieApiProvider {
     } else {
       // If that call was not successful, throw an error.
       throw Exception('Failed to load popular people');
-    }
-  }
-
-  Future<MovieModel> fetchSearchResultsList(queryString) async {
-    //print("entered");
-    final response = await client.get(Uri.parse(
-        "https://api.themoviedb.org/3/search/movie?api_key=$_apiKey&query=$queryString&include_adult=false"));
-
-    //print(response.body.toString());
-    if (response.statusCode == 200) {
-      // If the call to the server was successful, parse the JSON
-      return MovieModel.fromJson(json.decode(response.body));
-    } else {
-      // If that call was not successful, throw an error.
-      throw Exception('Failed to load search results');
     }
   }
 
@@ -170,6 +155,20 @@ class MovieApiProvider {
     } else {
       // If that call was not successful, throw an error.
       throw Exception('Failed to load reviews');
+    }
+  }
+
+  Future<SearchResultsModel> fetchSearchResultsList(queryString) async {
+    final response = await client.get(Uri.parse(
+        "https://api.themoviedb.org/3/search/multi?api_key=$_apiKey&language=en-US&query=$queryString&page=1&include_adult=false"));
+
+    //print(response.body.toString());
+    if (response.statusCode == 200) {
+      // If the call to the server was successful, parse the JSON
+      return SearchResultsModel.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load search results');
     }
   }
 }

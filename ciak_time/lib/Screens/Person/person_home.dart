@@ -32,9 +32,11 @@ class _PersonHomeState extends State<PersonHome> {
                 TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
           ),
         ),
-        leadingWidth: size.width * 0.22,
+        leadingWidth: size.width * 0.23,
         title: Text(
           personSelectedFromHome.name,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
         ),
         centerTitle: true,
       ),

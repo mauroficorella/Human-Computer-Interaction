@@ -1,5 +1,6 @@
 import 'package:ciak_time/models/movie_details_model.dart';
-import '../resources/repository.dart';
+import 'package:ciak_time/resources/repository.dart';
+
 import 'package:rxdart/rxdart.dart';
 
 class MovieDetailsBloc {
