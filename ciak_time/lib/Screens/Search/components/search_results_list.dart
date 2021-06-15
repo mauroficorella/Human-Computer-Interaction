@@ -2,7 +2,7 @@ import 'package:ciak_time/Screens/Search/components/floating_button.dart';
 import 'package:ciak_time/components/search_movie_results_list.dart';
 import 'package:flutter/material.dart';
 
-class SearchResultsListView extends StatelessWidget {
+class SearchResultsListView extends StatefulWidget {
   final String searchTerm;
 
   const SearchResultsListView({
@@ -11,9 +11,14 @@ class SearchResultsListView extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _SearchResultsListViewState createState() => _SearchResultsListViewState();
+}
+
+class _SearchResultsListViewState extends State<SearchResultsListView> {
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    if (searchTerm == null) {
+    if (widget.searchTerm == null) {
       return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -34,13 +39,13 @@ class SearchResultsListView extends StatelessWidget {
     return Stack(
       children: <Widget>[
 
-        SearchMovieResultsList(queryString: searchTerm,),
+        SearchMovieResultsList(queryString: widget.searchTerm,),
         
         Positioned(
           bottom: size.width * 0.02,
           right: size.width * 0.28,
           left: size.width * 0.28,
-          child: FloatingButton(size: size),
+          child: FloatingButton(size: size, selectedTerm: widget.searchTerm,),
         ),
       ],
     );

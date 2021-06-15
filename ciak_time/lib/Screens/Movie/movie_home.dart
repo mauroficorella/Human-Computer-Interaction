@@ -251,7 +251,7 @@ class _MovieHomeState extends State<MovieHome> {
                                   rate: movieSelectedFromHome.voteAverage),
                               SizedBox(width: size.width * 0.03),
                               Text(
-                                movieSelectedFromHome.voteCount.toString(),
+                                'out of ' + movieSelectedFromHome.voteCount.toString() + ' ratings',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,

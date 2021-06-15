@@ -1,8 +1,6 @@
-import 'package:ciak_time/Screens/Login/components/or_divider.dart';
 import 'package:ciak_time/components/icon_text.dart';
 import 'package:ciak_time/components/popular_movie_list.dart';
 import 'package:ciak_time/components/popular_people_list.dart';
-import 'package:ciak_time/components/search_movie_results_list.dart';
 import 'package:ciak_time/components/upcoming_movie_list.dart';
 import 'package:flutter/material.dart';
 

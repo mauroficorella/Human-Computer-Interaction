@@ -81,7 +81,7 @@ class _SearchState extends State<Search> {
     Size size = MediaQuery.of(context).size;
     int bodyIndex = 1;
 
-    Widget content = CardsWidget(size: size);
+    content = CardsWidget(size: size);
     FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
     return Scaffold(
       body: StatefulBuilder(builder: (context, setState) {
@@ -170,17 +170,15 @@ class _SearchState extends State<Search> {
 
             controller.close();
           },
-          body: new Container(
-            child: content,
-          ),
+          body: updateBody(),
           builder: (BuildContext context, Animation<double> transition) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Material(
                 color: Colors.white,
                 elevation: 4,
-                child: Builder(
-                  builder: (context) {
+                child: StatefulBuilder(
+                  builder: (context, setState) {
                     if (filteredSearchHistory.isEmpty &&
                         controller.query.isEmpty) {
                       return Container(
@@ -249,4 +247,10 @@ class _SearchState extends State<Search> {
       }),
     );
   }
+}
+
+Widget updateBody() {
+  return new Container(
+            child: content,
+          );
 }

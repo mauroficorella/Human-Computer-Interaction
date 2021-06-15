@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Search/components/cards_widget.dart';
 import 'package:ciak_time/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'models/person.dart';
@@ -65,6 +66,8 @@ String alreadyWatchedListTitle = "Add to already watched list";
 String favouriteListTitle = "Add to favourite list";
 
 double newRating;
+
+Widget content;
 
 List reviewsData = [
   {
@@ -156,9 +159,8 @@ int setLenght(List list) {
   return len;
 }
 
-
 //TODO IMPLEMENTARE FILTRI RICERCA
-//TODO CAPIRE COME FARE PER IL NUMERO DI RATINGS NELLA PAGINA DEL FILM
+//TODO CONFERMARE COMMENTO INSERITO?
 //TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
 //TODO TEMA NERO
 //TODO PUNTINI SU LESS DELLA BIOGRAPHY DEGLI ATTORI

@@ -35,7 +35,6 @@ class UpcomingMovieList extends StatelessWidget {
   Widget buildList(AsyncSnapshot<MovieModel> snapshot, size) {
     return Container(
       height: size.height * 0.26,
-      color: Colors.white,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.results.length,

@@ -252,7 +252,7 @@ class _MovieUserState extends State<MovieUser> {
                                   rate: movieSelectedFromUser.voteAverage),
                               SizedBox(width: size.width * 0.03),
                               Text(
-                                movieSelectedFromUser.voteCount.toString(),
+                                'out of ' + movieSelectedFromUser.voteCount.toString() + ' ratings',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,

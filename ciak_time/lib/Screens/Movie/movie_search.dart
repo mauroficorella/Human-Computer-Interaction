@@ -252,7 +252,7 @@ class _MovieSearchState extends State<MovieSearch> {
                                   rate: movieSelectedFromSearch.voteAverage),
                               SizedBox(width: size.width * 0.03),
                               Text(
-                                movieSelectedFromSearch.voteCount.toString(),
+                                'out of ' + movieSelectedFromSearch.voteCount.toString() + ' ratings',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,

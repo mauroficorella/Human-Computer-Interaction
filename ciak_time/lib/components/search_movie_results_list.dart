@@ -8,16 +8,21 @@ import 'package:ciak_time/models/search_results_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
-class SearchMovieResultsList extends StatelessWidget {
+class SearchMovieResultsList extends StatefulWidget {
   final String queryString;
 
   const SearchMovieResultsList({Key key, @required this.queryString})
       : super(key: key);
 
   @override
+  _SearchMovieResultsListState createState() => _SearchMovieResultsListState();
+}
+
+class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final bloc = SearchResultsBloc(queryString);
+    final bloc = SearchResultsBloc(widget.queryString);
     bloc.fetchSearchResults();
     return StreamBuilder(
       stream: bloc.searchResults,
