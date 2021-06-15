@@ -6,7 +6,8 @@ class OutApplyButtonFilter extends StatefulWidget {
   const OutApplyButtonFilter({
     Key key,
     @required this.size,
-    @required this.selectedTerm, @required this.callback,
+    @required this.selectedTerm,
+    @required this.callback,
   }) : super(key: key);
 
   final Size size;
@@ -30,7 +31,7 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
             //aggiornare il content della search in modo da far cambiare dinamicamente il body della ricerca
             print(widget.selectedTerm);
             widget.callback();
-            //Navigator.of(context).pop();
+            Navigator.of(context).pop();
 
             //updateBody();
           } else {}

@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 class CardsWidget extends StatelessWidget {
   const CardsWidget({
     Key key,
-    @required this.size,
+    
   }) : super(key: key);
 
-  final Size size;
+ 
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Column(
         children: [

@@ -81,17 +81,21 @@ class _SearchState extends State<Search> {
     Size size = MediaQuery.of(context).size;
     int bodyIndex = 1;
 
-    content = CardsWidget(size: size);
+    //content = CardsWidget(size: size);
+
     FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
     return Scaffold(
       body: StatefulBuilder(builder: (context, setState) {
         return FloatingSearchBar(
           onFocusChanged: (isFocused) {
             setState(() {
-              if (isFocused && bodyIndex == 1) {
+              /* if (isFocused && bodyIndex == 1) {
                 bodyIndex = 0;
-              }
-              content = new SearchResultsListView(searchTerm: selectedTerm, callback: callback,);
+              }*/
+              content = new SearchResultsListView(
+                searchTerm: selectedTerm,
+                callback: callback,
+              );
             });
           },
           controller: controller,
@@ -136,8 +140,10 @@ class _SearchState extends State<Search> {
                   setState(
                     () {
                       selectedTerm = null;
-                      content =
-                          new SearchResultsListView(searchTerm: selectedTerm, callback: callback,);
+                      content = new SearchResultsListView(
+                        searchTerm: selectedTerm,
+                        callback: callback,
+                      );
                     },
                   );
                 },
@@ -149,7 +155,10 @@ class _SearchState extends State<Search> {
               () {
                 filteredSearchHistory = filterSearchTerms(filter: query);
                 selectedTerm = query;
-                content = new SearchResultsListView(searchTerm: query, callback: callback,);
+                content = new SearchResultsListView(
+                  searchTerm: query,
+                  callback: callback,
+                );
               },
             );
           },
@@ -166,7 +175,10 @@ class _SearchState extends State<Search> {
             setState(() {
               addSearchTerm(query);
               selectedTerm = query;
-              content = new SearchResultsListView(searchTerm: query, callback: callback,);
+              content = new SearchResultsListView(
+                searchTerm: query,
+                callback: callback,
+              );
             });
 
             controller.close();
@@ -231,8 +243,8 @@ class _SearchState extends State<Search> {
                                   setState(() {
                                     putSearchTermFirst(term);
                                     selectedTerm = term;
-                                    content = new SearchResultsListView(callback: callback,
-                                        searchTerm: term);
+                                    content = new SearchResultsListView(
+                                        callback: callback, searchTerm: term);
                                   });
                                   controller.close();
                                 },
@@ -250,10 +262,15 @@ class _SearchState extends State<Search> {
       }),
     );
   }
+
   void callback() {
     setState(() {
+      print("callback");
+      print(selectedTerm);
       content = new SearchResultsListView(
-                                        searchTerm: selectedTerm, callback: callback,);
+        searchTerm: selectedTerm,
+        callback: callback,
+      );
     });
   }
 }

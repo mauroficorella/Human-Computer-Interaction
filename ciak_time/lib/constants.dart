@@ -67,9 +67,7 @@ String favouriteListTitle = "Add to favourite list";
 
 double newRating;
 
-Widget content;
-
-bool shouldUpdate;
+Widget content = CardsWidget();
 
 List reviewsData = [
   {
@@ -161,7 +159,7 @@ int setLenght(List list) {
   return len;
 }
 
-//TODO IMPLEMENTARE FILTRI RICERCA
+//TODO IMPLEMENTARE FILTRI RICERCA (filtri multipli sui generi non funzionano)
 //TODO CONFERMARE COMMENTO INSERITO?
 //TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
 //TODO TEMA NERO

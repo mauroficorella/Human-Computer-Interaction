@@ -415,7 +415,7 @@ class _FloatingButtonState extends State<FloatingButton> {
                                         ),
                                         FilterChip(
                                           label: Text(
-                                            "Anime",
+                                            "Animation",
                                           ),
                                           labelStyle:
                                               TextStyle(color: colorAnime),
