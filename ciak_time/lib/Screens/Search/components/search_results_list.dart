@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 
 class SearchResultsListView extends StatefulWidget {
   final String searchTerm;
+  final Function callback;
 
   const SearchResultsListView({
     Key key,
-    @required this.searchTerm,
+    @required this.searchTerm, @required this.callback,
   }) : super(key: key);
 
   @override
@@ -38,14 +39,17 @@ class _SearchResultsListViewState extends State<SearchResultsListView> {
 
     return Stack(
       children: <Widget>[
-
-        SearchMovieResultsList(queryString: widget.searchTerm,),
-        
+        SearchMovieResultsList(
+          queryString: widget.searchTerm,
+        ),
         Positioned(
           bottom: size.width * 0.02,
           right: size.width * 0.28,
           left: size.width * 0.28,
-          child: FloatingButton(size: size, selectedTerm: widget.searchTerm,),
+          child: FloatingButton(callback: widget.callback,
+            size: size,
+            selectedTerm: widget.searchTerm,
+          ),
         ),
       ],
     );

@@ -28,6 +28,7 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
       stream: bloc.searchResults,
       builder: (context, AsyncSnapshot<SearchResultsModel> snapshot) {
         if (snapshot.hasData) {
+          
           return buildList(snapshot, size);
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
@@ -35,7 +36,7 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
+          
           color: Colors.amber,
         ));
       },

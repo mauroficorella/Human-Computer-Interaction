@@ -91,6 +91,7 @@ class _SearchState extends State<Search> {
               if (isFocused && bodyIndex == 1) {
                 bodyIndex = 0;
               }
+              content = new SearchResultsListView(searchTerm: selectedTerm, callback: callback,);
             });
           },
           controller: controller,
@@ -136,7 +137,7 @@ class _SearchState extends State<Search> {
                     () {
                       selectedTerm = null;
                       content =
-                          new SearchResultsListView(searchTerm: selectedTerm);
+                          new SearchResultsListView(searchTerm: selectedTerm, callback: callback,);
                     },
                   );
                 },
@@ -148,7 +149,7 @@ class _SearchState extends State<Search> {
               () {
                 filteredSearchHistory = filterSearchTerms(filter: query);
                 selectedTerm = query;
-                content = new SearchResultsListView(searchTerm: query);
+                content = new SearchResultsListView(searchTerm: query, callback: callback,);
               },
             );
           },
@@ -165,12 +166,14 @@ class _SearchState extends State<Search> {
             setState(() {
               addSearchTerm(query);
               selectedTerm = query;
-              content = new SearchResultsListView(searchTerm: query);
+              content = new SearchResultsListView(searchTerm: query, callback: callback,);
             });
 
             controller.close();
           },
-          body: updateBody(),
+          body: new Container(
+            child: content,
+          ),
           builder: (BuildContext context, Animation<double> transition) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(8),
@@ -228,7 +231,7 @@ class _SearchState extends State<Search> {
                                   setState(() {
                                     putSearchTermFirst(term);
                                     selectedTerm = term;
-                                    content = new SearchResultsListView(
+                                    content = new SearchResultsListView(callback: callback,
                                         searchTerm: term);
                                   });
                                   controller.close();
@@ -247,10 +250,10 @@ class _SearchState extends State<Search> {
       }),
     );
   }
-}
-
-Widget updateBody() {
-  return new Container(
-            child: content,
-          );
+  void callback() {
+    setState(() {
+      content = new SearchResultsListView(
+                                        searchTerm: selectedTerm, callback: callback,);
+    });
+  }
 }

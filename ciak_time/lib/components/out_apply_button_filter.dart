@@ -1,5 +1,4 @@
 import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
-import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -7,11 +6,12 @@ class OutApplyButtonFilter extends StatefulWidget {
   const OutApplyButtonFilter({
     Key key,
     @required this.size,
-    @required this.selectedTerm,
+    @required this.selectedTerm, @required this.callback,
   }) : super(key: key);
 
   final Size size;
   final String selectedTerm;
+  final Function callback;
 
   @override
   _OutButtonFilterState createState() => _OutButtonFilterState();
@@ -29,12 +29,12 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
           if (isFilterSelected() == true) {
             //aggiornare il content della search in modo da far cambiare dinamicamente il body della ricerca
             print(widget.selectedTerm);
-            content =
-                new SearchResultsListView(searchTerm: widget.selectedTerm);
-            updateBody();
+            widget.callback();
+            //Navigator.of(context).pop();
+
+            //updateBody();
           } else {}
         });
-        Navigator.pop(context);
       },
       style: OutlinedButton.styleFrom(
         primary: Colors.white,

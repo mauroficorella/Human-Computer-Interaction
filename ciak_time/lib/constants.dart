@@ -69,6 +69,8 @@ double newRating;
 
 Widget content;
 
+bool shouldUpdate;
+
 List reviewsData = [
   {
     'name': 'Maria',
