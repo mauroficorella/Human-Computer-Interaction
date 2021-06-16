@@ -11,7 +11,8 @@ class FloatingButton extends StatefulWidget {
   const FloatingButton({
     Key key,
     @required this.size,
-    @required this.selectedTerm, @required this.callback,
+    @required this.selectedTerm,
+    @required this.callback,
   }) : super(key: key);
 
   final Function callback;
@@ -26,6 +27,7 @@ class _FloatingButtonState extends State<FloatingButton> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: FloatingActionButton.extended(
@@ -51,7 +53,10 @@ class _FloatingButtonState extends State<FloatingButton> {
             () {
               showDialog(
                 context: context,
+                barrierDismissible: false,
                 builder: (_) {
+                  //deselectAllFilters();
+
                   return StatefulBuilder(
                     builder: (context, setState) {
                       return AlertDialog(
@@ -325,15 +330,15 @@ class _FloatingButtonState extends State<FloatingButton> {
                                             "Fantasy",
                                           ),
                                           labelStyle:
-                                              TextStyle(color: colorFantasy),
-                                          checkmarkColor: colorFantasy,
+                                              TextStyle(color: setColor()),
+                                          checkmarkColor: setColor(),
                                           backgroundColor: Colors.transparent,
                                           selectedColor: kPrimaryColor,
                                           shape: StadiumBorder(
                                               side: BorderSide(
                                                   color: kPrimaryColor,
                                                   width: size.width * 0.0055)),
-                                          selected: fantasy,
+                                          selected: setSelected(),
                                           onSelected: (bool value) {
                                             setState(() {
                                               fantasy = !fantasy;
@@ -512,7 +517,8 @@ class _FloatingButtonState extends State<FloatingButton> {
                                     size: size,
                                   ),
                                   SizedBox(width: size.width * 0.05),
-                                  OutApplyButtonFilter(callback: widget.callback,
+                                  OutApplyButtonFilter(
+                                    callback: widget.callback,
                                     size: size,
                                     selectedTerm: widget.selectedTerm,
                                   ),
@@ -531,5 +537,74 @@ class _FloatingButtonState extends State<FloatingButton> {
         },
       ),
     );
+  }
+
+  void deselectAllFilters() {
+    //bool isReset = false;
+    //setState(() {
+    if (isReset == true) {
+      drama = false;
+      comedy = false;
+      action = false;
+      crime = false;
+      fantasy = false;
+      thriller = false;
+      family = false;
+      anime = false;
+      horror = false;
+      colorRate = Colors.black;
+      colorMostAdded = Colors.black;
+      colorMostRecent = Colors.black;
+      colorDrama = Colors.black;
+      colorComedy = Colors.black;
+      colorAction = Colors.black;
+      colorCrime = Colors.black;
+      colorFantasy = Colors.black;
+      colorThriller = Colors.black;
+      colorFamily = Colors.black;
+      colorAnime = Colors.black;
+      colorHorror = Colors.black;
+    }
+
+    //});
+  }
+
+  Color setColor() {
+    //setState(() {
+    if (!isFantasySelected() || isResetSelected()) {
+      colorFantasy = Colors.black;
+    } else {
+      colorFantasy = Colors.white;
+    }
+    //});
+    return colorFantasy;
+  }
+
+  bool isResetSelected() {
+    bool resetSelected = false;
+    //setState(() {
+    if (isReset) {
+      resetSelected = true;
+    } else {
+      resetSelected = false;
+    }
+    //});
+    return resetSelected;
+  }
+
+  bool isFantasySelected() {
+    bool fantasySelected = false;
+    //setState(() {
+    if (fantasy) {
+      fantasySelected = true;
+    } else {
+      fantasySelected = false;
+    }
+    //});
+    return fantasySelected;
+  }
+
+  bool setSelected() {
+    return fantasy;
   }
 }

@@ -27,29 +27,29 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
     return OutlinedButton(
       onPressed: () {
         setState(() {
-          if (isFilterSelected() == true) {
-            //aggiornare il content della search in modo da far cambiare dinamicamente il body della ricerca
-            print(widget.selectedTerm);
-            widget.callback();
-            Navigator.of(context).pop();
+          //if (isFilterSelected() == true) {
+          //aggiornare il content della search in modo da far cambiare dinamicamente il body della ricerca
+          print(widget.selectedTerm);
+          widget.callback();
+          Navigator.of(context).pop();
 
-            //updateBody();
-          } else {}
+          //updateBody();
+          //} else {}
         });
       },
       style: OutlinedButton.styleFrom(
         primary: Colors.white,
         minimumSize: Size(widget.size.width * 0.25, widget.size.height * 0.05),
-        backgroundColor: setBackgroundButtonColor(),
+        backgroundColor: Colors.amber,
         side: BorderSide(color: Colors.amber, width: 2),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
       ),
       child: Text(
-        "Apply",
+        "Show Results",
         style: TextStyle(
-          color: setTextButtonColor(),
+          color: Colors.white,
           fontSize: widget.size.width * 0.04,
           fontFamily: 'Quicksand',
           fontWeight: FontWeight.bold,

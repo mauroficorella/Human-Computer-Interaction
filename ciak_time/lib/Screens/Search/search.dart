@@ -265,8 +265,6 @@ class _SearchState extends State<Search> {
 
   void callback() {
     setState(() {
-      print("callback");
-      print(selectedTerm);
       content = new SearchResultsListView(
         searchTerm: selectedTerm,
         callback: callback,

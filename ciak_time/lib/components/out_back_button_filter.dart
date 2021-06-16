@@ -1,3 +1,4 @@
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
 class OutBackButtonFilter extends StatefulWidget {
@@ -20,11 +21,34 @@ class _OutButtonFilterState extends State<OutBackButtonFilter> {
     return OutlinedButton(
       onPressed: () {
         setState(() {
-          backgroundColor = Colors.amber;
-          textColor = Colors.white;
-        });
+          //backgroundColor = Colors.amber;
+          //textColor = Colors.white;
+          isReset = true;
+          deselectAllFilters();
 
-        Navigator.pop(context);
+          /*drama = false;
+          comedy = false;
+          action = false;
+          crime = false;
+          fantasy = false;
+          thriller = false;
+          family = false;
+          anime = false;
+          horror = false;
+
+          colorRate = Colors.black;
+          colorMostAdded = Colors.black;
+          colorMostRecent = Colors.black;
+          colorDrama = Colors.black;
+          colorComedy = Colors.black;
+          colorAction = Colors.black;
+          colorCrime = Colors.black;
+          colorFantasy = Colors.black;
+          colorThriller = Colors.black;
+          colorFamily = Colors.black;
+          colorAnime = Colors.black;
+          colorHorror = Colors.black;*/
+        });
       },
       style: OutlinedButton.styleFrom(
         primary: Colors.white,
@@ -36,7 +60,7 @@ class _OutButtonFilterState extends State<OutBackButtonFilter> {
         ),
       ),
       child: Text(
-        "Back",
+        "Reset",
         style: TextStyle(
           color: textColor,
           fontSize: widget.size.width * 0.04,
@@ -45,5 +69,36 @@ class _OutButtonFilterState extends State<OutBackButtonFilter> {
         ),
       ),
     );
+  }
+
+  void deselectAllFilters() {
+    //bool isReset = false;
+    setState(() {
+      if (isReset == true) {
+        drama = false;
+        comedy = false;
+        action = false;
+        crime = false;
+        fantasy = false;
+        thriller = false;
+        family = false;
+        anime = false;
+        horror = false;
+        colorRate = Colors.black;
+        colorMostAdded = Colors.black;
+        colorMostRecent = Colors.black;
+        colorDrama = Colors.black;
+        colorComedy = Colors.black;
+        colorAction = Colors.black;
+        colorCrime = Colors.black;
+        colorFantasy = Colors.black;
+        colorThriller = Colors.black;
+        colorFamily = Colors.black;
+        colorAnime = Colors.black;
+        colorHorror = Colors.black;
+      }
+
+      /**/
+    });
   }
 }

@@ -25,6 +25,8 @@ bool horror = false;
 
 bool add_movie = false;
 
+bool isReset = false;
+
 Color colorRate = Colors.black;
 Color colorMostAdded = Colors.black;
 Color colorMostRecent = Colors.black;
@@ -64,6 +66,8 @@ List<Movie> favouriteList = [];
 String watchListTitle = "Add to watchlist";
 String alreadyWatchedListTitle = "Add to already watched list";
 String favouriteListTitle = "Add to favourite list";
+
+List<int> filteredMoviesList = [];
 
 double newRating;
 
