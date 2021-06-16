@@ -61,7 +61,7 @@ class _FloatingButtonState extends State<FloatingButton> {
                     builder: (context, setState) {
                       return AlertDialog(
                         content: Container(
-                          height: size.height * 0.63,
+                          height: size.height * 0.58,
                           child: Column(
                             children: <Widget>[
                               Container(
@@ -483,7 +483,7 @@ class _FloatingButtonState extends State<FloatingButton> {
                               SizedBox(
                                 height: size.height * 0.05,
                               ),
-                              Row(
+                              /*Row(
                                 children: <Widget>[
                                   Text(
                                     "Include added movies",
@@ -506,7 +506,7 @@ class _FloatingButtonState extends State<FloatingButton> {
                                     },
                                   ),
                                 ],
-                              ),
+                              ),*/
                               SizedBox(
                                 height: size.height * 0.015,
                               ),

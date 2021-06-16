@@ -56,7 +56,7 @@ class PersonResults {
     gender = json['gender'];
     id = json['id'];
     if (json['known_for'] != null) {
-      knownFor = new List<KnownFor>();
+      knownFor = [];
       json['known_for'].forEach((v) {
         knownFor.add(new KnownFor.fromJson(v));
       });

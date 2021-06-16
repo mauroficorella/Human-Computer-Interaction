@@ -22,6 +22,34 @@ bool isFiltersApplied() {
   return filterSelected;
 }
 
+void sortSearchResults(snapshot) {
+  if (selected_most_recent) {
+    snapshot.data.results.sort((a, b) {
+      var df1 = DateTime.tryParse(a.releaseDate);
+      var df2 = DateTime.tryParse(b.releaseDate);
+      return df2.compareTo(df1);
+    });
+  }
+
+  if (selected_most_added) {
+    snapshot.data.results.sort((a, b) {
+      double p1 = a.popularity;
+      double p2 = b.popularity;
+      return p2.compareTo(p1);
+    });
+  }
+
+  if (selected_rate) {
+    snapshot.data.results.sort((a, b) {
+      double r1 = a.voteAverage;
+      double r2 = b.voteAverage;
+      return r2.compareTo(r1);
+    });
+    /*snapshot.data.results.sort(
+        (a, b) => a.voteAverage.toDouble().compareTo(b.voteAverage.toDouble()));*/
+  }
+}
+
 void checkFilterResults(
     List<SearchResults> results, SearchResults searchResults, dynamic v) {
   if (drama == true) {
@@ -87,5 +115,17 @@ void checkFilterResults(
       filteredMoviesList.add(searchResults.id);
       results.add(searchResults);
     }
+  }
+  if ((selected_most_added || selected_most_recent || selected_rate) &&
+      (drama == false &&
+          comedy == false &&
+          action == false &&
+          crime == false &&
+          fantasy == false &&
+          thriller == false &&
+          family == false &&
+          anime == false &&
+          horror == false)) {
+    results.add(searchResults);
   }
 }

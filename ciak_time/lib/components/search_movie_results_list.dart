@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Search/filters_utils.dart';
 import 'package:ciak_time/blocs/search_results_bloc.dart';
 
 import 'package:ciak_time/components/rating.dart';
@@ -28,7 +29,8 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
       stream: bloc.searchResults,
       builder: (context, AsyncSnapshot<SearchResultsModel> snapshot) {
         if (snapshot.hasData) {
-          
+          sortSearchResults(snapshot);
+
           return buildList(snapshot, size);
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
@@ -36,7 +38,6 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
 
         return Center(
             child: CircularProgressIndicator(
-          
           color: Colors.amber,
         ));
       },
