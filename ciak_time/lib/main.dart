@@ -1,4 +1,8 @@
+import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Login/login_screen.dart';
+import 'package:ciak_time/Screens/Search/search.dart';
+import 'package:ciak_time/Screens/User/user.dart';
+import 'package:ciak_time/Screens/navbar.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +14,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CiakTime',
@@ -20,6 +23,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       home: LoginScreen(),
+      
     );
   }
 }

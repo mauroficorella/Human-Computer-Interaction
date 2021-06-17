@@ -50,28 +50,29 @@ class PopularMovieList extends StatelessWidget {
                 if (fromWhere == "Home") {
                   //movieSelectedFromHome = snapshot.data.results[index];
                   movieSelectedFromHome = new Movie(
-                  title: snapshot.data.results[index].title,
-                  overview: snapshot.data.results[index].overview,
-                  voteAverage: snapshot.data.results[index].voteAverage,
-                  id: snapshot.data.results[index].id,
-                  releaseDate: snapshot.data.results[index].releaseDate,
-                  posterPath: snapshot.data.results[index].posterPath,
-                  voteCount: snapshot.data.results[index].voteCount,
-                );
+                    title: snapshot.data.results[index].title,
+                    overview: snapshot.data.results[index].overview,
+                    voteAverage: snapshot.data.results[index].voteAverage,
+                    id: snapshot.data.results[index].id,
+                    releaseDate: snapshot.data.results[index].releaseDate,
+                    posterPath: snapshot.data.results[index].posterPath,
+                    voteCount: snapshot.data.results[index].voteCount,
+                  );
                 }
                 if (fromWhere == "Search") {
                   movieSelectedFromSearch = new Movie(
-                  title: snapshot.data.results[index].title,
-                  overview: snapshot.data.results[index].overview,
-                  voteAverage: snapshot.data.results[index].voteAverage,
-                  id: snapshot.data.results[index].id,
-                  releaseDate: snapshot.data.results[index].releaseDate,
-                  posterPath: snapshot.data.results[index].posterPath,
-                  voteCount: snapshot.data.results[index].voteCount,
-                );
+                    title: snapshot.data.results[index].title,
+                    overview: snapshot.data.results[index].overview,
+                    voteAverage: snapshot.data.results[index].voteAverage,
+                    id: snapshot.data.results[index].id,
+                    releaseDate: snapshot.data.results[index].releaseDate,
+                    posterPath: snapshot.data.results[index].posterPath,
+                    voteCount: snapshot.data.results[index].voteCount,
+                  );
                 }
-                
+
                 Navigator.pushNamed(context, '/movie');
+                
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },
             );
