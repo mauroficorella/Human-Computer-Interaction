@@ -108,12 +108,6 @@ class _InsertReviewState extends State<InsertReview> {
                       },
                     );
                   }
-                  /*showDialog(
-                      context: context,
-                      builder: (_) {
-                        return ConfirmReview(size: size, reviewController: reviewController,);
-                      },
-                    );*/
                 },
               ),
             ],
@@ -170,7 +164,9 @@ class ConfirmReview extends StatelessWidget {
                               Size(size.width * 0.1, size.height * 0.005),
                           padding: EdgeInsets.all(0.0),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         label: Text(
                           "NO",
                           style: TextStyle(

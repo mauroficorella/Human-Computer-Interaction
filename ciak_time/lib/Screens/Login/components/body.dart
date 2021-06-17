@@ -12,6 +12,7 @@ import 'package:ciak_time/components/social_icon.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatefulWidget {
@@ -28,6 +29,7 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
     Size size = MediaQuery.of(context).size;
     return Background(
       child: SingleChildScrollView(

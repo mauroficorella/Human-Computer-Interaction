@@ -182,7 +182,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                       onPressed: () {
                         Navigator.of(context, rootNavigator: true).push(
                             MaterialPageRoute(builder: (BuildContext context) {
-                          return CommentsPage();
+                          return CommentsPage(reviewIndex: widget.index,);
                         }));
                       },
                       style: ButtonStyle(
@@ -197,7 +197,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                         size: widget.size.width * 0.05,
                       ),
                       label: Text(
-                        "10",
+                        reviewsData[widget.index]['comments'].toString(),
                         style: TextStyle(
                             color: kPrimaryColor,
                             fontSize: widget.size.height * 0.015,
@@ -247,7 +247,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                           Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
                                   builder: (BuildContext context) {
-                            return CommentsPage();
+                            return CommentsPage(reviewIndex: widget.index,);
                           }));
                         },
                         style: ButtonStyle(

@@ -3,43 +3,23 @@ import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 
 class CommentsPage extends StatefulWidget {
-  const CommentsPage({Key key}) : super(key: key);
+  const CommentsPage({Key key, @required this.reviewIndex}) : super(key: key);
+
+  final int reviewIndex;
 
   @override
   _CommentsPageState createState() => _CommentsPageState();
 }
 
 class _CommentsPageState extends State<CommentsPage> {
-  
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
-  List filedata = [
-    {
-      'name': 'Fabio',
-      'pic': 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      'message': 'I love this movie too!'
-    },
-    {
-      'name': 'Federica',
-      'pic': 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
-      'message': 'I completely agree with you.'
-    },
-    {
-      'name': 'George',
-      'pic': 'https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70',
-      'message': 'Very cool acting.'
-    },
-    {
-      'name': 'Grace',
-      'pic': 'https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXNpYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
-      'message': 'I disagree, they could have done better.'
-    },
-  ];
+  
 
   Widget commentChild(data) {
     return ListView(
       children: [
-        for (var i = 0; i < data.length; i++)
+        for (var i = 0; i < reviewsData[widget.reviewIndex]['comments']; i++)
           Padding(
             padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
             child: ListTile(
@@ -69,7 +49,7 @@ class _CommentsPageState extends State<CommentsPage> {
       ],
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -100,23 +80,25 @@ class _CommentsPageState extends State<CommentsPage> {
           labelText: 'Write a comment...',
           withBorder: false,
           errorText: "Comment cannot be empty",
-          sendButtonMethod: () {
-            if (formKey.currentState.validate()) {
-              print(commentController.text);
-              setState(() {
-                var value = {
-                  'name': 'Vittoria',
-                  'pic':
-                      'https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg',
-                  'message': commentController.text
-                };
-                filedata.insert(0, value);
-              });
-              commentController.clear();
-              FocusScope.of(context).unfocus();
-            } else {
-              print("Not validated");
-            }
+          sendButtonMethod: () async {
+            await commentConfirmed(size).then((_) {
+              if (formKey.currentState.validate() && isCommentConfirmed) {
+                print(commentController.text);
+                setState(() {
+                  var value = {
+                    'name': 'Vittoria',
+                    'pic':
+                        'https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg',
+                    'message': commentController.text
+                  };
+                  filedata.insert(0, value);
+                });
+                commentController.clear();
+                FocusScope.of(context).unfocus();
+              } else {
+                print("Not validated");
+              }
+            });
           },
           formKey: formKey,
           commentController: commentController,
@@ -127,8 +109,95 @@ class _CommentsPageState extends State<CommentsPage> {
       ),
     );
   }
-  
-  
+
+  Future<bool> commentConfirmed(size) async {
+    await showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          content: StatefulBuilder(
+            builder: (context, setState) {
+              return Container(
+                height: size.height * 0.11,
+                child: Column(
+                  children: [
+                    Text(
+                      "Do you really want to publish this review?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: size.height * 0.02,
+                        fontFamily: 'Quicksand',
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.028,
+                    ),
+                    Container(
+                      width: size.width * 0.7,
+                      height: size.height * 0.03,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          TextButton.icon(
+                            icon: Icon(
+                              Icons.dangerous_outlined,
+                              color: Colors.red,
+                            ),
+                            style: TextButton.styleFrom(
+                              minimumSize:
+                                  Size(size.width * 0.1, size.height * 0.005),
+                              padding: EdgeInsets.all(0.0),
+                            ),
+                            onPressed: () {
+                              isCommentConfirmed = false;
+                              Navigator.pop(context);
+                            },
+                            label: Text(
+                              "NO",
+                              style: TextStyle(
+                                color: kPrimaryColor,
+                                fontSize: size.height * 0.02,
+                                fontFamily: 'Quicksand',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          TextButton.icon(
+                            icon: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            style: TextButton.styleFrom(
+                              minimumSize:
+                                  Size(size.width * 0.1, size.height * 0.005),
+                              padding: EdgeInsets.all(0.0),
+                            ),
+                            onPressed: () {
+                              isCommentConfirmed = true;
+                              Navigator.pop(
+                                  context); //TODO farlo tornare alla schermata della lista delle reviews
+                            },
+                            label: Text(
+                              "YES",
+                              style: TextStyle(
+                                color: kPrimaryColor,
+                                fontSize: size.height * 0.02,
+                                fontFamily: 'Quicksand',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
+    return isCommentConfirmed;
+  }
 }
-
-

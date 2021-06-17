@@ -1,4 +1,3 @@
-import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -27,14 +26,9 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
     return OutlinedButton(
       onPressed: () {
         setState(() {
-          //if (isFilterSelected() == true) {
-          //aggiornare il content della search in modo da far cambiare dinamicamente il body della ricerca
           print(widget.selectedTerm);
           widget.callback();
           Navigator.of(context).pop();
-
-          //updateBody();
-          //} else {}
         });
       },
       style: OutlinedButton.styleFrom(
@@ -56,31 +50,6 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
         ),
       ),
     );
-  }
-
-  Color setBackgroundButtonColor() {
-    Color backgroundColor = Colors.amber[50];
-
-    setState(() {
-      if (isFilterSelected()) {
-        backgroundColor = Colors.amber;
-      } else {
-        backgroundColor = Colors.amber[50];
-      }
-    });
-    return backgroundColor;
-  }
-
-  Color setTextButtonColor() {
-    Color textColor = Colors.grey;
-    setState(() {
-      if (isFilterSelected()) {
-        textColor = Colors.white;
-      } else {
-        textColor = Colors.grey;
-      }
-    });
-    return textColor;
   }
 
   bool isFilterSelected() {

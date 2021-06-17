@@ -1,7 +1,4 @@
-import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
-import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/components/out_apply_button_filter.dart';
-import 'package:ciak_time/components/out_back_button_filter.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -55,8 +52,6 @@ class _FloatingButtonState extends State<FloatingButton> {
                 context: context,
                 barrierDismissible: false,
                 builder: (_) {
-                  //deselectAllFilters();
-
                   return StatefulBuilder(
                     builder: (context, setState) {
                       return AlertDialog(
@@ -329,20 +324,20 @@ class _FloatingButtonState extends State<FloatingButton> {
                                           label: Text(
                                             "Fantasy",
                                           ),
-                                          labelStyle:
-                                              TextStyle(color: setColor()),
-                                          checkmarkColor: setColor(),
+                                          labelStyle: TextStyle(
+                                            color: colorFantasy,
+                                          ),
+                                          checkmarkColor: colorFantasy,
                                           backgroundColor: Colors.transparent,
                                           selectedColor: kPrimaryColor,
                                           shape: StadiumBorder(
                                               side: BorderSide(
                                                   color: kPrimaryColor,
                                                   width: size.width * 0.0055)),
-                                          selected: setSelected(),
+                                          selected: fantasy,
                                           onSelected: (bool value) {
                                             setState(() {
                                               fantasy = !fantasy;
-
                                               if (!fantasy) {
                                                 colorFantasy = Colors.black;
                                               } else {
@@ -483,38 +478,41 @@ class _FloatingButtonState extends State<FloatingButton> {
                               SizedBox(
                                 height: size.height * 0.05,
                               ),
-                              /*Row(
-                                children: <Widget>[
-                                  Text(
-                                    "Include added movies",
-                                    style: TextStyle(
-                                      color: kPrimaryColor,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: size.height * 0.02,
-                                      fontFamily: 'Quicksand-Medium',
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: size.width * 0.05,
-                                  ),
-                                  CupertinoSwitch(
-                                    value: add_movie,
-                                    onChanged: (bool value) {
-                                      setState(() {
-                                        add_movie = !add_movie;
-                                      });
-                                    },
-                                  ),
-                                ],
-                              ),*/
                               SizedBox(
                                 height: size.height * 0.015,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  OutBackButtonFilter(
-                                    size: size,
+                                  OutlinedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        isReset = true;
+                                        deselectAllFilters();
+                                      });
+                                    },
+                                    style: OutlinedButton.styleFrom(
+                                      primary: Colors.white,
+                                      minimumSize: Size(
+                                          widget.size.width * 0.25,
+                                          widget.size.height * 0.05),
+                                      backgroundColor: Colors.white,
+                                      side: BorderSide(
+                                          color: Colors.amber, width: 2),
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(8)),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      "Reset",
+                                      style: TextStyle(
+                                        color: Colors.amber,
+                                        fontSize: widget.size.width * 0.04,
+                                        fontFamily: 'Quicksand',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                   SizedBox(width: size.width * 0.05),
                                   OutApplyButtonFilter(
@@ -540,8 +538,6 @@ class _FloatingButtonState extends State<FloatingButton> {
   }
 
   void deselectAllFilters() {
-    //bool isReset = false;
-    //setState(() {
     if (isReset == true) {
       drama = false;
       comedy = false;
@@ -552,6 +548,9 @@ class _FloatingButtonState extends State<FloatingButton> {
       family = false;
       anime = false;
       horror = false;
+      selected_rate = false;
+      selected_most_added = false;
+      selected_most_recent = false;
       colorRate = Colors.black;
       colorMostAdded = Colors.black;
       colorMostRecent = Colors.black;
@@ -565,46 +564,5 @@ class _FloatingButtonState extends State<FloatingButton> {
       colorAnime = Colors.black;
       colorHorror = Colors.black;
     }
-
-    //});
-  }
-
-  Color setColor() {
-    //setState(() {
-    if (!isFantasySelected() || isResetSelected()) {
-      colorFantasy = Colors.black;
-    } else {
-      colorFantasy = Colors.white;
-    }
-    //});
-    return colorFantasy;
-  }
-
-  bool isResetSelected() {
-    bool resetSelected = false;
-    //setState(() {
-    if (isReset) {
-      resetSelected = true;
-    } else {
-      resetSelected = false;
-    }
-    //});
-    return resetSelected;
-  }
-
-  bool isFantasySelected() {
-    bool fantasySelected = false;
-    //setState(() {
-    if (fantasy) {
-      fantasySelected = true;
-    } else {
-      fantasySelected = false;
-    }
-    //});
-    return fantasySelected;
-  }
-
-  bool setSelected() {
-    return fantasy;
   }
 }

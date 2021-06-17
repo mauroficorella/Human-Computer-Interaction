@@ -364,20 +364,104 @@ class _UserSettingsState extends State<UserSettings> {
                     text: "LOGOUT",
                     radius: 29,
                     press: () {
-                      Navigator.of(context, rootNavigator: true)
-                          .pushReplacement(MaterialPageRoute(
-                              builder: (context) => new LoginScreen()));
-                      /*Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return LoginScreen();
-                          },
-                        ),
-                      );*/
-                      //pushNewScreen(context, screen: LoginScreen(), withNavBar: false,);
-                      FlutterStatusbarcolor.setStatusBarColor(
-                          Colors.transparent);
+                      showDialog(
+                        context: context,
+                        builder: (_) {
+                          return new AlertDialog(
+                            content: StatefulBuilder(
+                              builder: (context, setState) {
+                                return Container(
+                                  height: size.height * 0.11,
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "Do you really want to logout?",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: size.height * 0.02,
+                                          fontFamily: 'Quicksand',
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.028,
+                                      ),
+                                      Container(
+                                        width: size.width * 0.7,
+                                        height: size.height * 0.03,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            TextButton.icon(
+                                              icon: Icon(
+                                                Icons.dangerous_outlined,
+                                                color: Colors.red,
+                                              ),
+                                              style: TextButton.styleFrom(
+                                                minimumSize: Size(
+                                                    size.width * 0.1,
+                                                    size.height * 0.005),
+                                                padding: EdgeInsets.all(0.0),
+                                              ),
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              label: Text(
+                                                "NO",
+                                                style: TextStyle(
+                                                  color: kPrimaryColor,
+                                                  fontSize: size.height * 0.02,
+                                                  fontFamily: 'Quicksand',
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                            TextButton.icon(
+                                              icon: Icon(
+                                                Icons.check,
+                                                color: Colors.green,
+                                              ),
+                                              style: TextButton.styleFrom(
+                                                minimumSize: Size(
+                                                    size.width * 0.1,
+                                                    size.height * 0.005),
+                                                padding: EdgeInsets.all(0.0),
+                                              ),
+                                              onPressed: () {
+                                                Navigator.of(context,
+                                                        rootNavigator: true)
+                                                    .pushReplacement(
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        new LoginScreen(),
+                                                  ),
+                                                );
+
+                                                FlutterStatusbarcolor
+                                                    .setStatusBarColor(
+                                                        Colors.transparent);
+                                              },
+                                              label: Text(
+                                                "YES",
+                                                style: TextStyle(
+                                                  color: kPrimaryColor,
+                                                  fontSize: size.height * 0.02,
+                                                  fontFamily: 'Quicksand',
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        },
+                      );
                     },
                   ),
                 ],
