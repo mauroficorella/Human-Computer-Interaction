@@ -55,11 +55,13 @@ class ViewNavigatorObserver extends NavigatorObserver {
 }
 
 class DestinationView extends StatefulWidget {
-  const DestinationView({Key key, this.destination, this.onNavigation})
+  const DestinationView(
+      {Key key, this.destination, this.onNavigation, this.navigatorKey})
       : super(key: key);
 
   final Destination destination;
   final VoidCallback onNavigation;
+  final Key navigatorKey;
 
   @override
   _DestinationViewState createState() => _DestinationViewState();
@@ -69,6 +71,7 @@ class _DestinationViewState extends State<DestinationView> {
   @override
   Widget build(BuildContext context) {
     return Navigator(
+      key: widget.navigatorKey,
       observers: <NavigatorObserver>[
         ViewNavigatorObserver(widget.onNavigation),
       ],
@@ -194,7 +197,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with TickerProviderStateMixin<HomePage> {
-  List<GlobalKey<NavigatorState>> _destinationKeys;
+  List<GlobalKey> _destinationKeys;
+  List<GlobalKey<NavigatorState>> _navigatorKeys;
   List<AnimationController> _faders;
   AnimationController _hide;
   int _currentIndex = 0;
@@ -209,9 +213,10 @@ class _HomePageState extends State<HomePage>
           vsync: this, duration: Duration(milliseconds: 200));
     }).toList();
     _faders[_currentIndex].value = 1.0;
-    _destinationKeys = List<GlobalKey<NavigatorState>>.generate(
-            allDestinations.length, (int index) => GlobalKey<NavigatorState>())
-        .toList();
+    _destinationKeys = List<GlobalKey>.generate(
+        allDestinations.length, (int index) => GlobalKey()).toList();
+    _navigatorKeys = List<GlobalKey<NavigatorState>>.generate(
+        allDestinations.length, (int index) => GlobalKey()).toList();
     _hide = AnimationController(vsync: this, duration: kThemeAnimationDuration);
   }
 
@@ -233,10 +238,16 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    return NotificationListener<ScrollNotification>(
-      onNotification: _handleScrollNotification,
-      child: WillPopScope(
-        onWillPop: () async => false,
+    return WillPopScope(
+      onWillPop: () async {
+        final NavigatorState navigator =
+            _navigatorKeys[_currentIndex].currentState;
+        if (!navigator.canPop()) return true;
+        navigator.pop();
+        return false;
+      },
+      child: NotificationListener<ScrollNotification>(
+        onNotification: _handleScrollNotification,
         child: Scaffold(
           body: SafeArea(
             top: false,
@@ -250,25 +261,22 @@ class _HomePageState extends State<HomePage>
                     key: _destinationKeys[destination.index],
                     child: DestinationView(
                       destination: destination,
+                      navigatorKey: _navigatorKeys[destination.index],
                       onNavigation: () {
-                        print('ciao');
                         _hide.forward();
                       },
                     ),
                   ),
                 );
                 if (destination.index == _currentIndex) {
-                  print("sono nell'if");
                   _faders[destination.index].forward();
                   return view;
                 } else {
-                  print("sono nell'else");
                   _faders[destination.index].reverse();
                   if (_faders[destination.index].isAnimating) {
                     return IgnorePointer(child: view);
                   }
                   return Offstage(child: view);
-                  //return view;
                 }
               }).toList(),
             ),
@@ -284,25 +292,13 @@ class _HomePageState extends State<HomePage>
                 currentIndex: _currentIndex,
                 onTap: (int index) {
                   setState(() {
-                    /*if (_currentIndex != index) {
+                    if (_currentIndex != index) {
                       _currentIndex = index;
                     } else {
-                      print(_destinationKeys[0]);
-                      if (index == 0) {
-                        _destinationKeys[0]
-                            .currentState
-                            .popUntil((route) => route.isFirst);
-                      }
-                      if (index == 1) {
-                        Navigator.of(context)
-                            .popUntil(ModalRoute.withName('/'));
-                      }
-                      if (index == 2) {
-                        Navigator.of(context)
-                            .popUntil(ModalRoute.withName('/'));
-                      }
-                    }*/
-                    _currentIndex = index;
+                      _navigatorKeys[index]
+                          .currentState
+                          .popUntil((route) => route.isFirst);
+                    }
                   });
                 },
                 items: allDestinations.map((Destination destination) {

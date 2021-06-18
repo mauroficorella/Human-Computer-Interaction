@@ -1,8 +1,6 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
-import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
-import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/navbar.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
 import 'package:ciak_time/components/rounded_button.dart';
@@ -66,10 +64,15 @@ class _BodyState extends State<Body> {
                     ),
                     RoundedInputField(
                       hintText: "Username",
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        username = value;
+                      },
                     ),
                     RoundedPasswordField(
                       controller: passwordController,
+                      onChanged: (value) {
+                        password = value;
+                      },
                     ),
                     Container(
                       alignment: Alignment.centerRight,
@@ -81,7 +84,7 @@ class _BodyState extends State<Body> {
                               Size(size.width * 0.1, size.height * 0.005),
                           padding: EdgeInsets.all(0.0),
                         ),
-                        onPressed: () {},
+                        onPressed: () {}, //TODO
                         child: Text(
                           "Forgot password?",
                           style: TextStyle(
@@ -102,7 +105,7 @@ class _BodyState extends State<Body> {
                       press: () async {
                         var connectivityResult =
                             await (Connectivity().checkConnectivity());
-                        if (connectivityResult == ConnectivityResult.mobile) {
+                        if (connectivityResult == ConnectivityResult.mobile && (username == users[0]['username'] && password == users[0]['password'])) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -114,7 +117,7 @@ class _BodyState extends State<Body> {
                             ),
                           );
                         } else if (connectivityResult ==
-                            ConnectivityResult.wifi) {
+                            ConnectivityResult.wifi && (username == users[0]['username'] && password == users[0]['password'])) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(

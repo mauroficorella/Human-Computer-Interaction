@@ -32,7 +32,9 @@ dependencies:
   flutter_statusbarcolor_ns: ^0.3.0-nullsafety
   flutter_svg: ^0.22.0
   fluttertoast: ^8.0.7
+  form_field_validator: ^1.1.0
   http: ^0.13.3
+  image_picker: ^0.8.0+3
   like_button: ^2.0.2
   material_floating_search_bar: ^0.3.4
   passwordfield: ^0.0.82

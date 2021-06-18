@@ -93,6 +93,7 @@ class _CommentsPageState extends State<CommentsPage> {
                   };
                   filedata.insert(0, value);
                 });
+                reviewsData[widget.reviewIndex]['comments'] = reviewsData[widget.reviewIndex]['comments']+ 1;
                 commentController.clear();
                 FocusScope.of(context).unfocus();
               } else {

@@ -1,6 +1,11 @@
+import 'dart:io';
+
 import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/User/profile_pic.dart';
+import 'package:ciak_time/components/change_password_field.dart';
 import 'package:ciak_time/components/rounded_button.dart';
+import 'package:ciak_time/components/rounded_input_field.dart';
+
 import 'package:ciak_time/components/social_icon.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
@@ -14,22 +19,16 @@ class UserSettings extends StatefulWidget {
 }
 
 class _UserSettingsState extends State<UserSettings> {
+
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    String username = "Vittoria";
+    final passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        /*leading: Row(
-          children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back_ios, ),
-              onPressed: () => Navigator.of(context).pop(),
-              
-            ),
-            Text("User"),
-          ],
-        ),*/
         leading: TextButton.icon(
           onPressed: () => Navigator.of(context).pop(),
           icon: Icon(
@@ -66,14 +65,49 @@ class _UserSettingsState extends State<UserSettings> {
                   Row(
                     children: [
                       Text(
-                        "Vittoria",
+                        username,
                         style: TextStyle(
                             fontSize: size.height * 0.025,
                             fontFamily: 'Quicksand-Regular'),
                       ),
                       SizedBox(width: size.width * 0.02),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) {
+                              return new AlertDialog(
+                                content: StatefulBuilder(
+                                  builder: (context, setState) {
+                                    return Container(
+                                      height: size.height * 0.18,
+                                      width: size.width,
+                                      child: Column(
+                                        children: [
+                                          RoundedInputField(
+                                            hintText: "Choose new username",
+                                            onChanged: (value) {},
+                                          ),
+                                          Container(
+                                            child: RoundedButton(
+                                                text: "SAVE",
+                                                radius: 29,
+                                                press: () {
+                                                  setState(() {
+                                                    username = "prova";
+                                                  });
+                                                  Navigator.pop(context);
+                                                }),
+                                          )
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          );
+                        },
                         icon: SvgPicture.asset("assets/icons/edit.svg"),
                         iconSize: size.height * 0.035,
                         color: kPrimaryColor,
@@ -90,7 +124,39 @@ class _UserSettingsState extends State<UserSettings> {
                       ),
                       SizedBox(width: size.width * 0.02),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) {
+                              return new AlertDialog(
+                                content: StatefulBuilder(
+                                  builder: (context, setState) {
+                                    return Container(
+                                      height: size.height * 0.26,
+                                      width: size.width,
+                                      child: Column(
+                                        children: [
+                                          ChangePasswordField(
+                                              controller: passwordController,
+                                              label: "Choose new password"),
+                                          ChangePasswordField(
+                                              controller: passwordController,
+                                              label: "Confirm password"),
+                                          RoundedButton(
+                                              text: "SAVE",
+                                              radius: 29,
+                                              press: () {
+                                                Navigator.pop(context);
+                                              })
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          );
+                        },
                         icon: SvgPicture.asset("assets/icons/edit.svg"),
                         iconSize: size.height * 0.035,
                         color: kPrimaryColor,
@@ -169,6 +235,7 @@ class _UserSettingsState extends State<UserSettings> {
                                                   children: [
                                                     GestureDetector(
                                                       onTap: () {
+                                                        //socialSelected = true;
                                                         Fluttertoast.showToast(
                                                             msg:
                                                                 "Google account connected successfully");
@@ -314,6 +381,7 @@ class _UserSettingsState extends State<UserSettings> {
                                           ),
                                           TextButton(
                                             onPressed: () {
+                                              //socialSelected = true;
                                               Fluttertoast.showToast(
                                                   msg:
                                                       "Facebook account connected successfully");

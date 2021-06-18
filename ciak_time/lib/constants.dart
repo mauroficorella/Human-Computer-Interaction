@@ -115,56 +115,55 @@ List reviewsData = [
 ];
 
 List filedata = [
-    {
-      'name': 'Fabio',
-      'pic':
-          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      'message': 'I love this movie too!'
-    },
-    {
-      'name': 'Martina',
-      'pic':
-          'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
-      'message': 'I completely agree with you.'
-    },
-    {
-      'name': 'Mauro', //George
-      'pic':
-          'https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70',
-      'message': 'Very cool acting.'
-    },
-    {
-      'name': 'Grace',
-      'pic':
-          'https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXNpYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
-      'message': 'I disagree, they could have done better.'
-    },
-    {
-      'name': 'Massimiliano',
-      'pic':
-          'https://www.elitesingles.co.uk/wp-content/uploads/sites/59/2019/11/2b_en_articleslide_sm2-350x264.jpg',
-      'message': 'I love this movie too!'
-    },
-    {
-      'name': 'Valentina',
-      'pic':
-          'http://nadiazheng.com/wp-content/uploads/2015/12/Montreal-portrait-photography-linked-professional-headshot-profile-nadia-zheng.jpg',
-      'message': 'I completely agree with you.'
-    },
-    {
-      'name': 'Anna',
-      'pic':
-          'https://expertphotography.com/wp-content/uploads/2018/10/cool-profile-pictures-retouching-1.jpg',
-      'message': 'Polpette!!!!'
-    },
-    {
-      'name': 'Venanzina',
-      'pic':
-          'https://expertphotography.com/wp-content/uploads/2018/10/cool-profile-pictures-aperture.jpg',
-      'message': 'I disagree, they could have done better.'
-    },
-    
-  ];
+  {
+    'name': 'Fabio',
+    'pic':
+        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    'message': 'I love this movie too!'
+  },
+  {
+    'name': 'Alessandra',
+    'pic':
+        'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
+    'message': 'I completely agree with you.'
+  },
+  {
+    'name': 'George',
+    'pic':
+        'https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70',
+    'message': 'Very cool acting.'
+  },
+  {
+    'name': 'Grace',
+    'pic':
+        'https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXNpYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
+    'message': 'I disagree, they could have done better.'
+  },
+  {
+    'name': 'Massimiliano',
+    'pic':
+        'https://www.elitesingles.co.uk/wp-content/uploads/sites/59/2019/11/2b_en_articleslide_sm2-350x264.jpg',
+    'message': 'Great performance of the actors!'
+  },
+  {
+    'name': 'Jenny',
+    'pic':
+        'http://nadiazheng.com/wp-content/uploads/2015/12/Montreal-portrait-photography-linked-professional-headshot-profile-nadia-zheng.jpg',
+    'message': 'You\'re right, this movie is perfect.'
+  },
+  {
+    'name': 'Anna',
+    'pic':
+        'https://expertphotography.com/wp-content/uploads/2018/10/cool-profile-pictures-retouching-1.jpg',
+    'message': 'Great story! Great movie!'
+  },
+  {
+    'name': 'Venanzina',
+    'pic':
+        'https://expertphotography.com/wp-content/uploads/2018/10/cool-profile-pictures-aperture.jpg',
+    'message': 'You \'re completely right!'
+  },
+];
 
 List googleAccountsData = [
   {
@@ -181,21 +180,15 @@ List googleAccountsData = [
   },
 ];
 
+List users = [
+  {'username': 'vittoria', 'password': 'denitto'}
+];
+
+String username;
+String password;
+
 bool isCommentConfirmed = false;
 
-/*List genresIds = [
-  {
-    '28': 'Action',
-    '16': 'Animation',
-    '35': 'Comedy',
-    '80': 'Crime',
-    '18': 'Drama',
-    '10751': 'Family',
-    '14': 'Fantasy',
-    '27': 'Horror',
-    '53': 'Thriller',
-  }
-];*/
 List genresIds = [
   {
     'Action': 28,
@@ -220,10 +213,11 @@ int setLenght(List list) {
   return len;
 }
 
-//TODO FAR FARE IL LOGIN SOLO CON CREDENZIALI GIUSTE
-//TODO MODIFICARE COMMENTI POLPETTE
-//TODO CONFERMA LOGOUT
-//TODO FAR TORNARE INDIETRO TRAMITE GESTURE SOLO SU HOME, SEARCH E USER
+//TODO QUANDO SI REGISTRA UN UTENTE AGGIUNGERE LE ENTRY DENTRO LA LISTA DI USERNAME E PASSWORD
+//TODO QUANDO SI CAMBIA USERNAME E PASSWORD DA USER SETTINGS FARLE CAMBIARE ANCHE NELLA APP E AGGIORNARLE NELLA LISTA DELLE COSTANTI
+//TODO CAMBIARE POPUP QUANDO SI LOGGA UN UTENTE NON REGISTRATO
+//TODO DISABILITARE PULSANTI LOGIN GOOGLE E FB UNA VOLTA FATTO IL LOGIN CON GOOGLE O FB
+//TODO CONFERMA LOGOUT (sistemare status bar viola)
 //TODO TEMA NERO
 //TODO PUNTINI SU LESS DELLA BIOGRAPHY DEGLI ATTORI
 //TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)
