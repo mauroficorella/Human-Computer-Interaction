@@ -105,35 +105,41 @@ class _BodyState extends State<Body> {
                       press: () async {
                         var connectivityResult =
                             await (Connectivity().checkConnectivity());
-                        if (connectivityResult == ConnectivityResult.mobile && (username == users[0]['username'] && password == users[0]['password'])) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return HomePage();
-                                //return NavBar();
-                                //return CustomNavBar();
-                              },
-                            ),
-                          );
-                        } else if (connectivityResult ==
-                            ConnectivityResult.wifi && (username == users[0]['username'] && password == users[0]['password'])) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return HomePage();
-                                //return NavBar();
-                                //return CustomNavBar();
-                              },
-                            ),
-                          );
-                        } else {
-                          showOkAlertDialog(
-                              context: context,
-                              title: "Connectivity error",
-                              message:
-                                  "You need to turn on Internet on your device to continue.");
+                        for (var i = 0; i < users.length; i++) {
+                          if ((connectivityResult ==
+                                      ConnectivityResult.mobile ||
+                                  connectivityResult ==
+                                      ConnectivityResult.wifi) &&
+                              (username == users[i]['username'] &&
+                                  password == users[i]['password'])) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return HomePage();
+                                  //return NavBar();
+                                  //return CustomNavBar();
+                                },
+                              ),
+                            );
+                          } else {
+                            if (connectivityResult !=
+                                    ConnectivityResult.mobile &&
+                                connectivityResult != ConnectivityResult.wifi) {
+                              showOkAlertDialog(
+                                  context: context,
+                                  title: "Connectivity error",
+                                  message:
+                                      "You need to turn on Internet on your device to continue.");
+                            } else if ((username != users[i]['username'] ||
+                                password != users[i]['password'])) {
+                              showOkAlertDialog(
+                                  context: context,
+                                  title: "Login error",
+                                  message:
+                                      "You need to insert the correct credentials in order to login.");
+                            }
+                          }
                         }
                       },
                     ),
@@ -145,6 +151,7 @@ class _BodyState extends State<Body> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SocialIcon(
+                    socialFlag: false,
                     iconSrc: "assets/icons/google.svg",
                     press: () {
                       showDialog(
@@ -194,6 +201,7 @@ class _BodyState extends State<Body> {
                                               children: [
                                                 GestureDetector(
                                                   onTap: () {
+                                                    googleConnected = true;
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
@@ -286,6 +294,7 @@ class _BodyState extends State<Body> {
                     },
                   ),
                   SocialIcon(
+                    socialFlag: false,
                     iconSrc: "assets/icons/facebook.svg",
                     press: () {
                       showDialog(
@@ -338,6 +347,7 @@ class _BodyState extends State<Body> {
                                       ),
                                       TextButton(
                                         onPressed: () {
+                                          facebookConnected = true;
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(

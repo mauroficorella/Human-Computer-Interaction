@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
 import 'package:ciak_time/Screens/Search/search.dart';
+import 'package:ciak_time/Screens/User/profile_pic.dart';
 import 'package:ciak_time/Screens/User/user_settings.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:ciak_time/constants.dart';
@@ -11,6 +14,9 @@ class User extends StatefulWidget {
 }
 
 class _UserState extends State<User> {
+  FutureOr onGoBack(dynamic value) {
+    setState(() {});
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -23,7 +29,7 @@ class _UserState extends State<User> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/settings');
+              Navigator.pushNamed(context, '/settings').then(onGoBack);
             },
             child: Row(
               children: [
@@ -48,14 +54,11 @@ class _UserState extends State<User> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/vittoria.png'),
-                  radius: size.height * 0.1,
-                ),
+                getCircleAvatar(size, isFromGallery)
               ],
             ),
             Text(
-              "Vittoria",
+              userlogged,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: size.height * 0.05,

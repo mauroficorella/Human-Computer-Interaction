@@ -1,9 +1,10 @@
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+
+
 
 class ProfilePic extends StatefulWidget {
   const ProfilePic({
@@ -15,7 +16,7 @@ class ProfilePic extends StatefulWidget {
 }
 
 class _ProfilePicState extends State<ProfilePic> {
-  File _image;
+ 
 
   final picker = ImagePicker();
 
@@ -24,15 +25,19 @@ class _ProfilePicState extends State<ProfilePic> {
 
     setState(() {
       if (pickedFile != null) {
-        _image = File(pickedFile.path);
-        profilePicPath = pickedFile.path;
+        image= File(pickedFile.path);
+        isFromGallery = true;
+        //profilePicPath = pickedFile.path;
+        //profilePicPath = File(pickedFile.path);
       } else {
         print('No image selected.');
       }
     });
   }
 
-  String profilePicPath = 'assets/images/vittoria.png';
+  
+  //File profilePicPath = File('assets/images/vittoria.png');
+//File f = await getImageFileFromAssets('images/myImage.jpg');
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +47,7 @@ class _ProfilePicState extends State<ProfilePic> {
       child: Stack(
         overflow: Overflow.visible,
         children: [
-          CircleAvatar(
-            backgroundImage: AssetImage(profilePicPath),
-            backgroundColor: Colors.white,
-            radius: size.height * 0.1,
-          ),
+          getCircleAvatar(size, isFromGallery),
           Positioned(
             right: -10,
             bottom: 0,
@@ -69,8 +70,8 @@ class _ProfilePicState extends State<ProfilePic> {
                     ),
                   ),
                   Flexible(
-                      child: _image != null
-                          ? Image.file(_image)
+                      child: image != null
+                          ? Image.file(image)
                           : Text('no Image')),
                 ],
               ),
@@ -80,4 +81,22 @@ class _ProfilePicState extends State<ProfilePic> {
       ),
     );
   }
+
+  
 }
+CircleAvatar getCircleAvatar(Size size, bool isFromGallery) {
+    if (isFromGallery) {
+      //isFromGallery = false;
+      return CircleAvatar(
+        backgroundImage: FileImage(image),
+        backgroundColor: Colors.white,
+        radius: size.height * 0.1,
+      );
+    } else {
+      return CircleAvatar(
+        backgroundImage: AssetImage(profilePicPath),
+        backgroundColor: Colors.white,
+        radius: size.height * 0.1,
+      );
+    }
+  }

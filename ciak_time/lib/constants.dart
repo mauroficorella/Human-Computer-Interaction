@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ciak_time/Screens/Search/components/cards_widget.dart';
 import 'package:ciak_time/models/movie.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,9 @@ bool horror = false;
 bool add_movie = false;
 
 bool isReset = false;
+
+bool googleConnected = false;
+bool facebookConnected = false;
 
 Color colorRate = Colors.black;
 Color colorMostAdded = Colors.black;
@@ -70,6 +75,10 @@ String favouriteListTitle = "Add to favourite list";
 List<int> filteredMoviesList = [];
 
 double newRating;
+
+String profilePicPath = 'assets/images/vittoria.png';
+File image;
+bool isFromGallery = false;
 
 Widget content = CardsWidget();
 
@@ -187,6 +196,9 @@ List users = [
 String username;
 String password;
 
+String userlogged = 'Vittoria';
+String usermodified = 'Vittoria';
+
 bool isCommentConfirmed = false;
 
 List genresIds = [
@@ -213,10 +225,9 @@ int setLenght(List list) {
   return len;
 }
 
+//TODO DISATTIVARE SAVE SULLA MODIFICA DI USERNAME E PASSWORD SE CI SONO VALORI SBAGLIATI
+//TODO RIMANE HOME SUL BACK BUTTON DI UNA PERSONA SE SI VA SU MOVIE E POI SU UN MEMBRO DEL CAST
 //TODO QUANDO SI REGISTRA UN UTENTE AGGIUNGERE LE ENTRY DENTRO LA LISTA DI USERNAME E PASSWORD
-//TODO QUANDO SI CAMBIA USERNAME E PASSWORD DA USER SETTINGS FARLE CAMBIARE ANCHE NELLA APP E AGGIORNARLE NELLA LISTA DELLE COSTANTI
-//TODO CAMBIARE POPUP QUANDO SI LOGGA UN UTENTE NON REGISTRATO
-//TODO DISABILITARE PULSANTI LOGIN GOOGLE E FB UNA VOLTA FATTO IL LOGIN CON GOOGLE O FB
 //TODO CONFERMA LOGOUT (sistemare status bar viola)
 //TODO TEMA NERO
 //TODO PUNTINI SU LESS DELLA BIOGRAPHY DEGLI ATTORI

@@ -4,20 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
-class ChangePasswordField extends StatefulWidget {
-  
+class ChangePasswordFieldConfirm extends StatefulWidget {
   final String label;
-  const ChangePasswordField({
+  const ChangePasswordFieldConfirm({
     Key key,
-    
     @required this.label,
   }) : super(key: key);
 
   @override
-  _RoundedPasswordField createState() => _RoundedPasswordField();
+  _RoundedPasswordFieldConfirm createState() => _RoundedPasswordFieldConfirm();
 }
 
-class _RoundedPasswordField extends State<ChangePasswordField> {
+class _RoundedPasswordFieldConfirm extends State<ChangePasswordFieldConfirm> {
   bool isHidden = true;
   final passwordController = TextEditingController();
   final passwordValidator = MultiValidator([  

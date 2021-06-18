@@ -4,11 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialIcon extends StatelessWidget {
   final String iconSrc;
+  final bool socialFlag;
   final Function press;
   const SocialIcon({
     Key key,
     this.iconSrc,
-    this.press,
+    this.press, @required this.socialFlag,
   }) : super(key: key);
 
   @override
@@ -23,6 +24,7 @@ class SocialIcon extends StatelessWidget {
             width: 2,
             color: kPrimaryLightColor,
           ),
+          color: setColor(socialFlag),
           shape: BoxShape.circle,
         ),
         child: SvgPicture.asset(
@@ -32,5 +34,14 @@ class SocialIcon extends StatelessWidget {
         ),
       ),
     );
+  }
+  Color setColor(socialFlag) {
+    Color socialColor;
+    if (!socialFlag) {
+      socialColor = Colors.transparent;
+    } else {
+      socialColor = kPrimaryLightColor;
+    }
+    return socialColor;
   }
 }
