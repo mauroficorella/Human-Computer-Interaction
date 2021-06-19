@@ -1,5 +1,4 @@
 import 'package:ciak_time/Screens/Review/comments_page.dart';
-import 'package:ciak_time/Screens/Review/review.dart';
 import 'package:ciak_time/components/rating.dart';
 
 import 'package:ciak_time/constants.dart';
@@ -59,9 +58,6 @@ class _ReviewsPageState extends State<ReviewsPage> {
         ],
         title: Text(
           'Reviews',
-          style: TextStyle(
-            fontFamily: 'Quicksand',
-          ),
         ),
         centerTitle: true,
       ),
@@ -149,8 +145,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                 ),
                 RatingUnclickable(
                     unratedColor: Colors.grey,
-                    rate: reviewsData[widget.index]['rate'] *
-                        2), 
+                    rate: reviewsData[widget.index]['rate'] * 2),
                 Text(
                   reviewsData[widget.index]['message'],
                   style: TextStyle(
@@ -182,7 +177,9 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                       onPressed: () {
                         Navigator.of(context, rootNavigator: true).push(
                             MaterialPageRoute(builder: (BuildContext context) {
-                          return CommentsPage(reviewIndex: widget.index,);
+                          return CommentsPage(
+                            reviewIndex: widget.index,
+                          );
                         }));
                       },
                       style: ButtonStyle(
@@ -247,7 +244,9 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                           Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
                                   builder: (BuildContext context) {
-                            return CommentsPage(reviewIndex: widget.index,);
+                            return CommentsPage(
+                              reviewIndex: widget.index,
+                            );
                           }));
                         },
                         style: ButtonStyle(

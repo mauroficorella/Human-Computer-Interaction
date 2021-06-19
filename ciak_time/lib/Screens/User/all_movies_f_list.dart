@@ -59,6 +59,11 @@ class _AllMoviesInFListState extends State<AllMoviesInFList> {
                   imageUrl:
                       'https://image.tmdb.org/t/p/original${favouriteList[index].posterPath}',
                   movieTitle: favouriteList[index].title),
+              onTap: () {
+                movieSelectedFromUser = favouriteList[index];
+                Navigator.pushNamed(context, '/movie',
+                    arguments: ScreenArguments("Favourite"));
+              },
             );
           }),
     );

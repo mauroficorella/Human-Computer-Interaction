@@ -2,6 +2,7 @@ import 'package:ciak_time/Screens/Person/filmography_list.dart';
 import 'package:ciak_time/components/person_overview.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:ciak_time/models/person.dart';
 import 'package:flutter/material.dart';
 
 class PersonUser extends StatefulWidget {
@@ -13,6 +14,7 @@ class _PersonUserState extends State<PersonUser> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final args = ModalRoute.of(context).settings.arguments as ScreenArguments;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -22,13 +24,19 @@ class _PersonUserState extends State<PersonUser> {
             Icons.arrow_back_ios,
             color: Colors.amber,
           ),
-          label: Text(
-            "User",
-            style:
-                TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          label: Container(
+            width: size.width * 0.2,
+            child: Text(
+              args.fromWhere,
+              //"Home",
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: TextStyle(
+                  color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+            ),
           ),
         ),
-        leadingWidth: size.width * 0.23,
+        leadingWidth: size.width * 0.5,
         title: Text(
           personSelectedFromUser.name,
         ),
@@ -112,4 +120,3 @@ class _PersonUserState extends State<PersonUser> {
     );
   }
 }
-

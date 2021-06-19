@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Person/person_home.dart';
 import 'package:ciak_time/blocs/movie_cast_bloc.dart';
 import 'package:ciak_time/components/cast_card.dart';
 import 'package:ciak_time/constants.dart';
@@ -55,17 +56,23 @@ class MovieCastList extends StatelessWidget {
           name: snapshot.data.cast[index].name,
         );
 
+        String fromWhereArg;
+        
         if (fromWhere == "Home") {
           personSelectedFromHome = person;
+          fromWhereArg = movieSelectedFromHome.title;
         }
         if (fromWhere == "Search") {
           personSelectedFromSearch = person;
+          fromWhereArg = movieSelectedFromSearch.title;
         }
         if (fromWhere == "User") {
           personSelectedFromUser = person;
+          fromWhereArg = movieSelectedFromUser.title;
         }
 
-        Navigator.pushNamed(context, '/person');
+        Navigator.pushNamed(context, '/person',
+            arguments: ScreenArguments("Movie info"));
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
       },
       child: CastCard(

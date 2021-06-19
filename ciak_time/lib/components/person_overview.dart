@@ -67,6 +67,7 @@ class PersonOverview extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
+              backgroundColor: Colors.transparent,
               backgroundImage: NetworkImage(imagePath),
               radius: size.height * 0.1,
             ),

@@ -27,6 +27,7 @@ class _MovieUserState extends State<MovieUser> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final args = ModalRoute.of(context).settings.arguments as ScreenArguments;
     return Scaffold(
       floatingActionButton: AddButton(size: size),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -48,7 +49,6 @@ class _MovieUserState extends State<MovieUser> {
                         color: Colors.black.withOpacity(0.5),
                         spreadRadius: 1,
                         blurRadius: 30,
-                        
                       ),
                     ],
                   ),
@@ -58,7 +58,7 @@ class _MovieUserState extends State<MovieUser> {
                       color: Colors.white,
                     ),
                     label: Text(
-                      "Back",
+                      args.fromWhere,
                       style: TextStyle(color: Colors.white),
                     ),
                     //color: Colors.white,
@@ -252,7 +252,9 @@ class _MovieUserState extends State<MovieUser> {
                                   rate: movieSelectedFromUser.voteAverage),
                               SizedBox(width: size.width * 0.03),
                               Text(
-                                'out of ' + movieSelectedFromUser.voteCount.toString() + ' ratings',
+                                'out of ' +
+                                    movieSelectedFromUser.voteCount.toString() +
+                                    ' ratings',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,
@@ -262,7 +264,10 @@ class _MovieUserState extends State<MovieUser> {
                             ],
                           ),
                           SizedBox(height: size.height * 0.01),
-                          InsertReviewBtn(size: size, fromWhere: '/insertreviewfrommovie',)
+                          InsertReviewBtn(
+                            size: size,
+                            fromWhere: '/insertreviewfrommovie',
+                          )
                         ],
                       ),
                     ),
@@ -376,7 +381,6 @@ class MovieBasicInfo extends StatelessWidget {
   }
 
   Widget buildDetails(AsyncSnapshot<MovieDetailsModel> snapshot, size) {
-   
     return Column(
       children: [
         Container(

@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Person/person_home.dart';
 import 'package:ciak_time/blocs/movie_cast_bloc.dart';
 import 'package:ciak_time/components/cast_card.dart';
 import 'package:ciak_time/constants.dart';
@@ -50,40 +51,33 @@ class MovieDirectorsList extends StatelessWidget {
     }
     return GestureDetector(
       onTap: () {
-        /*if (fromWhere == "Home") {
-          //personSelectedFromHome = snapshot.data.results[index];
-          personSelectedFromHome =
-              new Person(id: snapshot.data.results[index].id);
-        }
-        if (fromWhere == "Search") {
-          //personSelectedFromSearch = snapshot.data.results[index];
-          personSelectedFromSearch = person;
-        }
-        if (fromWhere == "User") {
-          personSelectedFromUser = snapshot.data.results[index];
-          //personSelectedFromUser = new Person(id: snapshot.data.results[index].id); //TODO
-        }*/
         Person person = new Person(
-          id: snapshot.data.results[index].id,
-          name: snapshot.data.results[index].name,
+          id: snapshot.data.directors[index].id,
+          name: snapshot.data.directors[index].name,
         );
+        String fromWhereArg;
         if (fromWhere == "Home") {
           //personSelectedFromHome = snapshot.data.cast[index];
           personSelectedFromHome = person;
+          fromWhereArg = movieSelectedFromHome.title;
           //personIdSelectedFromHome = snapshot.data.cast[index].id.toString();
         }
         if (fromWhere == "Search") {
           //personSelectedFromSearch = snapshot.data.cast[index];
           personSelectedFromSearch = person;
+          fromWhereArg = movieSelectedFromSearch.title;
           //personIdSelectedFromSearch = snapshot.data.cast[index].id.toString();
         }
         if (fromWhere == "User") {
           //personSelectedFromUser = snapshot.data.cast[index];
           personSelectedFromUser = person;
+          fromWhereArg = movieSelectedFromUser.title;
           //personIdSelectedFromSearch = snapshot.data.cast[index].id.toString();
         }
 
-        Navigator.pushNamed(context, '/person');
+        Navigator.pushNamed(context, '/person',
+            arguments: ScreenArguments("Movie Info"));
+        //Navigator.pushNamed(context, '/person');
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
       },
       child: CastCard(

@@ -34,13 +34,18 @@ class _InsertReviewState extends State<InsertReview> {
             Icons.arrow_back_ios,
             color: Colors.amber,
           ),
-          label: Text(
-            widget.title,
-            style:
-                TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          label: Container(
+            width: size.width * 0.2,
+            child: Text(
+              widget.title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: TextStyle(
+                  color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+            ),
           ),
         ),
-        leadingWidth: size.width * 0.26,
+        leadingWidth: size.width * 0.5,
         title: Text(
           'Review the movie',
           style: TextStyle(
@@ -197,6 +202,7 @@ class ConfirmReview extends StatelessWidget {
                                 'message': reviewController.text,
                                 'rate': newRating,
                                 'likes': 0,
+                                'comments': 0,
                               };
                               reviewsData.insert(0, value);
                             },

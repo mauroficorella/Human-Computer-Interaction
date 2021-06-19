@@ -56,7 +56,8 @@ class UpcomingMovieList extends StatelessWidget {
                   posterPath: snapshot.data.results[index].posterPath,
                   voteCount: snapshot.data.results[index].voteCount,
                 );
-                Navigator.pushNamed(context, '/movie');
+                Navigator.pushNamed(context, '/movie',
+                    arguments: ScreenArguments("Home"));
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },
             );

@@ -59,7 +59,8 @@ class CardList extends StatelessWidget {
                   ),
                   onTap: () {
                     movieSelectedFromUser = list[index];
-                    Navigator.pushNamed(context, '/movie');
+                    Navigator.pushNamed(context, '/movie',
+                        arguments: ScreenArguments("User"));
                     FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
                   },
                 ),

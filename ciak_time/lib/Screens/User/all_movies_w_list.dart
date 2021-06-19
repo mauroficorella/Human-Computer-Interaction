@@ -62,7 +62,7 @@ class _AllMoviesInWListState extends State<AllMoviesInWList> {
                   movieTitle: watchList[index].title),
               onTap: () {
                 movieSelectedFromUser = watchList[index];
-                Navigator.pushNamed(context, '/movie');
+                Navigator.pushNamed(context, '/movie', arguments: ScreenArguments("Watchlist"));
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },
             );

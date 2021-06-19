@@ -85,14 +85,11 @@ class _SearchState extends State<Search> {
 
     //FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
     return Scaffold(
-      appBar: AppBar(),
       body: StatefulBuilder(builder: (context, setState) {
         return FloatingSearchBar(
           onFocusChanged: (isFocused) {
             setState(() {
-              /* if (isFocused && bodyIndex == 1) {
-                bodyIndex = 0;
-              }*/
+              
               content = new SearchResultsListView(
                 searchTerm: selectedTerm,
                 callback: callback,

@@ -244,6 +244,12 @@ List genresIds = [
   }
 ];
 
+class ScreenArguments {
+  final String fromWhere;
+
+  ScreenArguments(this.fromWhere);
+}
+
 int setLenght(List list) {
   int len;
   if (list.length <= 4) {

@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Person/person_home.dart';
 import 'package:ciak_time/blocs/popular_person_bloc.dart';
 import 'package:ciak_time/components/person_card.dart';
 import 'package:ciak_time/constants.dart';
@@ -61,7 +62,8 @@ class PopularPeopleList extends StatelessWidget {
               name: snapshot.data.results[index].name);
         }
 
-        Navigator.pushNamed(context, '/person');
+        Navigator.pushNamed(context, '/person',
+            arguments: ScreenArguments(fromWhere));
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
       },
       child: PersonCard(

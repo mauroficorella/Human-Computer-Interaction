@@ -47,6 +47,7 @@ class PopularMovieList extends StatelessWidget {
                 movieTitle: snapshot.data.results[index].title,
               ),
               onTap: () {
+                String fromWhereArg;
                 if (fromWhere == "Home") {
                   //movieSelectedFromHome = snapshot.data.results[index];
                   movieSelectedFromHome = new Movie(
@@ -58,6 +59,7 @@ class PopularMovieList extends StatelessWidget {
                     posterPath: snapshot.data.results[index].posterPath,
                     voteCount: snapshot.data.results[index].voteCount,
                   );
+                  fromWhereArg = "Home";
                 }
                 if (fromWhere == "Search") {
                   movieSelectedFromSearch = new Movie(
@@ -69,10 +71,12 @@ class PopularMovieList extends StatelessWidget {
                     posterPath: snapshot.data.results[index].posterPath,
                     voteCount: snapshot.data.results[index].voteCount,
                   );
+                  fromWhereArg = "Search";
                 }
 
-                Navigator.pushNamed(context, '/movie');
-                
+                Navigator.pushNamed(context, '/movie',
+                    arguments: ScreenArguments(fromWhereArg));
+
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },
             );

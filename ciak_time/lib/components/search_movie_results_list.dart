@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Person/person_home.dart';
 import 'package:ciak_time/Screens/Search/filters_utils.dart';
 import 'package:ciak_time/blocs/search_results_bloc.dart';
 
@@ -159,6 +160,7 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
                 width: size.width * 0.03,
               ),
               CircleAvatar(
+                backgroundColor: Colors.transparent,
                 radius: size.width * 0.1,
                 backgroundImage: NetworkImage(
                     getProfileImage(snapshot.data.results[index].profilePath)),
@@ -179,7 +181,8 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
           personSelectedFromSearch = new Person(
               id: snapshot.data.results[index].id,
               name: snapshot.data.results[index].name);
-          Navigator.pushNamed(context, '/person');
+          Navigator.pushNamed(context, '/person',
+            arguments: ScreenArguments("Search"));
           FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
         },
       ),

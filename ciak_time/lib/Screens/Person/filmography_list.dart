@@ -105,16 +105,20 @@ class FilmographyList extends StatelessWidget {
                 posterPath: snapshot.data.movies[index].posterPath,
                 voteCount: snapshot.data.movies[index].voteCount,
               );
+              String fromWhereArg;
               if (fromWhere == "Home") {
                 movieSelectedFromHome = movie;
+                fromWhereArg = personSelectedFromHome.name;
               }
               if (fromWhere == "Search") {
                 movieSelectedFromSearch = movie;
+                fromWhereArg = personSelectedFromSearch.name;
               }
               if (fromWhere == "User") {
                 movieSelectedFromUser = movie;
+                fromWhereArg = personSelectedFromUser.name;
               }
-              Navigator.pushNamed(context, '/movie');
+              Navigator.pushNamed(context, '/movie', arguments: ScreenArguments(fromWhereArg));
               FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
             },
           ),

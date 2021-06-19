@@ -1,7 +1,4 @@
 import 'package:ciak_time/Screens/Movie/insert_review_btn.dart';
-import 'package:ciak_time/Screens/Movie/movie_details.dart';
-import 'package:ciak_time/Screens/Review/review.dart';
-import 'package:ciak_time/Screens/Review/reviews_page.dart';
 import 'package:ciak_time/api_utils.dart';
 import 'package:ciak_time/blocs/movie_details_bloc.dart';
 import 'package:ciak_time/blocs/movie_images_bloc.dart';
@@ -10,7 +7,7 @@ import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
-import 'package:ciak_time/models/movie_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -27,6 +24,7 @@ class _MovieHomeState extends State<MovieHome> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final args = ModalRoute.of(context).settings.arguments as ScreenArguments;
     return Scaffold(
       floatingActionButton: AddButton(size: size),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -57,7 +55,7 @@ class _MovieHomeState extends State<MovieHome> {
                       color: Colors.white,
                     ),
                     label: Text(
-                      "Back",
+                      args.fromWhere,
                       style: TextStyle(color: Colors.white),
                     ),
                     //color: Colors.white,
@@ -251,7 +249,9 @@ class _MovieHomeState extends State<MovieHome> {
                                   rate: movieSelectedFromHome.voteAverage),
                               SizedBox(width: size.width * 0.03),
                               Text(
-                                'out of ' + movieSelectedFromHome.voteCount.toString() + ' ratings',
+                                'out of ' +
+                                    movieSelectedFromHome.voteCount.toString() +
+                                    ' ratings',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,

@@ -14,7 +14,6 @@ class CommentsPage extends StatefulWidget {
 class _CommentsPageState extends State<CommentsPage> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
-  
 
   Widget commentChild(data) {
     return ListView(
@@ -35,6 +34,7 @@ class _CommentsPageState extends State<CommentsPage> {
                       color: Colors.blue,
                       borderRadius: new BorderRadius.all(Radius.circular(50))),
                   child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
                       radius: 50,
                       backgroundImage: NetworkImage(data[i]['pic'])),
                 ),
@@ -93,7 +93,8 @@ class _CommentsPageState extends State<CommentsPage> {
                   };
                   filedata.insert(0, value);
                 });
-                reviewsData[widget.reviewIndex]['comments'] = reviewsData[widget.reviewIndex]['comments']+ 1;
+                reviewsData[widget.reviewIndex]['comments'] =
+                    reviewsData[widget.reviewIndex]['comments'] + 1;
                 commentController.clear();
                 FocusScope.of(context).unfocus();
               } else {

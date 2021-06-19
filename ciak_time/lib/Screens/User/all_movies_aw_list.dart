@@ -54,10 +54,16 @@ class _AllMoviesInAWListState extends State<AllMoviesInAWList> {
               crossAxisCount: 3, childAspectRatio: (9 / 13)),
           itemCount: alreadyWatchedList.length,
           itemBuilder: (BuildContext context, int index) {
-            return MovieCard(
-              imageUrl:
-                  'https://image.tmdb.org/t/p/original${alreadyWatchedList[index].posterPath}',
-              movieTitle: alreadyWatchedList[index].title,
+            return GestureDetector(
+              child: MovieCard(
+                imageUrl:
+                    'https://image.tmdb.org/t/p/original${alreadyWatchedList[index].posterPath}',
+                movieTitle: alreadyWatchedList[index].title,
+              ),
+              onTap: () {
+                movieSelectedFromUser = alreadyWatchedList[index];
+                Navigator.pushNamed(context, '/movie', arguments: ScreenArguments("Already Watched"));                
+              },
             );
           }),
     );

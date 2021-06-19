@@ -5,11 +5,15 @@ import 'package:ciak_time/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../constants.dart';
+
 class MovieDetails extends StatefulWidget {
   final Movie movieSelected;
   final String fromWhere;
 
-  const MovieDetails({Key key, @required this.movieSelected, @required this.fromWhere}) : super(key: key);
+  const MovieDetails(
+      {Key key, @required this.movieSelected, @required this.fromWhere})
+      : super(key: key);
   @override
   _MovieDetailsState createState() => _MovieDetailsState();
 }
@@ -17,6 +21,7 @@ class MovieDetails extends StatefulWidget {
 class _MovieDetailsState extends State<MovieDetails> {
   @override
   Widget build(BuildContext context) {
+    //final args = ModalRoute.of(context).settings.arguments as ScreenArguments;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -27,18 +32,22 @@ class _MovieDetailsState extends State<MovieDetails> {
             Icons.arrow_back_ios,
             color: Colors.amber,
           ),
-          label: Text(
-            'Back',
-            
-            style: TextStyle(
-                color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          label: Container(
+            width: size.width * 0.2,
+            child: Text(
+              widget.movieSelected.title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: TextStyle(
+                  color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+            ),
           ),
         ),
-        leadingWidth: size.width * 0.2,
+        leadingWidth: size.width * 0.5,
         centerTitle: true,
         title: Text(
-          widget.movieSelected.title,
-          //'Titolo film',
+          "Movie info",
+          //widget.movieSelected.title,
           style: TextStyle(
             //fontSize: size.height * 0.03,
             fontFamily: 'Quicksand-Medium',
@@ -122,8 +131,9 @@ class _MovieDetailsState extends State<MovieDetails> {
                           ),
                         ),
                         SizedBox(height: size.height * 0.01),
-                        WatchProvidersList(movieSelected: widget.movieSelected,),
-                        
+                        WatchProvidersList(
+                          movieSelected: widget.movieSelected,
+                        ),
                       ],
                     ),
                   ),
@@ -153,7 +163,11 @@ class _MovieDetailsState extends State<MovieDetails> {
                             assertIcon: "assets/icons/actor.svg"),
                         SizedBox(height: size.height * 0.005),
                         Container(
-                            height: size.height * 0.18, child: MovieCastList(movieSelected: widget.movieSelected, fromWhere: widget.fromWhere,)),
+                            height: size.height * 0.18,
+                            child: MovieCastList(
+                              movieSelected: widget.movieSelected,
+                              fromWhere: widget.fromWhere,
+                            )),
                         IconTextBold(
                             size: size,
                             label: "Movie director",
@@ -161,7 +175,10 @@ class _MovieDetailsState extends State<MovieDetails> {
                         SizedBox(height: size.height * 0.005),
                         Container(
                             height: size.height * 0.18,
-                            child: MovieDirectorsList(movieSelected: widget.movieSelected, fromWhere: widget.fromWhere,)),
+                            child: MovieDirectorsList(
+                              movieSelected: widget.movieSelected,
+                              fromWhere: widget.fromWhere,
+                            )),
                       ],
                     ),
                   ),

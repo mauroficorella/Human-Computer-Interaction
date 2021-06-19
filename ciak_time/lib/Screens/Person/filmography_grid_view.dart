@@ -89,7 +89,8 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
                     voteCount: selectedPersonMoviesFromUser[index].voteCount,
                   );
                 }
-                Navigator.pushNamed(context, '/movie');
+                Navigator.pushNamed(context, '/movie',
+                    arguments: ScreenArguments("Filmography"));
                 FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
               },
               child: getMovieCard(index),

@@ -3,12 +3,19 @@ import 'package:ciak_time/Screens/Person/filmography_list.dart';
 import 'package:ciak_time/components/person_overview.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
+import 'package:ciak_time/models/person.dart';
 
 import 'package:flutter/material.dart';
 
 List<Movie> list;
 
 class PersonHome extends StatefulWidget {
+  //final String fromWhere;
+
+  const PersonHome({
+    Key key,
+  }) : super(key: key);
+
   @override
   _PersonHomeState createState() => _PersonHomeState();
 }
@@ -16,7 +23,10 @@ class PersonHome extends StatefulWidget {
 class _PersonHomeState extends State<PersonHome> {
   @override
   Widget build(BuildContext context) {
+    //print(widget.args.fromWhere);
+    final args = ModalRoute.of(context).settings.arguments as ScreenArguments;
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -26,13 +36,19 @@ class _PersonHomeState extends State<PersonHome> {
             Icons.arrow_back_ios,
             color: Colors.amber,
           ),
-          label: Text(
-            "Home",
-            style:
-                TextStyle(color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+          label: Container(
+            width: size.width * 0.15,
+            child: Text(
+              args.fromWhere,
+              //"Home",
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: TextStyle(
+                  color: Colors.amber, fontFamily: 'Quicksand-Regular'),
+            ),
           ),
         ),
-        leadingWidth: size.width * 0.23,
+        leadingWidth: size.width * 0.3,
         title: Text(
           personSelectedFromHome.name,
           overflow: TextOverflow.ellipsis,

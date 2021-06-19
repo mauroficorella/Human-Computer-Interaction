@@ -332,6 +332,7 @@ class _BodyState extends State<Body> {
                                         height: size.height * 0.02,
                                       ),
                                       CircleAvatar(
+                                        backgroundColor: Colors.transparent,
                                         backgroundImage: AssetImage(
                                             'assets/images/vittoria.png'),
                                         radius: size.width * 0.1,
