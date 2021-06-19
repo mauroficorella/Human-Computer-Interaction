@@ -1,4 +1,5 @@
-import 'package:ciak_time/Screens/Review/reviews_page.dart';
+import 'dart:async';
+
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/constants.dart';
@@ -14,6 +15,16 @@ class InsertReview extends StatefulWidget {
 }
 
 class _InsertReviewState extends State<InsertReview> {
+  FutureOr onGoBack(dynamic value) {
+    final args = ModalRoute.of(context).settings.arguments as ScreenArguments;
+    if (args.fromWhere == "/insertreviewfromreviews") {
+      Navigator.pop(context);
+    }
+    if (args.fromWhere == "/insertreviewfrommovie") {
+      Navigator.popAndPushNamed(context, "/reviewslist");
+    }
+  }
+
   final TextEditingController reviewController = TextEditingController();
   FocusNode _focusNode = FocusNode();
   Color color;
@@ -25,6 +36,7 @@ class _InsertReviewState extends State<InsertReview> {
       });
     });
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -35,7 +47,7 @@ class _InsertReviewState extends State<InsertReview> {
             color: Colors.amber,
           ),
           label: Container(
-            width: size.width * 0.2,
+            width: size.width * 0.15,
             child: Text(
               widget.title,
               overflow: TextOverflow.ellipsis,
@@ -45,12 +57,9 @@ class _InsertReviewState extends State<InsertReview> {
             ),
           ),
         ),
-        leadingWidth: size.width * 0.5,
+        leadingWidth: size.width * 0.3,
         title: Text(
           'Review the movie',
-          style: TextStyle(
-            fontFamily: 'Quicksand',
-          ),
         ),
       ),
       body: SafeArea(
@@ -111,7 +120,7 @@ class _InsertReviewState extends State<InsertReview> {
                           reviewController: reviewController,
                         );
                       },
-                    );
+                    ).then(onGoBack);
                   }
                 },
               ),
@@ -207,8 +216,7 @@ class ConfirmReview extends StatelessWidget {
                               reviewsData.insert(0, value);
                             },
                           );
-                          Navigator.pop(
-                              context); //TODO farlo tornare alla schermata della lista delle reviews
+                          Navigator.pop(context); //closes the alert dialog
                         },
                         label: Text(
                           "YES",

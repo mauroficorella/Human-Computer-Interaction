@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class InsertReviewBtn extends StatelessWidget {
   const InsertReviewBtn({
     Key key,
-    @required this.size, @required this.fromWhere,
+    @required this.size,
+    @required this.fromWhere,
   }) : super(key: key);
 
   final Size size;
@@ -16,7 +17,8 @@ class InsertReviewBtn extends StatelessWidget {
       width: size.width * 0.98,
       child: TextButton.icon(
         onPressed: () {
-          Navigator.pushNamed(context, fromWhere);
+          Navigator.pushNamed(context, fromWhere,
+              arguments: ScreenArguments(fromWhere));
         },
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(kPrimaryColor)),

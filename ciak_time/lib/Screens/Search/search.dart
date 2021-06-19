@@ -1,10 +1,9 @@
-import 'package:ciak_time/Screens/Search/components/cards_widget.dart';
 import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
+
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class Search extends StatefulWidget {
@@ -89,7 +88,6 @@ class _SearchState extends State<Search> {
         return FloatingSearchBar(
           onFocusChanged: (isFocused) {
             setState(() {
-              
               content = new SearchResultsListView(
                 searchTerm: selectedTerm,
                 callback: callback,

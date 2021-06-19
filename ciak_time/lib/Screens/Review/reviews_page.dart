@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ciak_time/Screens/Review/comments_page.dart';
 import 'package:ciak_time/components/rating.dart';
 
@@ -14,6 +16,11 @@ class ReviewsPage extends StatefulWidget {
 }
 
 class _ReviewsPageState extends State<ReviewsPage> {
+  FutureOr onGoBack(dynamic value) {
+    setState(() {});
+  }
+
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -41,7 +48,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/insertreviewfromreviews')
+              Navigator.pushNamed(context, '/insertreviewfromreviews', arguments: ScreenArguments('/insertreviewfromreviews'))
                   .then((_) => setState(() {}));
             },
             child: Row(
