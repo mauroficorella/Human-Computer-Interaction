@@ -83,8 +83,9 @@ class _SearchState extends State<Search> {
 
     //content = CardsWidget(size: size);
 
-    FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
+    //FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
     return Scaffold(
+      appBar: AppBar(),
       body: StatefulBuilder(builder: (context, setState) {
         return FloatingSearchBar(
           onFocusChanged: (isFocused) {
