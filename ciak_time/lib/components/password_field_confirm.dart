@@ -28,10 +28,11 @@ class IsMatchValidator extends TextFieldValidator {
 
 class RegistrationPasswordFieldConfirm extends StatefulWidget {
   final String label;
+  final ValueChanged<String> onChanged;
 
   const RegistrationPasswordFieldConfirm({
     Key key,
-    @required this.label,
+    @required this.label, this.onChanged,
   }) : super(key: key);
 
   @override
@@ -54,12 +55,13 @@ class _RegistrationPasswordFieldConfirm
             alignment: Alignment.centerRight,
             children: <Widget>[
               TextFormField(
-                onChanged: (value) {
+                /*onChanged: (value) {
                   setState(() {
                     passwordRegistrationConfirm = value;
                   });
                   
-                },
+                },*/
+                onChanged: widget.onChanged,
                 controller: passwordController,
                 validator: passwordConfirmValidator,
                 autovalidateMode: AutovalidateMode.onUserInteraction,

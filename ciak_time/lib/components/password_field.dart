@@ -7,10 +7,11 @@ import 'package:form_field_validator/form_field_validator.dart';
 
 class RegistrationPasswordField extends StatefulWidget {
   final String label;
+  final ValueChanged<String> onChanged;
 
   const RegistrationPasswordField({
     Key key,
-    @required this.label,
+    @required this.label, this.onChanged,
   }) : super(key: key);
 
   @override
@@ -36,21 +37,7 @@ class _RegistrationPasswordField extends State<RegistrationPasswordField> {
             alignment: Alignment.centerRight,
             children: <Widget>[
               TextFormField(
-                onChanged: (value) {
-                  setState(() {
-                    passwordRegistration = value;
-                    passwordConfirmValidator = MultiValidator([
-                      RequiredValidator(errorText: 'Password is required'),
-                      MinLengthValidator(8,
-                          errorText: 'Password must be at least 8 digits long'),
-                      PatternValidator(passwordPattern,
-                          errorText:
-                              'Password must have at least one special character'),
-                      IsMatchValidator(string: passwordRegistration)
-                    ]);
-                    print(passwordRegistration);
-                  });
-                },
+                onChanged: widget.onChanged,
                 controller: passwordController,
                 validator: passwordValidator,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
