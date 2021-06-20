@@ -75,7 +75,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
-                itemCount: 4,
+                itemCount: reviewsData.length,
                 itemBuilder: (BuildContext context, int index) => Padding(
                   padding: const EdgeInsets.all(3.0),
                   child: ReviewWidget(
@@ -318,40 +318,3 @@ class CircleAvatarText extends StatelessWidget {
     );
   }
 }
-
-/*class AddReviewButton extends StatelessWidget {
-  const AddReviewButton({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton.extended(
-        label: Padding(
-          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 80.0, 0.0),
-          child: Text(
-            "Add a review",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: size.height * 0.02,
-              fontFamily: 'Quicksand-Medium',
-            ),
-          ),
-        ),
-        icon: Padding(
-          padding: const EdgeInsets.fromLTRB(80.0, 0.0, 0.0, 0.0),
-          child: const Icon(Icons.add, color: Colors.black, size: 30),
-        ),
-        backgroundColor: Colors.amber,
-        elevation: 10,
-        onPressed: () {
-          Navigator.of(context, rootNavigator: true)
-              .push(MaterialPageRoute(builder: (BuildContext context) {
-            return InsertReview(title: 'Reviews',);
-          }));
-        });
-  }
-}*/

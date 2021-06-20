@@ -26,7 +26,7 @@ class WatchProvidersList extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
+          
           color: Colors.amber,
         ));
       },
@@ -44,7 +44,7 @@ class WatchProvidersList extends StatelessWidget {
               return Row(
                 children: [
                   Container(
-                    //height: size.width * 0.1,
+                    
                     width: size.width * 0.1,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
@@ -52,7 +52,7 @@ class WatchProvidersList extends StatelessWidget {
                         image: NetworkImage(
                             'https://image.tmdb.org/t/p/original${snapshot.data.results.iT.providers[index].logoPath}'),
                       ),
-                      //fit: BoxFit.cover),
+                      
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.5),

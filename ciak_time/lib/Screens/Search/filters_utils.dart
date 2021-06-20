@@ -45,8 +45,7 @@ void sortSearchResults(snapshot) {
       double r2 = b.voteAverage;
       return r2.compareTo(r1);
     });
-    /*snapshot.data.results.sort(
-        (a, b) => a.voteAverage.toDouble().compareTo(b.voteAverage.toDouble()));*/
+    
   }
 }
 
@@ -55,7 +54,7 @@ void checkFilterResults(
   if (drama == true) {
     if (v.values.toList()[2].contains(genresIds[0]["Drama"]) &&
         !filteredMoviesList.contains(searchResults.id)) {
-      //filteredMoviesList.add
+      
       filteredMoviesList.add(searchResults.id);
       results.add(searchResults);
     }

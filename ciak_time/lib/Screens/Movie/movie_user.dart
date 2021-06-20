@@ -38,7 +38,7 @@ class _MovieUserState extends State<MovieUser> {
               Center(
                 child: MovieCover(size: size),
               ),
-              // BACK ARROW
+              
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
@@ -61,7 +61,7 @@ class _MovieUserState extends State<MovieUser> {
                       args.fromWhere,
                       style: TextStyle(color: Colors.white),
                     ),
-                    //color: Colors.white,
+                    
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -119,7 +119,7 @@ class _MovieUserState extends State<MovieUser> {
                   SizedBox(
                     height: size.height * 0.01,
                   ),
-                  // MOVIE DESCRIPTION //TODO METTERE L'URL TRAMITE API
+                  // MOVIE DESCRIPTION 
                   Container(
                     width: size.width * 0.98,
                     decoration: BoxDecoration(
@@ -427,37 +427,6 @@ class MovieBasicInfo extends StatelessWidget {
     );
   }
 }
-
-/*class InsertReviewBtn extends StatelessWidget {
-  const InsertReviewBtn({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size.width * 0.98,
-      child: TextButton.icon(
-        onPressed: () {
-          Navigator.pushNamed(context, '/insertreviewfrommovie');
-        },
-        style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(kPrimaryColor)),
-        icon: Icon(Icons.edit, color: Colors.white),
-        label: Text(
-          "Insert a review",
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: size.height * 0.02,
-              fontFamily: 'Quicksand-Medium'),
-        ),
-      ),
-    );
-  }
-}*/
 
 String getWatchListTitle() {
   bool isContained = false;

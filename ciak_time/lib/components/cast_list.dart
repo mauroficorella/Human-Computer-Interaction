@@ -20,7 +20,7 @@ class CastList extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
+          
           color: Colors.amber,
         ));
       },
@@ -30,7 +30,7 @@ class CastList extends StatelessWidget {
   Widget buildList(AsyncSnapshot<PersonModel> snapshot, size) {
     return Container(
       height: size.height * 0.26,
-      //color: Colors.amber,
+     
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.results.length,

@@ -21,18 +21,15 @@ class FilmographyList extends StatelessWidget {
     PersonMoviesBloc bloc;
 
     if (fromWhere == "Home") {
-      //bloc = PersonMoviesBloc(personSelectedFromHome.id.toString());
-      //bloc = PersonMoviesBloc(personIdSelectedFromHome);
+      
       bloc = PersonMoviesBloc(personSelectedFromHome.id.toString());
     }
     if (fromWhere == "Search") {
-      //bloc = PersonMoviesBloc(personSelectedFromSearch.id.toString());
-      //bloc = PersonMoviesBloc(personIdSelectedFromSearch);
+      
       bloc = PersonMoviesBloc(personSelectedFromSearch.id.toString());
     }
     if (fromWhere == "User") {
-      //bloc = PersonMoviesBloc(personSelectedFromUser.id.toString());
-      //bloc = PersonMoviesBloc(personIdSelectedFromUser);
+      
       bloc = PersonMoviesBloc(personSelectedFromUser.id.toString());
     }
 
@@ -92,8 +89,7 @@ class FilmographyList extends StatelessWidget {
             child: ListCard(
               movieTitle: snapshot.data.movies[index].title,
               imageUrl: getImagePath(snapshot.data.movies[index].posterPath),
-              /*imageUrl:
-                  'https://image.tmdb.org/t/p/original${snapshot.data.movies[index].posterPath}',*/
+              
             ),
             onTap: () {
               Movie movie = new Movie(

@@ -1,8 +1,8 @@
 import 'package:ciak_time/Screens/Person/filmography_list.dart';
 import 'package:ciak_time/components/person_overview.dart';
-import 'package:ciak_time/components/rating.dart';
+
 import 'package:ciak_time/constants.dart';
-import 'package:ciak_time/models/person.dart';
+
 import 'package:flutter/material.dart';
 
 class PersonUser extends StatefulWidget {
@@ -28,7 +28,7 @@ class _PersonUserState extends State<PersonUser> {
             width: size.width * 0.2,
             child: Text(
               args.fromWhere,
-              //"Home",
+              
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
               style: TextStyle(
@@ -85,7 +85,7 @@ class _PersonUserState extends State<PersonUser> {
                           TextButton.icon(
                             onPressed: () {
                               Navigator.pushNamed(
-                                  context, '/filmography'); //TODO
+                                  context, '/filmography'); 
                             },
                             label:
                                 Icon(Icons.arrow_forward, color: kPrimaryColor),

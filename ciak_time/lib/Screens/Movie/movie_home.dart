@@ -35,7 +35,7 @@ class _MovieHomeState extends State<MovieHome> {
               Center(
                 child: MovieCover(size: size),
               ),
-              // BACK ARROW
+              
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
@@ -58,7 +58,7 @@ class _MovieHomeState extends State<MovieHome> {
                       args.fromWhere,
                       style: TextStyle(color: Colors.white),
                     ),
-                    //color: Colors.white,
+                    
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -116,7 +116,7 @@ class _MovieHomeState extends State<MovieHome> {
                   SizedBox(
                     height: size.height * 0.01,
                   ),
-                  // MOVIE DESCRIPTION //TODO METTERE L'URL TRAMITE API
+                  // MOVIE DESCRIPTION 
                   Container(
                     width: size.width * 0.98,
                     decoration: BoxDecoration(
@@ -371,7 +371,7 @@ class MovieBasicInfo extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
+          
           color: Colors.amber,
         ));
       },

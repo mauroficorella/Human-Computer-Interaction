@@ -22,7 +22,7 @@ class ListCard extends StatelessWidget {
               Container(
                 height: size.width * 0.3,
                 width: size.width * 0.2,
-                //width: 50.0,
+                
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: Image.network(
@@ -67,7 +67,7 @@ class ListCard extends StatelessWidget {
                   ),
                 ),
               ),
-              //Text(voteAverage),
+              
             ],
           ),
         ),

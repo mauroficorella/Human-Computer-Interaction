@@ -12,19 +12,19 @@ class PersonOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    //final PersonDetailsBloc bloc = null;
+    
     PersonDetailsBloc bloc;
     if (fromWhere == "Home") {
       bloc = PersonDetailsBloc(personSelectedFromHome.id.toString());
-      //bloc = PersonDetailsBloc(personIdSelectedFromHome);
+      
     }
     if (fromWhere == "Search") {
       bloc = PersonDetailsBloc(personSelectedFromSearch.id.toString());
-      //bloc = PersonDetailsBloc(personIdSelectedFromHome);
+      
     }
     if (fromWhere == "User") {
       bloc = PersonDetailsBloc(personSelectedFromUser.id.toString());
-      //bloc = PersonDetailsBloc(personIdSelectedFromHome);
+      
     }
 
     bloc.fetchPersonDetailsResults();

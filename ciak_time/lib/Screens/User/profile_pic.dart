@@ -27,17 +27,15 @@ class _ProfilePicState extends State<ProfilePic> {
       if (pickedFile != null) {
         image= File(pickedFile.path);
         isFromGallery = true;
-        //profilePicPath = pickedFile.path;
-        //profilePicPath = File(pickedFile.path);
+        
       } else {
-        print('No image selected.');
+        
       }
     });
   }
 
   
-  //File profilePicPath = File('assets/images/vittoria.png');
-//File f = await getImageFileFromAssets('images/myImage.jpg');
+  
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +84,7 @@ class _ProfilePicState extends State<ProfilePic> {
 }
 CircleAvatar getCircleAvatar(Size size, bool isFromGallery) {
     if (isFromGallery) {
-      //isFromGallery = false;
+      
       return CircleAvatar(
         backgroundImage: FileImage(image),
         backgroundColor: Colors.white,

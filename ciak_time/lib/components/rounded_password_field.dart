@@ -5,11 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 class RoundedPasswordField extends StatefulWidget {
-  final TextEditingController controller;
+  
   final ValueChanged<String> onChanged;
   const RoundedPasswordField({
     Key key,
-    @required this.controller,
+    
     @required this.onChanged,
   }) : super(key: key);
 
@@ -37,8 +37,9 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
             alignment: Alignment.centerRight,
             children: <Widget>[
               TextFormField(
+                enabled: passwordEnabled,
                 onChanged: widget.onChanged,
-                controller: widget.controller,
+                controller: loginPasswordController,
                 obscureText: isHidden,
                 decoration: InputDecoration(
                   hintText: "Password",
@@ -53,19 +54,11 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
                   border: InputBorder.none,
                 ),
                 keyboardType: TextInputType.visiblePassword,
-                //autofillHints: [AutofillHints.password],
-                //onEditingComplete: () => TextInput.finishAutofillContext(),
-                //onChanged: (val) => ,
-                /*validator: (val) =>
-                    MatchValidator(errorText: 'passwords do not match')
-                        .validateMatch(
-                  val,
-                  'denitto',
-                ),*/
+                
                 validator: (value) {
                   for (var i = 0; i < users.length; i++) {
                     if (username == users[i]['username']) {
-                      return MatchValidator(errorText: 'passwords do not match')
+                      return MatchValidator(errorText: 'Incorrect password')
                           .validateMatch(
                         value,
                         users[i]['password'],
@@ -94,6 +87,6 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
 
   void togglePasswordVisibility() => setState(() {
         isHidden = !isHidden;
-        //FocusScope.of(context).unfocus();
+        
       });
 }

@@ -145,7 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     'Password must have at least one special character'),
                             IsMatchValidator(string: passwordRegistration)
                           ]);
-                          print(passwordRegistration);
+                          
                         });
                       },
                     ),
@@ -180,7 +180,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               });
                             } else {}
 
-                            print(users);
+                            
                             });
                           },
                           child: Text(
@@ -213,7 +213,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   Color _setRegistrationButtonColor() {
     setState(() {
-    print(email);
+    
     for (var i = 0; i < users.length; i++) {
       if (userregistered.isNotEmpty &&
           userregistered != users[i]['username'] &&
@@ -224,11 +224,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           email.isNotEmpty &&
           passwordRegistration.isNotEmpty &&
           passwordRegistrationConfirm.isNotEmpty) {
-        print('sono nell if');
+        
         buttonRegisterColor = kPrimaryColor;
       } else {
-        print('sono nell else');
-        buttonRegisterColor = kPrimaryLightColor;
+        
+        buttonRegisterColor = Colors.grey[300];
       }
     }
     });

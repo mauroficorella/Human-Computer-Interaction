@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class CommentsPage extends StatefulWidget {
   const CommentsPage({Key key, @required this.reviewIndex}) : super(key: key);
-
+  
   final int reviewIndex;
 
   @override
@@ -14,40 +14,49 @@ class CommentsPage extends StatefulWidget {
 class _CommentsPageState extends State<CommentsPage> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
-
-  Widget commentChild(data) {
-    return ListView(
-      children: [
-        for (var i = 0; i < reviewsData[widget.reviewIndex]['comments']; i++)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
-            child: ListTile(
-              leading: GestureDetector(
-                onTap: () async {
-                  // Display the image in large form.
-                  print("Comment Clicked");
-                },
-                child: Container(
+  
+  Widget commentChild(data, size) {
+    if (reviewsData[widget.reviewIndex]['comments'] == 0) {
+      return Column(
+        children: [
+          SizedBox(height: size.height * 0.05,),
+          Text('No comments available', style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: size.height * 0.02,
+                        fontFamily: 'Quicksand',
+                        color: Colors.grey,
+                      ),),
+        ],
+      );
+    } else {
+      return ListView(
+        children: [
+          for (var i = 0; i < reviewsData[widget.reviewIndex]['comments']; i++)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
+              child: ListTile(
+                leading: Container(
                   height: 50.0,
                   width: 50.0,
                   decoration: new BoxDecoration(
                       color: Colors.blue,
-                      borderRadius: new BorderRadius.all(Radius.circular(50))),
+                      borderRadius:
+                          new BorderRadius.all(Radius.circular(50))),
                   child: CircleAvatar(
                       backgroundColor: Colors.transparent,
                       radius: 50,
                       backgroundImage: NetworkImage(data[i]['pic'])),
                 ),
+                title: Text(
+                  data[i]['name'],
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(data[i]['message']),
               ),
-              title: Text(
-                data[i]['name'],
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(data[i]['message']),
-            ),
-          )
-      ],
-    );
+            )
+        ],
+      );
+    }
   }
 
   @override
@@ -76,14 +85,14 @@ class _CommentsPageState extends State<CommentsPage> {
         child: CommentBox(
           userImage:
               "https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg",
-          child: commentChild(filedata),
+          child: commentChild(filedata, size),
           labelText: 'Write a comment...',
           withBorder: false,
           errorText: "Comment cannot be empty",
           sendButtonMethod: () async {
             await commentConfirmed(size).then((_) {
               if (formKey.currentState.validate() && isCommentConfirmed) {
-                print(commentController.text);
+                
                 setState(() {
                   var value = {
                     'name': 'Vittoria',
@@ -98,7 +107,7 @@ class _CommentsPageState extends State<CommentsPage> {
                 commentController.clear();
                 FocusScope.of(context).unfocus();
               } else {
-                print("Not validated");
+                
               }
             });
           },
@@ -177,7 +186,7 @@ class _CommentsPageState extends State<CommentsPage> {
                             onPressed: () {
                               isCommentConfirmed = true;
                               Navigator.pop(
-                                  context); //TODO farlo tornare alla schermata della lista delle reviews
+                                  context); 
                             },
                             label: Text(
                               "YES",

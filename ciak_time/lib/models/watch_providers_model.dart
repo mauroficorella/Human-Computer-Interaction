@@ -37,7 +37,7 @@ class Results {
   AR gB;
   AR iE;
   AR iT;
-  //JP jP;
+  
   AR mX;
   AR nL;
   AR nO;
@@ -63,7 +63,7 @@ class Results {
       this.gB,
       this.iE,
       this.iT,
-      //this.jP,
+      
       this.mX,
       this.nL,
       this.nO,
@@ -89,7 +89,7 @@ class Results {
     gB = json['GB'] != null ? new AR.fromJson(json['GB']) : null;
     iE = json['IE'] != null ? new AR.fromJson(json['IE']) : null;
     iT = json['IT'] != null ? new AR.fromJson(json['IT']) : null;
-    //jP = json['JP'] != null ? new JP.fromJson(json['JP']) : null;
+    
     mX = json['MX'] != null ? new AR.fromJson(json['MX']) : null;
     nL = json['NL'] != null ? new AR.fromJson(json['NL']) : null;
     nO = json['NO'] != null ? new AR.fromJson(json['NO']) : null;
@@ -149,9 +149,7 @@ class Results {
     if (this.iT != null) {
       data['IT'] = this.iT.toJson();
     }
-    /*if (this.jP != null) {
-      data['JP'] = this.jP.toJson();
-    }*/
+    
     if (this.mX != null) {
       data['MX'] = this.mX.toJson();
     }
@@ -186,27 +184,20 @@ class AR {
   AR.fromJson(Map<String, dynamic> json) {
     link = json['link'];
     if (json['flatrate'] != null) {
-      //providers = new List<Providers>();
+      
       json['flatrate'].forEach((v) {
         providers.add(new Providers.fromJson(v));
       });
     }
 
     if (json['rent'] != null) {
-      //providers = new List<Providers>();
+      
       json['rent'].forEach((v) {
         providers.add(new Providers.fromJson(v));
       });
     }
 
-    /*if (json['buy'] != null) {
-      //providers = new List<Providers>();
-      json['buy'].forEach((v) {
-        if (!providers.contains(Providers.fromJson(v))) {
-          providers.add(new Providers.fromJson(v));
-        }
-      });
-    }*/
+    
   }
 
   Map<String, dynamic> toJson() {
@@ -248,83 +239,3 @@ class Providers {
   }
 }
 
-/*class AR {
-  String link;
-  List<Providers> providers;
-
-  AR({this.link, this.providers});
-
-  AR.fromJson(Map<String, dynamic> json) {
-    link = json['link'];
-    if (json['providers'] != null) {
-      providers = new List<Providers>();
-      json['providers'].forEach((v) {
-        providers.add(new Providers.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['link'] = this.link;
-    if (this.providers != null) {
-      data['providers'] = this.providers.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Providers {
-  int displayPriority;
-  String logoPath;
-  int providerId;
-  String providerName;
-
-  Providers(
-      {this.displayPriority,
-      this.logoPath,
-      this.providerId,
-      this.providerName});
-
-  Providers.fromJson(Map<String, dynamic> json) {
-    displayPriority = json['display_priority'];
-    logoPath = json['logo_path'];
-    providerId = json['provider_id'];
-    providerName = json['provider_name'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['display_priority'] = this.displayPriority;
-    data['logo_path'] = this.logoPath;
-    data['provider_id'] = this.providerId;
-    data['provider_name'] = this.providerName;
-    return data;
-  }
-}*/
-
-/*class JP {
-  String link;
-  List<Flatrate> flatrate;
-
-  JP({this.link, this.flatrate});
-
-  JP.fromJson(Map<String, dynamic> json) {
-    link = json['link'];
-    if (json['flatrate'] != null) {
-      flatrate = new List<Flatrate>();
-      json['flatrate'].forEach((v) {
-        flatrate.add(new Flatrate.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['link'] = this.link;
-    if (this.flatrate != null) {
-      data['flatrate'] = this.flatrate.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}*/

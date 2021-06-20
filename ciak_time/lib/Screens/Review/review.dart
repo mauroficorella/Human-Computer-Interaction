@@ -1,9 +1,8 @@
 import 'dart:async';
-
-import 'package:ciak_time/components/rating.dart';
-import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class InsertReview extends StatefulWidget {
   const InsertReview({Key key, @required this.title}) : super(key: key);
@@ -81,13 +80,38 @@ class _InsertReviewState extends State<InsertReview> {
               SizedBox(
                 height: size.height * 0.01,
               ),
-              Center(child: RatingWidget()),
+              Center(
+                child: RatingBar.builder(
+                  initialRating: 0,
+                  minRating: 0,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemSize: size.width * 0.1,
+                  unratedColor: Colors.grey[400],
+                  itemBuilder: (context, _) => Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  onRatingUpdate: (rating) {
+                    setState(() {
+                      newRating = rating;
+                    });
+                    
+                  },
+                ),
+              ),
               SizedBox(
                 height: size.height * 0.05,
               ),
               Container(
                 width: size.width * 0.8,
-                child: TextField(
+                child: TextFormField(
+                  onChanged: (value) {
+                    setState(() {
+                      review = value;
+                    });
+                  },
                   controller: reviewController,
                   focusNode: _focusNode,
                   maxLines: 10,
@@ -107,28 +131,70 @@ class _InsertReviewState extends State<InsertReview> {
               SizedBox(
                 height: size.height * 0.05,
               ),
-              RoundedButton(
-                text: "SAVE",
-                radius: 5,
-                press: () {
-                  if (reviewController.text.isNotEmpty) {
-                    showDialog(
-                      context: context,
-                      builder: (_) {
-                        return ConfirmReview(
-                          size: size,
-                          reviewController: reviewController,
-                        );
-                      },
-                    ).then(onGoBack);
-                  }
-                },
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10),
+                width: size.width * 0.8,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: FlatButton(
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                    color: changeSaveColor(),
+                    onPressed: () {
+                      if (reviewController.text.isNotEmpty &&
+                          newRating != null) {
+                        showDialog(
+                          context: context,
+                          builder: (_) {
+                            return ConfirmReview(
+                              size: size,
+                              reviewController: reviewController,
+                            );
+                          },
+                        ).then(onGoBack);
+                      } else {
+                        Fluttertoast.showToast(
+                            msg: 'You cannot publish an empty review');
+                      }
+                    },
+                    child: Text(
+                      'SAVE',
+                      style: TextStyle(
+                        color: changeSaveTextColor(),
+                        fontSize: size.width * 0.05,
+                        fontFamily: 'Quicksand',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Color changeSaveColor() {
+    setState(() {
+      if (reviewController.text.isNotEmpty && newRating != 0) {
+        saveColor = kPrimaryColor;
+      } else {
+        saveColor = kPrimaryLightColor;
+      }
+    });
+    return saveColor;
+  }
+
+  Color changeSaveTextColor() {
+    setState(() {
+      if (reviewController.text.isNotEmpty && newRating != 0) {
+        saveTextColor = Colors.white;
+      } else {
+        saveTextColor = Colors.grey;
+      }
+    });
+    return saveTextColor;
   }
 }
 

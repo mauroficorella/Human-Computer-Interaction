@@ -9,14 +9,14 @@ class MovieImagesModel {
     id = json['id'];
     if (json['backdrops'] != null) {
       backdrops = [];
-      //backdrops = new List<Backdrops>();
+      
       json['backdrops'].forEach((v) {
         backdrops.add(new Backdrops.fromJson(v));
       });
     }
     if (json['posters'] != null) {
       posters = [];
-      //posters = new List<Backdrops>();
+      
       json['posters'].forEach((v) {
         posters.add(new Backdrops.fromJson(v));
       });

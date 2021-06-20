@@ -59,7 +59,7 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
         ),
       );
     } else {
-      //print(snapshot.data.results[index].title);
+      
       return Container(
           height: size.width * 0.45,
           width: size.width * 0.25,
@@ -70,7 +70,7 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
   }
 
   Widget buildList(AsyncSnapshot<SearchResultsModel> snapshot, size) {
-    //snapshot.data.results[]
+    
     if (snapshot.data.results.isEmpty) {
       return Center(child: Text("No results found"));
     } else {

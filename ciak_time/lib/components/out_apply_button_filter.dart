@@ -26,7 +26,7 @@ class _OutButtonFilterState extends State<OutApplyButtonFilter> {
     return OutlinedButton(
       onPressed: () {
         setState(() {
-          print(widget.selectedTerm);
+          
           widget.callback();
           Navigator.of(context).pop();
         });

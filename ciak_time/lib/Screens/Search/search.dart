@@ -78,11 +78,7 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    int bodyIndex = 1;
-
-    //content = CardsWidget(size: size);
-
-    //FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
+    
     return Scaffold(
       body: StatefulBuilder(builder: (context, setState) {
         return FloatingSearchBar(

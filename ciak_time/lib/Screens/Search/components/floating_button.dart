@@ -180,7 +180,7 @@ class _FloatingButtonState extends State<FloatingButton> {
                                 height: size.height * 0.05,
                               ),
                               Container(
-                                //color: Colors.black,
+                                
                                 width: size.width * 0.75,
                                 child: Text(
                                   "Genres:",

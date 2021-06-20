@@ -20,11 +20,23 @@ Color buttonPasswordTextColor = Colors.white;
 Color buttonRegisterColor = kPrimaryColor;
 Color buttonRegisterTextColor = Colors.white;
 
+Color saveColor = kPrimaryColor;
+Color saveTextColor = Colors.white;
+
+Color loginColor = Colors.grey[300];
+Color loginTextColor = Colors.grey;
+
 Pattern passwordPattern = r'(?=.*?[#?!@$%^&*-])';
 Pattern emailPattern =
     r"^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$";
 
 Color dividerColor = Colors.amber;
+
+TextEditingController loginPasswordController = TextEditingController();
+TextEditingController loginUsernameController = TextEditingController();
+
+bool userEnabled = true;
+bool passwordEnabled = true;
 
 bool selected_rate = false;
 bool selected_most_added = false;
@@ -89,7 +101,7 @@ String favouriteListTitle = "Add to favourite list";
 
 List<int> filteredMoviesList = [];
 
-double newRating;
+double newRating = 0;
 
 String profilePicPath = 'assets/images/vittoria.png';
 File image;
@@ -208,8 +220,10 @@ List users = [
   {'username': 'vittoria', 'password': 'denitto'}
 ];
 
-String username;
-String password;
+String username = '';
+String password = '';
+
+String review;
 
 String userlogged = 'Vittoria';
 String usermodified = 'Vittoria';
@@ -221,12 +235,12 @@ RegExp regexMail = new RegExp(emailPattern);
 RegExp regexPassword = new RegExp(passwordPattern);
 
 var passwordConfirmValidator = MultiValidator([
-    RequiredValidator(errorText: 'Password is required'),
-    MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
-    PatternValidator(passwordPattern,
-        errorText: 'Password must have at least one special character'),
-    IsMatchValidator(string: passwordRegistration)
-  ]);
+  RequiredValidator(errorText: 'Password is required'),
+  MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
+  PatternValidator(passwordPattern,
+      errorText: 'Password must have at least one special character'),
+  IsMatchValidator(string: passwordRegistration)
+]);
 
 bool isCommentConfirmed = false;
 
@@ -261,6 +275,3 @@ int setLenght(List list) {
 }
 
 //TODO AGGIORNARE NUMERO RECENSIONI QUANDO SI AGGIUNGE UNA NUOVA RECENSIONE (SUCCEDE ANCHE NEI COMMENTI)
-//TODO CONTROLLARE CHE FA PUBBLICARE LA RECENSIONE SOLO SE SONO STATE INSERITE SIA LE STELLE SIA IL TESTO
-//TODO TEMA NERO
-//TODO CARICARE NUOVI RISULTATI A FINE LIST VIEW DELLA SEARCH (USARE LAZY LIST VIEW CON LO SCROLL CONTROLLER)

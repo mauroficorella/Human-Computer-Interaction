@@ -25,7 +25,7 @@ class UpcomingMovieList extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
+         
           color: Colors.amber,
         ));
       },
@@ -46,7 +46,7 @@ class UpcomingMovieList extends StatelessWidget {
                 movieTitle: snapshot.data.results[index].title,
               ),
               onTap: () {
-                //movieSelectedFromHome = snapshot.data.results[index];
+                
                 movieSelectedFromHome = new Movie(
                   title: snapshot.data.results[index].title,
                   overview: snapshot.data.results[index].overview,

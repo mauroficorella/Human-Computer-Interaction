@@ -55,9 +55,7 @@ class MovieDetailsModel {
   MovieDetailsModel.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
-    /*belongsToCollection = json['belongs_to_collection'] != null
-        ? new BelongsToCollection.fromJson(json['belongs_to_collection'])
-        : null;*/
+    
     budget = json['budget'];
     if (json['genres'] != null) {
       genres = [];

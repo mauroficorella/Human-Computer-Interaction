@@ -19,8 +19,7 @@ class IsMatchValidator extends TextFieldValidator {
 
   @override
   bool isValid(String value) {
-    print(string);
-    print(value);
+    
     // return true if the value is valid according the your condition
     return string == value;
   }
@@ -55,12 +54,7 @@ class _RegistrationPasswordFieldConfirm
             alignment: Alignment.centerRight,
             children: <Widget>[
               TextFormField(
-                /*onChanged: (value) {
-                  setState(() {
-                    passwordRegistrationConfirm = value;
-                  });
-                  
-                },*/
+                
                 onChanged: widget.onChanged,
                 controller: passwordController,
                 validator: passwordConfirmValidator,
@@ -118,7 +112,7 @@ class _RegistrationPasswordFieldConfirm
                                           Container(
                                             width: size.width * 0.5,
                                             child: Text(
-                                              "The password must have at least 8 characters, at least 1 digit.",
+                                              "This password must be equal to the one in the previous field.",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: size.height * 0.02,
@@ -153,6 +147,6 @@ class _RegistrationPasswordFieldConfirm
 
   void togglePasswordVisibility() => setState(() {
         isHidden = !isHidden;
-        //FocusScope.of(context).unfocus();
+        
       });
 }

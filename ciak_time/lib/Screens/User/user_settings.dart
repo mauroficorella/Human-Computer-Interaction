@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/User/profile_pic.dart';
-import 'package:ciak_time/components/password_field.dart';
-import 'package:ciak_time/components/password_field_confirm.dart';
+
 import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/components/social_icon.dart';
 import 'package:ciak_time/components/text_field_container.dart';
@@ -55,7 +54,6 @@ class _UserSettingsState extends State<UserSettings> {
       UnMatchValidator(string: userlogged),
     ]);
 
-    //final passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -120,19 +118,16 @@ class _UserSettingsState extends State<UserSettings> {
                                               });
                                             },
                                             validator: usernameValidator,
-                                            autovalidateMode:
-                                                AutovalidateMode
-                                                    .onUserInteraction,
+                                            autovalidateMode: AutovalidateMode
+                                                .onUserInteraction,
                                             decoration: InputDecoration(
                                               icon: Icon(
                                                 Icons.person,
                                                 color: kPrimaryColor,
                                               ),
-                                              hintText:
-                                                  'Choose a new username',
+                                              hintText: 'Choose a new username',
                                               hintStyle: TextStyle(
-                                                fontSize:
-                                                    size.height * 0.02,
+                                                fontSize: size.height * 0.02,
                                                 fontFamily: 'Quicksand',
                                               ),
                                               border: InputBorder.none,
@@ -147,38 +142,26 @@ class _UserSettingsState extends State<UserSettings> {
                                             borderRadius:
                                                 BorderRadius.circular(29),
                                             child: FlatButton(
-                                              padding:
-                                                  EdgeInsets.symmetric(
-                                                      vertical: 15,
-                                                      horizontal: 40),
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 15, horizontal: 40),
                                               color: setButtonColor(),
                                               onPressed: () {
-                                                if (userlogged
-                                                        .isNotEmpty &&
+                                                if (userlogged.isNotEmpty &&
                                                     userlogged !=
                                                         usermodified) {
                                                   setState(() {
-                                                    usermodified =
-                                                        userlogged;
+                                                    usermodified = userlogged;
                                                   });
                                                   Navigator.pop(context);
-                                                } else {
-                                                  /*buttonColor =
-                                                        kPrimaryLightColor;
-                                                    buttonTextColor =
-                                                        Colors.black;*/
-                                                }
+                                                } else {}
                                               },
                                               child: Text(
                                                 'SAVE',
                                                 style: TextStyle(
-                                                  color:
-                                                      setButtonTextColor(),
-                                                  fontSize:
-                                                      size.width * 0.05,
+                                                  color: setButtonTextColor(),
+                                                  fontSize: size.width * 0.05,
                                                   fontFamily: 'Quicksand',
-                                                  fontWeight:
-                                                      FontWeight.bold,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                               ),
                                             ),
@@ -201,7 +184,6 @@ class _UserSettingsState extends State<UserSettings> {
                 ),
               ],
             ),
-            
             SizedBox(
               height: size.height * 0.13,
             ),
@@ -247,8 +229,7 @@ class _UserSettingsState extends State<UserSettings> {
                                       Text(
                                         'Choose an account',
                                         style: TextStyle(
-                                            fontSize:
-                                                size.height * 0.025),
+                                            fontSize: size.height * 0.025),
                                       ),
                                       SizedBox(
                                         height: size.height * 0.01,
@@ -256,8 +237,7 @@ class _UserSettingsState extends State<UserSettings> {
                                       Text(
                                         'to continue to CiakTime',
                                         style: TextStyle(
-                                            fontSize:
-                                                size.height * 0.018),
+                                            fontSize: size.height * 0.018),
                                       ),
                                       SizedBox(
                                         height: size.height * 0.04,
@@ -266,25 +246,20 @@ class _UserSettingsState extends State<UserSettings> {
                                         child: ListView.builder(
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
-                                          itemCount: googleAccountsData
-                                              .length, //setLenght(list),
-                                          itemBuilder:
-                                              (BuildContext context,
-                                                      int index) =>
-                                                  Padding(
-                                            padding:
-                                                const EdgeInsets.all(3.0),
+                                          itemCount: googleAccountsData.length,
+                                          itemBuilder: (BuildContext context,
+                                                  int index) =>
+                                              Padding(
+                                            padding: const EdgeInsets.all(3.0),
                                             child: Column(
                                               children: [
                                                 GestureDetector(
                                                   onTap: () {
-                                                    googleConnected =
-                                                        true;
+                                                    googleConnected = true;
                                                     Fluttertoast.showToast(
                                                         msg:
                                                             "Google account connected successfully");
-                                                    Navigator.pop(
-                                                        context);
+                                                    Navigator.pop(context);
                                                   },
                                                   child: Row(
                                                     children: [
@@ -292,17 +267,16 @@ class _UserSettingsState extends State<UserSettings> {
                                                         backgroundColor:
                                                             Colors.white,
                                                         radius:
-                                                            size.width *
-                                                                0.05,
-                                                        backgroundImage: AssetImage(
-                                                            googleAccountsData[
-                                                                    index]
-                                                                ['pic']),
+                                                            size.width * 0.05,
+                                                        backgroundImage:
+                                                            AssetImage(
+                                                                googleAccountsData[
+                                                                        index]
+                                                                    ['pic']),
                                                       ),
                                                       SizedBox(
                                                         width:
-                                                            size.width *
-                                                                0.05,
+                                                            size.width * 0.05,
                                                       ),
                                                       Column(
                                                         crossAxisAlignment:
@@ -311,8 +285,7 @@ class _UserSettingsState extends State<UserSettings> {
                                                         children: [
                                                           Text(
                                                             googleAccountsData[
-                                                                    index]
-                                                                ['name'],
+                                                                index]['name'],
                                                             style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
@@ -320,12 +293,10 @@ class _UserSettingsState extends State<UserSettings> {
                                                           ),
                                                           Text(
                                                             googleAccountsData[
-                                                                    index]
-                                                                ['mail'],
+                                                                index]['mail'],
                                                             style: TextStyle(
                                                                 color: Colors
-                                                                        .grey[
-                                                                    600],
+                                                                    .grey[600],
                                                                 fontSize:
                                                                     size.height *
                                                                         0.015),
@@ -337,9 +308,8 @@ class _UserSettingsState extends State<UserSettings> {
                                                 ),
                                                 Divider(
                                                   color:
-                                                      googleAccountsData[
-                                                              index][
-                                                          'dividercolor'],
+                                                      googleAccountsData[index]
+                                                          ['dividercolor'],
                                                 )
                                               ],
                                             ),
@@ -347,9 +317,8 @@ class _UserSettingsState extends State<UserSettings> {
                                         ),
                                       ),
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.fromLTRB(
-                                                16.0, 3.0, 0.0, 0.0),
+                                        padding: const EdgeInsets.fromLTRB(
+                                            16.0, 3.0, 0.0, 0.0),
                                         child: Row(
                                           children: [
                                             Icon(Icons.person_add_alt),
@@ -359,8 +328,7 @@ class _UserSettingsState extends State<UserSettings> {
                                             Text(
                                               "Add another account",
                                               style: TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.bold),
+                                                  fontWeight: FontWeight.bold),
                                             )
                                           ],
                                         ),
@@ -413,8 +381,7 @@ class _UserSettingsState extends State<UserSettings> {
                                       Text(
                                         'to continue to CiakTime',
                                         style: TextStyle(
-                                            fontSize:
-                                                size.height * 0.018),
+                                            fontSize: size.height * 0.018),
                                       ),
                                       SizedBox(
                                         height: size.height * 0.02,
@@ -442,16 +409,14 @@ class _UserSettingsState extends State<UserSettings> {
                                           Navigator.pop(context);
                                         },
                                         style: TextButton.styleFrom(
-                                          backgroundColor:
-                                              Colors.blue[800],
+                                          backgroundColor: Colors.blue[800],
                                         ),
                                         child: Text(
                                           'Login with this account',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: size.width * 0.04,
-                                              fontWeight:
-                                                  FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       SizedBox(
@@ -468,8 +433,7 @@ class _UserSettingsState extends State<UserSettings> {
                                           "Sign in with another account",
                                           style: TextStyle(
                                               color: Colors.blue[800],
-                                              fontSize:
-                                                  size.width * 0.035),
+                                              fontSize: size.width * 0.035),
                                         ),
                                       ),
                                     ],
@@ -527,8 +491,7 @@ class _UserSettingsState extends State<UserSettings> {
                                           color: Colors.red,
                                         ),
                                         style: TextButton.styleFrom(
-                                          minimumSize: Size(
-                                              size.width * 0.1,
+                                          minimumSize: Size(size.width * 0.1,
                                               size.height * 0.005),
                                           padding: EdgeInsets.all(0.0),
                                         ),
@@ -551,22 +514,26 @@ class _UserSettingsState extends State<UserSettings> {
                                           color: Colors.green,
                                         ),
                                         style: TextButton.styleFrom(
-                                          minimumSize: Size(
-                                              size.width * 0.1,
+                                          minimumSize: Size(size.width * 0.1,
                                               size.height * 0.005),
                                           padding: EdgeInsets.all(0.0),
                                         ),
                                         onPressed: () {
                                           googleConnected = false;
                                           facebookConnected = false;
-                                          Navigator.of(context,
+
+                                          /*Navigator.of(context,
                                                   rootNavigator: true)
                                               .pushReplacement(
                                             MaterialPageRoute(
                                               builder: (context) =>
                                                   new LoginScreen(),
                                             ),
-                                          );
+                                          );*/
+                                          Navigator.popUntil(context,
+                                              ModalRoute.withName('/'));
+                                          username = '';
+                                          password = '';
 
                                           FlutterStatusbarcolor
                                               .setStatusBarColor(
@@ -605,7 +572,7 @@ class _UserSettingsState extends State<UserSettings> {
     if (userlogged.isNotEmpty && userlogged != usermodified) {
       buttonModifyUserColor = kPrimaryColor;
     } else {
-      buttonModifyUserColor = kPrimaryLightColor;
+      buttonModifyUserColor = Colors.grey[300];
     }
     return buttonModifyUserColor;
   }

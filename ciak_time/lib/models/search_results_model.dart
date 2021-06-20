@@ -15,12 +15,9 @@ class SearchResultsModel {
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
-        //TODO finire di implementare la logica per i filtri, capire cosa fare anche per gli attori
+        
 
-        //TODO:
-        //facendo così mostra solo i film in base al genere, e mostra anche gli attori, capire come fare: se mette un filtro sul
-        //genere l'utente vuole cercare solo film e non attori
-        // --> aggiungere un filtro che permetta di decidere se cercare solo film o solo attori?
+       
         SearchResults searchResults = new SearchResults.fromJson(v);
 
         if (v.values.toList()[4] == 'movie') {
@@ -35,11 +32,7 @@ class SearchResultsModel {
           results.add(searchResults);
         }
 
-        //---PRIMA DI AVER MESSO I FILTRI AVEVAMO SOLO QUESTO---
-        /* if (v.values.toList()[5] == 'person' ||
-            v.values.toList()[4] == 'movie') { //if media type == movie or media type == person 
-          results.add(new SearchResults.fromJson(v));
-        }*/
+        
       });
     }
     totalPages = json['total_pages'];
@@ -120,13 +113,13 @@ class SearchResults {
     mediaType = json['media_type'];
 
     name = json['name'];
-    //originCountry = json['origin_country'].cast<String>();
+    
     originalLanguage = json['original_language'];
     originalName = json['original_name'];
     overview = json['overview'];
     popularity = json['popularity'];
     posterPath = json['poster_path'];
-    //voteAverage = json['vote_average'];
+    
     if (json['vote_average'] != null) {
       voteAverage = json['vote_average'].toDouble();
     }

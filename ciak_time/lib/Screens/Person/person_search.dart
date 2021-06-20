@@ -4,7 +4,7 @@ import 'package:ciak_time/components/person_overview.dart';
 
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
-import 'package:ciak_time/models/person.dart';
+
 
 import 'package:flutter/material.dart';
 
@@ -33,7 +33,7 @@ class _PersonSearchState extends State<PersonSearch> {
             width: size.width * 0.2,
             child: Text(
               args.fromWhere,
-              //"Home",
+              
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
               style: TextStyle(
@@ -92,7 +92,7 @@ class _PersonSearchState extends State<PersonSearch> {
                           TextButton.icon(
                             onPressed: () {
                               Navigator.pushNamed(
-                                  context, '/filmography'); //TODO
+                                  context, '/filmography'); 
                             },
                             label:
                                 Icon(Icons.arrow_forward, color: kPrimaryColor),

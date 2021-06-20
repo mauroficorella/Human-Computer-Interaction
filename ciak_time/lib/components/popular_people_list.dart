@@ -27,7 +27,7 @@ class PopularPeopleList extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
+          
           color: Colors.amber,
         ));
       },
@@ -40,7 +40,7 @@ class PopularPeopleList extends StatelessWidget {
       imagePath =
           'https://image.tmdb.org/t/p/original${snapshot.data.results[index].profilePath}';
     } else {
-      //print(snapshot.data.results[index].title);
+      
       imagePath =
           'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif';
     }
@@ -78,7 +78,7 @@ class PopularPeopleList extends StatelessWidget {
 
     return Container(
       height: size.height * 0.26,
-      //color: Colors.amber,
+      
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.results.length,

@@ -9,7 +9,7 @@ class PersonModel {
   PersonModel.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
-      //results = new List<Results>();
+      
       results = [];
       json['results'].forEach((v) {
         results.add(new PersonResults.fromJson(v));
@@ -126,7 +126,7 @@ class KnownFor {
   KnownFor.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
-    //genreIds = json['genre_ids'].cast<int>();
+    
     id = json['id'];
     mediaType = json['media_type'];
     originalLanguage = json['original_language'];
@@ -141,7 +141,7 @@ class KnownFor {
     voteCount = json['vote_count'];
     firstAirDate = json['first_air_date'];
     name = json['name'];
-    //originCountry = json['origin_country'].cast<String>();
+    
     originalName = json['original_name'];
   }
 

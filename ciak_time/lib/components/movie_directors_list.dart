@@ -33,7 +33,7 @@ class MovieDirectorsList extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
+          
           color: Colors.amber,
         ));
       },
@@ -57,27 +57,27 @@ class MovieDirectorsList extends StatelessWidget {
         );
         String fromWhereArg;
         if (fromWhere == "Home") {
-          //personSelectedFromHome = snapshot.data.cast[index];
+          
           personSelectedFromHome = person;
           fromWhereArg = movieSelectedFromHome.title;
-          //personIdSelectedFromHome = snapshot.data.cast[index].id.toString();
+          
         }
         if (fromWhere == "Search") {
-          //personSelectedFromSearch = snapshot.data.cast[index];
+          
           personSelectedFromSearch = person;
           fromWhereArg = movieSelectedFromSearch.title;
-          //personIdSelectedFromSearch = snapshot.data.cast[index].id.toString();
+          
         }
         if (fromWhere == "User") {
-          //personSelectedFromUser = snapshot.data.cast[index];
+          
           personSelectedFromUser = person;
           fromWhereArg = movieSelectedFromUser.title;
-          //personIdSelectedFromSearch = snapshot.data.cast[index].id.toString();
+          
         }
 
         Navigator.pushNamed(context, '/person',
             arguments: ScreenArguments("Movie Info"));
-        //Navigator.pushNamed(context, '/person');
+        
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
       },
       child: CastCard(

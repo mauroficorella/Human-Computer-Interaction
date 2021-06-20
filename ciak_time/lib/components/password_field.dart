@@ -1,4 +1,3 @@
-import 'package:ciak_time/components/password_field_confirm.dart';
 import 'package:ciak_time/components/text_field_container.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
@@ -94,7 +93,7 @@ class _RegistrationPasswordField extends State<RegistrationPasswordField> {
                                           Container(
                                             width: size.width * 0.5,
                                             child: Text(
-                                              "The password must have at least 8 characters, at least 1 digit.",
+                                              "The password must have at least 8 characters and at least one special character.",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: size.height * 0.02,
@@ -129,6 +128,6 @@ class _RegistrationPasswordField extends State<RegistrationPasswordField> {
 
   void togglePasswordVisibility() => setState(() {
         isHidden = !isHidden;
-        //FocusScope.of(context).unfocus();
+        
       });
 }

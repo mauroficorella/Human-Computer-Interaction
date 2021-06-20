@@ -21,7 +21,7 @@ class MovieCard extends StatelessWidget {
               Container(
                 height: size.width * 0.45,
                 width: size.width * 0.3,
-                //width: 50.0,
+                
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: Image.network(
@@ -66,7 +66,7 @@ class MovieCard extends StatelessWidget {
                   ),
                 ),
               ),
-              //Text(voteAverage),
+              
             ],
           ),
         ),

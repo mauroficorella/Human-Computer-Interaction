@@ -8,7 +8,7 @@ class MovieCastModel {
 
   MovieCastModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    //print(json['cast'][0].values.toList()[3]);
+    
     if (json['cast'] != null) {
       cast = [];
       directors = [];
@@ -32,7 +32,7 @@ class MovieCastModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    //print(data['cast'][0].values.toList()[3]);
+    
     if (this.cast != null) {
       data['cast'] = this.cast.map((v) => v.toJson()).toList();
     }

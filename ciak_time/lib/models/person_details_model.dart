@@ -37,7 +37,7 @@ class PersonDetailsModel {
     birthday = json['birthday'];
     deathday = json['deathday'];
     gender = json['gender'];
-    //homepage = json['homepage'];
+    
     id = json['id'];
     imdbId = json['imdb_id'];
     knownForDepartment = json['known_for_department'];

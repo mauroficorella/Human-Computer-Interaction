@@ -25,7 +25,7 @@ class PopularMovieList extends StatelessWidget {
 
         return Center(
             child: CircularProgressIndicator(
-          //backgroundColor: Colors.amber,
+          
           color: Colors.amber,
         ));
       },
@@ -35,7 +35,7 @@ class PopularMovieList extends StatelessWidget {
   Widget buildList(AsyncSnapshot<MovieModel> snapshot, size) {
     return Container(
       height: size.height * 0.26,
-      //color: Colors.amber,
+      
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data.results.length,
@@ -49,7 +49,7 @@ class PopularMovieList extends StatelessWidget {
               onTap: () {
                 String fromWhereArg;
                 if (fromWhere == "Home") {
-                  //movieSelectedFromHome = snapshot.data.results[index];
+                  
                   movieSelectedFromHome = new Movie(
                     title: snapshot.data.results[index].title,
                     overview: snapshot.data.results[index].overview,

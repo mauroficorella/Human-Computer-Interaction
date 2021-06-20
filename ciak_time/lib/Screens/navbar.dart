@@ -77,7 +77,7 @@ class _DestinationViewState extends State<DestinationView> {
       ],
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-          //maintainState: false,
+          
 
           settings: settings,
           builder: (BuildContext context) {

@@ -5,8 +5,6 @@ import 'package:ciak_time/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../constants.dart';
-
 class MovieDetails extends StatefulWidget {
   final Movie movieSelected;
   final String fromWhere;
@@ -21,7 +19,7 @@ class MovieDetails extends StatefulWidget {
 class _MovieDetailsState extends State<MovieDetails> {
   @override
   Widget build(BuildContext context) {
-    //final args = ModalRoute.of(context).settings.arguments as ScreenArguments;
+    
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -47,9 +45,9 @@ class _MovieDetailsState extends State<MovieDetails> {
         centerTitle: true,
         title: Text(
           "Movie info",
-          //widget.movieSelected.title,
+          
           style: TextStyle(
-            //fontSize: size.height * 0.03,
+            
             fontFamily: 'Quicksand-Medium',
           ),
         ),
@@ -91,7 +89,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                         SizedBox(height: size.height * 0.01),
                         Text(
                           widget.movieSelected.overview,
-                          //"Un giovane hobbit e un variegato gruppo, composto da umani, un nano, un elfo e altri hobbit, partono per un delicata missione, guidati dal potente mago Gandalf. ",
+                          
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: size.height * 0.02,

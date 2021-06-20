@@ -10,7 +10,7 @@ class MovieModel {
     page = json['page'];
     if (json['results'] != null) {
       results = [];
-      //results = new List<MovieResults>(); -> here the List in this way is deprecated
+      
       json['results'].forEach((v) {
         results.add(new MovieResults.fromJson(v));
       });
@@ -76,7 +76,7 @@ class MovieResults {
     releaseDate = json['release_date'];
     title = json['title'];
     video = json['video'];
-    //json['price'] == null ? 0.0 : json['price'].toDouble()
+    
     voteAverage = json['vote_average'].toDouble();
     voteCount = json['vote_count'];
   }

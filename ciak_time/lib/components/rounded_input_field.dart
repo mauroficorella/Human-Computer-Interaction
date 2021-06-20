@@ -20,7 +20,8 @@ class RoundedInputField extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return TextFieldContainer(
       child: TextFormField(
-        //onSubmitted: (value) => username = value,
+        enabled: userEnabled,
+        controller: loginUsernameController,
         onChanged: onChanged,
         validator: (value) {
           for (var i = 0; i < users.length; i++) {
