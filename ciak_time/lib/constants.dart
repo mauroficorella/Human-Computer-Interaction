@@ -104,7 +104,7 @@ List<int> filteredMoviesList = [];
 double newRating = 0;
 
 String changeProfilePicPath() {
-  if (userlogged == 'Vittoria') {
+  if (username == users[0]['username']) {
     profilePicPath = 'assets/images/vittoria.png';
   } else {
     profilePicPath = 'assets/images/default-user-image.png';
@@ -226,7 +226,7 @@ List googleAccountsData = [
 ];
 
 List users = [
-  {'username': 'vittoria', 'password': 'hci_2021'}
+  {'username': 'Vittoria', 'password': 'hci_2021'}
 ];
 
 String username = '';

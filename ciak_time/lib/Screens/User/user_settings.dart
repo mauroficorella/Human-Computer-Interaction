@@ -1,7 +1,4 @@
 import 'dart:async';
-import 'dart:math';
-
-import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/User/profile_pic.dart';
 
 import 'package:ciak_time/components/rounded_button.dart';

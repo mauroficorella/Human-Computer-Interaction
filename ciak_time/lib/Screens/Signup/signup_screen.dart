@@ -6,6 +6,7 @@ import 'package:ciak_time/components/text_field_container.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 class UnMatchValidator extends TextFieldValidator {
@@ -171,6 +172,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   });
 
                                   userlogged = userregistered;
+                                  Fluttertoast.showToast(
+                                      msg: 'User successfully registered');
                                 } else {}
                               });
                               Navigator.popUntil(

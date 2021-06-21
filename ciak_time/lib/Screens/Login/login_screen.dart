@@ -1,5 +1,3 @@
-
-
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
@@ -21,8 +19,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  
-
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
@@ -127,8 +123,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ).then((value) {
                                     setState(() {
-                                     
-                                      FocusManager.instance.primaryFocus.unfocus();
+                                      FocusManager.instance.primaryFocus
+                                          .unfocus();
                                       loginUsernameController.clear();
 
                                       loginPasswordController.clear();
@@ -227,7 +223,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 children: [
                                                   GestureDetector(
                                                     onTap: () {
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          .unfocus();
                                                       googleConnected = true;
+                                                      username = 'Vittoria';
                                                       Navigator.push(
                                                         context,
                                                         MaterialPageRoute(
@@ -377,7 +377,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                         TextButton(
                                           onPressed: () {
+                                            FocusManager.instance.primaryFocus
+                                                .unfocus();
                                             facebookConnected = true;
+                                            username = 'Vittoria';
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
