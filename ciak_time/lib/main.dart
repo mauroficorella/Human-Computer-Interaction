@@ -1,4 +1,5 @@
 import 'package:ciak_time/Screens/Login/login_screen.dart';
+import 'package:ciak_time/Screens/navbar.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +7,12 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +23,18 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: LoginScreen(), 
+      home: getHome(),
     );
+  }
+
+  Widget getHome() {
+    setState(() {
+      if (isUserLogged == false) {
+        home = LoginScreen();
+      } else {
+        home = HomePage();
+      }
+    });
+    return home;
   }
 }

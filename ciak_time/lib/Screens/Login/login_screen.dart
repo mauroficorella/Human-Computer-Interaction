@@ -114,6 +114,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                             ConnectivityResult.wifi) &&
                                     (username == users[i]['username'] &&
                                         password == users[i]['password'])) {
+                                  /**/
+                                  
+                                  /*Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return HomePage();
+                                      },
+                                    ),
+                                  )*/
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -123,6 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ).then((value) {
                                     setState(() {
+                                      isUserLogged = true;
                                       FocusManager.instance.primaryFocus
                                           .unfocus();
                                       loginUsernameController.clear();
@@ -228,6 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                           .unfocus();
                                                       googleConnected = true;
                                                       username = 'Vittoria';
+                                                      userlogged = 'Vittoria';
                                                       Navigator.push(
                                                         context,
                                                         MaterialPageRoute(
@@ -381,6 +393,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 .unfocus();
                                             facebookConnected = true;
                                             username = 'Vittoria';
+                                            userlogged = 'Vittoria';
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
