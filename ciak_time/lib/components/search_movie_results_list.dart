@@ -59,7 +59,6 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
         ),
       );
     } else {
-      
       return Container(
           height: size.width * 0.45,
           width: size.width * 0.25,
@@ -70,7 +69,6 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
   }
 
   Widget buildList(AsyncSnapshot<SearchResultsModel> snapshot, size) {
-    
     if (snapshot.data.results.isEmpty) {
       return Center(child: Text("No results found"));
     } else {
@@ -138,7 +136,8 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
             voteCount: snapshot.data.results[index].voteCount,
           );
 
-          Navigator.pushNamed(context, '/movie');
+          Navigator.pushNamed(context, '/movie',
+              arguments: ScreenArguments("Search"));
           FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
         },
       ),
@@ -182,7 +181,7 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
               id: snapshot.data.results[index].id,
               name: snapshot.data.results[index].name);
           Navigator.pushNamed(context, '/person',
-            arguments: ScreenArguments("Search"));
+              arguments: ScreenArguments("Search"));
           FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
         },
       ),

@@ -32,8 +32,8 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
           print(users);
           for (var i = 0; i < users.length; i++) {
             print(users[i]['username']);
-            if (username != users[i]['username'] && value != '') {
-              user = users[i]['username'];
+            if (username == users[i]['username'] ||
+                (username != users[i]['username'] && i == users.length - 1)) {
               return MatchValidator(
                       errorText: 'The inserted username does not exist')
                   .validateMatch(
@@ -41,14 +41,28 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
                 users[i]['username'],
               );
             }
+            /*else if (username != users[i]['username'] &&
+                i == users.length - 1) {
+              return MatchValidator(
+                      errorText: 'The inserted username does not exist')
+                  .validateMatch(
+                username,
+                users[i]['username'],
+              );
+            }*/
+
           }
-          /*return MatchValidator(
-                  errorText: 'The inserted username does not exist')
-              .validateMatch(
-            username,
-            user,
-          );*/
+          /*if (username != users[i]['username'] && value != '') {
+              user = users[i]['username'];
+              return MatchValidator(
+                      errorText: 'The inserted username does not exist')
+                  .validateMatch(
+                username,
+                users[i]['username'],
+              );
+            }*/
         },
+        
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           icon: Icon(
