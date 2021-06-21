@@ -21,7 +21,7 @@ class RoundedInputField extends StatelessWidget {
     return TextFieldContainer(
       child: TextFormField(
         //enabled: userEnabled,
-        
+        //readOnly: userEnabled,
         controller: loginUsernameController,
         onChanged: onChanged,
         validator: (value) {

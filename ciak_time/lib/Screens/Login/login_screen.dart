@@ -136,6 +136,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ).then((value) {
                                     setState(() {
+                                      /*userEnabled = true;
+                                      passwordEnabled = true;*/
+                                      //FocusScope.of(context).unfocus();
+                                      FocusManager.instance.primaryFocus.unfocus();
                                       loginUsernameController.clear();
 
                                       loginPasswordController.clear();

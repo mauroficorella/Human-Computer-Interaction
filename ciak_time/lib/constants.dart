@@ -35,8 +35,8 @@ Color dividerColor = Colors.amber;
 TextEditingController loginPasswordController = TextEditingController();
 TextEditingController loginUsernameController = TextEditingController();
 
-bool userEnabled = true;
-bool passwordEnabled = true;
+bool userEnabled = false;
+bool passwordEnabled = false;
 
 bool selected_rate = false;
 bool selected_most_added = false;
