@@ -97,7 +97,6 @@ class _InsertReviewState extends State<InsertReview> {
                     setState(() {
                       newRating = rating;
                     });
-                    
                   },
                 ),
               ),
@@ -140,8 +139,7 @@ class _InsertReviewState extends State<InsertReview> {
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                     color: changeSaveColor(),
                     onPressed: () {
-                      if (reviewController.text.isNotEmpty &&
-                          newRating != null) {
+                      if (reviewController.text.isNotEmpty && newRating != 0) {
                         showDialog(
                           context: context,
                           builder: (_) {
@@ -178,6 +176,7 @@ class _InsertReviewState extends State<InsertReview> {
   Color changeSaveColor() {
     setState(() {
       if (reviewController.text.isNotEmpty && newRating != 0) {
+        print(newRating);
         saveColor = kPrimaryColor;
       } else {
         saveColor = kPrimaryLightColor;
@@ -213,92 +212,90 @@ class ConfirmReview extends StatelessWidget {
     return new AlertDialog(
       content: StatefulBuilder(
         builder: (context, setState) {
-          return Container(
-            height: size.height * 0.11,
-            child: Column(
-              children: [
-                Text(
-                  "Do you really want to publish this review?",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Quicksand',
-                  ),
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Do you really want to publish this review?",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: size.height * 0.02,
+                  fontFamily: 'Quicksand',
                 ),
-                SizedBox(
-                  height: size.height * 0.028,
-                ),
-                Container(
-                  width: size.width * 0.7,
-                  height: size.height * 0.03,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      TextButton.icon(
-                        icon: Icon(
-                          Icons.dangerous_outlined,
-                          color: Colors.red,
-                        ),
-                        style: TextButton.styleFrom(
-                          minimumSize:
-                              Size(size.width * 0.1, size.height * 0.005),
-                          padding: EdgeInsets.all(0.0),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        label: Text(
-                          "NO",
-                          style: TextStyle(
-                            color: kPrimaryColor,
-                            fontSize: size.height * 0.02,
-                            fontFamily: 'Quicksand',
-                            fontWeight: FontWeight.bold,
-                          ),
+              ),
+              SizedBox(
+                height: size.height * 0.028,
+              ),
+              Container(
+                width: size.width * 0.7,
+                height: size.height * 0.03,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    TextButton.icon(
+                      icon: Icon(
+                        Icons.dangerous_outlined,
+                        color: Colors.red,
+                      ),
+                      style: TextButton.styleFrom(
+                        minimumSize:
+                            Size(size.width * 0.1, size.height * 0.005),
+                        padding: EdgeInsets.all(0.0),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      label: Text(
+                        "NO",
+                        style: TextStyle(
+                          color: kPrimaryColor,
+                          fontSize: size.height * 0.02,
+                          fontFamily: 'Quicksand',
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      TextButton.icon(
-                        icon: Icon(
-                          Icons.check,
-                          color: Colors.green,
-                        ),
-                        style: TextButton.styleFrom(
-                          minimumSize:
-                              Size(size.width * 0.1, size.height * 0.005),
-                          padding: EdgeInsets.all(0.0),
-                        ),
-                        onPressed: () {
-                          setState(
-                            () {
-                              var value = {
-                                'name': 'Vittoria',
-                                'pic':
-                                    'https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg',
-                                'message': reviewController.text,
-                                'rate': newRating,
-                                'likes': 0,
-                                'comments': 0,
-                              };
-                              reviewsData.insert(0, value);
-                            },
-                          );
-                          Navigator.pop(context); //closes the alert dialog
-                        },
-                        label: Text(
-                          "YES",
-                          style: TextStyle(
-                            color: kPrimaryColor,
-                            fontSize: size.height * 0.02,
-                            fontFamily: 'Quicksand',
-                            fontWeight: FontWeight.bold,
-                          ),
+                    ),
+                    TextButton.icon(
+                      icon: Icon(
+                        Icons.check,
+                        color: Colors.green,
+                      ),
+                      style: TextButton.styleFrom(
+                        minimumSize:
+                            Size(size.width * 0.1, size.height * 0.005),
+                        padding: EdgeInsets.all(0.0),
+                      ),
+                      onPressed: () {
+                        setState(
+                          () {
+                            var value = {
+                              'name': 'Vittoria',
+                              'pic':
+                                  'https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg',
+                              'message': reviewController.text,
+                              'rate': newRating,
+                              'likes': 0,
+                              'comments': 0,
+                            };
+                            reviewsData.insert(0, value);
+                          },
+                        );
+                        Navigator.pop(context); //closes the alert dialog
+                      },
+                      label: Text(
+                        "YES",
+                        style: TextStyle(
+                          color: kPrimaryColor,
+                          fontSize: size.height * 0.02,
+                          fontFamily: 'Quicksand',
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+                    ),
+                  ],
+                ),
+              )
+            ],
           );
         },
       ),

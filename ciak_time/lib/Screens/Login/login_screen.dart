@@ -333,7 +333,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               content: StatefulBuilder(
                                 builder: (context, setState) {
                                   return Container(
-                                    height: size.height * 0.46,
+                                    height: size.height * 0.48,
                                     width: size.width,
                                     child: Column(
                                       children: [

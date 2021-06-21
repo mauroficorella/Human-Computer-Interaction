@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/User/profile_pic.dart';
@@ -105,70 +106,68 @@ class _UserSettingsState extends State<UserSettings> {
                             return StatefulBuilder(
                               builder: (context, setState) {
                                 return AlertDialog(
-                                  content: Container(
-                                    height: size.height * 0.2,
-                                    width: size.width,
-                                    child: Column(
-                                      children: [
-                                        TextFieldContainer(
-                                          child: TextFormField(
-                                            onChanged: (value) {
-                                              setState(() {
-                                                usermodified = value;
-                                              });
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                      TextFieldContainer(
+                                        child: TextFormField(
+                                          onChanged: (value) {
+                                            setState(() {
+                                              usermodified = value;
+                                            });
+                                          },
+                                          validator: usernameValidator,
+                                          autovalidateMode: AutovalidateMode
+                                              .onUserInteraction,
+                                          decoration: InputDecoration(
+                                            icon: Icon(
+                                              Icons.person,
+                                              color: kPrimaryColor,
+                                            ),
+                                            hintText: 'Choose a new username',
+                                            hintStyle: TextStyle(
+                                              fontSize: size.height * 0.02,
+                                              fontFamily: 'Quicksand',
+                                            ),
+                                            border: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            vertical: 10),
+                                        width: size.width * 0.8,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(29),
+                                          child: FlatButton(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 15, horizontal: 40),
+                                            color: setButtonColor(),
+                                            onPressed: () {
+                                              if (userlogged.isNotEmpty &&
+                                                  userlogged !=
+                                                      usermodified) {
+                                                setState(() {
+                                                  userlogged = usermodified;
+                                                });
+                                                Navigator.pop(context);
+                                              } else {}
                                             },
-                                            validator: usernameValidator,
-                                            autovalidateMode: AutovalidateMode
-                                                .onUserInteraction,
-                                            decoration: InputDecoration(
-                                              icon: Icon(
-                                                Icons.person,
-                                                color: kPrimaryColor,
-                                              ),
-                                              hintText: 'Choose a new username',
-                                              hintStyle: TextStyle(
-                                                fontSize: size.height * 0.02,
+                                            child: Text(
+                                              'SAVE',
+                                              style: TextStyle(
+                                                color: setButtonTextColor(),
+                                                fontSize: size.width * 0.05,
                                                 fontFamily: 'Quicksand',
-                                              ),
-                                              border: InputBorder.none,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                              vertical: 10),
-                                          width: size.width * 0.8,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(29),
-                                            child: FlatButton(
-                                              padding: EdgeInsets.symmetric(
-                                                  vertical: 15, horizontal: 40),
-                                              color: setButtonColor(),
-                                              onPressed: () {
-                                                if (userlogged.isNotEmpty &&
-                                                    userlogged !=
-                                                        usermodified) {
-                                                  setState(() {
-                                                    userlogged = usermodified;
-                                                  });
-                                                  Navigator.pop(context);
-                                                } else {}
-                                              },
-                                              child: Text(
-                                                'SAVE',
-                                                style: TextStyle(
-                                                  color: setButtonTextColor(),
-                                                  fontSize: size.width * 0.05,
-                                                  fontFamily: 'Quicksand',
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                                fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 );
                               },
@@ -217,8 +216,9 @@ class _UserSettingsState extends State<UserSettings> {
                               builder: (context, setState) {
                                 return Container(
                                   height: size.height * 0.4,
-                                  width: size.width,
+                                    width: size.width,
                                   child: Column(
+                                    
                                     children: [
                                       SvgPicture.asset(
                                           "assets/icons/google.svg",
@@ -358,86 +358,83 @@ class _UserSettingsState extends State<UserSettings> {
                           return new AlertDialog(
                             content: StatefulBuilder(
                               builder: (context, setState) {
-                                return Container(
-                                  height: size.height * 0.46,
-                                  width: size.width,
-                                  child: Column(
-                                    children: [
-                                      SvgPicture.asset(
-                                          "assets/icons/facebook.svg",
-                                          height: size.height * 0.05),
-                                      SizedBox(
-                                        height: size.height * 0.02,
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SvgPicture.asset(
+                                        "assets/icons/facebook.svg",
+                                        height: size.height * 0.05),
+                                    SizedBox(
+                                      height: size.height * 0.02,
+                                    ),
+                                    Text(
+                                      'Login with facebook',
+                                      style: TextStyle(
+                                          fontSize: size.height * 0.025,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: size.height * 0.01,
+                                    ),
+                                    Text(
+                                      'to continue to CiakTime',
+                                      style: TextStyle(
+                                          fontSize: size.height * 0.018),
+                                    ),
+                                    SizedBox(
+                                      height: size.height * 0.02,
+                                    ),
+                                    CircleAvatar(
+                                      backgroundImage: AssetImage(
+                                          'assets/images/vittoria.png'),
+                                      radius: size.width * 0.1,
+                                    ),
+                                    SizedBox(
+                                      height: size.height * 0.01,
+                                    ),
+                                    Text(
+                                      'Vittoria',
+                                      style: TextStyle(
+                                          fontSize: size.width * 0.05,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        facebookConnected = true;
+                                        Fluttertoast.showToast(
+                                            msg:
+                                                "Facebook account connected successfully");
+                                        Navigator.pop(context);
+                                      },
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: Colors.blue[800],
                                       ),
-                                      Text(
-                                        'Login with facebook',
+                                      child: Text(
+                                        'Login with this account',
                                         style: TextStyle(
-                                            fontSize: size.height * 0.025,
+                                            color: Colors.white,
+                                            fontSize: size.width * 0.04,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      SizedBox(
-                                        height: size.height * 0.01,
-                                      ),
-                                      Text(
-                                        'to continue to CiakTime',
+                                    ),
+                                    SizedBox(
+                                      height: size.height * 0.03,
+                                    ),
+                                    Text(
+                                      "Aren't you?",
+                                      style: TextStyle(
+                                          fontSize: size.width * 0.035),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        "Sign in with another account",
                                         style: TextStyle(
-                                            fontSize: size.height * 0.018),
-                                      ),
-                                      SizedBox(
-                                        height: size.height * 0.02,
-                                      ),
-                                      CircleAvatar(
-                                        backgroundImage: AssetImage(
-                                            'assets/images/vittoria.png'),
-                                        radius: size.width * 0.1,
-                                      ),
-                                      SizedBox(
-                                        height: size.height * 0.01,
-                                      ),
-                                      Text(
-                                        'Vittoria',
-                                        style: TextStyle(
-                                            fontSize: size.width * 0.05,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      TextButton(
-                                        onPressed: () {
-                                          facebookConnected = true;
-                                          Fluttertoast.showToast(
-                                              msg:
-                                                  "Facebook account connected successfully");
-                                          Navigator.pop(context);
-                                        },
-                                        style: TextButton.styleFrom(
-                                          backgroundColor: Colors.blue[800],
-                                        ),
-                                        child: Text(
-                                          'Login with this account',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * 0.04,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: size.height * 0.03,
-                                      ),
-                                      Text(
-                                        "Aren't you?",
-                                        style: TextStyle(
+                                            color: Colors.blue[800],
                                             fontSize: size.width * 0.035),
                                       ),
-                                      TextButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Sign in with another account",
-                                          style: TextStyle(
-                                              color: Colors.blue[800],
-                                              fontSize: size.width * 0.035),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 );
                               },
                             ),
@@ -463,90 +460,88 @@ class _UserSettingsState extends State<UserSettings> {
                     return new AlertDialog(
                       content: StatefulBuilder(
                         builder: (context, setState) {
-                          return Container(
-                            height: size.height * 0.11,
-                            child: Column(
-                              children: [
-                                Text(
-                                  "Do you really want to logout?",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: size.height * 0.02,
-                                    fontFamily: 'Quicksand',
-                                  ),
+                          return Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "Do you really want to logout?",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: size.height * 0.02,
+                                  fontFamily: 'Quicksand',
                                 ),
-                                SizedBox(
-                                  height: size.height * 0.028,
-                                ),
-                                Container(
-                                  width: size.width * 0.7,
-                                  height: size.height * 0.03,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      TextButton.icon(
-                                        icon: Icon(
-                                          Icons.dangerous_outlined,
-                                          color: Colors.red,
-                                        ),
-                                        style: TextButton.styleFrom(
-                                          minimumSize: Size(size.width * 0.1,
-                                              size.height * 0.005),
-                                          padding: EdgeInsets.all(0.0),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        label: Text(
-                                          "NO",
-                                          style: TextStyle(
-                                            color: kPrimaryColor,
-                                            fontSize: size.height * 0.02,
-                                            fontFamily: 'Quicksand',
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                              ),
+                              SizedBox(
+                                height: size.height * 0.028,
+                              ),
+                              Container(
+                                width: size.width * 0.7,
+                                height: size.height * 0.03,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    TextButton.icon(
+                                      icon: Icon(
+                                        Icons.dangerous_outlined,
+                                        color: Colors.red,
+                                      ),
+                                      style: TextButton.styleFrom(
+                                        minimumSize: Size(size.width * 0.1,
+                                            size.height * 0.005),
+                                        padding: EdgeInsets.all(0.0),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      label: Text(
+                                        "NO",
+                                        style: TextStyle(
+                                          color: kPrimaryColor,
+                                          fontSize: size.height * 0.02,
+                                          fontFamily: 'Quicksand',
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      TextButton.icon(
-                                        icon: Icon(
-                                          Icons.check,
-                                          color: Colors.green,
-                                        ),
-                                        style: TextButton.styleFrom(
-                                          minimumSize: Size(size.width * 0.1,
-                                              size.height * 0.005),
-                                          padding: EdgeInsets.all(0.0),
-                                        ),
-                                        onPressed: () {
-                                          googleConnected = false;
-                                          facebookConnected = false;
+                                    ),
+                                    TextButton.icon(
+                                      icon: Icon(
+                                        Icons.check,
+                                        color: Colors.green,
+                                      ),
+                                      style: TextButton.styleFrom(
+                                        minimumSize: Size(size.width * 0.1,
+                                            size.height * 0.005),
+                                        padding: EdgeInsets.all(0.0),
+                                      ),
+                                      onPressed: () {
+                                        googleConnected = false;
+                                        facebookConnected = false;
 
-                                        
-                                          Navigator.popUntil(context,
-                                              ModalRoute.withName('/'));
-                                          username = '';
-                                          password = '';
+                                      
+                                        Navigator.popUntil(context,
+                                            ModalRoute.withName('/'));
+                                        username = '';
+                                        password = '';
 
-                                          FlutterStatusbarcolor
-                                              .setStatusBarColor(
-                                                  Colors.transparent);
-                                        },
-                                        label: Text(
-                                          "YES",
-                                          style: TextStyle(
-                                            color: kPrimaryColor,
-                                            fontSize: size.height * 0.02,
-                                            fontFamily: 'Quicksand',
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                        FlutterStatusbarcolor
+                                            .setStatusBarColor(
+                                                Colors.transparent);
+                                      },
+                                      label: Text(
+                                        "YES",
+                                        style: TextStyle(
+                                          color: kPrimaryColor,
+                                          fontSize: size.height * 0.02,
+                                          fontFamily: 'Quicksand',
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           );
                         },
                       ),

@@ -32,23 +32,7 @@ class _AllMoviesInWListState extends State<AllMoviesInWList> {
           ),
         ),
         leadingWidth: size.width * 0.2,
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/settings');
-            },
-            child: Row(
-              children: [
-                Text(
-                  "Edit",
-                  style: TextStyle(
-                    color: Colors.amber,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+        
       ),
       body: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

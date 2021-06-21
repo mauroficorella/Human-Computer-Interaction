@@ -99,29 +99,33 @@ class _RegistrationPasswordFieldConfirm
                               return new AlertDialog(
                                 content: StatefulBuilder(
                                   builder: (context, setState) {
-                                    return Container(
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.info,
-                                            color: kPrimaryColor,
-                                          ),
-                                          SizedBox(
-                                            width: size.width * 0.05,
-                                          ),
-                                          Container(
-                                            width: size.width * 0.5,
-                                            child: Text(
-                                              "This password must be equal to the one in the previous field.",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: size.height * 0.02,
-                                                fontFamily: 'Quicksand',
+                                    return Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Row(
+                                          
+                                          children: [
+                                            Icon(
+                                              Icons.info,
+                                              color: kPrimaryColor,
+                                            ),
+                                            SizedBox(
+                                              width: size.width * 0.05,
+                                            ),
+                                            Container(
+                                              width: size.width * 0.5,
+                                              child: Text(
+                                                "This password must be equal to the one in the previous field.",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: size.height * 0.02,
+                                                  fontFamily: 'Quicksand',
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
+                                          ],
+                                        ),
+                                      ],
                                     );
                                   },
                                 ),

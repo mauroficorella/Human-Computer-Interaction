@@ -35,12 +35,14 @@ class _FilmographyGridViewState extends State<FilmographyGridView> {
             width: size.width * 0.2,
             child: Text(
               widget.personName,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
               style: TextStyle(
                   color: Colors.amber, fontFamily: 'Quicksand-Regular'),
             ),
           ),
         ),
-        leadingWidth: size.width * 0.32,
+        leadingWidth: size.width * 0.35,
       ),
       body: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

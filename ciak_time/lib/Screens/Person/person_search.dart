@@ -30,7 +30,7 @@ class _PersonSearchState extends State<PersonSearch> {
             color: Colors.amber,
           ),
           label: Container(
-            width: size.width * 0.2,
+            width: size.width * 0.12,
             child: Text(
               args.fromWhere,
               
@@ -41,7 +41,7 @@ class _PersonSearchState extends State<PersonSearch> {
             ),
           ),
         ),
-        leadingWidth: size.width * 0.5,
+        leadingWidth: size.width * 0.25,
         title: Text(
           personSelectedFromSearch.name,
           overflow: TextOverflow.ellipsis,

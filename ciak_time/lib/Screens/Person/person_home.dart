@@ -37,7 +37,7 @@ class _PersonHomeState extends State<PersonHome> {
             color: Colors.amber,
           ),
           label: Container(
-            width: size.width * 0.15,
+            width: size.width * 0.1,
             child: Text(
               args.fromWhere,
               
@@ -48,7 +48,7 @@ class _PersonHomeState extends State<PersonHome> {
             ),
           ),
         ),
-        leadingWidth: size.width * 0.3,
+        leadingWidth: size.width * 0.25,
         title: Text(
           personSelectedFromHome.name,
           overflow: TextOverflow.ellipsis,

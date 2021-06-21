@@ -80,29 +80,32 @@ class _RegistrationPasswordField extends State<RegistrationPasswordField> {
                               return new AlertDialog(
                                 content: StatefulBuilder(
                                   builder: (context, setState) {
-                                    return Container(
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.info,
-                                            color: kPrimaryColor,
-                                          ),
-                                          SizedBox(
-                                            width: size.width * 0.05,
-                                          ),
-                                          Container(
-                                            width: size.width * 0.5,
-                                            child: Text(
-                                              "The password must have at least 8 characters and at least one special character.",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: size.height * 0.02,
-                                                fontFamily: 'Quicksand',
+                                    return Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.info,
+                                              color: kPrimaryColor,
+                                            ),
+                                            SizedBox(
+                                              width: size.width * 0.05,
+                                            ),
+                                            Container(
+                                              width: size.width * 0.5,
+                                              child: Text(
+                                                "The password must have at least 8 characters and at least one special character.",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: size.height * 0.02,
+                                                  fontFamily: 'Quicksand',
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
+                                          ],
+                                        ),
+                                      ],
                                     );
                                   },
                                 ),

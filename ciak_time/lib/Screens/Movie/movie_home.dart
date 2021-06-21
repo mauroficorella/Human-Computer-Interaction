@@ -552,98 +552,95 @@ class AddButton extends StatelessWidget {
               return new AlertDialog(
                 content: StatefulBuilder(
                   builder: (context, setState) {
-                    return Container(
-                      width: size.width * 0.8,
-                      height: size.height * 0.23,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextButton.icon(
-                            onPressed: () {
-                              checkDisabledButton(context);
-                            },
-                            icon: SvgPicture.asset("assets/icons/list.svg",
-                                height: size.height * 0.03),
-                            label: Text(
-                              getWatchListTitle(),
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextButton.icon(
+                          onPressed: () {
+                            checkDisabledButton(context);
+                          },
+                          icon: SvgPicture.asset("assets/icons/list.svg",
+                              height: size.height * 0.03),
+                          label: Text(
+                            getWatchListTitle(),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: size.height * 0.02,
+                                fontFamily: 'Quicksand-Medium'),
+                          ),
+                        ),
+                        Divider(color: Colors.grey,),
+                        TextButton.icon(
+                          onPressed: () {
+                            if (alreadyWatchedListTitle ==
+                                "Remove from already watched list") {
+                              alreadyWatchedList
+                                  .remove(movieSelectedFromHome);
+                              buildFlutterToast(
+                                  " removed from already watched list");
+                              Navigator.pop(context);
+                            } else {
+                              bool isContainedInWatchList = false;
+                              Movie movie;
+                              for (var i = 0; i < watchList.length; i++) {
+                                if (watchList[i].id ==
+                                    movieSelectedFromHome.id) {
+                                  isContainedInWatchList = true;
+                                  movie = watchList[i];
+                                }
+                              }
+                              if (isContainedInWatchList) {
+                                watchList.remove(movie);
+                              }
+                              alreadyWatchedList.add(movieSelectedFromHome);
+                              buildFlutterToast(
+                                  " added to already watched list");
+                              Navigator.pop(context);
+                            }
+                          },
+                          icon: SvgPicture.asset("assets/icons/check.svg",
+                              height: size.height * 0.03),
+                          label: Container(
+                            width: size.width * 0.5,
+                            child: Text(
+                              getAlreadyWatchedListTitle(),
+                              maxLines: 2,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: size.height * 0.02,
                                   fontFamily: 'Quicksand-Medium'),
                             ),
                           ),
-                          PopupMenuDivider(),
-                          TextButton.icon(
-                            onPressed: () {
-                              if (alreadyWatchedListTitle ==
-                                  "Remove from already watched list") {
-                                alreadyWatchedList
-                                    .remove(movieSelectedFromHome);
-                                buildFlutterToast(
-                                    " removed from already watched list");
-                                Navigator.pop(context);
-                              } else {
-                                bool isContainedInWatchList = false;
-                                Movie movie;
-                                for (var i = 0; i < watchList.length; i++) {
-                                  if (watchList[i].id ==
-                                      movieSelectedFromHome.id) {
-                                    isContainedInWatchList = true;
-                                    movie = watchList[i];
-                                  }
-                                }
-                                if (isContainedInWatchList) {
-                                  watchList.remove(movie);
-                                }
-                                alreadyWatchedList.add(movieSelectedFromHome);
-                                buildFlutterToast(
-                                    " added to already watched list");
-                                Navigator.pop(context);
-                              }
-                            },
-                            icon: SvgPicture.asset("assets/icons/check.svg",
-                                height: size.height * 0.03),
-                            label: Container(
-                              width: size.width * 0.5,
-                              child: Text(
-                                getAlreadyWatchedListTitle(),
-                                maxLines: 2,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: size.height * 0.02,
-                                    fontFamily: 'Quicksand-Medium'),
-                              ),
-                            ),
+                        ),
+                        Divider(color: Colors.grey,),
+                        TextButton.icon(
+                          onPressed: () {
+                            if (favouriteListTitle ==
+                                "Remove from favourite list") {
+                              favouriteList.remove(movieSelectedFromHome);
+                              buildFlutterToast(
+                                  " removed from favourite list");
+                              Navigator.pop(context);
+                            } else {
+                              favouriteList.add(movieSelectedFromHome);
+                              buildFlutterToast(" added to favourite list");
+                              Navigator.pop(context);
+                            }
+                          },
+                          icon: Icon(
+                            Icons.favorite,
+                            color: Colors.red,
                           ),
-                          PopupMenuDivider(),
-                          TextButton.icon(
-                            onPressed: () {
-                              if (favouriteListTitle ==
-                                  "Remove from favourite list") {
-                                favouriteList.remove(movieSelectedFromHome);
-                                buildFlutterToast(
-                                    " removed from favourite list");
-                                Navigator.pop(context);
-                              } else {
-                                favouriteList.add(movieSelectedFromHome);
-                                buildFlutterToast(" added to favourite list");
-                                Navigator.pop(context);
-                              }
-                            },
-                            icon: Icon(
-                              Icons.favorite,
-                              color: Colors.red,
-                            ),
-                            label: Text(
-                              getFavouriteListTitle(),
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: size.height * 0.02,
-                                  fontFamily: 'Quicksand-Medium'),
-                            ),
+                          label: Text(
+                            getFavouriteListTitle(),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: size.height * 0.02,
+                                fontFamily: 'Quicksand-Medium'),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     );
                   },
                 ),

@@ -25,7 +25,7 @@ class _PersonUserState extends State<PersonUser> {
             color: Colors.amber,
           ),
           label: Container(
-            width: size.width * 0.2,
+            width: size.width * 0.1,
             child: Text(
               args.fromWhere,
               
@@ -36,7 +36,7 @@ class _PersonUserState extends State<PersonUser> {
             ),
           ),
         ),
-        leadingWidth: size.width * 0.5,
+        leadingWidth: size.width * 0.25,
         title: Text(
           personSelectedFromUser.name,
         ),

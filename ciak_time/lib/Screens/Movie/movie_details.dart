@@ -161,7 +161,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                             assertIcon: "assets/icons/actor.svg"),
                         SizedBox(height: size.height * 0.005),
                         Container(
-                            height: size.height * 0.18,
+                            height: size.height * 0.2,
                             child: MovieCastList(
                               movieSelected: widget.movieSelected,
                               fromWhere: widget.fromWhere,
@@ -172,7 +172,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                             assertIcon: "assets/icons/director.svg"),
                         SizedBox(height: size.height * 0.005),
                         Container(
-                            height: size.height * 0.18,
+                            height: size.height * 0.2,
                             child: MovieDirectorsList(
                               movieSelected: widget.movieSelected,
                               fromWhere: widget.fromWhere,

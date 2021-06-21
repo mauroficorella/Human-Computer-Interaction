@@ -39,7 +39,7 @@ class _CommentsPageState extends State<CommentsPage> {
                   height: 50.0,
                   width: 50.0,
                   decoration: new BoxDecoration(
-                      color: Colors.blue,
+                      
                       borderRadius:
                           new BorderRadius.all(Radius.circular(50))),
                   child: CircleAvatar(
@@ -128,81 +128,79 @@ class _CommentsPageState extends State<CommentsPage> {
         return AlertDialog(
           content: StatefulBuilder(
             builder: (context, setState) {
-              return Container(
-                height: size.height * 0.11,
-                child: Column(
-                  children: [
-                    Text(
-                      "Do you really want to publish this review?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: size.height * 0.02,
-                        fontFamily: 'Quicksand',
-                      ),
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Do you really want to publish this comment?",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: size.height * 0.02,
+                      fontFamily: 'Quicksand',
                     ),
-                    SizedBox(
-                      height: size.height * 0.028,
-                    ),
-                    Container(
-                      width: size.width * 0.7,
-                      height: size.height * 0.03,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          TextButton.icon(
-                            icon: Icon(
-                              Icons.dangerous_outlined,
-                              color: Colors.red,
-                            ),
-                            style: TextButton.styleFrom(
-                              minimumSize:
-                                  Size(size.width * 0.1, size.height * 0.005),
-                              padding: EdgeInsets.all(0.0),
-                            ),
-                            onPressed: () {
-                              isCommentConfirmed = false;
-                              Navigator.pop(context);
-                            },
-                            label: Text(
-                              "NO",
-                              style: TextStyle(
-                                color: kPrimaryColor,
-                                fontSize: size.height * 0.02,
-                                fontFamily: 'Quicksand',
-                                fontWeight: FontWeight.bold,
-                              ),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.028,
+                  ),
+                  Container(
+                    width: size.width * 0.7,
+                    height: size.height * 0.03,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        TextButton.icon(
+                          icon: Icon(
+                            Icons.dangerous_outlined,
+                            color: Colors.red,
+                          ),
+                          style: TextButton.styleFrom(
+                            minimumSize:
+                                Size(size.width * 0.1, size.height * 0.005),
+                            padding: EdgeInsets.all(0.0),
+                          ),
+                          onPressed: () {
+                            isCommentConfirmed = false;
+                            Navigator.pop(context);
+                          },
+                          label: Text(
+                            "NO",
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontSize: size.height * 0.02,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          TextButton.icon(
-                            icon: Icon(
-                              Icons.check,
-                              color: Colors.green,
-                            ),
-                            style: TextButton.styleFrom(
-                              minimumSize:
-                                  Size(size.width * 0.1, size.height * 0.005),
-                              padding: EdgeInsets.all(0.0),
-                            ),
-                            onPressed: () {
-                              isCommentConfirmed = true;
-                              Navigator.pop(
-                                  context); 
-                            },
-                            label: Text(
-                              "YES",
-                              style: TextStyle(
-                                color: kPrimaryColor,
-                                fontSize: size.height * 0.02,
-                                fontFamily: 'Quicksand',
-                                fontWeight: FontWeight.bold,
-                              ),
+                        ),
+                        TextButton.icon(
+                          icon: Icon(
+                            Icons.check,
+                            color: Colors.green,
+                          ),
+                          style: TextButton.styleFrom(
+                            minimumSize:
+                                Size(size.width * 0.1, size.height * 0.005),
+                            padding: EdgeInsets.all(0.0),
+                          ),
+                          onPressed: () {
+                            isCommentConfirmed = true;
+                            Navigator.pop(
+                                context); 
+                          },
+                          label: Text(
+                            "YES",
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontSize: size.height * 0.02,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               );
             },
           ),
