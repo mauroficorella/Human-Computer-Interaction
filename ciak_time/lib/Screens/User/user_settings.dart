@@ -89,7 +89,7 @@ class _UserSettingsState extends State<UserSettings> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  usermodified,
+                  userlogged,
                   style: TextStyle(
                       fontSize: size.height * 0.025,
                       fontFamily: 'Quicksand-Regular'),
@@ -114,7 +114,7 @@ class _UserSettingsState extends State<UserSettings> {
                                           child: TextFormField(
                                             onChanged: (value) {
                                               setState(() {
-                                                userlogged = value;
+                                                usermodified = value;
                                               });
                                             },
                                             validator: usernameValidator,
@@ -150,7 +150,7 @@ class _UserSettingsState extends State<UserSettings> {
                                                     userlogged !=
                                                         usermodified) {
                                                   setState(() {
-                                                    usermodified = userlogged;
+                                                    userlogged = usermodified;
                                                   });
                                                   Navigator.pop(context);
                                                 } else {}

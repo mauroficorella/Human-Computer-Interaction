@@ -25,13 +25,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final passwordValidator = MultiValidator([
-      RequiredValidator(errorText: 'password is required'),
-      MinLengthValidator(8,
-          errorText: 'password must be at least 8 digits long'),
-      PatternValidator(r'(?=.*?[#?!@$%^&*-])',
-          errorText: 'passwords must have at least one special character')
-    ]);
+    
     return Column(
       children: [
         TextFieldContainer(

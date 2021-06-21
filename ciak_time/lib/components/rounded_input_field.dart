@@ -3,7 +3,7 @@ import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
-class RoundedInputField extends StatelessWidget {
+class RoundedInputField extends StatefulWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
@@ -16,34 +16,46 @@ class RoundedInputField extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _RoundedInputFieldState createState() => _RoundedInputFieldState();
+}
+
+class _RoundedInputFieldState extends State<RoundedInputField> {
+  @override
   Widget build(BuildContext context) {
+    String user;
     Size size = MediaQuery.of(context).size;
     return TextFieldContainer(
       child: TextFormField(
-        //enabled: userEnabled,
-        //readOnly: userEnabled,
         controller: loginUsernameController,
-        onChanged: onChanged,
+        onChanged: widget.onChanged,
         validator: (value) {
+          print(users);
           for (var i = 0; i < users.length; i++) {
-            if (username != users[i]['username'] && username != '') {
+            print(users[i]['username']);
+            if (username != users[i]['username'] && value != '') {
+              user = users[i]['username'];
               return MatchValidator(
                       errorText: 'The inserted username does not exist')
                   .validateMatch(
-                value,
+                username,
                 users[i]['username'],
               );
             }
           }
-            
+          /*return MatchValidator(
+                  errorText: 'The inserted username does not exist')
+              .validateMatch(
+            username,
+            user,
+          );*/
         },
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           icon: Icon(
-            icon,
+            widget.icon,
             color: kPrimaryColor,
           ),
-          hintText: hintText,
+          hintText: widget.hintText,
           hintStyle: TextStyle(
             fontSize: size.height * 0.02,
             fontFamily: 'Quicksand',
