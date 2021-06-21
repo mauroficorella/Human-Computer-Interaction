@@ -20,7 +20,7 @@ class ListCard extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                height: size.width * 0.3,
+                height: size.width * 0.29,
                 width: size.width * 0.2,
                 
                 child: ClipRRect(
