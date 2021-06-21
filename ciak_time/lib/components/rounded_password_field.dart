@@ -33,8 +33,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
             alignment: Alignment.centerRight,
             children: <Widget>[
               TextFormField(
-                //enabled: passwordEnabled,
-                //readOnly: passwordEnabled,
+                
                 onChanged: widget.onChanged,
                 controller: loginPasswordController,
                 obscureText: isHidden,

@@ -522,8 +522,7 @@ class _UserSettingsState extends State<UserSettings> {
                                           googleConnected = false;
                                           facebookConnected = false;
 
-                                          /*userEnabled = true;
-                                          passwordEnabled = true;*/
+                                        
                                           Navigator.popUntil(context,
                                               ModalRoute.withName('/'));
                                           username = '';

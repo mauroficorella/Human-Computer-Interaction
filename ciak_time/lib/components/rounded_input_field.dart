@@ -22,18 +22,17 @@ class RoundedInputField extends StatefulWidget {
 class _RoundedInputFieldState extends State<RoundedInputField> {
   @override
   Widget build(BuildContext context) {
-    String user;
     Size size = MediaQuery.of(context).size;
     return TextFieldContainer(
       child: TextFormField(
         controller: loginUsernameController,
         onChanged: widget.onChanged,
         validator: (value) {
-          print(users);
+          
           for (var i = 0; i < users.length; i++) {
-            print(users[i]['username']);
+            
             if (username == users[i]['username'] ||
-                (username != users[i]['username'] && i == users.length - 1)) {
+                (username != users[i]['username'] && i == users.length - 1 && username != '')) {
               return MatchValidator(
                       errorText: 'The inserted username does not exist')
                   .validateMatch(
@@ -41,26 +40,10 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
                 users[i]['username'],
               );
             }
-            /*else if (username != users[i]['username'] &&
-                i == users.length - 1) {
-              return MatchValidator(
-                      errorText: 'The inserted username does not exist')
-                  .validateMatch(
-                username,
-                users[i]['username'],
-              );
-            }*/
+            
 
           }
-          /*if (username != users[i]['username'] && value != '') {
-              user = users[i]['username'];
-              return MatchValidator(
-                      errorText: 'The inserted username does not exist')
-                  .validateMatch(
-                username,
-                users[i]['username'],
-              );
-            }*/
+          
         },
         
         autovalidateMode: AutovalidateMode.onUserInteraction,

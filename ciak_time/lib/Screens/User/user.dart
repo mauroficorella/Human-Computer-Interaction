@@ -1,9 +1,6 @@
 import 'dart:async';
 
-import 'package:ciak_time/Screens/Homescreen/homescreen.dart';
-import 'package:ciak_time/Screens/Search/search.dart';
 import 'package:ciak_time/Screens/User/profile_pic.dart';
-import 'package:ciak_time/Screens/User/user_settings.dart';
 import 'package:ciak_time/components/card_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';

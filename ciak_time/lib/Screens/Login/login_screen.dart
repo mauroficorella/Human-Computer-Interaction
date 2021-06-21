@@ -1,11 +1,11 @@
-import 'dart:async';
+
 
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
 import 'package:ciak_time/Screens/navbar.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
-import 'package:ciak_time/components/rounded_button.dart';
+
 import 'package:ciak_time/components/rounded_input_field.dart';
 import 'package:ciak_time/components/rounded_password_field.dart';
 import 'package:ciak_time/components/social_icon.dart';

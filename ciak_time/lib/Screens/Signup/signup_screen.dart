@@ -1,4 +1,3 @@
-import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/Signup/components/background.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
 import 'package:ciak_time/components/password_field.dart';
@@ -170,13 +169,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     'username': userregistered,
                                     'password': passwordRegistration,
                                   });
-                                  print(users);
+
                                   userlogged = userregistered;
                                 } else {}
                               });
                               Navigator.popUntil(
                                   context, ModalRoute.withName('/'));
-                              
                             },
                             child: Text(
                               'REGISTER',

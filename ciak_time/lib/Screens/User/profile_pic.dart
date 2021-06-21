@@ -91,8 +91,9 @@ CircleAvatar getCircleAvatar(Size size, bool isFromGallery) {
         radius: size.height * 0.1,
       );
     } else {
+      
       return CircleAvatar(
-        backgroundImage: AssetImage(profilePicPath),
+        backgroundImage: AssetImage(changeProfilePicPath()),
         backgroundColor: Colors.white,
         radius: size.height * 0.1,
       );
