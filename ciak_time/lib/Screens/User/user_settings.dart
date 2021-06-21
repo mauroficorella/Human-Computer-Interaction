@@ -522,14 +522,8 @@ class _UserSettingsState extends State<UserSettings> {
                                           googleConnected = false;
                                           facebookConnected = false;
 
-                                          /*Navigator.of(context,
-                                                  rootNavigator: true)
-                                              .pushReplacement(
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  new LoginScreen(),
-                                            ),
-                                          );*/
+                                          /*userEnabled = false;
+                                          passwordEnabled = false;*/
                                           Navigator.popUntil(context,
                                               ModalRoute.withName('/'));
                                           username = '';

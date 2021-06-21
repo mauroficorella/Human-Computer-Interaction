@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
+
+
 class RoundedPasswordField extends StatefulWidget {
   
   final ValueChanged<String> onChanged;
@@ -37,7 +39,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
             alignment: Alignment.centerRight,
             children: <Widget>[
               TextFormField(
-                enabled: passwordEnabled,
+                //enabled: passwordEnabled,
                 onChanged: widget.onChanged,
                 controller: loginPasswordController,
                 obscureText: isHidden,

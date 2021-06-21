@@ -20,12 +20,13 @@ class RoundedInputField extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return TextFieldContainer(
       child: TextFormField(
-        enabled: userEnabled,
+        //enabled: userEnabled,
+        
         controller: loginUsernameController,
         onChanged: onChanged,
         validator: (value) {
           for (var i = 0; i < users.length; i++) {
-            if (username != users[i]['username']) {
+            if (username != users[i]['username'] && username != '') {
               return MatchValidator(
                       errorText: 'The inserted username does not exist')
                   .validateMatch(

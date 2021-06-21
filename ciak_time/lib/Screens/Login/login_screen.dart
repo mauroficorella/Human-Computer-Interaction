@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
@@ -19,6 +21,17 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  /*FutureOr onGoBack(dynamic value) {
+    setState(() {
+      userEnabled = true;
+      passwordEnabled = true;
+      loginUsernameController.clear();
+      
+      loginPasswordController.clear();
+      
+    });
+  }*/
+
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
@@ -114,7 +127,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                             ConnectivityResult.wifi) &&
                                     (username == users[i]['username'] &&
                                         password == users[i]['password'])) {
-                                  
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -124,12 +136,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ).then((value) {
                                     setState(() {
-                                      userEnabled = true;
-                                      passwordEnabled = true;
                                       loginUsernameController.clear();
-                                      //loginUsernameController.clearComposing();
+
                                       loginPasswordController.clear();
-                                      //loginPasswordController.clearComposing();
                                     });
                                   });
                                 } else {
