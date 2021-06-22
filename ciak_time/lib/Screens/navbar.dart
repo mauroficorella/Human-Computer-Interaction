@@ -245,13 +245,7 @@ class _HomePageState extends State<HomePage>
         }
 
         return false;
-        /*if (!navigator.canPop()) {
-          print("not can pop");
-          return false;
-        }
-        print("Hey");
-        navigator.pop();
-        return false;*/
+        
       },
       child: NotificationListener<ScrollNotification>(
         onNotification: _handleScrollNotification,

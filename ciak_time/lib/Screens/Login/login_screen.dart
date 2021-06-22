@@ -1,6 +1,7 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
+import 'package:ciak_time/Screens/Signup/signup_screen.dart';
 import 'package:ciak_time/Screens/navbar.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
 
@@ -114,16 +115,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                             ConnectivityResult.wifi) &&
                                     (username == users[i]['username'] &&
                                         password == users[i]['password'])) {
-                                  /**/
-                                  
-                                  /*Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return HomePage();
-                                      },
-                                    ),
-                                  )*/
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -234,9 +225,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 children: [
                                                   GestureDetector(
                                                     onTap: () {
-                                                      FocusManager
-                                                          .instance.primaryFocus
-                                                          .unfocus();
                                                       googleConnected = true;
                                                       username = 'Vittoria';
                                                       userlogged = 'Vittoria';
@@ -247,7 +235,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                                             return HomePage();
                                                           },
                                                         ),
-                                                      );
+                                                      ).then((value) {
+                                                        setState(() {
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              .unfocus();
+                                                          loginUsernameController
+                                                              .clear();
+
+                                                          loginPasswordController
+                                                              .clear();
+                                                        });
+                                                      });
                                                     },
                                                     child: Row(
                                                       children: [
@@ -389,8 +388,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                         TextButton(
                                           onPressed: () {
-                                            FocusManager.instance.primaryFocus
-                                                .unfocus();
                                             facebookConnected = true;
                                             username = 'Vittoria';
                                             userlogged = 'Vittoria';
@@ -401,7 +398,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   return HomePage();
                                                 },
                                               ),
-                                            );
+                                            ).then((value) {
+                                              FocusManager.instance.primaryFocus
+                                                  .unfocus();
+
+                                              loginUsernameController.clear();
+
+                                              loginPasswordController.clear();
+                                            });
                                           },
                                           style: TextButton.styleFrom(
                                             backgroundColor: Colors.blue[800],
@@ -446,7 +450,47 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: size.height * 0.03,
                 ),
-                AlreadyHaveAnAccountCheck(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Don't have an Account? ",
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontFamily: 'Quicksand',
+                      ),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        minimumSize:
+                            Size(size.width * 0.1, size.height * 0.005),
+                        padding: EdgeInsets.all(0.0),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return SignUpScreen();
+                            },
+                          ),
+                        ).then((value) {
+                          FocusManager.instance.primaryFocus.unfocus();
+
+                          loginUsernameController.clear();
+
+                          loginPasswordController.clear();
+                        });
+                      },
+                      child: Text("Sign Up",
+                          style: TextStyle(
+                            color: kPrimaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Quicksand',
+                          )),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
@@ -457,12 +501,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Color changeLoginColor() {
     setState(() {
+      print(users);
+      print(username);
       for (var i = 0; i < users.length; i++) {
         if (username != '' &&
             password != '' &&
             username == users[i]['username'] &&
             password == users[i]['password']) {
           loginColor = kPrimaryColor;
+          break;
         } else {
           loginColor = Colors.grey[300];
         }
@@ -480,6 +527,7 @@ class _LoginScreenState extends State<LoginScreen> {
             username == users[i]['username'] &&
             password == users[i]['password']) {
           loginTextColor = Colors.white;
+          break;
         } else {
           loginTextColor = Colors.grey;
         }

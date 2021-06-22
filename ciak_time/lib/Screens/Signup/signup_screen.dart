@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/Signup/components/background.dart';
 import 'package:ciak_time/components/already_have_an_account_check.dart';
 import 'package:ciak_time/components/password_field.dart';
@@ -162,10 +163,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             color: _setRegistrationButtonColor(),
                             onPressed: () {
                               setState(() {
+                                FocusManager.instance.primaryFocus.unfocus();
+
+                                loginUsernameController.clear();
+
+                                loginPasswordController.clear();
                                 if (email != '' &&
                                     userregistered != '' &&
                                     passwordRegistration != '' &&
                                     passwordRegistrationConfirm != '') {
+                                  username = userregistered;
+                                  password = passwordRegistration;
                                   users.add({
                                     'username': userregistered,
                                     'password': passwordRegistration,
@@ -194,8 +202,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       SizedBox(
                         height: size.height * 0.078,
                       ),
-                      AlreadyHaveAnAccountCheck(
-                        login: false,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "Already have an Account? ",
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontFamily: 'Quicksand',
+                            ),
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              minimumSize:
+                                  Size(size.width * 0.1, size.height * 0.005),
+                              padding: EdgeInsets.all(0.0),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return LoginScreen();
+                                  },
+                                ),
+                              ).then((value) {
+                                FocusManager.instance.primaryFocus.unfocus();
+
+                                loginUsernameController.clear();
+
+                                loginPasswordController.clear();
+                              });
+                            },
+                            child: Text("Sign In",
+                                style: TextStyle(
+                                  color: kPrimaryColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Quicksand',
+                                )),
+                          )
+                        ],
                       ),
                     ],
                   ),

@@ -523,9 +523,9 @@ class _UserSettingsState extends State<UserSettings> {
                                           isUserLogged = false;
                                           Navigator.popUntil(context,
                                               ModalRoute.withName('/'));
-                                          /*username = '';
+                                          username = '';
                                           password = '';
-                                          FocusManager.instance.primaryFocus
+                                          /*FocusManager.instance.primaryFocus
                                               .unfocus();
                                           loginUsernameController.clear();
 

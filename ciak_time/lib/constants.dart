@@ -207,10 +207,10 @@ List filedata = [
     'message': 'Great story! Great movie!'
   },
   {
-    'name': 'Venanzina',
+    'name': 'Mary',
     'pic':
         'https://expertphotography.com/wp-content/uploads/2018/10/cool-profile-pictures-aperture.jpg',
-    'message': 'You \'re completely right!'
+    'message': "You're completely right!"
   },
 ];
 
@@ -287,4 +287,3 @@ int setLenght(List list) {
   return len;
 }
 
-//TODO AGGIORNARE NUMERO RECENSIONI QUANDO SI AGGIUNGE UNA NUOVA RECENSIONE (SUCCEDE ANCHE NEI COMMENTI)
