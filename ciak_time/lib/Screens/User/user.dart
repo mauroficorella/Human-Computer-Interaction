@@ -71,6 +71,7 @@ class _UserState extends State<User> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     CardList(
+                      onGoBack: onGoBack,
                       size: size,
                       title: "Watchlist",
                       assetName: "assets/icons/list.svg",
@@ -80,6 +81,7 @@ class _UserState extends State<User> {
                       list: watchList,
                     ),
                     CardList(
+                      onGoBack: onGoBack,
                       size: size,
                       title: "Already watched",
                       assetName: "assets/icons/check.svg",
@@ -89,6 +91,7 @@ class _UserState extends State<User> {
                       list: alreadyWatchedList,
                     ),
                     CardList(
+                      onGoBack: onGoBack,
                       size: size,
                       title: "Favourite",
                       assetName: "assets/icons/heart-red.svg",

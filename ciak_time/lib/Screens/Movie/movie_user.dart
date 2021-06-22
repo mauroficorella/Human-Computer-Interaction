@@ -10,7 +10,6 @@ import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
-import 'package:ciak_time/models/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';

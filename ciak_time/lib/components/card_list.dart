@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ciak_time/components/list_card.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
@@ -14,7 +16,7 @@ class CardList extends StatelessWidget {
     this.number,
     this.height,
     this.width,
-    this.list,
+    this.list, @required this.onGoBack,
   }) : super(key: key);
 
   final Size size;
@@ -23,6 +25,7 @@ class CardList extends StatelessWidget {
   final int number;
   final double height;
   final double width;
+  final FutureOr onGoBack;
 
   final List<Movie> list;
 
@@ -60,7 +63,8 @@ class CardList extends StatelessWidget {
                   onTap: () {
                     movieSelectedFromUser = list[index];
                     Navigator.pushNamed(context, '/movie',
-                        arguments: ScreenArguments("User"));
+                            arguments: ScreenArguments("User"))
+                        .then(onGoBack);
                     FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
                   },
                 ),
