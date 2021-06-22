@@ -1,4 +1,3 @@
-import 'package:ciak_time/Screens/Person/person_home.dart';
 import 'package:ciak_time/Screens/Search/filters_utils.dart';
 import 'package:ciak_time/blocs/search_results_bloc.dart';
 
@@ -26,6 +25,7 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
     Size size = MediaQuery.of(context).size;
     final bloc = SearchResultsBloc(widget.queryString);
     bloc.fetchSearchResults();
+
     return StreamBuilder(
       stream: bloc.searchResults,
       builder: (context, AsyncSnapshot<SearchResultsModel> snapshot) {

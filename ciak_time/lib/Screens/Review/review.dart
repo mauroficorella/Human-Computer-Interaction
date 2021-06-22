@@ -176,7 +176,6 @@ class _InsertReviewState extends State<InsertReview> {
   Color changeSaveColor() {
     setState(() {
       if (reviewController.text.isNotEmpty && newRating != 0) {
-        print(newRating);
         saveColor = kPrimaryColor;
       } else {
         saveColor = kPrimaryLightColor;

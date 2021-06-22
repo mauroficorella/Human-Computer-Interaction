@@ -501,8 +501,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Color changeLoginColor() {
     setState(() {
-      print(users);
-      print(username);
       for (var i = 0; i < users.length; i++) {
         if (username != '' &&
             password != '' &&

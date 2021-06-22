@@ -15,9 +15,6 @@ class SearchResultsModel {
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
-        
-
-       
         SearchResults searchResults = new SearchResults.fromJson(v);
 
         if (v.values.toList()[4] == 'movie') {
@@ -31,8 +28,6 @@ class SearchResultsModel {
         if (v.values.toList()[5] == 'person' && !isFiltersApplied()) {
           results.add(searchResults);
         }
-
-        
       });
     }
     totalPages = json['total_pages'];
@@ -113,13 +108,13 @@ class SearchResults {
     mediaType = json['media_type'];
 
     name = json['name'];
-    
+
     originalLanguage = json['original_language'];
     originalName = json['original_name'];
     overview = json['overview'];
     popularity = json['popularity'];
     posterPath = json['poster_path'];
-    
+
     if (json['vote_average'] != null) {
       voteAverage = json['vote_average'].toDouble();
     }
@@ -127,7 +122,12 @@ class SearchResults {
     voteCount = json['vote_count'];
     adult = json['adult'];
     originalTitle = json['original_title'];
-    releaseDate = json['release_date'];
+    if (json['release_date'] != null) {
+      releaseDate = json['release_date'].toString();
+    } else {
+      releaseDate = null;
+    }
+
     title = json['title'];
     video = json['video'];
     gender = json['gender'];

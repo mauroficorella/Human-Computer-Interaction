@@ -525,20 +525,7 @@ class _UserSettingsState extends State<UserSettings> {
                                               ModalRoute.withName('/'));
                                           username = '';
                                           password = '';
-                                          /*FocusManager.instance.primaryFocus
-                                              .unfocus();
-                                          loginUsernameController.clear();
 
-                                          loginPasswordController.clear();
-                                          
-                                          Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) {
-                                                return LoginScreen();
-                                              },
-                                            ),
-                                          );*/
                                           FlutterStatusbarcolor
                                               .setStatusBarColor(
                                                   Colors.transparent);
