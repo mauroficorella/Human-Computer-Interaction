@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  22 JUN 2021 12:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  22 JUN 2021 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -8,8 +8,8 @@ entering extended mode
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06> (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count167
 \c@section=\count168
@@ -263,23 +263,23 @@ LaTeX Font Info:    ... okay on input line 19.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(14.22636pt, 569.05515pt, 14.22636pt)
+* h-part:(L,W,R)=(42.67912pt, 512.14963pt, 42.67912pt)
 * v-part:(T,H,B)=(42.67912pt, 788.14136pt, 14.22636pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=569.05515pt
+* \textwidth=512.14963pt
 * \textheight=788.14136pt
-* \oddsidemargin=-58.04362pt
-* \evensidemargin=-58.04362pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
 * \topmargin=-66.59087pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=50.0pt
+* \marginparwidth=35.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -312,23 +312,28 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 File: Images/Logo.jpg Graphic file (type jpg)
 <use Images/Logo.jpg>
 Package pdftex.def Info: Images/Logo.jpg  used on input line 41.
-(pdftex.def)             Requested size: 227.61858pt x 234.99083pt.
+(pdftex.def)             Requested size: 204.85672pt x 211.49138pt.
  [1
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/Logo.jpg>] [1] [2] [3] [4] [5] [6] [7] [8] [9] (/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux) ) 
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/Logo.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 60--76
+
+ []
+
+[1] [2] [3] [4] [5] [6] [7] [8] [9] (/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux) ) 
 Here is how much of TeX's memory you used:
- 2918 strings out of 480608
- 40416 string characters out of 5903631
- 290840 words of memory out of 5000000
- 18796 multiletter control sequences out of 15000+600000
- 533849 words of font info for 29 fonts, out of 8000000 for 9000
+ 2917 strings out of 480608
+ 40410 string characters out of 5903631
+ 291842 words of memory out of 5000000
+ 18795 multiletter control sequences out of 15000+600000
+ 533848 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,4n,45p,301b,221s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (10 pages, 95694 bytes).
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (10 pages, 85968 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 50 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
