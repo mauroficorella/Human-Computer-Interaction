@@ -23,11 +23,11 @@ class _MyAppState extends State<MyApp> {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: getHome(),
+      home: LoginScreen(),
     );
   }
 
-  Widget getHome() {
+  /* Widget getHome() {
     setState(() {
       if (isUserLogged == false) {
         home = LoginScreen();
@@ -36,5 +36,5 @@ class _MyAppState extends State<MyApp> {
       }
     });
     return home;
-  }
+  }*/
 }

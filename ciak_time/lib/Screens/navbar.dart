@@ -77,8 +77,6 @@ class _DestinationViewState extends State<DestinationView> {
       ],
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-          
-
           settings: settings,
           builder: (BuildContext context) {
             if (widget.destination.title == "User") {
@@ -242,9 +240,18 @@ class _HomePageState extends State<HomePage>
       onWillPop: () async {
         final NavigatorState navigator =
             _navigatorKeys[_currentIndex].currentState;
-        if (!navigator.canPop()) return true;
-        navigator.pop();
+        if (navigator.canPop()) {
+          navigator.pop();
+        }
+
         return false;
+        /*if (!navigator.canPop()) {
+          print("not can pop");
+          return false;
+        }
+        print("Hey");
+        navigator.pop();
+        return false;*/
       },
       child: NotificationListener<ScrollNotification>(
         onNotification: _handleScrollNotification,
