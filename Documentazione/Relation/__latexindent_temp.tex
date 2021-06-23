@@ -12,6 +12,16 @@ bottom = 5mm]{geometry}
 \usepackage{amsthm}
 \usepackage{bm}
 \usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{array}
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}  %per centrare le colonne nelle tabelle
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}} %per centrare le righe nelle tabelle
+\renewcommand{\arraystretch}{1.2} 
 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \renewcommand{\labelitemii}{$\star$}
@@ -81,7 +91,7 @@ In order to involve as much users as possible, we decided to make our app availa
 
 
 
-% CAPITOLO 1 -------------------------------------------------------------------------
+% Requirement analysis -------------------------------------------------------------------------
 
 \newpage
 
@@ -99,21 +109,140 @@ However, we have identified few weaknesses, such as the impossibility to exchang
 of already watched movies and to save favourite movies in a list; it is also not very intuitive to retrieve movies specific
 information due to the high number of functionality offered by the application.
 
-\paragraph{Cinemaniac:}\mbox{}\\\\
+\paragraph{Cinemaniac}\mbox{}\\\\
 \includegraphics[width=0.4\textwidth]{Images/Cinemaniac.png}\\
 Cinemaniac is an app on which the user can search for a movie and add it to the “Movies to watch”, “Watched movies” or favourite list.
 He can see all the relevant details for any movie and he can leave his own personal grade.
 The user can find suggestions on the most popular and top rated movies. 
-Moreover, he can find a specific list relative to currently projected movies and upcoming titles.
+Moreover, he can find a specific list relative to currently projected movies and upcoming titles.\\
 Also here we have identified some weaknesses, like the fact that the interface is not so user friendly, there is no user interaction,
 there are no information about streaming platforms; moreover the search about movies is not so intuitive and there are 
-in-app purchases required to remove a
+in-app purchases required to remove advertisements and unlock some functionalities.\\
+
+\begin{center}
+	\begin{tabular}{ |p{5cm}||P{3cm}|P{3cm}|P{3cm}|  }
+		\hline
+										&	\textbf{CiakTime}	&	\textbf{IMDb}		&	\textbf{Cinemaniac}\\
+		\hline
+		\textbf{User profile}			& 	\checkmark  &	\checkmark 	&   \xmark\\
+		\hline
+		\textbf{Search}					& 	\checkmark	&	\checkmark 	&	\checkmark\\
+		\hline
+		\textbf{Movie info} 			&	\checkmark	&	\checkmark 	&	\checkmark\\
+		\hline
+		\textbf{Streaming platform} 	&	\checkmark	&	\checkmark 	&	\xmark\\
+		\hline
+		\textbf{Upcoming movies}		&	\checkmark	&	\checkmark 	&	\checkmark\\
+		\hline
+		\textbf{Watch history}			&	\checkmark	&	\xmark		&	\checkmark\\
+		\hline
+		\textbf{Watch list}				&	\checkmark	&	\checkmark 	&	\checkmark\\
+		\hline
+		\textbf{Favourite movies}		&	\checkmark	&	\xmark 		&	\checkmark\\
+		\hline
+		\textbf{Review movies}			&	\checkmark	&	\checkmark 	&	\checkmark\\
+		\hline
+		\textbf{Rate movies}			&	\checkmark	&	\checkmark 	&	\checkmark\\
+		\hline
+		\textbf{Comment other reviews} 	&	\checkmark	&	\xmark 		&	\xmark\\
+		\hline
+		\textbf{Like other reviews} 	&	\checkmark	&	\checkmark 	&	\xmark\\ %TODO ho cambiato con like
+		\hline
+		\textbf{No ads}					&	\checkmark	&	\checkmark 	&	\xmark\\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsection{Questionnaire analysis}
+
+
+\subsection{User analysis}
+
+\begin{center}
+	\begin{tabular}{ |p{3cm}||P{7cm}|  }
+		\hline
+		\textbf{Age}			& 	18-50 years  				\\
+		\hline
+		\textbf{Gender}			& 	male/female					\\
+		\hline
+		\textbf{Profession} 	&	Any							\\
+		\hline
+		\textbf{Education} 	 	&	Any							\\
+		\hline
+		\textbf{Location}		&	Any							\\
+		\hline
+		\textbf{Tecnology}		&	Basic smartphone experience	\\
+		\hline
+		\textbf{Passions}		&	Cinema, movies				\\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Persona 1 - Vittoria}
+
+\begin{minipage}{0.25\textwidth}
+	\includegraphics[width=1\textwidth]{images/vittoria.png}
+\end{minipage}
+\hspace{0.02\linewidth}
+\begin{minipage}{0.7\textwidth} 
+	\textbf{Age:} 25 years-old \\
+	\textbf{Gender:} Female\\
+	\textbf{Profession:} Student\\
+	\textbf{Education:} University level\\
+	\textbf{Location:} Rome, Italy\\
+	\textbf{Tecnology:} \\
+	\textbf{Passions:} Watching movies and tv-series on streaming platforms \\
+\end{minipage}
+
+\paragraph{Persona}\mbox{}\\
+Vittoria is 25 years-old and comes from Rome. She is a university student and in the free 
+time her main hobby is watching movies and tv-series on her favourite streaming platforms. 
+During her study breaks she likes to keep in touch with her friends on various social apps.
+
+\paragraph{Scenario}\mbox{}\\
+Vittoria has just terminated an intense study session and now she only wants to 
+relax watching a movie. She decides to call her best friend to spend the evening together. 
+Once she arrives, in order to choose which movie to watch, they both open the app to 
+compare their watchlists. After a while they realize that both have “La La Land“ in their 
+watchlists and so decide to watch it together.
+At the end of the evening they both check it as “watched“ in their app. 
+
+\subsubsection{Persona 1 - Emanuele}
+
+\begin{minipage}{0.25\textwidth}
+	\includegraphics[width=1\textwidth]{images/emanuele.png}
+\end{minipage}
+\hspace{0.02\linewidth}
+\begin{minipage}{0.6\textwidth} 
+	\textbf{Age:} 33 years-old\\
+	\textbf{Gender:} Male\\
+	\textbf{Profession:} Programmer\\
+	\textbf{Education:} \\
+	\textbf{Location:} Torino, Italy\\
+	\textbf{Tecnology:} High level\\
+	\textbf{Passions:} \\
+\end{minipage}
+
+\paragraph{Persona}\mbox{}\\
+Emanuele is 33 years-old and comes from Torino. He is a programmer and he likes 
+very much going to the cinema with his girlfriend. 
+As a programmer, he is addicted of technology in general, and more specific of mobile 
+devices; moreover he is a very organized guy, and so he likes to keep under control 
+everything he does in his life using mobile apps.
+
+\paragraph{Scenario}\mbox{}\\
+It is an afternoon autumn day. Emanuele and his girlfriend would have liked to go 
+out for a walk, but since it’s raining, they don’t know what to do. So, Emanuele opens 
+the app in search of new movies available in cinemas. In this list he founds that is just 
+available a new action movie with his favourite actor Vin Diesel; since also his 
+girlfriend likes action movies, they decide to go to the cinema to watch it and spend 
+a good afternoon together.
 
 % CAPITOLO 2 -------------------------------------------------------------------------
 
 \newpage
 
-\section*{NOME}
+\section{Task analysis: HTA and STN}
 
 % CAPITOLO 3 -------------------------------------------------------------------------
 

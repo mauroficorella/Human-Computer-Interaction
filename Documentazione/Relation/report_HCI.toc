@@ -1,5 +1,14 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{}%
-\contentsline {section}{\numberline {2}Requirement analysis}{3}{}%
-\contentsline {subsection}{\numberline {2.1}Competitor analysis}{3}{}%
-\contentsline {paragraph}{IMDb}{3}{}%
-\contentsline {paragraph}{Cinemaniac}{3}{}%
+\contentsline {section}{\numberline {1}Introduction}{2}%
+\contentsline {section}{\numberline {2}Requirement analysis}{3}%
+\contentsline {subsection}{\numberline {2.1}Competitor analysis}{3}%
+\contentsline {paragraph}{IMDb}{3}%
+\contentsline {paragraph}{Cinemaniac}{3}%
+\contentsline {subsection}{\numberline {2.2}Questionnaire analysis}{4}%
+\contentsline {subsection}{\numberline {2.3}User analysis}{4}%
+\contentsline {subsubsection}{\numberline {2.3.1}Persona 1 - Vittoria}{4}%
+\contentsline {paragraph}{Persona}{4}%
+\contentsline {paragraph}{Scenario}{4}%
+\contentsline {subsubsection}{\numberline {2.3.2}Persona 1 - Emanuele}{4}%
+\contentsline {paragraph}{Persona}{4}%
+\contentsline {paragraph}{Scenario}{5}%
+\contentsline {section}{\numberline {3}Task analysis: HTA and STN}{6}%
