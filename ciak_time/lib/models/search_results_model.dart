@@ -122,11 +122,12 @@ class SearchResults {
     voteCount = json['vote_count'];
     adult = json['adult'];
     originalTitle = json['original_title'];
-    if (json['release_date'] != null) {
+    releaseDate = json['release_date'];
+    /*if (json['release_date'] != null) {
       releaseDate = json['release_date'].toString();
     } else {
       releaseDate = null;
-    }
+    }*/
 
     title = json['title'];
     video = json['video'];

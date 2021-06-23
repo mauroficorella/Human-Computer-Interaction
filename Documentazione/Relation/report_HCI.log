@@ -1,165 +1,163 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  22 JUN 2021 17:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.3)  23 JUN 2021 11:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.tex
-(/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.tex
-LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06> (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+**/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.tex
+(/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count167
-\c@section=\count168
-\c@subsection=\count169
-\c@subsubsection=\count170
-\c@paragraph=\count171
-\c@subparagraph=\count172
-\c@figure=\count173
-\c@table=\count174
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen134
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+\bibindent=\dimen138
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count175
-\Gm@cntv=\count176
-\c@Gm@tempcnt=\count177
-\Gm@bindingoffset=\dimen135
-\Gm@wd@mp=\dimen136
-\Gm@odd@mp=\dimen137
-\Gm@even@mp=\dimen138
-\Gm@layoutwidth=\dimen139
-\Gm@layoutheight=\dimen140
-\Gm@layouthoffset=\dimen141
-\Gm@layoutvoffset=\dimen142
+\Gm@cnth=\count187
+\Gm@cntv=\count188
+\c@Gm@tempcnt=\count189
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks16
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2020/01/20 v2.17e AMS math features
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip49
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
-\ex@=\dimen143
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
+\ex@=\dimen147
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen144
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen148
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count178
-LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count179
-\leftroot@=\count180
-LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count181
-\DOTSCASE@=\count182
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box45
-\strutbox@=\box46
-\big@size=\dimen145
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count183
-\c@MaxMatrixCols=\count184
+\inf@bad=\count190
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count191
+\leftroot@=\count192
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count193
+\DOTSCASE@=\count194
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen149
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count195
+\c@MaxMatrixCols=\count196
 \dotsspace@=\muskip16
-\c@parentequation=\count185
-\dspbrk@lvl=\count186
+\c@parentequation=\count197
+\dspbrk@lvl=\count198
 \tag@help=\toks18
-\row@=\count187
-\column@=\count188
-\maxfields@=\count189
+\row@=\count199
+\column@=\count266
+\maxfields@=\count267
 \andhelp@=\toks19
-\eqnshift@=\dimen146
-\alignsep@=\dimen147
-\tagshift@=\dimen148
-\tagwidth@=\dimen149
-\totwidth@=\dimen150
-\lineht@=\dimen151
+\eqnshift@=\dimen150
+\alignsep@=\dimen151
+\tagshift@=\dimen152
+\tagwidth@=\dimen153
+\totwidth@=\dimen154
+\lineht@=\dimen155
 \@envbody=\toks20
 \multlinegap=\skip50
 \multlinetaggap=\skip51
 \mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2859.
-LaTeX Info: Redefining \] on input line 2860.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen152
-\Gin@req@width=\dimen153
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/algorithms/algorithm.sty
+\Gin@req@height=\dimen156
+\Gin@req@width=\dimen157
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
- (/usr/local/texlive/2020/texmf-dist/tex/latex/float/float.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count190
+\c@float@type=\count268
 \float@exts=\toks22
-\float@box=\box47
+\float@box=\box49
 \@float@everytoks=\toks23
-\@floatcapt=\box48
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+\@floatcapt=\box50
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks24
-\c@algorithm=\count191
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/algorithms/algorithmic.sty
+\c@algorithm=\count269
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count192
-\c@ALC@line=\count193
-\c@ALC@rem=\count194
-\c@ALC@depth=\count195
+\c@ALC@unique=\count270
+\c@ALC@line=\count271
+\c@ALC@rem=\count272
+\c@ALC@depth=\count273
 \ALC@tlm=\skip52
 \algorithmicindent=\skip53
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/multicol.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count196
-\mult@box=\box49
-\multicol@leftmargin=\dimen154
-\c@unbalance=\count197
-\c@collectmore=\count198
-\doublecol@number=\count199
-\multicoltolerance=\count266
-\multicolpretolerance=\count267
-\full@width=\dimen155
-\page@free=\dimen156
-\premulticols=\dimen157
-\postmulticols=\dimen158
+\c@tracingmulticols=\count274
+\mult@box=\box51
+\multicol@leftmargin=\dimen158
+\c@unbalance=\count275
+\c@collectmore=\count276
+\doublecol@number=\count277
+\multicoltolerance=\count278
+\multicolpretolerance=\count279
+\full@width=\dimen159
+\page@free=\dimen160
+\premulticols=\dimen161
+\postmulticols=\dimen162
 \multicolsep=\skip54
 \multicolbaselineskip=\skip55
-\partial@page=\box50
-\last@line=\box51
-\maxbalancingoverflow=\dimen159
-\mult@rightbox=\box52
-\mult@grightbox=\box53
-\mult@gfirstbox=\box54
-\mult@firstbox=\box55
-\@tempa=\box56
-\@tempa=\box57
+\partial@page=\box52
+\last@line=\box53
+\maxbalancingoverflow=\dimen163
+\mult@rightbox=\box54
+\mult@grightbox=\box55
+\mult@gfirstbox=\box56
+\mult@firstbox=\box57
 \@tempa=\box58
 \@tempa=\box59
 \@tempa=\box60
@@ -195,17 +193,19 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box90
 \@tempa=\box91
 \@tempa=\box92
-\c@minrows=\count268
-\c@columnbadness=\count269
-\c@finalcolumnbadness=\count270
-\last@try=\dimen160
-\multicolovershoot=\dimen161
-\multicolundershoot=\dimen162
-\mult@nat@firstbox=\box93
-\colbreak@box=\box94
-\mc@col@check@num=\count271
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2017/10/31 v2.20.4
+\@tempa=\box93
+\@tempa=\box94
+\c@minrows=\count280
+\c@columnbadness=\count281
+\c@finalcolumnbadness=\count282
+\last@try=\dimen164
+\multicolovershoot=\dimen165
+\multicolundershoot=\dimen166
+\mult@nat@firstbox=\box95
+\colbreak@box=\box96
+\mc@col@check@num=\count283
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks25
 \thm@bodyfont=\toks26
 \thm@headfont=\toks27
@@ -215,15 +215,15 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@postskip=\skip57
 \thm@headsep=\skip58
 \dth@everypar=\toks30
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/bm.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup4
 \symboldletters=\mathgroup5
 \symboldsymbols=\mathgroup6
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 209.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip59
 \f@nch@O@elh=\skip60
 \f@nch@O@erh=\skip61
@@ -233,11 +233,11 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 \f@nch@O@erf=\skip65
 \f@nch@O@olf=\skip66
 \f@nch@O@orf=\skip67
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count272
-\l__pdf_internal_box=\box95
-) (/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count284
+\l__pdf_internal_box=\box97
+) (/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux)
 \openout1 = `report_HCI.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -289,23 +289,23 @@ LaTeX Font Info:    ... okay on input line 19.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count273
-\scratchdimen=\dimen163
-\scratchbox=\box96
-\nofMPsegments=\count274
-\nofMParguments=\count275
+\scratchcounter=\count285
+\scratchdimen=\dimen167
+\scratchbox=\box98
+\nofMPsegments=\count286
+\nofMParguments=\count287
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count276
-\MPscratchDim=\dimen164
-\MPnumerator=\count277
-\makeMPintoPDFobject=\count278
+\MPscratchCnt=\count288
+\MPscratchDim=\dimen168
+\MPnumerator=\count289
+\makeMPintoPDFobject=\count290
 \everyMPtoPDFconversion=\toks32
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 <Images/Logo.jpg, id=1, 232.61906pt x 240.14719pt>
@@ -315,25 +315,55 @@ Package pdftex.def Info: Images/Logo.jpg  used on input line 41.
 (pdftex.def)             Requested size: 204.85672pt x 211.49138pt.
  [1
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/Logo.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 60--76
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/Logo.jpg>] (/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.toc)
+\tf@toc=\write3
+\openout3 = `report_HCI.toc'.
+
+ [1]
+Underfull \hbox (badness 10000) in paragraph at lines 61--79
 
  []
 
-[1] [2] [3] [4] [5] [6] [7] [8] [9] (/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--79
+
+ []
+
+[2]
+<Images/IMDb.png, id=16, 541.02126pt x 103.38625pt>
+File: Images/IMDb.png Graphic file (type png)
+<use Images/IMDb.png>
+Package pdftex.def Info: Images/IMDb.png  used on input line 93.
+(pdftex.def)             Requested size: 204.85672pt x 39.14677pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--101
+
+ []
+
+<Images/Cinemaniac.png, id=18, 541.02126pt x 103.38625pt>
+File: Images/Cinemaniac.png Graphic file (type png)
+<use Images/Cinemaniac.png>
+Package pdftex.def Info: Images/Cinemaniac.png  used on input line 103.
+(pdftex.def)             Requested size: 204.85672pt x 39.14677pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--111
+
+ []
+
+[3 </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/IMDb.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/Cinemaniac.png>] [4] [5] [6] [7] [8] [9] [10] (/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux) ) 
 Here is how much of TeX's memory you used:
- 2917 strings out of 480608
- 40410 string characters out of 5903631
- 291842 words of memory out of 5000000
- 18795 multiletter control sequences out of 15000+600000
- 533848 words of font info for 29 fonts, out of 8000000 for 9000
+ 3073 strings out of 478994
+ 43556 string characters out of 5858185
+ 349025 words of memory out of 5000000
+ 20521 multiletter control sequences out of 15000+600000
+ 411426 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,4n,45p,301b,221s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (10 pages, 85968 bytes).
+ 68i,4n,74p,307b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on /Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (11 pages, 162606 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
