@@ -23,6 +23,17 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    if (widget.queryString == "") {
+      return Center(
+          child: Text(
+        "No results found.\n\nWrite something before starting the search.",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 17.0,
+        ),
+      ));
+    }
+
     final bloc = SearchResultsBloc(widget.queryString);
     bloc.fetchSearchResults();
 
@@ -30,8 +41,9 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
       stream: bloc.searchResults,
       builder: (context, AsyncSnapshot<SearchResultsModel> snapshot) {
         if (snapshot.hasData) {
-          sortSearchResults(snapshot);
-
+          if (selected_most_recent || selected_most_added || selected_rate) {
+            sortSearchResults(snapshot);
+          }
           return buildList(snapshot, size);
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
@@ -70,7 +82,14 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
 
   Widget buildList(AsyncSnapshot<SearchResultsModel> snapshot, size) {
     if (snapshot.data.results.isEmpty) {
-      return Center(child: Text("No results found"));
+      return Center(
+          child: Text(
+        'No results found for "${widget.queryString}".',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 17.0,
+        ),
+      ));
     } else {
       return Padding(
         padding: EdgeInsets.only(top: size.height * 0.08),

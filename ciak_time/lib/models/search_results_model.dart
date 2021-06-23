@@ -122,12 +122,8 @@ class SearchResults {
     voteCount = json['vote_count'];
     adult = json['adult'];
     originalTitle = json['original_title'];
-    releaseDate = json['release_date'];
-    /*if (json['release_date'] != null) {
-      releaseDate = json['release_date'].toString();
-    } else {
-      releaseDate = null;
-    }*/
+
+    releaseDate = json['release_date'] == null ? null : json['release_date'];
 
     title = json['title'];
     video = json['video'];
@@ -215,7 +211,9 @@ class KnownFor {
     originalTitle = json['original_title'];
     overview = json['overview'];
     posterPath = json['poster_path'];
-    releaseDate = json['release_date'];
+    if (json['release_date'] != null) {
+      releaseDate = json['release_date'];
+    }
     title = json['title'];
     video = json['video'];
     voteAverage = json['vote_average'].toDouble();

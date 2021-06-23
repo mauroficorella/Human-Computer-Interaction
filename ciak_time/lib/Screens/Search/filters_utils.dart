@@ -22,23 +22,26 @@ bool isFiltersApplied() {
   return filterSelected;
 }
 
-dynamic sortSearchResults(snapshot) {
+void sortSearchResults(snapshot) {
   if (selected_most_recent) {
-    snapshot = prepareResults(snapshot);
     snapshot.data.results.sort((a, b) {
-      var df1 = DateTime.tryParse(a.releaseDate);
-      var df2 = DateTime.tryParse(b.releaseDate);
-      return df2.compareTo(df1);
+      if (a.releaseDate == null || a.releaseDate == "") {
+        return 1;
+      } else if (b.releaseDate == null || b.releaseDate == "") {
+        return -1;
+      } else {
+        var df1 = DateTime.tryParse(a.releaseDate);
+        var df2 = DateTime.tryParse(b.releaseDate);
+        return df2.compareTo(df1);
+      }
     });
   } else if (selected_most_added) {
-    prepareResults(snapshot);
     snapshot.data.results.sort((a, b) {
       double p1 = a.popularity;
       double p2 = b.popularity;
       return p2.compareTo(p1);
     });
   } else if (selected_rate) {
-    prepareResults(snapshot);
     snapshot.data.results.sort((a, b) {
       double r1 = a.voteAverage;
       double r2 = b.voteAverage;
@@ -125,24 +128,4 @@ void checkFilterResults(
           horror == false)) {
     results.add(searchResults);
   }
-}
-
-dynamic prepareResults(snapshot) {
-  for (var i = 0; i < snapshot.data.results.length; i++) {
-    if (((snapshot.data.results[i].releaseDate == null ||
-                snapshot.data.results[i].releaseDate == '') &&
-            snapshot.data.results[i].mediaType == 'movie') ||
-        snapshot.data.results[i].mediaType == 'person') {
-      snapshot.data.results.removeAt(i);
-    }
-    /*if (snapshot.data.results[i].mediaType == 'movie' &&
-        snapshot.data.results[i].releaseDate != '') {
-      prova.add(snapshot.data.results[i]);
-    }*/
-    print(snapshot.data.results[i].releaseDate);
-    print(snapshot.data.results[i].title);
-    print(snapshot.data.results[i].mediaType);
-  }
-
-  return snapshot;
 }
