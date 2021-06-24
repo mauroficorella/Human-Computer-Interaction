@@ -1,14 +1,27 @@
-\contentsline {section}{\numberline {1}Introduction}{2}%
-\contentsline {section}{\numberline {2}Requirement analysis}{3}%
-\contentsline {subsection}{\numberline {2.1}Competitor analysis}{3}%
-\contentsline {paragraph}{IMDb}{3}%
-\contentsline {paragraph}{Cinemaniac}{3}%
-\contentsline {subsection}{\numberline {2.2}Questionnaire analysis}{4}%
-\contentsline {subsection}{\numberline {2.3}User analysis}{4}%
-\contentsline {subsubsection}{\numberline {2.3.1}Persona 1 - Vittoria}{4}%
-\contentsline {paragraph}{Persona}{4}%
-\contentsline {paragraph}{Scenario}{4}%
-\contentsline {subsubsection}{\numberline {2.3.2}Persona 1 - Emanuele}{4}%
-\contentsline {paragraph}{Persona}{4}%
-\contentsline {paragraph}{Scenario}{5}%
-\contentsline {section}{\numberline {3}Task analysis: HTA and STN}{6}%
+\contentsline {section}{\numberline {1}Introduction}{2}{}%
+\contentsline {section}{\numberline {2}Requirement analysis}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Competitor analysis}{3}{}%
+\contentsline {paragraph}{IMDb}{3}{}%
+\contentsline {paragraph}{Cinemaniac}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Questionnaire analysis}{4}{}%
+\contentsline {paragraph}{What's your age?}{4}{}%
+\contentsline {paragraph}{What's your gender?}{4}{}%
+\contentsline {paragraph}{What's your educational level?}{4}{}%
+\contentsline {paragraph}{How frequently do you use your smartphone on average?}{5}{}%
+\contentsline {paragraph}{How many times do you go to the cinema on average? (Before pandemic)}{5}{}%
+\contentsline {paragraph}{How many times do you watch movies on streaming platforms/tv on average?}{5}{}%
+\contentsline {paragraph}{Which streaming platforms do you know?}{5}{}%
+\contentsline {paragraph}{Which streaming platforms do you use?}{6}{}%
+\contentsline {paragraph}{Do you use any movies related app?}{6}{}%
+\contentsline {paragraph}{If you use any movies related app, which one?}{6}{}%
+\contentsline {paragraph}{If you don't use any movies related app, how much would you be interest in using one?}{6}{}%
+\contentsline {paragraph}{How much do you think the following features are important in such an app?}{7}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Conclusions}{7}{}%
+\contentsline {subsection}{\numberline {2.3}User analysis}{7}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}Persona 1 - Vittoria}{7}{}%
+\contentsline {paragraph}{Persona}{8}{}%
+\contentsline {paragraph}{Scenario}{8}{}%
+\contentsline {subsubsection}{\numberline {2.3.2}Persona 2 - Emanuele}{8}{}%
+\contentsline {paragraph}{Persona}{8}{}%
+\contentsline {paragraph}{Scenario}{8}{}%
+\contentsline {section}{\numberline {3}Task analysis: HTA and STN}{9}{}%

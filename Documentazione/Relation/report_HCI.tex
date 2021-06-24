@@ -120,8 +120,9 @@ there are no information about streaming platforms; moreover the search about mo
 in-app purchases required to remove advertisements and unlock some functionalities.\\
 
 \begin{center}
-	\begin{tabular}{ |p{5cm}||P{3cm}|P{3cm}|P{3cm}|  }
-		\hline
+	\begin{tabular}{ |p{5cm}|P{3cm}|P{3cm}|P{3cm}|  }
+		\cline{2-4}
+    	\multicolumn{1}{c|}{}
 										&	\textbf{CiakTime}	&	\textbf{IMDb}		&	\textbf{Cinemaniac}\\
 		\hline
 		\textbf{User profile}			& 	\checkmark  &	\checkmark 	&   \xmark\\
@@ -146,7 +147,7 @@ in-app purchases required to remove advertisements and unlock some functionaliti
 		\hline
 		\textbf{Comment other reviews} 	&	\checkmark	&	\xmark 		&	\xmark\\
 		\hline
-		\textbf{Like other reviews} 	&	\checkmark	&	\checkmark 	&	\xmark\\ %TODO ho cambiato con like
+		\textbf{Like other reviews} 	&	\checkmark	&	\checkmark 	&	\xmark\\ 
 		\hline
 		\textbf{No ads}					&	\checkmark	&	\checkmark 	&	\xmark\\
 		\hline
@@ -155,11 +156,67 @@ in-app purchases required to remove advertisements and unlock some functionaliti
 
 \subsection{Questionnaire analysis}
 
+Questionnaires are a useful method to investigate user needs, expectations, perspectives, priorities and preferences.
+They are useful in user requirement but also in evaluation phase to investigate user satisfaction, user attitudes and opinions, relevance of collections and services to user needs, trends.
+We designed the questionnaire in such a way that each question was clearly written, in order to not lead the user to a specific answer and to
+always make them feel confortable while answering.
+Below we present the questionnaire results used to better understand the target of potential users in order to have a better refinement of
+some aspects of our application.
+More precisely, we reached 151 people, and so we had a good number of answers, statistically speaking.
+
+\paragraph{What's your age?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/age.png}
+
+\paragraph{What's your gender?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/gender.png}
+
+\paragraph{What's your educational level?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/education.png}\\\\\\\\\\\\\\
+
+
+\paragraph{How frequently do you use your smartphone on average?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/timeAtPhone.png}
+
+\paragraph{How many times do you go to the cinema on average? (Before pandemic)}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/timeAtCinema.png}
+
+\paragraph{How many times do you watch movies on streaming platforms/tv on average?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/timeStreaming.png}
+
+\paragraph{Which streaming platforms do you know?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/streamingPlatform.png}\\
+
+\paragraph{Which streaming platforms do you use?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/streamingPlatformUsed.png}
+
+\paragraph{Do you use any movies related app?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{Images/app.png}
+
+\paragraph{If you use any movies related app, which one?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{images/appUsed.png}
+
+\paragraph{If you don't use any movies related app, how much would you be interest in using one?}\mbox{}\\\\
+\includegraphics[width=0.7\textwidth]{images/interesting.png}\\\\\\\\\\
+
+\paragraph{How much do you think the following features are important in such an app?}\mbox{}\\\\
+\includegraphics[width=1\textwidth]{Images/features.png}
+
+\subsubsection{Conclusions}
+After having analyzed the results obtained from the questionnaires, we have formalized the following conclusions:
+\begin{itemize}
+\setlength\itemsep{0.01em}
+	\item Regarding ages, we noticed that there is no predominant range, but they are more or less equally distributed between 18 and 50, and the majority of them are women.
+	\item The majority of them uses smartphone more than 3 hours per day.
+	\item Since we noticed that the majority of people rarely goes to cinema and conversely watches very often movies on streaming platform, we decided to focus our app on this feature. 
+	\item Moreover, given the fact that a very high number of people does not use a movie related app and that the majority of them would be interested in doing this, we thought that the idea of such an app would be very appreciated.
+	\item Finally, from the last question, emerge the most wanted features such as have informations about movies, have the possibility to add movies to lists and have informations about upcoming movies, and so we decided to focused on them.
+\end{itemize}
+
 
 \subsection{User analysis}
 
 \begin{center}
-	\begin{tabular}{ |p{3cm}||P{7cm}|  }
+	\begin{tabular}{ |p{3cm}|P{7cm}|  }
 		\hline
 		\textbf{Age}			& 	18-50 years  				\\
 		\hline
@@ -207,7 +264,7 @@ compare their watchlists. After a while they realize that both have “La La Lan
 watchlists and so decide to watch it together.
 At the end of the evening they both check it as “watched“ in their app. 
 
-\subsubsection{Persona 1 - Emanuele}
+\subsubsection{Persona 2 - Emanuele}
 
 \begin{minipage}{0.25\textwidth}
 	\includegraphics[width=1\textwidth]{images/emanuele.png}
