@@ -1,5 +1,6 @@
 import 'package:ciak_time/Screens/Search/components/floating_button.dart';
 import 'package:ciak_time/components/search_movie_results_list.dart';
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultsListView extends StatefulWidget {
@@ -36,25 +37,28 @@ class _SearchResultsListViewState extends State<SearchResultsListView> {
           ],
         ),
       );
-    }
-
-    return Stack(
-      children: <Widget>[
-        
-        SearchMovieResultsList(
-          queryString: widget.searchTerm,
-        ),
-        Positioned(
-          bottom: size.width * 0.02,
-          right: size.width * 0.28,
-          left: size.width * 0.28,
-          child: FloatingButton(
-            callback: widget.callback,
-            size: size,
-            selectedTerm: widget.searchTerm,
+    } else if (tabSelected == "Person") {
+      return SearchMovieResultsList(
+        queryString: widget.searchTerm,
+      );
+    } else {
+      return Stack(
+        children: <Widget>[
+          SearchMovieResultsList(
+            queryString: widget.searchTerm,
           ),
-        ),
-      ],
-    );
+          Positioned(
+            bottom: size.width * 0.02,
+            right: size.width * 0.28,
+            left: size.width * 0.28,
+            child: FloatingButton(
+              callback: widget.callback,
+              size: size,
+              selectedTerm: widget.searchTerm,
+            ),
+          ),
+        ],
+      );
+    }
   }
 }

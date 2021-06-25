@@ -122,6 +122,7 @@ String changeProfilePicPath() {
 String profilePicPath;
 File image;
 bool isFromGallery = false;
+String tabSelected = "Movie";
 
 Widget content = CardsWidget();
 
@@ -291,13 +292,13 @@ int setLenght(List list) {
 }
 
 Color getColor(Set<MaterialState> states) {
-    const Set<MaterialState> interactiveStates = <MaterialState>{
-      MaterialState.pressed,
-      MaterialState.hovered,
-      MaterialState.focused,
-    };
-    if (states.any(interactiveStates.contains)) {
-      return Colors.blue;
-    }
-    return Colors.red;
+  const Set<MaterialState> interactiveStates = <MaterialState>{
+    MaterialState.pressed,
+    MaterialState.hovered,
+    MaterialState.focused,
+  };
+  if (states.any(interactiveStates.contains)) {
+    return Colors.blue;
   }
+  return Colors.red;
+}
