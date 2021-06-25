@@ -204,7 +204,6 @@ class _SearchState extends State<Search> {
                 Material(
                   color: kPrimaryColor,
                   child: TabBar(
-                    physics: NeverScrollableScrollPhysics(),
                     onTap: (index) {
                       if (index == 0) {
                         tabSelected = "Movie";
@@ -246,6 +245,7 @@ class _SearchState extends State<Search> {
                 Expanded(
                   flex: 1,
                   child: TabBarView(
+                    physics: NeverScrollableScrollPhysics(),
                     children: [
                       new Container(
                         child: content,
