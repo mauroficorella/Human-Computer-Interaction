@@ -14,11 +14,13 @@ class CardsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SafeArea(
+    return MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
       child: Column(
         children: [
           SizedBox(
-            height: size.height * 0.0785,
+            height: size.height * 0.025,
           ),
           Expanded(
             child: SingleChildScrollView(

@@ -8,7 +8,8 @@ class SearchResultsListView extends StatefulWidget {
 
   const SearchResultsListView({
     Key key,
-    @required this.searchTerm, @required this.callback,
+    @required this.searchTerm,
+    @required this.callback,
   }) : super(key: key);
 
   @override
@@ -39,6 +40,7 @@ class _SearchResultsListViewState extends State<SearchResultsListView> {
 
     return Stack(
       children: <Widget>[
+        
         SearchMovieResultsList(
           queryString: widget.searchTerm,
         ),
@@ -46,7 +48,8 @@ class _SearchResultsListViewState extends State<SearchResultsListView> {
           bottom: size.width * 0.02,
           right: size.width * 0.28,
           left: size.width * 0.28,
-          child: FloatingButton(callback: widget.callback,
+          child: FloatingButton(
+            callback: widget.callback,
             size: size,
             selectedTerm: widget.searchTerm,
           ),

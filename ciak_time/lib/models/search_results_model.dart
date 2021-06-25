@@ -17,7 +17,7 @@ class SearchResultsModel {
       json['results'].forEach((v) {
         SearchResults searchResults = new SearchResults.fromJson(v);
 
-        if (v.values.toList()[4] == 'movie') {
+        if (v.values.toList()[4] == 'movie' && isMovieChecked) {
           if (isFiltersApplied()) {
             checkFilterResults(results, searchResults, v);
             filteredMoviesList = [];
@@ -25,7 +25,10 @@ class SearchResultsModel {
             results.add(searchResults);
           }
         }
-        if (v.values.toList()[5] == 'person' && !isFiltersApplied()) {
+        /*if (v.values.toList()[5] == 'person' && !isFiltersApplied()) {
+          results.add(searchResults);
+        }*/
+        if (v.values.toList()[5] == 'person' && isPersonChecked) {
           results.add(searchResults);
         }
       });

@@ -20,6 +20,18 @@ class SearchMovieResultsList extends StatefulWidget {
 }
 
 class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
+  Color getColor(Set<MaterialState> states) {
+    const Set<MaterialState> interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    if (states.any(interactiveStates.contains)) {
+      return Colors.blue;
+    }
+    return Colors.amber;
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -91,8 +103,9 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
         ),
       ));
     } else {
-      return Padding(
-        padding: EdgeInsets.only(top: size.height * 0.08),
+      return MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
         child: ListView.builder(
             scrollDirection: Axis.vertical,
             itemCount: snapshot.data.results.length,

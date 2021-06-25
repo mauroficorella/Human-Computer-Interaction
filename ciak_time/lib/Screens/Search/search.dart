@@ -78,10 +78,13 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    
+
     return Scaffold(
       body: StatefulBuilder(builder: (context, setState) {
-        return FloatingSearchBar(
+        return FloatingSearchAppBar(
+          alwaysOpened: true,
+          color: kPrimaryColor,
+          colorOnScroll: kPrimaryColor,
           onFocusChanged: (isFocused) {
             setState(() {
               content = new SearchResultsListView(
@@ -90,11 +93,15 @@ class _SearchState extends State<Search> {
               );
             });
           },
+          accentColor: Colors.amber,
+          iconColor: Colors.white,
+          hintStyle: TextStyle(color: navBarColor),
+          titleStyle: TextStyle(color: Colors.white),
           controller: controller,
           automaticallyImplyBackButton: false,
-          transition: CircularFloatingSearchBarTransition(),
-          physics: BouncingScrollPhysics(),
-          leadingActions: [
+          //transition: CircularFloatingSearchBarTransition(),
+          //physics: BouncingScrollPhysics(),
+          /*leadingActions: [
             FloatingSearchBarAction(
               showIfClosed: false,
               showIfOpened: true,
@@ -103,9 +110,11 @@ class _SearchState extends State<Search> {
                 onPressed: () {},
               ),
             ),
-          ],
-          title: Text(
-            selectedTerm ?? 'Search',
+          ],*/
+          //title: Center(child: Text("Search",)),
+
+          /*Text(
+            selectedTerm ?? '',
             style: selectedTerm == null
                 ? TextStyle(
                     color: Colors.grey,
@@ -118,7 +127,7 @@ class _SearchState extends State<Search> {
                     fontFamily: 'Quicksand-Medium',
                   ),
           ),
-          hint: 'Search...',
+          hint: 'Search...',*/
           actions: [
             FloatingSearchBarAction.searchToClear(
               showIfClosed: false,
@@ -154,14 +163,14 @@ class _SearchState extends State<Search> {
               },
             );
           },
-          queryStyle: TextStyle(
+          /*queryStyle: TextStyle(
               color: Colors.black87,
               fontSize: size.height * 0.02,
-              fontFamily: 'Quicksand-Medium'),
-          hintStyle: TextStyle(
+              fontFamily: 'Quicksand-Medium'),*/
+          /*hintStyle: TextStyle(
               color: Colors.grey,
               fontSize: size.height * 0.02,
-              fontFamily: 'Quicksand-Medium'),
+              fontFamily: 'Quicksand-Medium'),*/
           clearQueryOnClose: false,
           onSubmitted: (query) {
             setState(() {
@@ -175,10 +184,12 @@ class _SearchState extends State<Search> {
 
             controller.close();
           },
+
           body: new Container(
             child: content,
           ),
-          builder: (BuildContext context, Animation<double> transition) {
+
+          /*builder: (BuildContext context, Animation<double> transition) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Material(
@@ -249,7 +260,7 @@ class _SearchState extends State<Search> {
                 ),
               ),
             );
-          },
+          },*/
         );
       }),
     );

@@ -63,6 +63,9 @@ bool isReset = false;
 bool googleConnected = false;
 bool facebookConnected = false;
 
+bool isMovieChecked = true;
+bool isPersonChecked = false;
+
 Color colorRate = Colors.black;
 Color colorMostAdded = Colors.black;
 Color colorMostRecent = Colors.black;
@@ -287,3 +290,14 @@ int setLenght(List list) {
   return len;
 }
 
+Color getColor(Set<MaterialState> states) {
+    const Set<MaterialState> interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    if (states.any(interactiveStates.contains)) {
+      return Colors.blue;
+    }
+    return Colors.red;
+  }
