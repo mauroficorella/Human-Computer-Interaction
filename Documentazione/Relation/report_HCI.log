@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.3)  24 JUN 2021 12:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.6)  24 JUN 2021 16:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.tex
-(/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.tex
+**c:/Users/valen/Documents/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.tex
+(c:/Users/valen/Documents/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2021-02-18> (c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
-(/usr/local/texlive/2021/texmf-dist/tex/latex/base/size12.clo
+(c:/texlive/2021/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
 \c@part=\count179
@@ -22,14 +22,14 @@ File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/keyval.sty
+ (c:/texlive/2021/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
-) (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifvtex.sty
+) (c:/texlive/2021/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty
+ (c:/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
 \Gm@cnth=\count187
@@ -44,21 +44,21 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen145
 \Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks16
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip49
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
+(c:/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsgen.sty
+ (c:/texlive/2021/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
 \ex@=\dimen147
-)) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (c:/texlive/2021/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen148
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count190
@@ -98,36 +98,36 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+ (c:/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
+ (c:/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (c:/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def
+ (c:/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen156
 \Gin@req@width=\dimen157
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/algorithms/algorithm.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
- (/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
+ (c:/texlive/2021/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count268
 \float@exts=\toks22
 \float@box=\box49
 \@float@everytoks=\toks23
 \@floatcapt=\box50
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/base/ifthen.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks24
 \c@algorithm=\count269
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/algorithms/algorithmic.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \c@ALC@unique=\count270
 \c@ALC@line=\count271
@@ -135,7 +135,7 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \c@ALC@depth=\count273
 \ALC@tlm=\skip52
 \algorithmicindent=\skip53
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/multicol.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \c@tracingmulticols=\count274
 \mult@box=\box51
@@ -204,7 +204,7 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \mult@nat@firstbox=\box95
 \colbreak@box=\box96
 \mc@col@check@num=\count283
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/amscls/amsthm.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks25
 \thm@bodyfont=\toks26
@@ -215,14 +215,14 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip57
 \thm@headsep=\skip58
 \dth@everypar=\toks30
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/bm.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup4
 \symboldletters=\mathgroup5
 \symboldsymbols=\mathgroup6
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 209.
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip59
 \f@nch@O@elh=\skip60
@@ -233,25 +233,25 @@ Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footer
 \f@nch@O@erf=\skip65
 \f@nch@O@olf=\skip66
 \f@nch@O@orf=\skip67
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup7
 \symAMSb=\mathgroup8
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/pifont.sty
+)) (c:/texlive/2021/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
 LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/upzd.fd
+ (c:/texlive/2021/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/upsy.fd
+ (c:/texlive/2021/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
-)) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/array.sty
+)) (c:/texlive/2021/texmf-dist/tex/latex/tools/array.sty
 Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 \col@sep=\dimen167
 \ar@mcellbox=\box97
@@ -260,11 +260,11 @@ Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 \extratabsurround=\skip68
 \backup@length=\skip69
 \ar@cellbox=\box98
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (c:/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count284
 \l__pdf_internal_box=\box99
-) (/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux)
+) (./report_HCI.aux)
 \openout1 = `report_HCI.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -316,7 +316,7 @@ LaTeX Font Info:    ... okay on input line 29.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(c:/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count285
 \scratchdimen=\dimen169
@@ -329,10 +329,10 @@ LaTeX Font Info:    ... okay on input line 29.
 \MPnumerator=\count289
 \makeMPintoPDFobject=\count290
 \everyMPtoPDFconversion=\toks33
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (c:/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+ (c:/texlive/2021/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 <Images/Logo.jpg, id=1, 232.61906pt x 240.14719pt>
@@ -342,13 +342,13 @@ Package pdftex.def Info: Images/Logo.jpg  used on input line 51.
 (pdftex.def)             Requested size: 204.85672pt x 211.49138pt.
  [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/Logo.jpg>] (/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.toc
+{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./images/Logo.jpg>] (./report_HCI.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
+ (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
 \tf@toc=\write3
@@ -381,236 +381,236 @@ File: Images/Cinemaniac.png Graphic file (type png)
 Package pdftex.def Info: Images/Cinemaniac.png  used on input line 113.
 (pdftex.def)             Requested size: 204.85672pt x 39.14677pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--121
+Underfull \hbox (badness 10000) in paragraph at lines 112--122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--121
+Underfull \hbox (badness 10000) in paragraph at lines 112--122
 
  []
 
-[3 </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/IMDb.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/Cinemaniac.png>]
-<Images/age.png, id=26, 806.01125pt x 304.13625pt>
-File: Images/age.png Graphic file (type png)
-<use Images/age.png>
-Package pdftex.def Info: Images/age.png  used on input line 168.
-(pdftex.def)             Requested size: 358.50317pt x 135.2729pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-<Images/gender.png, id=27, 887.315pt x 305.14pt>
-File: Images/gender.png Graphic file (type png)
-<use Images/gender.png>
-Package pdftex.def Info: Images/gender.png  used on input line 171.
-(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--172
-
- []
-
-<Images/education.png, id=28, 887.315pt x 305.14pt>
-File: Images/education.png Graphic file (type png)
-<use Images/education.png>
-Package pdftex.def Info: Images/education.png  used on input line 174.
-(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-<Images/timeAtPhone.png, id=29, 806.01125pt x 304.13625pt>
-File: Images/timeAtPhone.png Graphic file (type png)
-<use Images/timeAtPhone.png>
-Package pdftex.def Info: Images/timeAtPhone.png  used on input line 178.
-(pdftex.def)             Requested size: 358.50317pt x 135.2729pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--179
-
- []
-
-[4 </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/age.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/gender.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/education.png>]
-<Images/timeAtCinema.png, id=36, 887.315pt x 305.14pt>
-File: Images/timeAtCinema.png Graphic file (type png)
-<use Images/timeAtCinema.png>
-Package pdftex.def Info: Images/timeAtCinema.png  used on input line 181.
-(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--182
-
- []
-
-<Images/timeStreaming.png, id=37, 887.315pt x 305.14pt>
-File: Images/timeStreaming.png Graphic file (type png)
-<use Images/timeStreaming.png>
-Package pdftex.def Info: Images/timeStreaming.png  used on input line 184.
-(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--185
-
- []
-
-<Images/streamingPlatform.png, id=38, 675.4836pt x 392.1852pt>
-File: Images/streamingPlatform.png Graphic file (type png)
-<use Images/streamingPlatform.png>
-Package pdftex.def Info: Images/streamingPlatform.png  used on input line 187.
-(pdftex.def)             Requested size: 358.50317pt x 208.15039pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 186--188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 186--188
-
- []
-
-<Images/streamingPlatformUsed.png, id=39, 886.9938pt x 354.123pt>
-File: Images/streamingPlatformUsed.png Graphic file (type png)
-<use Images/streamingPlatformUsed.png>
-Package pdftex.def Info: Images/streamingPlatformUsed.png  used on input line 190.
-(pdftex.def)             Requested size: 358.50317pt x 143.12723pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--191
-
- []
-
-[5 </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/timeAtPhone.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/timeAtCinema.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/timeStreaming.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/streamingPlatform.png>]
-<Images/app.png, id=47, 887.315pt x 305.14pt>
-File: Images/app.png Graphic file (type png)
-<use Images/app.png>
-Package pdftex.def Info: Images/app.png  used on input line 193.
-(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--194
-
- []
-
-<images/appUsed.png, id=48, 901.9296pt x 335.8146pt>
-File: images/appUsed.png Graphic file (type png)
-<use images/appUsed.png>
-Package pdftex.def Info: images/appUsed.png  used on input line 196.
-(pdftex.def)             Requested size: 358.50317pt x 133.48311pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 195--197
-
- []
-
-<images/interesting.png, id=49, 919.2744pt x 292.9344pt>
-File: images/interesting.png Graphic file (type png)
-<use images/interesting.png>
-Package pdftex.def Info: images/interesting.png  used on input line 199.
-(pdftex.def)             Requested size: 358.50317pt x 114.23949pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
-
- []
-
-<Images/features.png, id=50, 964.5636pt x 245.718pt>
-File: Images/features.png Graphic file (type png)
-<use Images/features.png>
-Package pdftex.def Info: Images/features.png  used on input line 202.
-(pdftex.def)             Requested size: 512.14963pt x 130.47362pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 201--203
-
- []
-
-[6 </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/streamingPlatformUsed.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/app.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/images/appUsed.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/images/interesting.png>]
-<images/vittoria.png, id=59, 171.5208pt x 172.4844pt>
+[3 <./images/IMDb.png> <./images/Cinemaniac.png>]
+<images/vittoria.png, id=26, 171.5208pt x 172.4844pt>
 File: images/vittoria.png Graphic file (type png)
 <use images/vittoria.png>
-Package pdftex.def Info: images/vittoria.png  used on input line 241.
+Package pdftex.def Info: images/vittoria.png  used on input line 191.
 (pdftex.def)             Requested size: 128.0374pt x 128.76027pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--252
+Underfull \hbox (badness 10000) in paragraph at lines 195--202
 
  []
 
-[7 </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/Images/features.png> </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/images/vittoria.png>]
-<images/emanuele.png, id=66, 171.5208pt x 171.5208pt>
+<images/emanuele.png, id=27, 171.5208pt x 171.5208pt>
 File: images/emanuele.png Graphic file (type png)
 <use images/emanuele.png>
-Package pdftex.def Info: images/emanuele.png  used on input line 270.
+Package pdftex.def Info: images/emanuele.png  used on input line 220.
 (pdftex.def)             Requested size: 128.0374pt x 128.04094pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--281
+Underfull \hbox (badness 10000) in paragraph at lines 224--231
 
  []
 
-[8 </Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/images/emanuele.png>] [9] [10] [11] [12] [13] [14] [15] (/Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux) ) 
+[4 <./images/vittoria.png> <./images/emanuele.png>]
+<Images/age.png, id=33, 806.01125pt x 304.13625pt>
+File: Images/age.png Graphic file (type png)
+<use Images/age.png>
+Package pdftex.def Info: Images/age.png  used on input line 261.
+(pdftex.def)             Requested size: 358.50317pt x 135.2729pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--262
+
+ []
+
+<Images/gender.png, id=34, 887.315pt x 305.14pt>
+File: Images/gender.png Graphic file (type png)
+<use Images/gender.png>
+Package pdftex.def Info: Images/gender.png  used on input line 264.
+(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--265
+
+ []
+
+<Images/education.png, id=35, 887.315pt x 305.14pt>
+File: Images/education.png Graphic file (type png)
+<use Images/education.png>
+Package pdftex.def Info: Images/education.png  used on input line 267.
+(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+[5 <./images/age.png> <./images/gender.png>]
+<Images/timeAtPhone.png, id=41, 806.01125pt x 304.13625pt>
+File: Images/timeAtPhone.png Graphic file (type png)
+<use Images/timeAtPhone.png>
+Package pdftex.def Info: Images/timeAtPhone.png  used on input line 271.
+(pdftex.def)             Requested size: 358.50317pt x 135.2729pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--272
+
+ []
+
+<Images/timeAtCinema.png, id=42, 887.315pt x 305.14pt>
+File: Images/timeAtCinema.png Graphic file (type png)
+<use Images/timeAtCinema.png>
+Package pdftex.def Info: Images/timeAtCinema.png  used on input line 274.
+(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--275
+
+ []
+
+<Images/timeStreaming.png, id=43, 887.315pt x 305.14pt>
+File: Images/timeStreaming.png Graphic file (type png)
+<use Images/timeStreaming.png>
+Package pdftex.def Info: Images/timeStreaming.png  used on input line 277.
+(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
+
+ []
+
+<Images/streamingPlatform.png, id=44, 675.4836pt x 392.1852pt>
+File: Images/streamingPlatform.png Graphic file (type png)
+<use Images/streamingPlatform.png>
+Package pdftex.def Info: Images/streamingPlatform.png  used on input line 280.
+(pdftex.def)             Requested size: 358.50317pt x 208.15039pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--281
+
+ []
+
+[6 <./images/education.png> <./images/timeAtPhone.png> <./images/timeAtCinema.png> <./images/timeStreaming.png>]
+<Images/streamingPlatformUsed.png, id=53, 886.9938pt x 354.123pt>
+File: Images/streamingPlatformUsed.png Graphic file (type png)
+<use Images/streamingPlatformUsed.png>
+Package pdftex.def Info: Images/streamingPlatformUsed.png  used on input line 283.
+(pdftex.def)             Requested size: 358.50317pt x 143.12723pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
+
+ []
+
+<Images/app.png, id=54, 887.315pt x 305.14pt>
+File: Images/app.png Graphic file (type png)
+<use Images/app.png>
+Package pdftex.def Info: Images/app.png  used on input line 286.
+(pdftex.def)             Requested size: 358.50317pt x 123.28302pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 285--287
+
+ []
+
+<images/appUsed.png, id=55, 901.9296pt x 335.8146pt>
+File: images/appUsed.png Graphic file (type png)
+<use images/appUsed.png>
+Package pdftex.def Info: images/appUsed.png  used on input line 289.
+(pdftex.def)             Requested size: 358.50317pt x 133.48311pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--290
+
+ []
+
+<images/interesting.png, id=56, 919.2744pt x 292.9344pt>
+File: images/interesting.png Graphic file (type png)
+<use images/interesting.png>
+Package pdftex.def Info: images/interesting.png  used on input line 292.
+(pdftex.def)             Requested size: 358.50317pt x 114.23949pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
+
+ []
+
+[7 <./images/streamingPlatform.png> <./images/streamingPlatformUsed.png> <./images/app.png> <./images/appUsed.png>]
+<Images/features.png, id=64, 964.5636pt x 245.718pt>
+File: Images/features.png Graphic file (type png)
+<use Images/features.png>
+Package pdftex.def Info: Images/features.png  used on input line 295.
+(pdftex.def)             Requested size: 512.14963pt x 130.47362pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
+
+ []
+
+[8 <./images/interesting.png> <./images/features.png>] [9] [10] [11] [12] [13] [14] [15] (./report_HCI.aux) ) 
 Here is how much of TeX's memory you used:
  3771 strings out of 478994
- 52449 string characters out of 5858185
- 364746 words of memory out of 5000000
+ 51127 string characters out of 5862208
+ 364740 words of memory out of 5000000
  21172 multiletter control sequences out of 15000+600000
  413688 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,10n,74p,353b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on /Users/mauroficorella/GitHub/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (16 pages, 1869041 bytes).
+ 68i,10n,74p,356b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on report_HCI.pdf (16 pages, 1869429 bytes).
 PDF statistics:
  115 PDF objects out of 1000 (max. 8388607)
  57 compressed objects within 1 object stream
