@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  25 JUN 2021 12:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  25 JUN 2021 16:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -918,36 +918,253 @@ Underfull \hbox (badness 10000) in paragraph at lines 425--429
 
  []
 
-[13 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/MakeAReviewSTN.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/Comments HTA.png>] [14 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/CommentsSTN.png>] [15]
-<images/heuristicEvaluation.png, id=279, 600.2425pt x 512.91624pt>
+[13 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/MakeAReviewSTN.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/Comments HTA.png>] [14 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/CommentsSTN.png>]
+<images/mockups/signInSignUp.png, id=275, 272.6988pt x 229.8186pt>
+File: images/mockups/signInSignUp.png Graphic file (type png)
+<use images/mockups/signInSignUp.png>
+Package pdftex.def Info: images/mockups/signInSignUp.png  used on input line 441.
+(pdftex.def)             Requested size: 307.2929pt x 258.98012pt.
+<images/mockups/loginSocial.png, id=276, 272.6988pt x 227.4096pt>
+File: images/mockups/loginSocial.png Graphic file (type png)
+<use images/mockups/loginSocial.png>
+Package pdftex.def Info: images/mockups/loginSocial.png  used on input line 446.
+(pdftex.def)             Requested size: 307.2929pt x 256.26544pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+<images/mockups/search.png, id=277, 561.7788pt x 385.44pt>
+File: images/mockups/search.png Graphic file (type png)
+<use images/mockups/search.png>
+Package pdftex.def Info: images/mockups/search.png  used on input line 454.
+(pdftex.def)             Requested size: 512.14963pt x 351.40378pt.
+[15 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/signInSignUp.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/loginSocial.png>] [16 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/search.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 465--470
+
+ []
+
+<images/heuristicEvaluation.png, id=294, 600.2425pt x 512.91624pt>
 File: images/heuristicEvaluation.png Graphic file (type png)
 <use images/heuristicEvaluation.png>
-Package pdftex.def Info: images/heuristicEvaluation.png  used on input line 449.
+Package pdftex.def Info: images/heuristicEvaluation.png  used on input line 515.
 (pdftex.def)             Requested size: 512.14963pt x 437.67139pt.
- [16 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/heuristicEvaluation.png>] [17] [18] [19] [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 519.
- [21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 519.
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+
+ []
+
+[18 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/heuristicEvaluation.png>]
+<images/mockupSearch.png, id=316, 405.1938pt x 383.031pt>
+File: images/mockupSearch.png Graphic file (type png)
+<use images/mockupSearch.png>
+Package pdftex.def Info: images/mockupSearch.png  used on input line 557.
+(pdftex.def)             Requested size: 358.50317pt x 338.89767pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 542--558
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--621
+
+ []
+
+[19 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockupSearch.png>] [20]
+<images/mockupAdd.png, id=327, 480.3546pt x 185.493pt>
+File: images/mockupAdd.png Graphic file (type png)
+<use images/mockupAdd.png>
+Package pdftex.def Info: images/mockupAdd.png  used on input line 634.
+(pdftex.def)             Requested size: 460.93153pt x 177.99483pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 623--635
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 623--635
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 623--635
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--679
+
+ []
+
+[21 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockupAdd.png>] [22] [23] [24] [25]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 704.
+ [26]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 704.
  (/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 519.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 519.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 704.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 704.
 Package rerunfilecheck Info: File `report_HCI.out' has not changed.
-(rerunfilecheck)             Checksum: A0D734CCDC3E10B5EA5F710865E3F3CA;1436.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 519.
+(rerunfilecheck)             Checksum: 77251FDA226AA2EB056F9990D28C0305;1431.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 704.
  ) 
 Here is how much of TeX's memory you used:
- 7761 strings out of 480608
- 115557 string characters out of 5903631
+ 7808 strings out of 480608
+ 116535 string characters out of 5903631
  391451 words of memory out of 5000000
- 23372 multiletter control sequences out of 15000+600000
- 542943 words of font info for 61 fonts, out of 8000000 for 9000
+ 23400 multiletter control sequences out of 15000+600000
+ 543302 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,10n,45p,344b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (23 pages, 2505948 bytes).
+ 34i,10n,45p,344b,371s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (28 pages, 2958319 bytes).
 PDF statistics:
- 362 PDF objects out of 1000 (max. 8388607)
- 272 compressed objects within 3 object streams
- 84 named destinations out of 1000 (max. 500000)
- 325 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 406 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 350 words of extra memory for PDF output out of 10000 (max. 10000000)
 

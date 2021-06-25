@@ -434,21 +434,47 @@ all the reviews, choose one of them and comment it.\\
 
 \section{Mockup and prototype 0}
 
+\paragraph{Login and Registration}
+\mbox{}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/mockups/signInSignUp.png}\\
+	\caption{Login and Sign Up pages}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/mockups/loginSocial.png}\\
+	\caption{Login with Google and Facebook}
+\end{figure}
+\mbox{}\\\\\\\\
+\paragraph{Search for a movie or a person}
+\mbox{}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{images/mockups/search.png}\\
+	\caption{scrivere}
+\end{figure}
+
+
 % Expert Based Evaluation -------------------------------------------------------------------------
 
 \newpage
 
 \section{Expert Based Evaluation}
+%TODO vedere se scritto bene che martina è incapace, non è all'altezza di valentown
+The expert evaluation is based on our first prototype, the \textit{mockups} and it's really useful
+for discovering problems. This is a very important thing to do until the implementation because
+allow us to detects problems in early stage.\\\\
+We submitted our \textit{mockups} on two different expert evaluation, made by professor Valeria Mirabella: 
+\textbf{\textit{Heuristic Evaluation}} and \textbf{\textit{Cognitive Walkthrough}}.
 
-\subsection{Heuristic Evaluation Form}
-In this case the evaluation was done by our professor Valeria Mirabella. 
-After the expert based evaluation, it has been reported that the following heuristics 
-have been violated:
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{images/heuristicEvaluation.png}\\
-\end{figure}
-\noindent
+\subsection{Heuristic Evaluation}
+%TODO ho copiato da fly.ai -> modificare
+Heuristic Evaluation is an inspection method used to evaluate if the system follows general usability 
+criteria. The expert should check if the system is consistent and evaluates if the usability problem 
+that may occurs is a major problem, a minor problem or just something that could be left as it is. 
+The evaluation is made by assign severity level.
+The main goal of heuristic evaluations is to identify any problem associated with the design of user interfaces.\\
 The Heuristic Evaluation used is based on the Jakob Nielsen’s 10 Usability Heuristics:
 \begin{enumerate}
 	\item {\textit{Visibility of system status}: the system should always keep users informed about 
@@ -479,18 +505,177 @@ The Heuristic Evaluation used is based on the Jakob Nielsen’s 10 Usability Heu
 	documentation, it may be necessary to provide help and documentation. Any such information should 
 	be easy to search, focused on the user’s task, list concrete steps to be carried out, and not be 
 	too large. whenever appropriate.}	 
-  \end{enumerate}
-  \mbox{}\\
-  The severity number identify:
-  \begin{itemize}
+\end{enumerate}
+\mbox{}\\
+\noindent
+After the expert based evaluation, in the following table, it has been reported that the following 
+heuristics have been violated:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{images/heuristicEvaluation.png}\\
+\end{figure}
+\noindent
+The severity number identify:
+\begin{itemize}
 	\item 0 = I don’t agree that this is a usability problem at all
 	\item 1 = Cosmetic problem only
 	\item 2 = Minor usability problem
 	\item 3 = Major usability problem
 	\item 4 = Usability catastrophe
 \end{itemize}
-
+\mbox{}\\\\\\\\\\
 \subsection{Cognitive Walkthrough}
+%TODO rivedere la definizione, l'ho copiata da fly.ai -> modificare
+Cognitive Walkthrough is related with the idea of discover cognitive efforts of the user and how well 
+the system supports the user executing the actions.
+The idea of method provides the expert walks through the system in order to understand if the actions 
+provided by the system well support the user in doing such task. 
+The analysis is guided by four predefined questions:
+\begin{itemize}
+	\item Q1: Is the effect of the action the same as the user’s goal at that point?
+	\item Q2: Will users see that the action is available?
+	\item Q3: Once users have found the correct action, will they know it is the one they need?
+	\item Q4: After the action is taken, will users understand the feedback they get?
+\end{itemize}
+
+
+\paragraph{Task 1 - Search the movie “Harry Potter and the Deathly Hallows - Part 2” to see the movie details.}\mbox{}\\\\
+\textit{Action 1}: open the application (assuming that the user is already logged in)\\ 
+\textit{Response 1}: homepage is opened\\
+\textit{Action 2}: tap on the search icon\\
+\textit{Response 2}: the search page is displayed\\
+\textit{Action 3}: tap on the search bar\\
+\textit{Response 3}: the keyboard shows up\\
+\textit{Action 4}: type “Harry Potter”\\
+\textit{Response 4}: each digit is displayed as typed and the system shows the corresponding results\\
+\textit{Action 5 – 6 – 7}: [OPTIONAL] tap on filters’ icon, select “most recent” filter and tap on apply\\
+\textit{Response 7}: the system shows the results according to the chosen filter\\
+\textit{Action 8}: select “Harry Potter and the Deathly Hallows - Part 2” from the list of the results\\
+\textit{Response 8}: the systems shows the page of the selected movie containing all the related details
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/mockupSearch.png}\\
+\end{figure}
+\noindent
+Expert evaluation:\\\\
+\textit{Action 1}: open the application (assuming that the user is already logged in)\\ 
+\textit{Response 1}: homepage is opened\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+\textit{Action 2}: tap on the search icon\\
+\textit{Response 2}: the search page is displayed\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+\textit{Action 3}: tap on the search bar\\
+\textit{Response 3}: the keyboard shows up\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+\textit{Action 4}: type “Harry Potter”\\
+\textit{Response 4}: each digit is displayed as typed and the system shows the corresponding results\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+\textit{Action 5 – 6 – 7}: [OPTIONAL] tap on filters’ icon, select “most recent” filter and tap on apply\\
+\textit{Response 7}: the system shows the results according to the chosen filter\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Users with no experience could not recognize the icon\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+\textit{Action 8}: select “Harry Potter and the Deathly Hallows - Part 2” from the list of the results\\
+\textit{Response 8}: the systems shows the page of the selected movie containing all the related details\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+
+
+\paragraph{Task 2 - Add a popular movie to the watchlist.}\mbox{}\\\\
+\textit{Action 1}: open the application (assuming that the user is already logged in)\\ 
+\textit{Response 1}: homepage is opened\\
+\textit{Action 2}: tap on a movie from “popular movies” section\\
+\textit{Response 2}: the movies page is displayed\\
+\textit{Action 3}: tap on the “+” button\\
+\textit{Response 3}: lists’ popup is displayed\\
+\textit{Action 4}: tap on watchlist\\
+\textit{Response 4}: the movie is added to watchlist\\\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/mockupAdd.png}\\
+\end{figure}
+\mbox{}\\
+\noindent
+Expert evaluation:\\\\
+\textit{Action 1}: open the application (assuming that the user is already logged in)\\ 
+\textit{Response 1}: homepage is opened\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+\textit{Action 2}: tap on a movie from “popular movies” section\\
+\textit{Response 2}: the movies page is displayed\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+\textit{Action 3}: tap on the “+” button\\
+\textit{Response 3}: lists’ popup is displayed\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab It could be not clear that the + button is needed to reach the goal\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab Yes\\\\
+\textit{Action 4}: tap on watchlist\\
+\textit{Response 4}: the movie is added to watchlist\\\\
+\textbf{Q1} - Is the effect of the action the same as the user’s goal at that point?\\
+\tab Yes\\
+\textbf{Q2} - Will users see that the action is available?\\
+\tab Yes\\
+\textbf{Q3} - Once users have found the correct action, will they know it is the one they need?\\
+\tab Yes\\
+\textbf{Q4} - After the action is taken, will users understand the feedback they get?\\
+\tab There aren't enough elements to answer\\\\
 
 % CAPITOLO 5 -------------------------------------------------------------------------
 
