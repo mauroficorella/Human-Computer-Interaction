@@ -1,5 +1,6 @@
 import 'package:ciak_time/components/text_field_container.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -19,7 +20,6 @@ class IsMatchValidator extends TextFieldValidator {
 
   @override
   bool isValid(String value) {
-    
     // return true if the value is valid according the your condition
     return string == value;
   }
@@ -31,7 +31,8 @@ class RegistrationPasswordFieldConfirm extends StatefulWidget {
 
   const RegistrationPasswordFieldConfirm({
     Key key,
-    @required this.label, this.onChanged,
+    @required this.label,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -43,7 +44,7 @@ class _RegistrationPasswordFieldConfirm
     extends State<RegistrationPasswordFieldConfirm> {
   bool isHidden = true;
   final passwordController = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -54,7 +55,6 @@ class _RegistrationPasswordFieldConfirm
             alignment: Alignment.centerRight,
             children: <Widget>[
               TextFormField(
-                
                 onChanged: widget.onChanged,
                 controller: passwordController,
                 validator: passwordConfirmValidator,
@@ -79,67 +79,71 @@ class _RegistrationPasswordFieldConfirm
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  IconButton(
-                    icon: isHidden
-                        ? Icon(Icons.visibility_off)
-                        : Icon(Icons.visibility),
-                    onPressed: togglePasswordVisibility,
-                    color: kPrimaryColor,
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                  ),
-                  IconButton(
-                    splashRadius: 10,
-                    onPressed: () {
-                      setState(
-                        () {
-                          showDialog(
-                            context: context,
-                            builder: (_) {
-                              return new AlertDialog(
-                                content: StatefulBuilder(
-                                  builder: (context, setState) {
-                                    return Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Row(
-                                          
-                                          children: [
-                                            Icon(
-                                              Icons.info,
-                                              color: kPrimaryColor,
-                                            ),
-                                            SizedBox(
-                                              width: size.width * 0.05,
-                                            ),
-                                            Container(
-                                              width: size.width * 0.5,
-                                              child: Text(
-                                                "This password must be equal to the one in the previous field.",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: size.height * 0.02,
-                                                  fontFamily: 'Quicksand',
+                  
+                  CupertinoButton(
+                      minSize: double.minPositive,
+                      padding: EdgeInsets.zero,
+                      child: isHidden
+                          ? Icon(Icons.visibility_off,
+                              color: kPrimaryColor, size: size.height * 0.025)
+                          : Icon(Icons.visibility,
+                              color: kPrimaryColor, size: size.height * 0.025),
+                      onPressed: () {
+                        setState(() {
+                          togglePasswordVisibility();
+                        });
+                      }),
+                  CupertinoButton(
+                      minSize: double.minPositive,
+                      padding: EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+                      child: Icon(Icons.info,
+                          color: kPrimaryColor, size: size.height * 0.025),
+                      onPressed: () {
+                        setState(
+                          () {
+                            FocusManager.instance.primaryFocus.unfocus();
+                            showDialog(
+                              context: context,
+                              builder: (_) {
+                                return new AlertDialog(
+                                  content: StatefulBuilder(
+                                    builder: (context, setState) {
+                                      return Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.info,
+                                                color: kPrimaryColor,
+                                              ),
+                                              SizedBox(
+                                                width: size.width * 0.05,
+                                              ),
+                                              Container(
+                                                width: size.width * 0.5,
+                                                child: Text(
+                                                  "This password must be equal to the one in the previous field.",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize:
+                                                        size.height * 0.02,
+                                                    fontFamily: 'Quicksand',
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                ),
-                              );
-                            },
-                          );
-                        },
-                      );
-                    },
-                    icon: Icon(
-                      Icons.info,
-                      color: kPrimaryColor,
-                    ),
-                  ),
+                                            ],
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        );
+                      }),
                 ],
               ),
             ],
@@ -151,6 +155,5 @@ class _RegistrationPasswordFieldConfirm
 
   void togglePasswordVisibility() => setState(() {
         isHidden = !isHidden;
-        
       });
 }

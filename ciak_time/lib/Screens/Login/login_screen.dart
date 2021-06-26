@@ -27,472 +27,466 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Background(
         child: SingleChildScrollView(
-          child: SafeArea(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "CiakTime",
+          child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,  
+            children: <Widget>[
+              //SizedBox(height: size.height * 0.02,),
+              Text(
+                "CiakTime",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: size.height * 0.08,
+                    fontFamily: 'Pattaya',
+                    color: kPrimaryColor),
+              ),
+              SvgPicture.asset(
+                "assets/icons/movie.svg",
+                height: size.height * 0.15,
+              ),
+              SizedBox(height: size.height * 0.03,),
+              Container(
+                width: size.width * 0.75,
+                child: Text(
+                  "Sign In",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: size.height * 0.08,
-                      fontFamily: 'Pattaya',
+                      fontSize: size.height * 0.03,
+                      fontFamily: 'Quicksand-Medium',
                       color: kPrimaryColor),
                 ),
-                SvgPicture.asset(
-                  "assets/icons/movie.svg",
-                  height: size.height * 0.15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        width: size.width * 0.75,
-                        child: Text(
-                          "Sign In",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: size.height * 0.03,
-                              fontFamily: 'Quicksand-Medium',
-                              color: kPrimaryColor),
-                        ),
-                      ),
-                      RoundedInputField(
-                        hintText: "Username",
-                        onChanged: (value) {
-                          setState(() {
-                            username = value;
-                          });
-                        },
-                      ),
-                      RoundedPasswordField(
-                        onChanged: (value) {
-                          setState(() {
-                            password = value;
-                          });
-                        },
-                      ),
-                      Container(
-                        alignment: Alignment.centerRight,
-                        width: size.width * 0.75,
-                        height: size.height * 0.025,
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            minimumSize:
-                                Size(size.width * 0.1, size.height * 0.005),
-                            padding: EdgeInsets.all(0.0),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            "Forgot password?",
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                              fontFamily: 'Quicksand',
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: size.height * 0.03,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 10),
-                        width: size.width * 0.8,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(29),
-                          child: FlatButton(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 40),
-                            color: changeLoginColor(),
-                            onPressed: () async {
-                              var connectivityResult =
-                                  await (Connectivity().checkConnectivity());
-                              for (var i = 0; i < users.length; i++) {
-                                if ((connectivityResult ==
-                                            ConnectivityResult.mobile ||
-                                        connectivityResult ==
-                                            ConnectivityResult.wifi) &&
-                                    (username == users[i]['username'] &&
-                                        password == users[i]['password'])) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return HomePage();
-                                      },
-                                    ),
-                                  ).then((value) {
-                                    setState(() {
-                                      isUserLogged = true;
-                                      FocusManager.instance.primaryFocus
-                                          .unfocus();
-                                      loginUsernameController.clear();
-
-                                      loginPasswordController.clear();
-                                    });
-                                  });
-                                } else {
-                                  if (connectivityResult !=
-                                          ConnectivityResult.mobile &&
-                                      connectivityResult !=
-                                          ConnectivityResult.wifi) {
-                                    showOkAlertDialog(
-                                        context: context,
-                                        title: "Connectivity error",
-                                        message:
-                                            "You need to turn on Internet on your device to continue.");
-                                  } else if ((username !=
-                                          users[i]['username'] ||
-                                      password != users[i]['password'])) {
-                                    showOkAlertDialog(
-                                        context: context,
-                                        title: "Login error",
-                                        message:
-                                            "You need to insert the correct credentials in order to login.");
-                                  }
-                                }
-                              }
-                            },
-                            child: Text(
-                              "LOGIN",
-                              style: TextStyle(
-                                color: changeLoginTextColor(),
-                                fontSize: size.width * 0.05,
-                                fontFamily: 'Quicksand',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
+              ),
+              RoundedInputField(
+                hintText: "Username",
+                onChanged: (value) {
+                  setState(() {
+                    username = value;
+                  });
+                },
+              ),
+              RoundedPasswordField(
+                onChanged: (value) {
+                  setState(() {
+                    password = value;
+                  });
+                },
+              ),
+              Container(
+                alignment: Alignment.centerRight,
+                width: size.width * 0.75,
+                height: size.height * 0.025,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    minimumSize:
+                        Size(size.width * 0.1, size.height * 0.005),
+                    padding: EdgeInsets.all(0.0),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    "Forgot password?",
+                    style: TextStyle(
+                      color: kPrimaryColor,
+                      fontFamily: 'Quicksand',
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                OrDivider(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SocialIcon(
-                      socialFlag: false,
-                      iconSrc: "assets/icons/google.svg",
-                      press: () {
-                        showDialog(
-                          context: context,
-                          builder: (_) {
-                            return new AlertDialog(
-                              content: StatefulBuilder(
-                                builder: (context, setState) {
-                                  return Container(
-                                    height: size.height * 0.4,
-                                    width: size.width,
-                                    child: Column(
-                                      children: [
-                                        SvgPicture.asset(
-                                            "assets/icons/google.svg",
-                                            height: size.height * 0.05),
-                                        SizedBox(
-                                          height: size.height * 0.02,
-                                        ),
-                                        Text(
-                                          'Choose an account',
-                                          style: TextStyle(
-                                              fontSize: size.height * 0.025),
-                                        ),
-                                        SizedBox(
-                                          height: size.height * 0.01,
-                                        ),
-                                        Text(
-                                          'to continue to CiakTime',
-                                          style: TextStyle(
-                                              fontSize: size.height * 0.018),
-                                        ),
-                                        SizedBox(
-                                          height: size.height * 0.04,
-                                        ),
-                                        Container(
-                                          child: ListView.builder(
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            itemCount:
-                                                googleAccountsData.length,
-                                            itemBuilder: (BuildContext context,
-                                                    int index) =>
-                                                Padding(
-                                              padding:
-                                                  const EdgeInsets.all(3.0),
-                                              child: Column(
-                                                children: [
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      googleConnected = true;
-                                                      username = 'Vittoria';
-                                                      userlogged = 'Vittoria';
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                          builder: (context) {
-                                                            return HomePage();
-                                                          },
-                                                        ),
-                                                      ).then((value) {
-                                                        setState(() {
-                                                          FocusManager.instance
-                                                              .primaryFocus
-                                                              .unfocus();
-                                                          loginUsernameController
-                                                              .clear();
+              ),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10),
+                width: size.width * 0.8,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(29),
+                  child: FlatButton(
+                    padding: EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 40),
+                    color: changeLoginColor(),
+                    onPressed: () async {
+                      var connectivityResult =
+                          await (Connectivity().checkConnectivity());
+                      for (var i = 0; i < users.length; i++) {
+                        if ((connectivityResult ==
+                                    ConnectivityResult.mobile ||
+                                connectivityResult ==
+                                    ConnectivityResult.wifi) &&
+                            (username == users[i]['username'] &&
+                                password == users[i]['password'])) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return HomePage();
+                              },
+                            ),
+                          ).then((value) {
+                            setState(() {
+                              isUserLogged = true;
+                              FocusManager.instance.primaryFocus
+                                  .unfocus();
+                              loginUsernameController.clear();
 
-                                                          loginPasswordController
-                                                              .clear();
-                                                        });
+                              loginPasswordController.clear();
+                            });
+                          });
+                        } else {
+                          if (connectivityResult !=
+                                  ConnectivityResult.mobile &&
+                              connectivityResult !=
+                                  ConnectivityResult.wifi) {
+                            showOkAlertDialog(
+                                context: context,
+                                title: "Connectivity error",
+                                message:
+                                    "You need to turn on Internet on your device to continue.");
+                          } else if ((username !=
+                                  users[i]['username'] ||
+                              password != users[i]['password'])) {
+                            showOkAlertDialog(
+                                context: context,
+                                title: "Login error",
+                                message:
+                                    "You need to insert the correct credentials in order to login.");
+                          }
+                        }
+                      }
+                    },
+                    child: Text(
+                      "LOGIN",
+                      style: TextStyle(
+                        color: changeLoginTextColor(),
+                        fontSize: size.width * 0.05,
+                        fontFamily: 'Quicksand',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              OrDivider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SocialIcon(
+                    socialFlag: false,
+                    iconSrc: "assets/icons/google.svg",
+                    press: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) {
+                          return new AlertDialog(
+                            content: StatefulBuilder(
+                              builder: (context, setState) {
+                                return Container(
+                                  height: size.height * 0.4,
+                                  width: size.width,
+                                  child: Column(
+                                    children: [
+                                      SvgPicture.asset(
+                                          "assets/icons/google.svg",
+                                          height: size.height * 0.05),
+                                      SizedBox(
+                                        height: size.height * 0.02,
+                                      ),
+                                      Text(
+                                        'Choose an account',
+                                        style: TextStyle(
+                                            fontSize: size.height * 0.025),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      Text(
+                                        'to continue to CiakTime',
+                                        style: TextStyle(
+                                            fontSize: size.height * 0.018),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.04,
+                                      ),
+                                      Container(
+                                        child: ListView.builder(
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount:
+                                              googleAccountsData.length,
+                                          itemBuilder: (BuildContext context,
+                                                  int index) =>
+                                              Padding(
+                                            padding:
+                                                const EdgeInsets.all(3.0),
+                                            child: Column(
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    googleConnected = true;
+                                                    username = 'Vittoria';
+                                                    userlogged = 'Vittoria';
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) {
+                                                          return HomePage();
+                                                        },
+                                                      ),
+                                                    ).then((value) {
+                                                      setState(() {
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            .unfocus();
+                                                        loginUsernameController
+                                                            .clear();
+
+                                                        loginPasswordController
+                                                            .clear();
                                                       });
-                                                    },
-                                                    child: Row(
-                                                      children: [
-                                                        CircleAvatar(
-                                                          backgroundColor:
-                                                              Colors.white,
-                                                          radius:
-                                                              size.width * 0.05,
-                                                          backgroundImage:
-                                                              AssetImage(
-                                                                  googleAccountsData[
-                                                                          index]
-                                                                      ['pic']),
-                                                        ),
-                                                        SizedBox(
-                                                          width:
-                                                              size.width * 0.05,
-                                                        ),
-                                                        Column(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(
-                                                              googleAccountsData[
-                                                                      index]
-                                                                  ['name'],
-                                                              style: TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
-                                                            ),
-                                                            Text(
-                                                              googleAccountsData[
-                                                                      index]
-                                                                  ['mail'],
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                          .grey[
-                                                                      600],
-                                                                  fontSize: size
-                                                                          .height *
-                                                                      0.015),
-                                                            ),
-                                                          ],
-                                                        )
-                                                      ],
-                                                    ),
+                                                    });
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      CircleAvatar(
+                                                        backgroundColor:
+                                                            Colors.white,
+                                                        radius:
+                                                            size.width * 0.05,
+                                                        backgroundImage:
+                                                            AssetImage(
+                                                                googleAccountsData[
+                                                                        index]
+                                                                    ['pic']),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            size.width * 0.05,
+                                                      ),
+                                                      Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            googleAccountsData[
+                                                                    index]
+                                                                ['name'],
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          Text(
+                                                            googleAccountsData[
+                                                                    index]
+                                                                ['mail'],
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                        .grey[
+                                                                    600],
+                                                                fontSize: size
+                                                                        .height *
+                                                                    0.015),
+                                                          ),
+                                                        ],
+                                                      )
+                                                    ],
                                                   ),
-                                                  Divider(
-                                                    color: googleAccountsData[
-                                                        index]['dividercolor'],
-                                                  )
-                                                ],
-                                              ),
+                                                ),
+                                                Divider(
+                                                  color: googleAccountsData[
+                                                      index]['dividercolor'],
+                                                )
+                                              ],
                                             ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              16.0, 3.0, 0.0, 0.0),
-                                          child: Row(
-                                            children: [
-                                              Icon(Icons.person_add_alt),
-                                              SizedBox(
-                                                width: size.width * 0.05,
-                                              ),
-                                              Text(
-                                                "Add another account",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    ),
-                    SocialIcon(
-                      socialFlag: false,
-                      iconSrc: "assets/icons/facebook.svg",
-                      press: () {
-                        showDialog(
-                          context: context,
-                          builder: (_) {
-                            return new AlertDialog(
-                              content: StatefulBuilder(
-                                builder: (context, setState) {
-                                  return Container(
-                                    height: size.height * 0.48,
-                                    width: size.width,
-                                    child: Column(
-                                      children: [
-                                        SvgPicture.asset(
-                                            "assets/icons/facebook.svg",
-                                            height: size.height * 0.05),
-                                        SizedBox(
-                                          height: size.height * 0.02,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            16.0, 3.0, 0.0, 0.0),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.person_add_alt),
+                                            SizedBox(
+                                              width: size.width * 0.05,
+                                            ),
+                                            Text(
+                                              "Add another account",
+                                              style: TextStyle(
+                                                  fontWeight:
+                                                      FontWeight.bold),
+                                            )
+                                          ],
                                         ),
-                                        Text(
-                                          'Login with facebook',
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  SocialIcon(
+                    socialFlag: false,
+                    iconSrc: "assets/icons/facebook.svg",
+                    press: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) {
+                          return new AlertDialog(
+                            content: StatefulBuilder(
+                              builder: (context, setState) {
+                                return Container(
+                                  height: size.height * 0.48,
+                                  width: size.width,
+                                  child: Column(
+                                    children: [
+                                      SvgPicture.asset(
+                                          "assets/icons/facebook.svg",
+                                          height: size.height * 0.05),
+                                      SizedBox(
+                                        height: size.height * 0.02,
+                                      ),
+                                      Text(
+                                        'Login with facebook',
+                                        style: TextStyle(
+                                            fontSize: size.height * 0.025,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      Text(
+                                        'to continue to CiakTime',
+                                        style: TextStyle(
+                                            fontSize: size.height * 0.018),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.02,
+                                      ),
+                                      CircleAvatar(
+                                        backgroundColor: Colors.transparent,
+                                        backgroundImage: AssetImage(
+                                            'assets/images/vittoria.png'),
+                                        radius: size.width * 0.1,
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      Text(
+                                        'Vittoria',
+                                        style: TextStyle(
+                                            fontSize: size.width * 0.05,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          facebookConnected = true;
+                                          username = 'Vittoria';
+                                          userlogged = 'Vittoria';
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) {
+                                                return HomePage();
+                                              },
+                                            ),
+                                          ).then((value) {
+                                            FocusManager.instance.primaryFocus
+                                                .unfocus();
+
+                                            loginUsernameController.clear();
+
+                                            loginPasswordController.clear();
+                                          });
+                                        },
+                                        style: TextButton.styleFrom(
+                                          backgroundColor: Colors.blue[800],
+                                        ),
+                                        child: Text(
+                                          'Login with this account',
                                           style: TextStyle(
-                                              fontSize: size.height * 0.025,
+                                              color: Colors.white,
+                                              fontSize: size.width * 0.04,
                                               fontWeight: FontWeight.bold),
                                         ),
-                                        SizedBox(
-                                          height: size.height * 0.01,
-                                        ),
-                                        Text(
-                                          'to continue to CiakTime',
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.03,
+                                      ),
+                                      Text(
+                                        "Aren't you?",
+                                        style: TextStyle(
+                                            fontSize: size.width * 0.035),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Sign in with another account",
                                           style: TextStyle(
-                                              fontSize: size.height * 0.018),
-                                        ),
-                                        SizedBox(
-                                          height: size.height * 0.02,
-                                        ),
-                                        CircleAvatar(
-                                          backgroundColor: Colors.transparent,
-                                          backgroundImage: AssetImage(
-                                              'assets/images/vittoria.png'),
-                                          radius: size.width * 0.1,
-                                        ),
-                                        SizedBox(
-                                          height: size.height * 0.01,
-                                        ),
-                                        Text(
-                                          'Vittoria',
-                                          style: TextStyle(
-                                              fontSize: size.width * 0.05,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {
-                                            facebookConnected = true;
-                                            username = 'Vittoria';
-                                            userlogged = 'Vittoria';
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) {
-                                                  return HomePage();
-                                                },
-                                              ),
-                                            ).then((value) {
-                                              FocusManager.instance.primaryFocus
-                                                  .unfocus();
-
-                                              loginUsernameController.clear();
-
-                                              loginPasswordController.clear();
-                                            });
-                                          },
-                                          style: TextButton.styleFrom(
-                                            backgroundColor: Colors.blue[800],
-                                          ),
-                                          child: Text(
-                                            'Login with this account',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.04,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: size.height * 0.03,
-                                        ),
-                                        Text(
-                                          "Aren't you?",
-                                          style: TextStyle(
+                                              color: Colors.blue[800],
                                               fontSize: size.width * 0.035),
                                         ),
-                                        TextButton(
-                                          onPressed: () {},
-                                          child: Text(
-                                            "Sign in with another account",
-                                            style: TextStyle(
-                                                color: Colors.blue[800],
-                                                fontSize: size.width * 0.035),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
-                            );
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Don't have an Account? ",
+                    style: TextStyle(
+                      color: kPrimaryColor,
+                      fontFamily: 'Quicksand',
+                    ),
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize:
+                          Size(size.width * 0.1, size.height * 0.005),
+                      padding: EdgeInsets.all(0.0),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return SignUpScreen();
                           },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: size.height * 0.03,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Don't have an Account? ",
-                      style: TextStyle(
-                        color: kPrimaryColor,
-                        fontFamily: 'Quicksand',
-                      ),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        minimumSize:
-                            Size(size.width * 0.1, size.height * 0.005),
-                        padding: EdgeInsets.all(0.0),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return SignUpScreen();
-                            },
-                          ),
-                        ).then((value) {
-                          FocusManager.instance.primaryFocus.unfocus();
+                        ),
+                      ).then((value) {
+                        FocusManager.instance.primaryFocus.unfocus();
 
-                          loginUsernameController.clear();
+                        loginUsernameController.clear();
 
-                          loginPasswordController.clear();
-                        });
-                      },
-                      child: Text("Sign Up",
-                          style: TextStyle(
-                            color: kPrimaryColor,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Quicksand',
-                          )),
-                    )
-                  ],
-                ),
-              ],
-            ),
+                        loginPasswordController.clear();
+                      });
+                    },
+                    child: Text("Sign Up",
+                        style: TextStyle(
+                          color: kPrimaryColor,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Quicksand',
+                        )),
+                  )
+                ],
+              ),
+            ],
           ),
         ),
       ),

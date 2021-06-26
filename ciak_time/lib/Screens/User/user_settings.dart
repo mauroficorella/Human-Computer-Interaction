@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'package:ciak_time/Screens/Login/login_screen.dart';
 import 'package:ciak_time/Screens/User/profile_pic.dart';
 
 import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/components/social_icon.dart';
 import 'package:ciak_time/components/text_field_container.dart';
 import 'package:ciak_time/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:flutter_svg/svg.dart';
@@ -31,6 +31,50 @@ class UnMatchValidator extends TextFieldValidator {
   }
 }
 
+class IsMatchValidator extends TextFieldValidator {
+  String string;
+  // pass the error text to the super constructor
+  IsMatchValidator(
+      {String errorText = 'Password and confirm password must be equal',
+      @required this.string})
+      : super(errorText);
+
+  // return false if you want the validator to return error
+  // message when the value is empty.
+  @override
+  bool get ignoreEmptyValues => true;
+
+  @override
+  bool isValid(String value) {
+    // return true if the value is valid according the your condition
+    return string == value;
+  }
+}
+
+class PassMatchValidator extends TextFieldValidator {
+  bool isMatch = false;
+  // pass the error text to the super constructor
+  PassMatchValidator({
+    String errorText = 'Incorrect password',
+  }) : super(errorText);
+
+  // return false if you want the validator to return error
+  // message when the value is empty.
+  @override
+  bool get ignoreEmptyValues => true;
+
+  @override
+  bool isValid(String value) {
+    // return true if the value is valid according the your condition
+    for (var i = 0; i < users.length; i++) {
+      if (userlogged == users[i]['username']) {
+        isMatch = users[i]['password'] == value;
+      }
+    }
+    return isMatch;
+  }
+}
+
 class UserSettings extends StatefulWidget {
   const UserSettings({
     Key key,
@@ -41,6 +85,19 @@ class UserSettings extends StatefulWidget {
 }
 
 class _UserSettingsState extends State<UserSettings> {
+  bool isOldHidden = true;
+  bool isNewHidden = true;
+  bool isNewConfirmHidden = true;
+  final oldPasswordController = TextEditingController();
+  final newPasswordController = TextEditingController();
+  final newPasswordConfirmController = TextEditingController();
+  final passwordValidator = MultiValidator([
+    RequiredValidator(errorText: 'Password is required'),
+    MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
+    PatternValidator(r'(?=.*?[#?!@$%^&*-])',
+        errorText: 'Password must have at least one special character')
+  ]);
+
   FutureOr onGoBack(dynamic value) {
     setState(() {});
   }
@@ -182,8 +239,464 @@ class _UserSettingsState extends State<UserSettings> {
                   ),
                 ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Change password',
+                    style: TextStyle(
+                        fontSize: size.height * 0.025,
+                        fontFamily: 'Quicksand-Regular'),
+                  ),
+                  SizedBox(width: size.width * 0.02),
+                  IconButton(
+                    onPressed: () {
+                      setState(
+                        () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return StatefulBuilder(
+                                builder: (context, setState) {
+                                  return AlertDialog(
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFieldContainer(
+                                          child: Stack(
+                                            alignment: Alignment.centerRight,
+                                            children: [
+                                              TextFormField(
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    oldPassword = value;
+                                                  });
+                                                },
+                                                controller:
+                                                    oldPasswordController,
+                                                validator: PassMatchValidator(),
+                                                autovalidateMode:
+                                                    AutovalidateMode
+                                                        .onUserInteraction,
+                                                obscureText: isOldHidden,
+                                                decoration: InputDecoration(
+                                                  icon: Icon(
+                                                    Icons.lock,
+                                                    color: kPrimaryColor,
+                                                  ),
+                                                  hintText:
+                                                      'Insert current password',
+                                                  hintStyle: TextStyle(
+                                                    fontSize:
+                                                        size.height * 0.015,
+                                                    fontFamily: 'Quicksand',
+                                                  ),
+                                                  border: InputBorder.none,
+                                                ),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  CupertinoButton(
+                                                      minSize:
+                                                          double.minPositive,
+                                                      padding: EdgeInsets.zero,
+                                                      child: isOldHidden
+                                                          ? Icon(
+                                                              Icons
+                                                                  .visibility_off,
+                                                              color:
+                                                                  kPrimaryColor,
+                                                              size:
+                                                                  size.height *
+                                                                      0.025)
+                                                          : Icon(
+                                                              Icons.visibility,
+                                                              color:
+                                                                  kPrimaryColor,
+                                                              size:
+                                                                  size.height *
+                                                                      0.025),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          toggleOldPasswordVisibility();
+                                                        });
+                                                      }),
+                                                  CupertinoButton(
+                                                      minSize:
+                                                          double.minPositive,
+                                                      padding:
+                                                          EdgeInsets.fromLTRB(
+                                                              3.0,
+                                                              0.0,
+                                                              0.0,
+                                                              0.0),
+                                                      child: Icon(Icons.info,
+                                                          color: kPrimaryColor,
+                                                          size: size.height *
+                                                              0.025),
+                                                      onPressed: () {
+                                                        setState(
+                                                          () {
+                                                            showDialog(
+                                                              context: context,
+                                                              builder: (_) {
+                                                                return new AlertDialog(
+                                                                  content:
+                                                                      StatefulBuilder(
+                                                                    builder:
+                                                                        (context,
+                                                                            setState) {
+                                                                      return Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.min,
+                                                                        children: [
+                                                                          Row(
+                                                                            children: [
+                                                                              Icon(
+                                                                                Icons.info,
+                                                                                color: kPrimaryColor,
+                                                                              ),
+                                                                              SizedBox(
+                                                                                width: size.width * 0.05,
+                                                                              ),
+                                                                              Container(
+                                                                                width: size.width * 0.5,
+                                                                                child: Text(
+                                                                                  "Insert your current password.",
+                                                                                  style: TextStyle(
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontSize: size.height * 0.02,
+                                                                                    fontFamily: 'Quicksand',
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                        );
+                                                      }),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        TextFieldContainer(
+                                          child: Stack(
+                                            alignment: Alignment.centerRight,
+                                            children: [
+                                              TextFormField(
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    newPassword = value;
+                                                  });
+                                                },
+                                                controller:
+                                                    newPasswordController,
+                                                validator: passwordValidator,
+                                                autovalidateMode:
+                                                    AutovalidateMode
+                                                        .onUserInteraction,
+                                                obscureText: isNewHidden,
+                                                decoration: InputDecoration(
+                                                  icon: Icon(
+                                                    Icons.lock,
+                                                    color: kPrimaryColor,
+                                                  ),
+                                                  hintText:
+                                                      'Choose a new password',
+                                                  hintStyle: TextStyle(
+                                                    fontSize:
+                                                        size.height * 0.015,
+                                                    fontFamily: 'Quicksand',
+                                                  ),
+                                                  border: InputBorder.none,
+                                                ),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  CupertinoButton(
+                                                      minSize:
+                                                          double.minPositive,
+                                                      padding: EdgeInsets.zero,
+                                                      child: isNewHidden
+                                                          ? Icon(
+                                                              Icons
+                                                                  .visibility_off,
+                                                              color:
+                                                                  kPrimaryColor,
+                                                              size:
+                                                                  size.height *
+                                                                      0.025)
+                                                          : Icon(
+                                                              Icons.visibility,
+                                                              color:
+                                                                  kPrimaryColor,
+                                                              size:
+                                                                  size.height *
+                                                                      0.025),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          toggleNewPasswordVisibility();
+                                                        });
+                                                      }),
+                                                  CupertinoButton(
+                                                      padding:
+                                                          EdgeInsets.fromLTRB(
+                                                              3, 0.0, 0.0, 0.0),
+                                                      minSize:
+                                                          double.minPositive,
+                                                      child: Icon(Icons.info,
+                                                          color: kPrimaryColor,
+                                                          size: size.height *
+                                                              0.025),
+                                                      onPressed: () {
+                                                        setState(
+                                                          () {
+                                                            showDialog(
+                                                              context: context,
+                                                              builder: (_) {
+                                                                return new AlertDialog(
+                                                                  content:
+                                                                      StatefulBuilder(
+                                                                    builder:
+                                                                        (context,
+                                                                            setState) {
+                                                                      return Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.min,
+                                                                        children: [
+                                                                          Row(
+                                                                            children: [
+                                                                              Icon(
+                                                                                Icons.info,
+                                                                                color: kPrimaryColor,
+                                                                              ),
+                                                                              SizedBox(
+                                                                                width: size.width * 0.05,
+                                                                              ),
+                                                                              Container(
+                                                                                width: size.width * 0.5,
+                                                                                child: Text(
+                                                                                  "The password must have at least 8 characters and at least one special character.",
+                                                                                  style: TextStyle(
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontSize: size.height * 0.02,
+                                                                                    fontFamily: 'Quicksand',
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                        );
+                                                      }),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        TextFieldContainer(
+                                          child: Stack(
+                                            alignment: Alignment.centerRight,
+                                            children: [
+                                              TextFormField(
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    newConfirmPassword = value;
+                                                  });
+                                                },
+                                                controller:
+                                                    newPasswordConfirmController,
+                                                validator: IsMatchValidator(
+                                                    string: newPassword),
+                                                autovalidateMode:
+                                                    AutovalidateMode
+                                                        .onUserInteraction,
+                                                obscureText: isNewConfirmHidden,
+                                                decoration: InputDecoration(
+                                                  icon: Icon(
+                                                    Icons.lock,
+                                                    color: kPrimaryColor,
+                                                  ),
+                                                  hintText:
+                                                      'Confirm new password',
+                                                  hintStyle: TextStyle(
+                                                    fontSize:
+                                                        size.height * 0.015,
+                                                    fontFamily: 'Quicksand',
+                                                  ),
+                                                  border: InputBorder.none,
+                                                ),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  CupertinoButton(
+                                                      minSize:
+                                                          double.minPositive,
+                                                      padding: EdgeInsets.zero,
+                                                      child: isNewConfirmHidden
+                                                          ? Icon(
+                                                              Icons
+                                                                  .visibility_off,
+                                                              color:
+                                                                  kPrimaryColor,
+                                                              size:
+                                                                  size.height *
+                                                                      0.025)
+                                                          : Icon(
+                                                              Icons.visibility,
+                                                              color:
+                                                                  kPrimaryColor,
+                                                              size:
+                                                                  size.height *
+                                                                      0.025),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          toggleNewConfirmPasswordVisibility();
+                                                        });
+                                                      }),
+                                                  CupertinoButton(
+                                                      minSize:
+                                                          double.minPositive,
+                                                      padding:
+                                                          EdgeInsets.fromLTRB(
+                                                              3.0,
+                                                              0.0,
+                                                              0.0,
+                                                              0.0),
+                                                      child: Icon(Icons.info,
+                                                          color: kPrimaryColor,
+                                                          size: size.height *
+                                                              0.025),
+                                                      onPressed: () {
+                                                        setState(
+                                                          () {
+                                                            showDialog(
+                                                              context: context,
+                                                              builder: (_) {
+                                                                return new AlertDialog(
+                                                                  content:
+                                                                      StatefulBuilder(
+                                                                    builder:
+                                                                        (context,
+                                                                            setState) {
+                                                                      return Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.min,
+                                                                        children: [
+                                                                          Row(
+                                                                            children: [
+                                                                              Icon(
+                                                                                Icons.info,
+                                                                                color: kPrimaryColor,
+                                                                              ),
+                                                                              SizedBox(
+                                                                                width: size.width * 0.05,
+                                                                              ),
+                                                                              Container(
+                                                                                width: size.width * 0.5,
+                                                                                child: Text(
+                                                                                  "This password must be equal to the new password.",
+                                                                                  style: TextStyle(
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontSize: size.height * 0.02,
+                                                                                    fontFamily: 'Quicksand',
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                        );
+                                                      }),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.symmetric(
+                                              vertical: 10),
+                                          width: size.width * 0.8,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(29),
+                                            child: FlatButton(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 15, horizontal: 40),
+                                              color: setButtonPasswordColor(),
+                                              onPressed: () {
+                                                for (var i = 0;
+                                                    i < users.length;
+                                                    i++) {
+                                                  if (userlogged ==
+                                                      users[i]['username']) {
+                                                    setState(() {
+                                                      users[i]['password'] =
+                                                          newPassword;
+                                                    });
+                                                    Navigator.pop(context);
+                                                  } else {}
+                                                }
+                                              },
+                                              child: Text(
+                                                'SAVE',
+                                                style: TextStyle(
+                                                  color:
+                                                      setButtonTextPasswordColor(),
+                                                  fontSize: size.width * 0.05,
+                                                  fontFamily: 'Quicksand',
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ).then(onGoBack);
+                        },
+                      );
+                    },
+                    icon: SvgPicture.asset("assets/icons/edit.svg"),
+                    iconSize: size.height * 0.035,
+                    color: kPrimaryColor,
+                  ),
+                ],
+              ),
               SizedBox(
-                height: size.height * 0.13,
+                height: size.height * 0.08,
               ),
               Center(
                 child: Text(
@@ -577,4 +1090,55 @@ class _UserSettingsState extends State<UserSettings> {
 
     return buttonModifyUserTextColor;
   }
+
+  Color setButtonPasswordColor() {
+    String pass;
+    for (var i = 0; i < users.length; i++) {
+      if (userlogged == users[i]['username']) {
+        pass = users[i]['password'];
+      }
+    }
+    if (newPassword.isNotEmpty &&
+        oldPassword.isNotEmpty &&
+        newConfirmPassword.isNotEmpty &&
+        newPassword == newConfirmPassword &&
+        oldPassword == pass) {
+      buttonModifyUserColor = kPrimaryColor;
+    } else {
+      buttonModifyUserColor = Colors.grey[300];
+    }
+    return buttonModifyUserColor;
+  }
+
+  Color setButtonTextPasswordColor() {
+    String pass;
+    for (var i = 0; i < users.length; i++) {
+      if (userlogged == users[i]['username']) {
+        pass = users[i]['password'];
+      }
+    }
+    if (newPassword.isNotEmpty &&
+        oldPassword.isNotEmpty &&
+        newConfirmPassword.isNotEmpty &&
+        newPassword == newConfirmPassword &&
+        oldPassword == pass) {
+      buttonModifyUserTextColor = Colors.white;
+    } else {
+      buttonModifyUserTextColor = Colors.grey;
+    }
+
+    return buttonModifyUserTextColor;
+  }
+
+  void toggleOldPasswordVisibility() => setState(() {
+        isOldHidden = !isOldHidden;
+      });
+
+  void toggleNewPasswordVisibility() => setState(() {
+        isNewHidden = !isNewHidden;
+      });
+
+  void toggleNewConfirmPasswordVisibility() => setState(() {
+        isNewConfirmHidden = !isNewConfirmHidden;
+      });
 }

@@ -240,6 +240,10 @@ List users = [
 String username = '';
 String password = '';
 
+String newPassword = '';
+String newConfirmPassword = '';
+String oldPassword = '';
+
 String review;
 
 String userlogged = 'Vittoria';
