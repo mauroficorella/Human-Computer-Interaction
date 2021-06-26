@@ -530,20 +530,21 @@ class AddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
       label: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 100.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
         child: Text(
-          "Add to list",
+          "Add/remove movie",
           style: TextStyle(
             color: Colors.black,
             fontSize: size.height * 0.02,
-            fontFamily: 'Quicksand-Medium',
+            fontFamily: 'Quicksand-Regular',
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
-      icon: Padding(
+      /*icon: Padding(
         padding: const EdgeInsets.fromLTRB(100.0, 0.0, 0.0, 0.0),
         child: const Icon(Icons.add, color: Colors.black, size: 30),
-      ),
+      ),*/
       backgroundColor: Colors.amber,
       elevation: 10,
       onPressed: () {

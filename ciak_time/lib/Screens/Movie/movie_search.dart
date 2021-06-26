@@ -36,7 +36,7 @@ class _MovieSearchState extends State<MovieSearch> {
               Center(
                 child: MovieCover(size: size),
               ),
-              
+
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
@@ -59,7 +59,6 @@ class _MovieSearchState extends State<MovieSearch> {
                       args.fromWhere,
                       style: TextStyle(color: Colors.white),
                     ),
-                    
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -117,7 +116,7 @@ class _MovieSearchState extends State<MovieSearch> {
                   SizedBox(
                     height: size.height * 0.01,
                   ),
-                  // MOVIE DESCRIPTION 
+                  // MOVIE DESCRIPTION
                   Container(
                     width: size.width * 0.98,
                     decoration: BoxDecoration(
@@ -427,8 +426,6 @@ class MovieBasicInfo extends StatelessWidget {
   }
 }
 
-
-
 String getWatchListTitle() {
   bool isContained = false;
   for (var i = 0; i < watchList.length; i++) {
@@ -532,20 +529,21 @@ class AddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
       label: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 100.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
         child: Text(
-          "Add to list",
+          "Add/remove movie",
           style: TextStyle(
             color: Colors.black,
             fontSize: size.height * 0.02,
-            fontFamily: 'Quicksand-Medium',
+            fontFamily: 'Quicksand-Regular',
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
-      icon: Padding(
+      /*icon: Padding(
         padding: const EdgeInsets.fromLTRB(100.0, 0.0, 0.0, 0.0),
-        child: const Icon(Icons.add, color: Colors.black, size: 30),
-      ),
+        //child: const Icon(Icons.add, color: Colors.black, size: 30),
+      ),*/
       backgroundColor: Colors.amber,
       elevation: 10,
       onPressed: () {
@@ -556,7 +554,6 @@ class AddButton extends StatelessWidget {
                 content: StatefulBuilder(
                   builder: (context, setState) {
                     return Column(
-
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -574,7 +571,9 @@ class AddButton extends StatelessWidget {
                                 fontFamily: 'Quicksand-Medium'),
                           ),
                         ),
-                        Divider(color: Colors.grey,),
+                        Divider(
+                          color: Colors.grey,
+                        ),
                         TextButton.icon(
                           onPressed: () {
                             if (alreadyWatchedListTitle ==
@@ -617,14 +616,15 @@ class AddButton extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Divider(color: Colors.grey,),
+                        Divider(
+                          color: Colors.grey,
+                        ),
                         TextButton.icon(
                           onPressed: () {
                             if (favouriteListTitle ==
                                 "Remove from favourite list") {
                               favouriteList.remove(movieSelectedFromSearch);
-                              buildFlutterToast(
-                                  " removed from favourite list");
+                              buildFlutterToast(" removed from favourite list");
                               Navigator.pop(context);
                             } else {
                               favouriteList.add(movieSelectedFromSearch);
