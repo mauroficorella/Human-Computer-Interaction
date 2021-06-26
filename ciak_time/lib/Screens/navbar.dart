@@ -108,14 +108,17 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/reviewslist':
                   return ReviewsPage(
                     title: movieSelectedFromUser.title,
+                    movieId: movieSelectedFromUser.id,
                   );
                 case '/insertreviewfrommovie':
                   return InsertReview(
                     title: movieSelectedFromUser.title,
+                    movieId: movieSelectedFromUser.id,
                   );
                 case '/insertreviewfromreviews':
                   return InsertReview(
                     title: "Reviews",
+                    movieId: movieSelectedFromUser.id,
                   );
               }
             } else if (widget.destination.title == "Home") {
@@ -139,14 +142,17 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/reviewslist':
                   return ReviewsPage(
                     title: movieSelectedFromHome.title,
+                     movieId: movieSelectedFromHome.id,
                   );
                 case '/insertreviewfrommovie':
                   return InsertReview(
                     title: movieSelectedFromHome.title,
+                    movieId: movieSelectedFromHome.id,
                   );
                 case '/insertreviewfromreviews':
                   return InsertReview(
                     title: "Reviews",
+                    movieId: movieSelectedFromHome.id,
                   );
               }
             } else if (widget.destination.title == "Search") {
@@ -170,14 +176,17 @@ class _DestinationViewState extends State<DestinationView> {
                 case '/reviewslist':
                   return ReviewsPage(
                     title: movieSelectedFromSearch.title,
+                     movieId: movieSelectedFromSearch.id,
                   );
                 case '/insertreviewfrommovie':
                   return InsertReview(
                     title: movieSelectedFromSearch.title,
+                    movieId: movieSelectedFromSearch.id,
                   );
                 case '/insertreviewfromreviews':
                   return InsertReview(
                     title: "Reviews",
+                    movieId: movieSelectedFromSearch.id,
                   );
               }
             }

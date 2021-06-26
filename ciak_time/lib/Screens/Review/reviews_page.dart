@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ciak_time/Screens/Review/comments_page.dart';
+import 'package:ciak_time/Screens/Review/reviewsData_utils.dart';
 import 'package:ciak_time/components/rating.dart';
 
 import 'package:ciak_time/constants.dart';
@@ -8,8 +9,10 @@ import 'package:flutter/material.dart';
 
 class ReviewsPage extends StatefulWidget {
   final String title;
+  final int movieId;
 
-  const ReviewsPage({Key key, @required this.title}) : super(key: key);
+  const ReviewsPage({Key key, @required this.title, @required this.movieId})
+      : super(key: key);
 
   @override
   _ReviewsPageState createState() => _ReviewsPageState();
@@ -20,9 +23,9 @@ class _ReviewsPageState extends State<ReviewsPage> {
     setState(() {});
   }
 
-
   @override
   Widget build(BuildContext context) {
+    generateRandomUsersReviews(widget.movieId);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -48,7 +51,8 @@ class _ReviewsPageState extends State<ReviewsPage> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/insertreviewfromreviews', arguments: ScreenArguments('/insertreviewfromreviews'))
+              Navigator.pushNamed(context, '/insertreviewfromreviews',
+                      arguments: ScreenArguments('/insertreviewfromreviews'))
                   .then((_) => setState(() {}));
             },
             child: Row(
@@ -75,12 +79,13 @@ class _ReviewsPageState extends State<ReviewsPage> {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
-                itemCount: reviewsData.length,
+                itemCount: currentReviews.length,
                 itemBuilder: (BuildContext context, int index) => Padding(
                   padding: const EdgeInsets.all(3.0),
                   child: ReviewWidget(
                     index: index,
                     size: size,
+                    movieId: widget.movieId,
                   ),
                 ),
               ),
@@ -96,11 +101,12 @@ class ReviewWidget extends StatefulWidget {
   const ReviewWidget({
     Key key,
     @required this.size,
-    @required this.index,
+    @required this.index, @required this.movieId,
   }) : super(key: key);
 
   final Size size;
   final int index;
+  final int movieId;
 
   @override
   _ReviewWidgetState createState() => _ReviewWidgetState();
@@ -111,10 +117,10 @@ class _ReviewWidgetState extends State<ReviewWidget> {
   IconData setLike() {
     setState(() {
       if (likeIcon == Icons.favorite) {
-        reviewsData[widget.index]['likes'] -= 1;
+        currentReviews[widget.index]['likes'] -= 1;
         likeIcon = Icons.favorite_border_outlined;
       } else {
-        reviewsData[widget.index]['likes'] += 1;
+        currentReviews[widget.index]['likes'] += 1;
         likeIcon = Icons.favorite;
       }
     });
@@ -152,9 +158,9 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                 ),
                 RatingUnclickable(
                     unratedColor: Colors.grey,
-                    rate: reviewsData[widget.index]['rate'] * 2),
+                    rate: currentReviews[widget.index]['rate'] * 2),
                 Text(
-                  reviewsData[widget.index]['message'],
+                  currentReviews[widget.index]['message'],
                   style: TextStyle(
                     fontSize: widget.size.height * 0.02,
                     fontFamily: 'Quicksand-Regular',
@@ -173,7 +179,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                     ),
                     SizedBox(width: widget.size.width * 0.01),
                     Text(
-                      reviewsData[widget.index]['likes'].toString(),
+                      currentReviews[widget.index]['likes'].toString(),
                       style: TextStyle(
                         fontSize: widget.size.height * 0.015,
                         fontFamily: 'Quicksand-Regular',
@@ -186,6 +192,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                             MaterialPageRoute(builder: (BuildContext context) {
                           return CommentsPage(
                             reviewIndex: widget.index,
+                            movieId: widget.movieId,
                           );
                         }));
                       },
@@ -201,7 +208,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                         size: widget.size.width * 0.05,
                       ),
                       label: Text(
-                        reviewsData[widget.index]['comments'].toString(),
+                        currentReviews[widget.index]['comments'].toString(),
                         style: TextStyle(
                             color: kPrimaryColor,
                             fontSize: widget.size.height * 0.015,
@@ -253,6 +260,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                                   builder: (BuildContext context) {
                             return CommentsPage(
                               reviewIndex: widget.index,
+                              movieId: widget.movieId,
                             );
                           }));
                         },
@@ -300,14 +308,14 @@ class CircleAvatarText extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: Colors.white,
-          backgroundImage: NetworkImage(reviewsData[index]['pic']),
+          backgroundImage: NetworkImage(currentReviews[index]['pic']),
           radius: size.width * 0.06,
         ),
         SizedBox(
           width: size.width * 0.02,
         ),
         Text(
-          reviewsData[index]['name'],
+          currentReviews[index]['name'],
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: size.height * 0.02,

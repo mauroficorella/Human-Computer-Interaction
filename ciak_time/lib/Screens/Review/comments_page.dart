@@ -1,11 +1,15 @@
+import 'package:ciak_time/Screens/Review/reviewsData_utils.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 
 class CommentsPage extends StatefulWidget {
-  const CommentsPage({Key key, @required this.reviewIndex}) : super(key: key);
-  
+  const CommentsPage(
+      {Key key, @required this.reviewIndex, @required this.movieId})
+      : super(key: key);
+
   final int reviewIndex;
+  final int movieId;
 
   @override
   _CommentsPageState createState() => _CommentsPageState();
@@ -14,24 +18,29 @@ class CommentsPage extends StatefulWidget {
 class _CommentsPageState extends State<CommentsPage> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
-  
-  Widget commentChild(data, size) {
-    if (reviewsData[widget.reviewIndex]['comments'] == 0) {
+
+  Widget commentChild(reviewsList, commentsList, size) {
+    if (reviewsList[widget.reviewIndex]['comments'] == 0) {
       return Column(
         children: [
-          SizedBox(height: size.height * 0.05,),
-          Text('No comments available', style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: size.height * 0.02,
-                        fontFamily: 'Quicksand',
-                        color: Colors.grey,
-                      ),),
+          SizedBox(
+            height: size.height * 0.05,
+          ),
+          Text(
+            'No comments available',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: size.height * 0.02,
+              fontFamily: 'Quicksand',
+              color: Colors.grey,
+            ),
+          ),
         ],
       );
     } else {
       return ListView(
         children: [
-          for (var i = 0; i < reviewsData[widget.reviewIndex]['comments']; i++)
+          for (var i = 0; i < reviewsList[widget.reviewIndex]['comments']; i++)
             Padding(
               padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
               child: ListTile(
@@ -39,19 +48,17 @@ class _CommentsPageState extends State<CommentsPage> {
                   height: 50.0,
                   width: 50.0,
                   decoration: new BoxDecoration(
-                      
-                      borderRadius:
-                          new BorderRadius.all(Radius.circular(50))),
+                      borderRadius: new BorderRadius.all(Radius.circular(50))),
                   child: CircleAvatar(
                       backgroundColor: Colors.transparent,
                       radius: 50,
-                      backgroundImage: NetworkImage(data[i]['pic'])),
+                      backgroundImage: NetworkImage(commentsList[i]['pic'])),
                 ),
                 title: Text(
-                  data[i]['name'],
+                  commentsList[i]['name'],
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                subtitle: Text(data[i]['message']),
+                subtitle: Text(commentsList[i]['message']),
               ),
             )
         ],
@@ -62,6 +69,8 @@ class _CommentsPageState extends State<CommentsPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    List reviewsList = getGeneratedReviews(widget.movieId);
+    List reviewCommentsList = reviewsList[widget.reviewIndex]["commentsList"];
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -85,14 +94,13 @@ class _CommentsPageState extends State<CommentsPage> {
         child: CommentBox(
           userImage:
               "https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg",
-          child: commentChild(filedata, size),
+          child: commentChild(reviewsList, reviewCommentsList, size),
           labelText: 'Write a comment...',
           withBorder: false,
           errorText: "Comment cannot be empty",
           sendButtonMethod: () async {
             await commentConfirmed(size).then((_) {
               if (formKey.currentState.validate() && isCommentConfirmed) {
-                
                 setState(() {
                   var value = {
                     'name': 'Vittoria',
@@ -100,15 +108,15 @@ class _CommentsPageState extends State<CommentsPage> {
                         'https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg',
                     'message': commentController.text
                   };
-                  filedata.insert(0, value);
+                  reviewsList[widget.reviewIndex]["commentsList"]
+                      .insert(0, value);
+                  reviewsList[widget.reviewIndex]["comments"] += 1;
+                  savedReviewsLists[widget.reviewIndex]['comments'] =
+                      savedReviewsLists[widget.reviewIndex]['comments'] + 1;
                 });
-                reviewsData[widget.reviewIndex]['comments'] =
-                    reviewsData[widget.reviewIndex]['comments'] + 1;
                 commentController.clear();
                 FocusScope.of(context).unfocus();
-              } else {
-                
-              }
+              } else {}
             });
           },
           formKey: formKey,
@@ -184,8 +192,7 @@ class _CommentsPageState extends State<CommentsPage> {
                           ),
                           onPressed: () {
                             isCommentConfirmed = true;
-                            Navigator.pop(
-                                context); 
+                            Navigator.pop(context);
                           },
                           label: Text(
                             "YES",

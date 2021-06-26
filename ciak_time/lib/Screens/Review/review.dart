@@ -1,13 +1,16 @@
 import 'dart:async';
+import 'package:ciak_time/Screens/Review/reviewsData_utils.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class InsertReview extends StatefulWidget {
-  const InsertReview({Key key, @required this.title}) : super(key: key);
+  const InsertReview({Key key, @required this.title, @required this.movieId})
+      : super(key: key);
 
   final String title;
+  final int movieId;
 
   @override
   _InsertReviewState createState() => _InsertReviewState();
@@ -146,6 +149,7 @@ class _InsertReviewState extends State<InsertReview> {
                             return ConfirmReview(
                               size: size,
                               reviewController: reviewController,
+                              movieId: widget.movieId,
                             );
                           },
                         ).then(onGoBack);
@@ -201,10 +205,12 @@ class ConfirmReview extends StatelessWidget {
     Key key,
     @required this.size,
     @required this.reviewController,
+    @required this.movieId,
   }) : super(key: key);
 
   final Size size;
   final TextEditingController reviewController;
+  final int movieId;
 
   @override
   Widget build(BuildContext context) {
@@ -275,8 +281,10 @@ class ConfirmReview extends StatelessWidget {
                               'rate': newRating,
                               'likes': 0,
                               'comments': 0,
+                              'commentsList': [],
                             };
-                            reviewsData.insert(0, value);
+                            insertReview(value, movieId);
+                            //reviewsData.insert(0, value);
                           },
                         );
                         Navigator.pop(context); //closes the alert dialog
