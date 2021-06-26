@@ -15,7 +15,7 @@ bottom = 15mm]{geometry}
 \usepackage{amssymb}
 \usepackage{pifont}
 \usepackage{array}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -61,6 +61,7 @@ bottom = 15mm]{geometry}
 	\end{center}
 \end{titlepage}
 
+
 \tableofcontents{}
 \thispagestyle{empty}
 
@@ -105,7 +106,7 @@ In order to involve as much users as possible, we decided to make our app availa
 % Competitor  analysis -------------------------------------------------------------------------
 
 \subsection{Competitor analysis}
-We found two main competitors for our application: IMDb and Cinemaniac.
+We found two main competitors for our application: \textbf{IMDb} and \textbf{Cinemaniac}.
 \paragraph{IMDb}\mbox{}\\\\
 \includegraphics[width=0.4\textwidth]{Images/IMDb.png}\\
 IMDb is the world's most popular and authoritative source for movie, TV, and celebrity information. This app has a
@@ -305,11 +306,19 @@ More precisely, we reached 151 people, and so we had a good number of answers, s
 \subsubsection{Conclusions}
 After having analyzed the results obtained from the questionnaires, we have formalized the following conclusions:
 \begin{itemize}
-	\item Regarding ages, we noticed that there is no predominant range, but they are more or less equally distributed between 18 and 50, and the majority of them are women.
-	\item The majority of them uses smartphone more than 3 hours per day.
-	\item Since we noticed that the majority of people rarely goes to cinema and conversely watches very often movies on streaming platform, we decided to focus our app on this feature.
-	\item Moreover, given the fact that a very high number of people does not use a movie related app and that the majority of them would be interested in doing this, we thought that the idea of such an app would be very appreciated.
-	\item Finally, from the last question, emerge the most wanted features such as have informations about movies, have the possibility to add movies to lists and have informations about upcoming movies, and so we decided to focused on them.
+	\item {Regarding ages, we noticed that there is no predominant range, but they 
+	are more or less equally distributed between 18 and 50, and the majority 
+	of them are women.}
+	\item {The majority of them uses smartphone more than 3 hours per day.}
+	\item {Since we noticed that the majority of people rarely goes to cinema and 
+	conversely watches very often movies on streaming platform, we decided to focus 
+	our app on this feature.}
+	\item {Moreover, given the fact that a very high number of people does not use 
+	a movie related app and that the majority of them would be interested in doing 
+	this, we thought that the idea of such an app would be very appreciated.}
+	\item {Finally, from the last question, emerge the most wanted features such 
+	as have informations about movies, have the possibility to add movies to lists 
+	and have informations about upcoming movies, and so we decided to focused on them.}
 \end{itemize}
 
 
@@ -432,29 +441,165 @@ all the reviews, choose one of them and comment it.\\
 
 \newpage
 
-\section{Mockup and prototype 0}
+\section{Prototype 0: mockups}
+%TODO controllare come è scritto
+In this section we going to present our first prototype realized through mockups
+in Balsamiq Wireframes.\\\\ 
+The main characteristics of this prototype are:
+\begin{itemize}
+	\item Login and registration of an user.
+	\item Search for a movie or a person.
+	\item Add a movie to a list.
+	\item Review a movie.
+	\item Comment other reviews.
+\end{itemize}
 
 \paragraph{Login and Registration}
 \mbox{}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{images/mockups/signInSignUp.png}\\
+	\includegraphics[width=0.5\textwidth]{images/mockups/signInSignUp.png}\\
 	\caption{Login and Sign Up pages}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{images/mockups/loginSocial.png}\\
+	\includegraphics[width=0.5\textwidth]{images/mockups/loginSocial.png}\\
 	\caption{Login with Google and Facebook}
 \end{figure}
-\mbox{}\\\\\\\\
 \paragraph{Search for a movie or a person}
 \mbox{}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{images/mockups/search.png}\\
-	\caption{scrivere}
+	\includegraphics[width=1\textwidth]{images/mockups/search2.png}\\
+	\caption{Searching process with optional filters}
 \end{figure}
-
+%todo scrivere che una volta che si è trovata la persona o il film si aprono queste pagine
+\begin{center}
+	\begin{minipage}{0.3\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{images/mockups/Movie page.png}\\
+			\caption{Movie page}
+		\end{figure}
+	\end{minipage}
+	\hspace{0.01\linewidth}
+	\begin{minipage}{0.3\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{images/mockups/People page.png}\\
+			\caption{Person page}
+		\end{figure}
+	\end{minipage}	
+\end{center}
+\mbox{}\\
+\paragraph{Add a movie to a list}
+%TODO scrivere che il cuore serve per i preferiti
+\mbox{}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/mockups/addMovie.png}\\
+	\caption{Add a movie to a list process}
+\end{figure}
+\noindent
+The user can reach the lists where he added the movie from the user profile page
+in order to see all movie added in watchlist, movie already watched and favourite movie.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.21\textwidth]{images/mockups/User profile.png}\\
+	\caption{User profile page}
+\end{figure}
+\begin{center}
+	\begin{minipage}{0.31\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.68\textwidth]{images/mockups/Watchlist.png}\\
+			\caption{Watchlist}
+		\end{figure}
+	\end{minipage}
+	\hspace{0.01\linewidth}
+	\begin{minipage}{0.33\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.65\textwidth]{images/mockups/Already watched.png}\\
+			\caption{Movie already watched}
+		\end{figure}
+	\end{minipage}
+	\hspace{0.01\linewidth}
+	\begin{minipage}{0.31\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.68\textwidth]{images/mockups/Favourite.png}\\
+			\caption{Favourite movie}
+		\end{figure}
+	\end{minipage}	
+\end{center}
+\mbox{}\\\\\\\\\\\\\\\\\\\\
+\paragraph{Review a movie}
+\mbox{}\\
+The user can reach the review form in two ways:
+\begin{itemize}
+	\item from the movie page;
+	\item from the review page.
+\end{itemize}
+As we can see in the following figure:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{images/mockups/review.png}\\
+	\caption{How to make a review}
+\end{figure}
+\paragraph{Comment other reviews}
+\mbox{}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/mockups/comment.png}\\
+	\caption{Comment other reviews process}
+\end{figure}
+\paragraph{User profile settings}
+\mbox{}\\
+%TODO vedere se va bene, ho scritto al volo un idea generale
+Moreover the user can change some profile settings like image profile, username and
+password from setting page. Also here, the user can logout from the app.
+This functionality is not a main characteristics, but we thought that is can be 
+useful for the user.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/mockups/userSettings.png}\\
+	\caption{User profile and user profile settings pages}
+\end{figure}
+\begin{center}
+	\begin{minipage}{0.3\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\textwidth]{images/mockups/User setting username.png}\\
+			\caption{Change username}
+		\end{figure}
+	\end{minipage}
+	\hspace{0.1\linewidth}
+	\begin{minipage}{0.3\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\textwidth]{images/mockups/User setting password.png}\\
+			\caption{Change password}
+		\end{figure}
+	\end{minipage}	
+\end{center}
+\begin{center}
+	\begin{minipage}{0.3\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\textwidth]{images/mockups/User setting google.png}\\
+			\caption{Connect google account}
+		\end{figure}
+	\end{minipage}
+	\hspace{0.1\linewidth}
+	\begin{minipage}{0.3\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\textwidth]{images/mockups/User setting facebook.png}\\
+			\caption{Connect facebook account}
+		\end{figure}
+	\end{minipage}	
+\end{center}
 
 % Expert Based Evaluation -------------------------------------------------------------------------
 
