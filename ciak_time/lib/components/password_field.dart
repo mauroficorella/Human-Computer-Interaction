@@ -25,7 +25,7 @@ class _RegistrationPasswordField extends State<RegistrationPasswordField> {
   final passwordValidator = MultiValidator([
     RequiredValidator(errorText: 'Password is required'),
     MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
-    PatternValidator(r'(?=.*?[#?!@$%^&*-])',
+    PatternValidator(r'(?=.*?[#?!@$%^&*-_])',
         errorText: 'Password must have at least one special character')
   ]);
   @override

@@ -110,12 +110,12 @@ class _CommentsPageState extends State<CommentsPage> {
                   };
                   reviewsList[widget.reviewIndex]["commentsList"]
                       .insert(0, value);
-                  reviewsList[widget.reviewIndex]["comments"] += 1;
-                  savedReviewsLists[widget.reviewIndex]['comments'] =
-                      savedReviewsLists[widget.reviewIndex]['comments'] + 1;
                 });
-                commentController.clear();
-                FocusScope.of(context).unfocus();
+                reviewsList[widget.reviewIndex]["comments"] += 1;
+                savedReviewsLists[widget.reviewIndex]['comments'] =
+                    savedReviewsLists[widget.reviewIndex]['comments'] + 1;
+                //commentController.clear();
+                //FocusScope.of(context).unfocus();
               } else {}
             });
           },
@@ -191,8 +191,15 @@ class _CommentsPageState extends State<CommentsPage> {
                             padding: EdgeInsets.all(0.0),
                           ),
                           onPressed: () {
-                            isCommentConfirmed = true;
-                            Navigator.pop(context);
+                            commentConfirm().then((_) {
+                              FocusScope.of(context).unfocus();
+                              Navigator.pop(context);
+                              commentController.clear();
+                            });
+                            /*isCommentConfirmed = true;
+                            FocusScope.of(context).unfocus();
+                            Navigator.pop(context);*/
+                            //commentController.clear();
                           },
                           label: Text(
                             "YES",
@@ -206,7 +213,7 @@ class _CommentsPageState extends State<CommentsPage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               );
             },
@@ -215,5 +222,10 @@ class _CommentsPageState extends State<CommentsPage> {
       },
     );
     return isCommentConfirmed;
+  }
+
+  Future commentConfirm() {
+    isCommentConfirmed = true;
+    
   }
 }

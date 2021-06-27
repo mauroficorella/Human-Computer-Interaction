@@ -32,11 +32,11 @@ class UnMatchValidator extends TextFieldValidator {
 }
 
 class IsMatchValidator extends TextFieldValidator {
-  String string;
+  
   // pass the error text to the super constructor
   IsMatchValidator(
       {String errorText = 'Password and confirm password must be equal',
-      @required this.string})
+      })
       : super(errorText);
 
   // return false if you want the validator to return error
@@ -47,7 +47,26 @@ class IsMatchValidator extends TextFieldValidator {
   @override
   bool isValid(String value) {
     // return true if the value is valid according the your condition
-    return string == value;
+    return value == newPassword;
+  }
+}
+
+class IsNotMatchValidator extends TextFieldValidator {
+  // pass the error text to the super constructor
+  IsNotMatchValidator({
+    String errorText = 'Password already in use',
+  }) : super(errorText);
+
+  // return false if you want the validator to return error
+  // message when the value is empty.
+  @override
+  bool get ignoreEmptyValues => true;
+
+  @override
+  bool isValid(String value) {
+    
+    // return true if the value is valid according the your condition
+    return value != oldPassword;
   }
 }
 
@@ -88,14 +107,23 @@ class _UserSettingsState extends State<UserSettings> {
   bool isOldHidden = true;
   bool isNewHidden = true;
   bool isNewConfirmHidden = true;
+  final usernameController = TextEditingController();
   final oldPasswordController = TextEditingController();
   final newPasswordController = TextEditingController();
   final newPasswordConfirmController = TextEditingController();
   final passwordValidator = MultiValidator([
     RequiredValidator(errorText: 'Password is required'),
     MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
-    PatternValidator(r'(?=.*?[#?!@$%^&*-])',
+    PatternValidator(r'(?=.*?[#?!@$%^&*-_])',
         errorText: 'Password must have at least one special character')
+  ]);
+
+  var newPasswordValidator = MultiValidator([
+    IsNotMatchValidator(),
+    RequiredValidator(errorText: 'Password is required'),
+    MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
+    PatternValidator(r'(?=.*?[#?!@$%^&*-_])',
+        errorText: 'Password must have at least one special character'),
   ]);
 
   FutureOr onGoBack(dynamic value) {
@@ -158,6 +186,7 @@ class _UserSettingsState extends State<UserSettings> {
                       setState(
                         () {
                           showDialog(
+                            barrierDismissible: false,
                             context: context,
                             builder: (context) {
                               return StatefulBuilder(
@@ -173,6 +202,7 @@ class _UserSettingsState extends State<UserSettings> {
                                                 usermodified = value;
                                               });
                                             },
+                                            controller: usernameController,
                                             validator: usernameValidator,
                                             autovalidateMode: AutovalidateMode
                                                 .onUserInteraction,
@@ -190,38 +220,122 @@ class _UserSettingsState extends State<UserSettings> {
                                             ),
                                           ),
                                         ),
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                              vertical: 10),
-                                          width: size.width * 0.8,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(29),
-                                            child: FlatButton(
-                                              padding: EdgeInsets.symmetric(
-                                                  vertical: 15, horizontal: 40),
-                                              color: setButtonColor(),
-                                              onPressed: () {
-                                                if (userlogged.isNotEmpty &&
-                                                    userlogged !=
-                                                        usermodified) {
-                                                  setState(() {
-                                                    userlogged = usermodified;
-                                                  });
-                                                  Navigator.pop(context);
-                                                } else {}
-                                              },
-                                              child: Text(
-                                                'SAVE',
-                                                style: TextStyle(
-                                                  color: setButtonTextColor(),
-                                                  fontSize: size.width * 0.05,
-                                                  fontFamily: 'Quicksand',
-                                                  fontWeight: FontWeight.bold,
+                                        Row(
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 10),
+                                              width: size.width * 0.34,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(29),
+                                                child: OutlinedButton(
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                    primary: Colors.white,
+                                                    minimumSize: Size(
+                                                        size.width * 0.25,
+                                                        size.height * 0.05),
+                                                    backgroundColor:
+                                                        Colors.white,
+                                                    side: BorderSide(
+                                                        color: kPrimaryColor,
+                                                        width: 2),
+                                                    shape:
+                                                        const RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  29)),
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        .unfocus();
+                                                    usernameController.clear();
+                                                    usermodified = '';
+                                                    buttonModifyUserColor =
+                                                        Colors.grey[300];
+                                                    buttonModifyUserTextColor =
+                                                        Colors.grey;
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text(
+                                                    'BACK',
+                                                    style: TextStyle(
+                                                      color: kPrimaryColor,
+                                                      fontSize:
+                                                          size.width * 0.04,
+                                                      fontFamily: 'Quicksand',
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
+                                            SizedBox(width: size.width * 0.01),
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 10),
+                                              width: size.width * 0.34,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(29),
+                                                child: OutlinedButton(
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                    primary: Colors.white,
+                                                    minimumSize: Size(
+                                                        size.width * 0.25,
+                                                        size.height * 0.05),
+                                                    backgroundColor:
+                                                        setButtonColor(),
+                                                    side: BorderSide(
+                                                        color: setButtonColor(),
+                                                        width: 2),
+                                                    shape:
+                                                        const RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  29)),
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    if (usermodified
+                                                            .isNotEmpty &&
+                                                        userlogged !=
+                                                            usermodified) {
+                                                      setState(() {
+                                                        userlogged =
+                                                            usermodified;
+                                                      });
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          .unfocus();
+                                                      usernameController
+                                                          .clear();
+                                                      Navigator.pop(context);
+                                                    } else {}
+                                                  },
+                                                  child: Text(
+                                                    'SAVE',
+                                                    style: TextStyle(
+                                                      color:
+                                                          setButtonTextColor(),
+                                                      fontSize:
+                                                          size.width * 0.04,
+                                                      fontFamily: 'Quicksand',
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -254,6 +368,7 @@ class _UserSettingsState extends State<UserSettings> {
                       setState(
                         () {
                           showDialog(
+                            barrierDismissible: false,
                             context: context,
                             builder: (context) {
                               return StatefulBuilder(
@@ -401,7 +516,7 @@ class _UserSettingsState extends State<UserSettings> {
                                                 },
                                                 controller:
                                                     newPasswordController,
-                                                validator: passwordValidator,
+                                                validator: newPasswordValidator,
                                                 autovalidateMode:
                                                     AutovalidateMode
                                                         .onUserInteraction,
@@ -525,8 +640,7 @@ class _UserSettingsState extends State<UserSettings> {
                                                 },
                                                 controller:
                                                     newPasswordConfirmController,
-                                                validator: IsMatchValidator(
-                                                    string: newPassword),
+                                                validator: IsMatchValidator(),
                                                 autovalidateMode:
                                                     AutovalidateMode
                                                         .onUserInteraction,
@@ -641,43 +755,149 @@ class _UserSettingsState extends State<UserSettings> {
                                             ],
                                           ),
                                         ),
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                              vertical: 10),
-                                          width: size.width * 0.8,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(29),
-                                            child: FlatButton(
-                                              padding: EdgeInsets.symmetric(
-                                                  vertical: 15, horizontal: 40),
-                                              color: setButtonPasswordColor(),
-                                              onPressed: () {
-                                                for (var i = 0;
-                                                    i < users.length;
-                                                    i++) {
-                                                  if (userlogged ==
-                                                      users[i]['username']) {
-                                                    setState(() {
-                                                      users[i]['password'] =
-                                                          newPassword;
-                                                    });
+                                        Row(
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 10),
+                                              width: size.width * 0.34,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(29),
+                                                child: OutlinedButton(
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                    primary: Colors.white,
+                                                    minimumSize: Size(
+                                                        size.width * 0.25,
+                                                        size.height * 0.05),
+                                                    backgroundColor:
+                                                        Colors.white,
+                                                    side: BorderSide(
+                                                        color: kPrimaryColor,
+                                                        width: 2),
+                                                    shape:
+                                                        const RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  29)),
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        .unfocus();
+                                                    oldPasswordController
+                                                        .clear();
+                                                    newPasswordController
+                                                        .clear();
+                                                    newPasswordConfirmController
+                                                        .clear();
+                                                    oldPassword = '';
+                                                    newPassword = '';
+                                                    newConfirmPassword = '';
+                                                    setButtonPasswordColor();
                                                     Navigator.pop(context);
-                                                  } else {}
-                                                }
-                                              },
-                                              child: Text(
-                                                'SAVE',
-                                                style: TextStyle(
-                                                  color:
-                                                      setButtonTextPasswordColor(),
-                                                  fontSize: size.width * 0.05,
-                                                  fontFamily: 'Quicksand',
-                                                  fontWeight: FontWeight.bold,
+                                                  },
+                                                  child: Text(
+                                                    'BACK',
+                                                    style: TextStyle(
+                                                      color: kPrimaryColor,
+                                                      fontSize:
+                                                          size.width * 0.04,
+                                                      fontFamily: 'Quicksand',
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
+                                            SizedBox(width: size.width * 0.01),
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 10),
+                                              width: size.width * 0.34,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(29),
+                                                child: OutlinedButton(
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                    primary: Colors.white,
+                                                    minimumSize: Size(
+                                                        size.width * 0.25,
+                                                        size.height * 0.05),
+                                                    backgroundColor:
+                                                        setButtonPasswordColor(),
+                                                    side: BorderSide(
+                                                        color:
+                                                            setButtonPasswordColor(),
+                                                        width: 2),
+                                                    shape:
+                                                        const RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  29)),
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    String pass;
+                                                    for (var i = 0;
+                                                        i < users.length;
+                                                        i++) {
+                                                      if (userlogged ==
+                                                          users[i]
+                                                              ['username']) {
+                                                        pass = users[i]
+                                                            ['password'];
+                                                      }
+                                                      if (newPassword.isNotEmpty &&
+                                                          oldPassword
+                                                              .isNotEmpty &&
+                                                          newConfirmPassword
+                                                              .isNotEmpty &&
+                                                          newPassword ==
+                                                              newConfirmPassword &&
+                                                          oldPassword == pass &&
+                                                          newPassword !=
+                                                              oldPassword) {
+                                                        setState(() {
+                                                          users[i]['password'] =
+                                                              newPassword;
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              .unfocus();
+
+                                                          newPasswordController
+                                                              .clear();
+                                                          oldPasswordController
+                                                              .clear();
+                                                          newPasswordConfirmController
+                                                              .clear();
+                                                        });
+                                                        Navigator.pop(context);
+                                                      } else {}
+                                                    }
+                                                  },
+                                                  child: Text(
+                                                    'SAVE',
+                                                    style: TextStyle(
+                                                      color:
+                                                          setButtonTextPasswordColor(),
+                                                      fontSize:
+                                                          size.width * 0.04,
+                                                      fontFamily: 'Quicksand',
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -1073,16 +1293,18 @@ class _UserSettingsState extends State<UserSettings> {
   }
 
   Color setButtonColor() {
-    if (userlogged.isNotEmpty && userlogged != usermodified) {
+    if (usermodified != '' && userlogged != usermodified) {
       buttonModifyUserColor = kPrimaryColor;
+      print(usermodified);
     } else {
+      print(usermodified);
       buttonModifyUserColor = Colors.grey[300];
     }
     return buttonModifyUserColor;
   }
 
   Color setButtonTextColor() {
-    if (userlogged.isNotEmpty && userlogged != usermodified) {
+    if (usermodified.isNotEmpty && userlogged != usermodified) {
       buttonModifyUserTextColor = Colors.white;
     } else {
       buttonModifyUserTextColor = Colors.grey;
@@ -1102,12 +1324,13 @@ class _UserSettingsState extends State<UserSettings> {
         oldPassword.isNotEmpty &&
         newConfirmPassword.isNotEmpty &&
         newPassword == newConfirmPassword &&
-        oldPassword == pass) {
-      buttonModifyUserColor = kPrimaryColor;
+        oldPassword == pass &&
+        newPassword != oldPassword) {
+      buttonPasswordColor = kPrimaryColor;
     } else {
-      buttonModifyUserColor = Colors.grey[300];
+      buttonPasswordColor = Colors.grey[300];
     }
-    return buttonModifyUserColor;
+    return buttonPasswordColor;
   }
 
   Color setButtonTextPasswordColor() {
@@ -1121,13 +1344,14 @@ class _UserSettingsState extends State<UserSettings> {
         oldPassword.isNotEmpty &&
         newConfirmPassword.isNotEmpty &&
         newPassword == newConfirmPassword &&
-        oldPassword == pass) {
-      buttonModifyUserTextColor = Colors.white;
+        oldPassword == pass &&
+        newPassword != oldPassword) {
+      buttonPasswordTextColor = Colors.white;
     } else {
-      buttonModifyUserTextColor = Colors.grey;
+      buttonPasswordTextColor = Colors.grey;
     }
 
-    return buttonModifyUserTextColor;
+    return buttonPasswordTextColor;
   }
 
   void toggleOldPasswordVisibility() => setState(() {
