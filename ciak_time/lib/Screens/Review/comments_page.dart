@@ -18,6 +18,7 @@ class CommentsPage extends StatefulWidget {
 class _CommentsPageState extends State<CommentsPage> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
+  String comment;
 
   Widget commentChild(reviewsList, commentsList, size) {
     if (reviewsList[widget.reviewIndex]['comments'] == 0) {
@@ -99,23 +100,32 @@ class _CommentsPageState extends State<CommentsPage> {
           withBorder: false,
           errorText: "Comment cannot be empty",
           sendButtonMethod: () async {
+            comment = commentController.text;
+
             await commentConfirmed(size).then((_) {
               if (formKey.currentState.validate() && isCommentConfirmed) {
+                commentController.clear();
+                FocusScope.of(context).unfocus();
+
                 setState(() {
+                  print("commentController.text: " + comment);
                   var value = {
                     'name': 'Vittoria',
                     'pic':
                         'https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg',
-                    'message': commentController.text
+                    'message': comment,
                   };
                   reviewsList[widget.reviewIndex]["commentsList"]
                       .insert(0, value);
+
+                  //FocusScope.of(context).unfocus();
                 });
                 reviewsList[widget.reviewIndex]["comments"] += 1;
-                savedReviewsLists[widget.reviewIndex]['comments'] =
-                    savedReviewsLists[widget.reviewIndex]['comments'] + 1;
-                //commentController.clear();
-                //FocusScope.of(context).unfocus();
+
+                savedReviewsLists[widget.reviewIndex]['commentsList'] =
+                    reviewsList[widget.reviewIndex]["commentsList"];
+
+                //savedReviewsLists[widget.reviewIndex]['comments'] += 1;
               } else {}
             });
           },
@@ -191,11 +201,17 @@ class _CommentsPageState extends State<CommentsPage> {
                             padding: EdgeInsets.all(0.0),
                           ),
                           onPressed: () {
-                            commentConfirm().then((_) {
+                            isCommentConfirmed = true;
+                            Navigator.pop(context);
+                            //FocusScope.of(context).unfocus();
+
+                            //commentController.clear();
+                            //FocusScope.of(context).unfocus();
+                            /*commentConfirm().then((_) {
                               FocusScope.of(context).unfocus();
                               Navigator.pop(context);
                               commentController.clear();
-                            });
+                            });*/
                             /*isCommentConfirmed = true;
                             FocusScope.of(context).unfocus();
                             Navigator.pop(context);*/
@@ -221,11 +237,7 @@ class _CommentsPageState extends State<CommentsPage> {
         );
       },
     );
-    return isCommentConfirmed;
-  }
 
-  Future commentConfirm() {
-    isCommentConfirmed = true;
-    
+    return isCommentConfirmed;
   }
 }

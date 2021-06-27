@@ -1295,9 +1295,7 @@ class _UserSettingsState extends State<UserSettings> {
   Color setButtonColor() {
     if (usermodified != '' && userlogged != usermodified) {
       buttonModifyUserColor = kPrimaryColor;
-      print(usermodified);
     } else {
-      print(usermodified);
       buttonModifyUserColor = Colors.grey[300];
     }
     return buttonModifyUserColor;

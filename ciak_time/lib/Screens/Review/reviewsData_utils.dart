@@ -553,11 +553,10 @@ List currentReviews = [];
 List savedReviewsLists = [];
 
 void generateRandomUsersReviews(movieId) {
-  print("SavedReviewsList" + savedReviewsLists.toString());
+  //print("SavedReviewsList" + savedReviewsLists.toString());
   int movieAlreadyOpenedIndex = isMovieAlreadyOpened(movieId);
   if (movieAlreadyOpenedIndex != null) {
     currentReviews = getGeneratedReviews(movieId);
-    print("Hey, I have already generated these reviews before");
     return;
   }
 
