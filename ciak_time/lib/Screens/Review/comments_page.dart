@@ -108,7 +108,7 @@ class _CommentsPageState extends State<CommentsPage> {
                 FocusScope.of(context).unfocus();
 
                 setState(() {
-                  print("commentController.text: " + comment);
+                 
                   var value = {
                     'name': 'Vittoria',
                     'pic':
@@ -118,14 +118,12 @@ class _CommentsPageState extends State<CommentsPage> {
                   reviewsList[widget.reviewIndex]["commentsList"]
                       .insert(0, value);
 
-                  //FocusScope.of(context).unfocus();
                 });
                 reviewsList[widget.reviewIndex]["comments"] += 1;
 
                 savedReviewsLists[widget.reviewIndex]['commentsList'] =
                     reviewsList[widget.reviewIndex]["commentsList"];
 
-                //savedReviewsLists[widget.reviewIndex]['comments'] += 1;
               } else {}
             });
           },
@@ -203,19 +201,7 @@ class _CommentsPageState extends State<CommentsPage> {
                           onPressed: () {
                             isCommentConfirmed = true;
                             Navigator.pop(context);
-                            //FocusScope.of(context).unfocus();
-
-                            //commentController.clear();
-                            //FocusScope.of(context).unfocus();
-                            /*commentConfirm().then((_) {
-                              FocusScope.of(context).unfocus();
-                              Navigator.pop(context);
-                              commentController.clear();
-                            });*/
-                            /*isCommentConfirmed = true;
-                            FocusScope.of(context).unfocus();
-                            Navigator.pop(context);*/
-                            //commentController.clear();
+                        
                           },
                           label: Text(
                             "YES",
