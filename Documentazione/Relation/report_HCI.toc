@@ -6,24 +6,24 @@
 \contentsline {subsection}{\numberline {2.2}User analysis}{3}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}User Profile}{3}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Persona 1 - Vittoria}{3}{subsubsection.2.2.2}%
-\contentsline {paragraph}{Persona}{3}{section*.4}%
-\contentsline {paragraph}{Scenario}{3}{section*.5}%
-\contentsline {subsubsection}{\numberline {2.2.3}Persona 2 - Emanuele}{3}{subsubsection.2.2.3}%
+\contentsline {paragraph}{Persona}{4}{section*.4}%
+\contentsline {paragraph}{Scenario}{4}{section*.5}%
+\contentsline {subsubsection}{\numberline {2.2.3}Persona 2 - Emanuele}{4}{subsubsection.2.2.3}%
 \contentsline {paragraph}{Persona}{4}{section*.6}%
 \contentsline {paragraph}{Scenario}{4}{section*.7}%
 \contentsline {subsection}{\numberline {2.3}Questionnaire analysis}{4}{subsection.2.3}%
-\contentsline {paragraph}{What's your age?}{4}{section*.8}%
-\contentsline {paragraph}{What's your gender?}{4}{section*.9}%
+\contentsline {paragraph}{What's your age?}{5}{section*.8}%
+\contentsline {paragraph}{What's your gender?}{5}{section*.9}%
 \contentsline {paragraph}{What's your educational level?}{5}{section*.10}%
 \contentsline {paragraph}{How frequently do you use your smartphone on average?}{5}{section*.11}%
-\contentsline {paragraph}{How many times do you go to the cinema on average? (Before pandemic)}{5}{section*.12}%
-\contentsline {paragraph}{How many times do you watch movies on streaming platforms/tv on average?}{5}{section*.13}%
+\contentsline {paragraph}{How many times do you go to the cinema on average? (Before pandemic)}{6}{section*.12}%
+\contentsline {paragraph}{How many times do you watch movies on streaming platforms/tv on average?}{6}{section*.13}%
 \contentsline {paragraph}{Which streaming platforms do you know?}{6}{section*.14}%
-\contentsline {paragraph}{Which streaming platforms do you use?}{6}{section*.15}%
-\contentsline {paragraph}{Do you use any movies related app?}{6}{section*.16}%
+\contentsline {paragraph}{Which streaming platforms do you use?}{7}{section*.15}%
+\contentsline {paragraph}{Do you use any movies related app?}{7}{section*.16}%
 \contentsline {paragraph}{If you use any movies related app, which one?}{7}{section*.17}%
-\contentsline {paragraph}{If you don't use any movies related app, how much would you be interest in using one?}{7}{section*.18}%
-\contentsline {paragraph}{How much do you think the following features are important in such an app?}{7}{section*.19}%
+\contentsline {paragraph}{If you don't use any movies related app, how much would you be interest in using one?}{8}{section*.18}%
+\contentsline {paragraph}{How much do you think the following features are important in such an app?}{8}{section*.19}%
 \contentsline {subsubsection}{\numberline {2.3.1}Conclusions}{8}{subsubsection.2.3.1}%
 \contentsline {section}{\numberline {3}Task analysis: HTA and STN}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Login}{9}{subsection.3.1}%
@@ -44,7 +44,7 @@
 \contentsline {section}{\numberline {4}Prototype 0: mockups}{15}{section.4}%
 \contentsline {paragraph}{Login and Registration}{15}{section*.30}%
 \contentsline {paragraph}{Search for a movie or a person}{16}{section*.31}%
-\contentsline {paragraph}{Add a movie to a list}{16}{section*.32}%
+\contentsline {paragraph}{Add a movie to a list}{17}{section*.32}%
 \contentsline {paragraph}{Review a movie}{18}{section*.33}%
 \contentsline {paragraph}{Comment other reviews}{18}{section*.34}%
 \contentsline {paragraph}{User profile settings}{19}{section*.35}%

@@ -103,9 +103,22 @@ In order to involve as much users as possible, we decided to make our app availa
 
 \section{Requirement analysis}
 
+To realize our application, we followed the \textit{User Centered Design} (UCD)  approach, which intends
+to ensure that the user is at the center during the design process in order to realize products
+that meet usability requirements.\\ 
+Since humans become the center of our interest, the system is created according to their perspective.
+So we need to involve user throughout the creating process in order to learn as much things as possible 
+about our type of product and the final customers.
+To do that, we start collecting some information through competitors analysis, user analysis and 
+questionnaires analysis. 
+
 % Competitor  analysis -------------------------------------------------------------------------
 
 \subsection{Competitor analysis}
+
+Since a system needs to compare itself with what’s already on the market, both in the pros and in 
+the cons, one of the first requirments analysis to be done is \textit{Competitor analysis}. 
+In this way, we can add something that is new, innovative and valuable to the user.\\\\
 We found two main competitors for our application: \textbf{IMDb} and \textbf{Cinemaniac}.
 \paragraph{IMDb}\mbox{}\\\\
 \includegraphics[width=0.4\textwidth]{Images/IMDb.png}\\
@@ -162,7 +175,7 @@ In the following table we summarize the comparison between our app and the compe
 		\hline
 	\end{tabular}
 \end{center}
-
+\mbox{}\\
 % User analysis -------------------------------------------------------------------------
 
 \subsection{User analysis}
@@ -173,7 +186,7 @@ based on the user profile and the Scenarios, which are stories that describe how
 persona completes a task or behaves in a given situation.
 
 \subsubsection{User Profile}
-
+In the following table we show the general description of our target users and their characteristics.
 \begin{center}
 	\begin{tabular}{ |p{3cm}|P{7cm}|  }
 		\hline
@@ -196,11 +209,11 @@ persona completes a task or behaves in a given situation.
 
 \subsubsection{Persona 1 - Vittoria}
 
-\begin{minipage}{0.25\textwidth}
+\begin{minipage}{0.3\textwidth}
 	\includegraphics[width=1\textwidth]{images/vittoria.png}
 \end{minipage}
 \hspace{0.02\linewidth}
-\begin{minipage}{0.7\textwidth}
+\begin{minipage}{0.65\textwidth}
 	\textbf{Age:} 25 years-old \\
 	\textbf{Gender:} Female\\
 	\textbf{Profession:} Student\\
@@ -225,11 +238,11 @@ At the end of the evening they both check it as “watched“ in their app.
 
 \subsubsection{Persona 2 - Emanuele}
 
-\begin{minipage}{0.25\textwidth}
+\begin{minipage}{0.3\textwidth}
 	\includegraphics[width=1\textwidth]{images/emanuele.png}
 \end{minipage}
 \hspace{0.02\linewidth}
-\begin{minipage}{0.6\textwidth}
+\begin{minipage}{0.65\textwidth}
 	\textbf{Age:} 33 years-old\\
 	\textbf{Gender:} Male\\
 	\textbf{Profession:} Programmer\\
@@ -286,22 +299,22 @@ More precisely, we reached 151 people, and so we had a good number of answers, s
 \includegraphics[width=0.7\textwidth]{Images/timeStreaming.png}\\
 
 \paragraph{Which streaming platforms do you know?}\mbox{}\\\\
-\includegraphics[width=0.9\textwidth]{Images/streamingPlatform.png}\\
+\includegraphics[width=1\textwidth]{Images/streamingPlatform.png}\\\\
 
 \paragraph{Which streaming platforms do you use?}\mbox{}\\\\
-\includegraphics[width=0.9\textwidth]{Images/streamingPlatformUsed.png}\\
+\includegraphics[width=1\textwidth]{Images/streamingPlatformUsed.png}\\
 
 \paragraph{Do you use any movies related app?}\mbox{}\\\\
 \includegraphics[width=0.7\textwidth]{Images/app.png}\\
 
 \paragraph{If you use any movies related app, which one?}\mbox{}\\\\
-\includegraphics[width=1\textwidth]{images/appUsed.png}\\
+\includegraphics[width=1\textwidth]{images/appUsed.png}\\\\\\\\
 
 \paragraph{If you don't use any movies related app, how much would you be interest in using one?}\mbox{}\\\\
 \includegraphics[width=1\textwidth]{images/interesting.png}\\
 
 \paragraph{How much do you think the following features are important in such an app?}\mbox{}\\\\
-\includegraphics[width=1\textwidth]{Images/features.png}\\\\\\\\\\\\
+\includegraphics[width=1\textwidth]{Images/features.png}\\
 
 \subsubsection{Conclusions}
 After having analyzed the results obtained from the questionnaires, we have formalized the following conclusions:
@@ -329,30 +342,28 @@ After having analyzed the results obtained from the questionnaires, we have form
 
 \section{Task analysis: HTA and STN}
 
-%TODO ricontrollare se ho scritto bene in inglese
-
-In this section we are going to present HTA and STN in order to formalize the main task of 
-our application and to analyze and describe how users can reached their goal.\\
+In this section we are going to show HTA and STN in order to formalize the main task of 
+our application and to analyze and describe how users can reach their goals.\\
 \textit{Hierarchical Task Analysis} (HTA) is a task description methodology that is used to produce a 
 complete description of tasks in a hierarchical structure of goals, sub-goals, operations and plans 
 in order to have a complete representation of the action.\\
-Instead, a \textit{State Transition Network} (STN) epresents a dialog between the user and the system, 
+Instead, a \textit{State Transition Network} (STN) represents a dialogue between the user and the system, 
 in which the system could support the tasks that the customer has to execute.
-It provides a description of which the available actions are at a certain point, and the consequent 
-state the system will reach.\\\\
+It describes which are the available actions at a certain point, and the consequent 
+state that the system will reach.\\\\
 The main tasks that the user can do in our application are:
 \begin{itemize}
-	\item The user can login into the app.
-	\item The user can search movie or an actor or movie director.
-	\item The user has the possibility to add a movie into three lists: watchlist, movie already watched list and favourite movie list.
-	\item The user has the possibility to make a review regarding a movie.
-	\item The user can interact with other users by comment a review written by another user.
+	\item Login into the app.
+	\item Search for a movie, an actor or movie director.
+	\item Add a movie into three lists: watchlist, movie already watched list and favourite movie list.
+	\item Make a review regarding a movie.
+	\item Interact with other users by commenting a review written by another user.
 \end{itemize}
 \hbox{}
 \subsection{Login}
 The user can login into the app if registered, either through online platforms (Google, Facebook) 
 or using his personal email and password, in order to save in the cloud all his data regarding the app. 
-From now on, in the following HTAs, we assume that the user is logged in.\\ %TODO va bene fa from now?
+From now on, in the following HTAs, we assume that the user is logged in.\\ 
 
 \paragraph{HTA - Login}\mbox{}\\
 \begin{figure}[H]
@@ -442,10 +453,10 @@ all the reviews, choose one of them and comment it.\\
 \newpage
 
 \section{Prototype 0: mockups}
-%TODO controllare come è scritto
-In this section we going to present our first prototype realized through mockups
-in Balsamiq Wireframes.\\\\ 
-The main characteristics of this prototype are:
+In this section we are going to present our first prototype realized through mockups
+in Balsamiq Wireframes. In the first prototype we created the skeleton of the application
+by modeling the different screens and the interaction between them.\\\\ 
+The main functionalities of this prototype are:
 \begin{itemize}
 	\item Login and registration of an user.
 	\item Search for a movie or a person.
@@ -459,7 +470,7 @@ The main characteristics of this prototype are:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/mockups/signInSignUp.png}\\
-	\caption{Login and Sign Up pages}
+	\caption{Login and Registration pages}
 \end{figure}
 \begin{figure}[H]
 	\centering
@@ -467,15 +478,20 @@ The main characteristics of this prototype are:
 	\caption{Login with Google and Facebook}
 \end{figure}
 \paragraph{Search for a movie or a person}
-\mbox{}
+\mbox{}\\\\
+The user can do the search by tapping on the search bar and, if he wants, he can apply filters by tapping 
+on the proper icon.\\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{images/mockups/search2.png}\\
 	\caption{Searching process with optional filters}
 \end{figure}
-%todo scrivere che una volta che si è trovata la persona o il film si aprono queste pagine
+\mbox{}\\
+\noindent
+After having searched for a movie or a person, the user can tap on it and the application, according
+to his choice, will show one of the following screens:
 \begin{center}
-	\begin{minipage}{0.3\textwidth}
+	\begin{minipage}{0.4\textwidth}
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\textwidth]{images/mockups/Movie page.png}\\
@@ -483,7 +499,7 @@ The main characteristics of this prototype are:
 		\end{figure}
 	\end{minipage}
 	\hspace{0.01\linewidth}
-	\begin{minipage}{0.3\textwidth}
+	\begin{minipage}{0.4\textwidth}
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\textwidth]{images/mockups/People page.png}\\
@@ -491,9 +507,11 @@ The main characteristics of this prototype are:
 		\end{figure}
 	\end{minipage}	
 \end{center}
-\mbox{}\\
+\mbox{}\\\\\\\\\\\\\\\\\\\\
 \paragraph{Add a movie to a list}
-%TODO scrivere che il cuore serve per i preferiti
+\mbox{}\\\\
+The user can add a movie to a list in the following ways: by tapping on the "+" button to add the movie to 
+"Watchlist" or "Already watched" and by tapping on the heart icon to add the movie to "Favourite movies".
 \mbox{}
 \begin{figure}[H]
 	\centering
@@ -501,8 +519,8 @@ The main characteristics of this prototype are:
 	\caption{Add a movie to a list process}
 \end{figure}
 \noindent
-The user can reach the lists where he added the movie from the user profile page
-in order to see all movie added in watchlist, movie already watched and favourite movie.\\
+The user can reach the lists where he added the movie from the user profile page,
+in order to see all the movies added in watchlist, already watched list and favourite movies list.\\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.21\textwidth]{images/mockups/User profile.png}\\
@@ -533,37 +551,38 @@ in order to see all movie added in watchlist, movie already watched and favourit
 		\end{figure}
 	\end{minipage}	
 \end{center}
-\mbox{}\\\\\\\\\\\\\\\\\\\\
-\paragraph{Review a movie}
 \mbox{}\\
+\paragraph{Review a movie}
+\mbox{}\\\\
 The user can reach the review form in two ways:
 \begin{itemize}
 	\item from the movie page;
-	\item from the review page.
+	\item from the reviews page.
 \end{itemize}
 As we can see in the following figure:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{images/mockups/review.png}\\
+	\includegraphics[width=0.8\textwidth]{images/mockups/review.png}\\
 	\caption{How to make a review}
 \end{figure}
 \paragraph{Comment other reviews}
-\mbox{}
+\mbox{}\\\\
+Tapping on "Comment" button, the user can see the comments of the other users and write a comment.
+He can also tap on "Like" button in order to leave positive feedback regarding a certain review.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{images/mockups/comment.png}\\
+	\includegraphics[width=0.55\textwidth]{images/mockups/comment.png}\\
 	\caption{Comment other reviews process}
 \end{figure}
 \paragraph{User profile settings}
-\mbox{}\\
-%TODO vedere se va bene, ho scritto al volo un idea generale
-Moreover the user can change some profile settings like image profile, username and
-password from setting page. Also here, the user can logout from the app.
-This functionality is not a main characteristics, but we thought that is can be 
-useful for the user.
+\mbox{}\\\\
+Moreover, from the settings page, the user can change some profile settings like image profile, username and
+password. Also, if the user has not done it before, he can link his profile with his Google or Facebook account.
+Finally, here, the user can logout from the app.\\
+These are not main functionalities, but we thought that they can be useful in order to support the user.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{images/mockups/userSettings.png}\\
+	\includegraphics[width=0.55\textwidth]{images/mockups/userSettings.png}\\
 	\caption{User profile and user profile settings pages}
 \end{figure}
 \begin{center}
