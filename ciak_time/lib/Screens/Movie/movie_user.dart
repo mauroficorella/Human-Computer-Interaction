@@ -478,7 +478,7 @@ buildFlutterToast(list) {
     msg: movieSelectedFromUser.title + list,
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.BOTTOM,
-    timeInSecForIosWeb: 2,
+    timeInSecForIosWeb: 3,
     backgroundColor: kPrimaryLightColor,
     textColor: Colors.black,
     fontSize: 16.0,
@@ -594,10 +594,15 @@ class AddButton extends StatelessWidget {
                               }
                               if (isContainedInWatchList) {
                                 watchList.remove(movie);
+                                buildFlutterToast(
+                                  " added to already watched list and removed from watchlist",);
+                              }
+                              else{
+                                buildFlutterToast(
+                                  " added to already watched list");
                               }
                               alreadyWatchedList.add(movieSelectedFromUser);
-                              buildFlutterToast(
-                                  " added to already watched list");
+                              
                               Navigator.pop(context);
                             }
                           },
