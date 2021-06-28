@@ -46,7 +46,7 @@
 \contentsline {paragraph}{Search for a movie or a person}{16}{section*.31}%
 \contentsline {paragraph}{Add a movie to a list}{17}{section*.32}%
 \contentsline {paragraph}{Review a movie}{18}{section*.33}%
-\contentsline {paragraph}{Comment other reviews}{18}{section*.34}%
+\contentsline {paragraph}{Comment other reviews}{19}{section*.34}%
 \contentsline {paragraph}{User profile settings}{19}{section*.35}%
 \contentsline {section}{\numberline {5}Expert Based Evaluation}{21}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Heuristic Evaluation}{21}{subsection.5.1}%
