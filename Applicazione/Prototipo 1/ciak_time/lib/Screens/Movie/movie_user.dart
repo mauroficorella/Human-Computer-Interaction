@@ -1,5 +1,7 @@
 import 'package:ciak_time/Screens/Movie/insert_review_btn.dart';
-
+import 'package:ciak_time/Screens/Movie/movie_details.dart';
+import 'package:ciak_time/Screens/Review/review.dart';
+import 'package:ciak_time/Screens/Review/reviews_page.dart';
 import 'package:ciak_time/api_utils.dart';
 import 'package:ciak_time/blocs/movie_details_bloc.dart';
 import 'package:ciak_time/blocs/movie_images_bloc.dart';
@@ -8,20 +10,19 @@ import 'package:ciak_time/constants.dart';
 import 'package:ciak_time/models/movie.dart';
 import 'package:ciak_time/models/movie_details_model.dart';
 import 'package:ciak_time/models/movie_images_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class MovieSearch extends StatefulWidget {
-  const MovieSearch({
+class MovieUser extends StatefulWidget {
+  const MovieUser({
     Key key,
   }) : super(key: key);
   @override
-  _MovieSearchState createState() => _MovieSearchState();
+  _MovieUserState createState() => _MovieUserState();
 }
 
-class _MovieSearchState extends State<MovieSearch> {
+class _MovieUserState extends State<MovieUser> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -36,7 +37,7 @@ class _MovieSearchState extends State<MovieSearch> {
               Center(
                 child: MovieCover(size: size),
               ),
-
+              
               Positioned(
                 left: size.width * 0.03,
                 top: size.width * 0.1,
@@ -59,6 +60,7 @@ class _MovieSearchState extends State<MovieSearch> {
                       args.fromWhere,
                       style: TextStyle(color: Colors.white),
                     ),
+                    
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -93,7 +95,7 @@ class _MovieSearchState extends State<MovieSearch> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        movieSelectedFromSearch.title,
+                        movieSelectedFromUser.title,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -116,7 +118,7 @@ class _MovieSearchState extends State<MovieSearch> {
                   SizedBox(
                     height: size.height * 0.01,
                   ),
-                  // MOVIE DESCRIPTION
+                  // MOVIE DESCRIPTION 
                   Container(
                     width: size.width * 0.98,
                     decoration: BoxDecoration(
@@ -175,7 +177,7 @@ class _MovieSearchState extends State<MovieSearch> {
                           ),
                           Container(
                             child: Text(
-                              getOverviewSearch(),
+                              getOverviewUser(),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                               style: TextStyle(
@@ -246,12 +248,11 @@ class _MovieSearchState extends State<MovieSearch> {
                             children: [
                               RatingUnclickable(
                                   unratedColor: Colors.grey.withOpacity(0.5),
-                                  rate: movieSelectedFromSearch.voteAverage),
+                                  rate: movieSelectedFromUser.voteAverage),
                               SizedBox(width: size.width * 0.03),
                               Text(
                                 'out of ' +
-                                    movieSelectedFromSearch.voteCount
-                                        .toString() +
+                                    movieSelectedFromUser.voteCount.toString() +
                                     ' ratings',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -263,6 +264,7 @@ class _MovieSearchState extends State<MovieSearch> {
                           ),
                           SizedBox(height: size.height * 0.01),
                           InsertReviewBtn(
+                            movieId: movieSelectedFromUser.id,
                             size: size,
                             fromWhere: '/insertreviewfrommovie',
                           )
@@ -290,7 +292,7 @@ class MovieCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = MovieImagesBloc(movieSelectedFromSearch.id.toString());
+    final bloc = MovieImagesBloc(movieSelectedFromUser.id.toString());
     bloc.fetchMovieImagesResults();
 
     return StreamBuilder(
@@ -358,7 +360,7 @@ class MovieBasicInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = MovieDetailsBloc(movieSelectedFromSearch.id.toString());
+    final bloc = MovieDetailsBloc(movieSelectedFromUser.id.toString());
     bloc.fetchMovieDetailsResults();
 
     return StreamBuilder(
@@ -429,7 +431,7 @@ class MovieBasicInfo extends StatelessWidget {
 String getWatchListTitle() {
   bool isContained = false;
   for (var i = 0; i < watchList.length; i++) {
-    if (watchList[i].id == movieSelectedFromSearch.id) {
+    if (watchList[i].id == movieSelectedFromUser.id) {
       isContained = true;
     }
   }
@@ -445,7 +447,7 @@ String getWatchListTitle() {
 String getAlreadyWatchedListTitle() {
   bool isContained = false;
   for (var i = 0; i < alreadyWatchedList.length; i++) {
-    if (alreadyWatchedList[i].id == movieSelectedFromSearch.id) {
+    if (alreadyWatchedList[i].id == movieSelectedFromUser.id) {
       isContained = true;
     }
   }
@@ -460,7 +462,7 @@ String getAlreadyWatchedListTitle() {
 String getFavouriteListTitle() {
   bool isContained = false;
   for (var i = 0; i < favouriteList.length; i++) {
-    if (favouriteList[i].id == movieSelectedFromSearch.id) {
+    if (favouriteList[i].id == movieSelectedFromUser.id) {
       isContained = true;
     }
   }
@@ -474,7 +476,7 @@ String getFavouriteListTitle() {
 
 buildFlutterToast(list) {
   Fluttertoast.showToast(
-    msg: movieSelectedFromSearch.title + list,
+    msg: movieSelectedFromUser.title + list,
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 3,
@@ -487,7 +489,7 @@ buildFlutterToast(list) {
 checkDisabledButton(context) {
   bool isContained = false;
   for (var i = 0; i < alreadyWatchedList.length; i++) {
-    if (alreadyWatchedList[i].id == movieSelectedFromSearch.id) {
+    if (alreadyWatchedList[i].id == movieSelectedFromUser.id) {
       isContained = true;
     }
   }
@@ -504,12 +506,12 @@ checkDisabledButton(context) {
     );
   } else {
     if (watchListTitle == "Remove from watchlist") {
-      watchList.remove(movieSelectedFromSearch);
+      watchList.remove(movieSelectedFromUser);
 
       buildFlutterToast(" removed from watchlist");
       Navigator.pop(context);
     } else {
-      watchList.add(movieSelectedFromSearch);
+      watchList.add(movieSelectedFromUser);
 
       buildFlutterToast(" added to watchlist");
       Navigator.pop(context);
@@ -542,7 +544,7 @@ class AddButton extends StatelessWidget {
       ),
       /*icon: Padding(
         padding: const EdgeInsets.fromLTRB(100.0, 0.0, 0.0, 0.0),
-        //child: const Icon(Icons.add, color: Colors.black, size: 30),
+        child: const Icon(Icons.add, color: Colors.black, size: 30),
       ),*/
       backgroundColor: Colors.amber,
       elevation: 10,
@@ -571,15 +573,13 @@ class AddButton extends StatelessWidget {
                                 fontFamily: 'Quicksand-Medium'),
                           ),
                         ),
-                        Divider(
-                          color: Colors.grey,
-                        ),
+                        Divider(color: Colors.grey,),
                         TextButton.icon(
                           onPressed: () {
                             if (alreadyWatchedListTitle ==
                                 "Remove from already watched list") {
                               alreadyWatchedList
-                                  .remove(movieSelectedFromSearch);
+                                  .remove(movieSelectedFromUser);
                               buildFlutterToast(
                                   " removed from already watched list");
                               Navigator.pop(context);
@@ -588,7 +588,7 @@ class AddButton extends StatelessWidget {
                               Movie movie;
                               for (var i = 0; i < watchList.length; i++) {
                                 if (watchList[i].id ==
-                                    movieSelectedFromSearch.id) {
+                                    movieSelectedFromUser.id) {
                                   isContainedInWatchList = true;
                                   movie = watchList[i];
                                 }
@@ -596,13 +596,13 @@ class AddButton extends StatelessWidget {
                               if (isContainedInWatchList) {
                                 watchList.remove(movie);
                                 buildFlutterToast(
-                                  " added to already watched list and removed from watchlist");
+                                  " added to already watched list and removed from watchlist",);
                               }
-                              else {
+                              else{
                                 buildFlutterToast(
                                   " added to already watched list");
                               }
-                              alreadyWatchedList.add(movieSelectedFromSearch);
+                              alreadyWatchedList.add(movieSelectedFromUser);
                               
                               Navigator.pop(context);
                             }
@@ -621,18 +621,17 @@ class AddButton extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Divider(
-                          color: Colors.grey,
-                        ),
+                        Divider(color: Colors.grey,),
                         TextButton.icon(
                           onPressed: () {
                             if (favouriteListTitle ==
                                 "Remove from favourite list") {
-                              favouriteList.remove(movieSelectedFromSearch);
-                              buildFlutterToast(" removed from favourite list");
+                              favouriteList.remove(movieSelectedFromUser);
+                              buildFlutterToast(
+                                  " removed from favourite list");
                               Navigator.pop(context);
                             } else {
-                              favouriteList.add(movieSelectedFromSearch);
+                              favouriteList.add(movieSelectedFromUser);
                               buildFlutterToast(" added to favourite list");
                               Navigator.pop(context);
                             }

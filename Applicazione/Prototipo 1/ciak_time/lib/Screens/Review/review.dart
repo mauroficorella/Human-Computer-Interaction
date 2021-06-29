@@ -283,6 +283,7 @@ class ConfirmReview extends StatelessWidget {
                               'comments': 0,
                               'commentsList': [],
                             };
+                            newRating = 0;
                             insertReview(value, movieId);
                             //reviewsData.insert(0, value);
                           },

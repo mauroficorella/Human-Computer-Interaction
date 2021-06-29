@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Review/reviewsData_utils.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -5,11 +6,12 @@ class InsertReviewBtn extends StatelessWidget {
   const InsertReviewBtn({
     Key key,
     @required this.size,
-    @required this.fromWhere,
+    @required this.fromWhere, @required this.movieId,
   }) : super(key: key);
 
   final Size size;
   final String fromWhere;
+  final int movieId;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,7 @@ class InsertReviewBtn extends StatelessWidget {
       width: size.width * 0.98,
       child: TextButton.icon(
         onPressed: () {
+          generateRandomUsersReviews(movieId);
           Navigator.pushNamed(context, fromWhere,
               arguments: ScreenArguments(fromWhere));
         },

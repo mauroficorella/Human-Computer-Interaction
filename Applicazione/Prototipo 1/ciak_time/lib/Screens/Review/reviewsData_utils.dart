@@ -607,16 +607,14 @@ int isMovieAlreadyOpened(movieId) {
 }
 
 void insertReview(Map<String, Object> value, int movieId) {
+  print('martina ti voglio bene');
   for (int i = 0; i < savedReviewsLists.length; i++) {
     if (savedReviewsLists[i]["movieId"] == movieId) {
+      print('martina deficiente');
       savedReviewsLists[i]["reviewsList"].insert(0, value);
     }
   }
 }
-
-/*void generateRandomComments(number){
-
-}*/
 
 List generateRandomComments(commentsNumber) {
   List usersList = generateRandomUsers(commentsNumber);
