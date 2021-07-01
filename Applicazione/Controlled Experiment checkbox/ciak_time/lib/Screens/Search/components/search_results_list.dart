@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:ciak_time/Screens/Search/components/floating_button.dart';
 import 'package:ciak_time/components/search_movie_results_list.dart';
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultsListView extends StatefulWidget {
@@ -17,6 +20,9 @@ class SearchResultsListView extends StatefulWidget {
 }
 
 class _SearchResultsListViewState extends State<SearchResultsListView> {
+  FutureOr onGoBack(dynamic value) {
+    setState(() {});
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -40,11 +46,20 @@ class _SearchResultsListViewState extends State<SearchResultsListView> {
 
     return Stack(
       children: <Widget>[
-        
         SearchMovieResultsList(
           queryString: widget.searchTerm,
+          onGoBack: onGoBack,
         ),
-        Positioned(
+        createFloatingButton(size)
+      ],
+    );
+  }
+
+  Widget createFloatingButton(size) {
+    Widget prova;
+    setState(() {
+      if (isMovieChecked) {
+        prova = Positioned(
           bottom: size.width * 0.02,
           right: size.width * 0.28,
           left: size.width * 0.28,
@@ -53,8 +68,11 @@ class _SearchResultsListViewState extends State<SearchResultsListView> {
             size: size,
             selectedTerm: widget.searchTerm,
           ),
-        ),
-      ],
-    );
+        );
+      } else {
+        prova = Container();
+      }
+    });
+    return prova;
   }
 }

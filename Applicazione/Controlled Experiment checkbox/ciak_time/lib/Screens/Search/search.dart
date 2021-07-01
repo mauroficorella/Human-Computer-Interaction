@@ -15,10 +15,7 @@ class _SearchState extends State<Search> {
   static const historyLength = 5;
 
   List<String> _searchHistory = [
-    "Harry Potter and the philosofer's stone",
-    "Harry Potter and the prisoner of Azkaban",
-    "The Lord of the Rings: The Fellowship of the Ring",
-    "The fast and the furious",
+    
   ];
 
   List<String> filteredSearchHistory;
@@ -179,76 +176,7 @@ class _SearchState extends State<Search> {
             child: content,
           ),
           builder: (BuildContext context, Animation<double> transition) {
-            return ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Material(
-                color: Colors.white,
-                elevation: 4,
-                child: StatefulBuilder(
-                  builder: (context, setState) {
-                    if (filteredSearchHistory.isEmpty &&
-                        controller.query.isEmpty) {
-                      return Container(
-                        height: 56,
-                        width: double.infinity,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Start searching',
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.caption,
-                        ),
-                      );
-                    } else if (filteredSearchHistory.isEmpty) {
-                      return ListTile(
-                        title: Text(controller.query),
-                        leading: const Icon(Icons.search),
-                        onTap: () {
-                          setState(() {
-                            addSearchTerm(controller.query);
-                            selectedTerm = controller.query;
-                          });
-                          controller.close();
-                        },
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: filteredSearchHistory
-                            .map(
-                              (term) => ListTile(
-                                title: Text(
-                                  term,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                leading: const Icon(Icons.history),
-                                trailing: IconButton(
-                                  icon: const Icon(Icons.clear),
-                                  onPressed: () {
-                                    setState(() {
-                                      deleteSearchTerm(term);
-                                    });
-                                  },
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    putSearchTermFirst(term);
-                                    selectedTerm = term;
-                                    content = new SearchResultsListView(
-                                        callback: callback, searchTerm: term);
-                                  });
-                                  controller.close();
-                                },
-                              ),
-                            )
-                            .toList(),
-                      );
-                    }
-                  },
-                ),
-              ),
-            );
+            
           },
         );
       }),

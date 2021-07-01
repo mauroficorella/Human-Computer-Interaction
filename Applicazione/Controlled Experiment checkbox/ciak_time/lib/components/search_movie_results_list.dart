@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ciak_time/Screens/Search/filters_utils.dart';
 import 'package:ciak_time/blocs/search_results_bloc.dart';
 
@@ -12,8 +14,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class SearchMovieResultsList extends StatefulWidget {
   final String queryString;
+  final void onGoBack;
 
-  const SearchMovieResultsList({Key key, @required this.queryString})
+  const SearchMovieResultsList(
+      {Key key, @required this.queryString, @required this.onGoBack})
       : super(key: key);
 
   @override
@@ -37,14 +41,69 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     if (widget.queryString == "") {
-      return Center(
-          child: Text(
-        "No results found.\n\nWrite something before starting the search.",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 17.0,
-        ),
-      ));
+      return Column(
+        children: [
+          SizedBox(
+            height: size.height * 0.13,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                children: [
+                  Checkbox(
+                    checkColor: Colors.white,
+                    fillColor: MaterialStateProperty.resolveWith(getColor),
+                    value: isMovieChecked,
+                    onChanged: (bool value) {
+                      setState(() {
+                        if (isPersonChecked == true) {
+                          isMovieChecked = value;
+                          
+                        } else {
+                          Fluttertoast.showToast(
+                              msg:
+                                  'You have to select at least one between Movie and Person');
+                        }
+                      });
+                    },
+                  ),
+                  Text("Movie"),
+                ],
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    checkColor: Colors.white,
+                    fillColor: MaterialStateProperty.resolveWith(getColor),
+                    value: isPersonChecked,
+                    onChanged: (bool value) {
+                      setState(() {
+                        if (isMovieChecked == true) {
+                          isPersonChecked = value;
+                        } else {
+                          Fluttertoast.showToast(
+                              msg:
+                                  'You have to select at least one between Movie and Person');
+                        }
+                      });
+                    },
+                  ),
+                  Text("Person"),
+                ],
+              ),
+            ],
+          ),
+          Center(
+              child: Text(
+            "No results found.\n\nWrite something before starting the search.",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 17.0,
+            ),
+          )),
+        ],
+      );
     }
 
     final bloc = SearchResultsBloc(widget.queryString);
@@ -95,14 +154,69 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
 
   Widget buildList(AsyncSnapshot<SearchResultsModel> snapshot, size) {
     if (snapshot.data.results.isEmpty) {
-      return Center(
-          child: Text(
-        'No results found for "${widget.queryString}".',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 17.0,
-        ),
-      ));
+      return Column(
+        children: [
+          SizedBox(
+            height: size.height * 0.13,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                children: [
+                  Checkbox(
+                    checkColor: Colors.white,
+                    fillColor: MaterialStateProperty.resolveWith(getColor),
+                    value: isMovieChecked,
+                    onChanged: (bool value) {
+                      setState(() {
+                        if (isPersonChecked == true) {
+                          isMovieChecked = value;
+                          
+                        } else {
+                          Fluttertoast.showToast(
+                              msg:
+                                  'You have to select at least one between Movie and Person');
+                        }
+                      });
+                    },
+                  ),
+                  Text("Movie"),
+                ],
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    checkColor: Colors.white,
+                    fillColor: MaterialStateProperty.resolveWith(getColor),
+                    value: isPersonChecked,
+                    onChanged: (bool value) {
+                      setState(() {
+                        if (isMovieChecked == true) {
+                          isPersonChecked = value;
+                        } else {
+                          Fluttertoast.showToast(
+                              msg:
+                                  'You have to select at least one between Movie and Person');
+                        }
+                      });
+                    },
+                  ),
+                  Text("Person"),
+                ],
+              ),
+            ],
+          ),
+          Center(
+              child: Text(
+            'No results found for "${widget.queryString}".',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 17.0,
+            ),
+          )),
+        ],
+      );
     } else {
       return Column(
         children: [
@@ -122,6 +236,7 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
                       setState(() {
                         if (isPersonChecked == true) {
                           isMovieChecked = value;
+                          
                         } else {
                           Fluttertoast.showToast(
                               msg:
