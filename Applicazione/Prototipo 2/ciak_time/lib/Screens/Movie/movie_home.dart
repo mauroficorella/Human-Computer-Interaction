@@ -264,11 +264,13 @@ class _MovieHomeState extends State<MovieHome> {
                             movieId: movieSelectedFromHome.id,
                             size: size,
                             fromWhere: '/insertreviewfrommovie',
-                          )
+                          ),
+                          
                         ],
                       ),
                     ),
                   ),
+                  SizedBox(height: size.height * 0.1),
                 ],
               ),
             ),
@@ -530,7 +532,7 @@ class AddButton extends StatelessWidget {
       label: Padding(
         padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
         child: Text(
-          "Add/remove movie",
+          "Add/Remove movie",
           style: TextStyle(
             color: Colors.black,
             fontSize: size.height * 0.02,
@@ -540,10 +542,7 @@ class AddButton extends StatelessWidget {
           ),
         ),
       ),
-      /*icon: Padding(
-        padding: const EdgeInsets.fromLTRB(100.0, 0.0, 0.0, 0.0),
-        //child: const Icon(Icons.add, color: Colors.black, size: 30),
-      ),*/
+      
       backgroundColor: Colors.amber,
       elevation: 10,
       onPressed: () {

@@ -1,3 +1,4 @@
+import 'package:ciak_time/Screens/Search/components/cards_widget.dart';
 import 'package:ciak_time/Screens/Search/filters_utils.dart';
 import 'package:ciak_time/blocs/search_results_bloc.dart';
 
@@ -36,14 +37,8 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     if (widget.queryString == "") {
-      return Center(
-          child: Text(
-        "No results found.\n\nWrite something before starting the search.",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 17.0,
-        ),
-      ));
+      return CardsWidget();
+      
     }
 
     final bloc = SearchResultsBloc(widget.queryString);

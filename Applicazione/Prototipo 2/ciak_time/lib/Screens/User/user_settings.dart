@@ -221,11 +221,12 @@ class _UserSettingsState extends State<UserSettings> {
                                           ),
                                         ),
                                         Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Container(
                                               margin: EdgeInsets.symmetric(
                                                   vertical: 10),
-                                              width: size.width * 0.34,
+                                              width: size.width * 0.3,
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(29),
@@ -275,11 +276,11 @@ class _UserSettingsState extends State<UserSettings> {
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(width: size.width * 0.01),
+                                            
                                             Container(
                                               margin: EdgeInsets.symmetric(
                                                   vertical: 10),
-                                              width: size.width * 0.34,
+                                              width: size.width * 0.3,
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(29),
@@ -756,11 +757,12 @@ class _UserSettingsState extends State<UserSettings> {
                                           ),
                                         ),
                                         Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Container(
                                               margin: EdgeInsets.symmetric(
                                                   vertical: 10),
-                                              width: size.width * 0.34,
+                                              width: size.width * 0.3,
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(29),
@@ -814,11 +816,11 @@ class _UserSettingsState extends State<UserSettings> {
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(width: size.width * 0.01),
+                                            
                                             Container(
                                               margin: EdgeInsets.symmetric(
                                                   vertical: 10),
-                                              width: size.width * 0.34,
+                                              width: size.width * 0.3,
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(29),

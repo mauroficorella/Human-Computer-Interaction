@@ -259,6 +259,7 @@ class _MovieUserState extends State<MovieUser> {
                       ),
                     ),
                   ),
+                  SizedBox(height: size.height * 0.1),
                 ],
               ),
             ),
@@ -520,7 +521,7 @@ class AddButton extends StatelessWidget {
       label: Padding(
         padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
         child: Text(
-          "Add/remove movie",
+          "Add/Remove movie",
           style: TextStyle(
             color: Colors.black,
             fontSize: size.height * 0.02,
