@@ -2,7 +2,7 @@
     package="com.example.ciak_time">
    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="ciak_time"
+        android:label="CiakTime"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
