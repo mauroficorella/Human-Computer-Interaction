@@ -65,5 +65,6 @@
 \contentsline {paragraph}{Task 3:}{30}{section*.44}%
 \contentsline {subsection}{\numberline {7.2}Controlled experiment}{31}{subsection.7.2}%
 \contentsline {paragraph}{Task 1:}{31}{section*.45}%
+\contentsline {subsubsection}{\numberline {7.2.1}ANOVA}{31}{subsubsection.7.2.1}%
 \contentsline {section}{\numberline {8}Prototype 2: final prototype}{32}{section.8}%
 \contentsline {section}{\numberline {9}NOME}{33}{section.9}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  30 JUN 2021 17:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  1 JUL 2021 10:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -450,7 +450,7 @@ LaTeX Info: Redefining \nameref on input line 30.
 \@outlinefile=\write3
 \openout3 = `report_HCI.out'.
 
-<Images/Logo.jpg, id=104, 232.61906pt x 240.14719pt>
+<Images/Logo.jpg, id=108, 232.61906pt x 240.14719pt>
 File: Images/Logo.jpg Graphic file (type jpg)
 <use Images/Logo.jpg>
 Package pdftex.def Info: Images/Logo.jpg  used on input line 52.
@@ -492,7 +492,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--123
 
  []
 
-<Images/IMDb.png, id=145, 541.02126pt x 103.38625pt>
+<Images/IMDb.png, id=150, 541.02126pt x 103.38625pt>
 File: Images/IMDb.png Graphic file (type png)
 <use Images/IMDb.png>
 Package pdftex.def Info: Images/IMDb.png  used on input line 124.
@@ -502,7 +502,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--132
 
  []
 
-<Images/Cinemaniac.png, id=147, 541.02126pt x 103.38625pt>
+<Images/Cinemaniac.png, id=152, 541.02126pt x 103.38625pt>
 File: Images/Cinemaniac.png Graphic file (type png)
 <use Images/Cinemaniac.png>
 Package pdftex.def Info: Images/Cinemaniac.png  used on input line 134.
@@ -522,7 +522,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
-<images/vittoria.png, id=157, 171.5208pt x 172.4844pt>
+<images/vittoria.png, id=162, 171.5208pt x 172.4844pt>
 File: images/vittoria.png Graphic file (type png)
 <use images/vittoria.png>
 Package pdftex.def Info: images/vittoria.png  used on input line 213.
@@ -533,7 +533,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 217--224
  []
 
 [3 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/vittoria.png>]
-<images/emanuele.png, id=165, 171.5208pt x 171.5208pt>
+<images/emanuele.png, id=171, 171.5208pt x 171.5208pt>
 File: images/emanuele.png Graphic file (type png)
 <use images/emanuele.png>
 Package pdftex.def Info: images/emanuele.png  used on input line 242.
@@ -548,7 +548,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 275--282
 
  []
 
-<Images/age.png, id=166, 806.01125pt x 304.13625pt>
+<Images/age.png, id=172, 806.01125pt x 304.13625pt>
 File: Images/age.png Graphic file (type png)
 <use Images/age.png>
 Package pdftex.def Info: Images/age.png  used on input line 284.
@@ -564,7 +564,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 283--285
  []
 
 [4 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/emanuele.png>]
-<Images/gender.png, id=177, 887.315pt x 305.14pt>
+<Images/gender.png, id=182, 887.315pt x 305.14pt>
 File: Images/gender.png Graphic file (type png)
 <use Images/gender.png>
 Package pdftex.def Info: Images/gender.png  used on input line 287.
@@ -579,7 +579,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 286--288
 
  []
 
-<Images/education.png, id=178, 887.315pt x 305.14pt>
+<Images/education.png, id=183, 887.315pt x 305.14pt>
 File: Images/education.png Graphic file (type png)
 <use Images/education.png>
 Package pdftex.def Info: Images/education.png  used on input line 290.
@@ -594,7 +594,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
  []
 
-<Images/timeAtPhone.png, id=179, 806.01125pt x 304.13625pt>
+<Images/timeAtPhone.png, id=184, 806.01125pt x 304.13625pt>
 File: Images/timeAtPhone.png Graphic file (type png)
 <use Images/timeAtPhone.png>
 Package pdftex.def Info: Images/timeAtPhone.png  used on input line 293.
@@ -609,7 +609,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 292--294
 
  []
 
-<Images/timeAtCinema.png, id=180, 887.315pt x 305.14pt>
+<Images/timeAtCinema.png, id=185, 887.315pt x 305.14pt>
 File: Images/timeAtCinema.png Graphic file (type png)
 <use Images/timeAtCinema.png>
 Package pdftex.def Info: Images/timeAtCinema.png  used on input line 296.
@@ -625,7 +625,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 295--297
  []
 
 [5 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/age.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/gender.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/education.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/timeAtPhone.png>]
-<Images/timeStreaming.png, id=194, 887.315pt x 305.14pt>
+<Images/timeStreaming.png, id=199, 887.315pt x 305.14pt>
 File: Images/timeStreaming.png Graphic file (type png)
 <use Images/timeStreaming.png>
 Package pdftex.def Info: Images/timeStreaming.png  used on input line 299.
@@ -640,7 +640,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 298--300
 
  []
 
-<Images/streamingPlatform.png, id=195, 675.4836pt x 392.1852pt>
+<Images/streamingPlatform.png, id=200, 675.4836pt x 392.1852pt>
 File: Images/streamingPlatform.png Graphic file (type png)
 <use Images/streamingPlatform.png>
 Package pdftex.def Info: Images/streamingPlatform.png  used on input line 302.
@@ -660,7 +660,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 301--303
 
  []
 
-<Images/streamingPlatformUsed.png, id=196, 886.9938pt x 354.123pt>
+<Images/streamingPlatformUsed.png, id=201, 886.9938pt x 354.123pt>
 File: Images/streamingPlatformUsed.png Graphic file (type png)
 <use Images/streamingPlatformUsed.png>
 Package pdftex.def Info: Images/streamingPlatformUsed.png  used on input line 305.
@@ -676,7 +676,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 304--306
  []
 
 [6 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/timeAtCinema.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/timeStreaming.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/streamingPlatform.png>]
-<Images/app.png, id=207, 887.315pt x 305.14pt>
+<Images/app.png, id=212, 887.315pt x 305.14pt>
 File: Images/app.png Graphic file (type png)
 <use Images/app.png>
 Package pdftex.def Info: Images/app.png  used on input line 308.
@@ -691,7 +691,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--309
 
  []
 
-<images/appUsed.png, id=208, 901.9296pt x 335.8146pt>
+<images/appUsed.png, id=213, 901.9296pt x 335.8146pt>
 File: images/appUsed.png Graphic file (type png)
 <use images/appUsed.png>
 Package pdftex.def Info: images/appUsed.png  used on input line 311.
@@ -721,7 +721,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--312
 
  []
 
-<images/interesting.png, id=209, 919.2744pt x 292.9344pt>
+<images/interesting.png, id=214, 919.2744pt x 292.9344pt>
 File: images/interesting.png Graphic file (type png)
 <use images/interesting.png>
 Package pdftex.def Info: images/interesting.png  used on input line 314.
@@ -737,7 +737,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 313--315
  []
 
 [7 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/streamingPlatformUsed.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/Images/app.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/appUsed.png>]
-<Images/features.png, id=220, 964.5636pt x 245.718pt>
+<Images/features.png, id=225, 964.5636pt x 245.718pt>
 File: Images/features.png Graphic file (type png)
 <use Images/features.png>
 Package pdftex.def Info: Images/features.png  used on input line 317.
@@ -762,7 +762,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 364--367
 
  []
 
-<images/Login HTA.png, id=230, 1662.21pt x 642.4pt>
+<images/Login HTA.png, id=235, 1662.21pt x 642.4pt>
 File: images/Login HTA.png Graphic file (type png)
 <use images/Login HTA.png>
 Package pdftex.def Info: images/Login HTA.png  used on input line 371.
@@ -782,7 +782,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
-<images/LoginSTN.png, id=231, 644.1666pt x 318.9516pt>
+<images/LoginSTN.png, id=236, 644.1666pt x 318.9516pt>
 File: images/LoginSTN.png Graphic file (type png)
 <use images/LoginSTN.png>
 Package pdftex.def Info: images/LoginSTN.png  used on input line 377.
@@ -802,7 +802,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 383--386
 
  []
 
-<images/Search HTA.png, id=238, 507.39563pt x 233.37187pt>
+<images/Search HTA.png, id=243, 507.39563pt x 233.37187pt>
 File: images/Search HTA.png Graphic file (type png)
 <use images/Search HTA.png>
 Package pdftex.def Info: images/Search HTA.png  used on input line 390.
@@ -817,7 +817,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
-<images/SearchSTN.png, id=239, 594.0594pt x 378.213pt>
+<images/SearchSTN.png, id=244, 594.0594pt x 378.213pt>
 File: images/SearchSTN.png Graphic file (type png)
 <use images/SearchSTN.png>
 Package pdftex.def Info: images/SearchSTN.png  used on input line 396.
@@ -828,7 +828,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 393--397
  []
 
 [10 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/LoginSTN.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/Search HTA.png>]
-<images/Add movie HTA.png, id=248, 869.2475pt x 622.325pt>
+<images/Add movie HTA.png, id=253, 869.2475pt x 622.325pt>
 File: images/Add movie HTA.png Graphic file (type png)
 <use images/Add movie HTA.png>
 Package pdftex.def Info: images/Add movie HTA.png  used on input line 407.
@@ -838,7 +838,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 404--408
 
  []
 
-<images/AddMovieSTN.png, id=249, 666.3294pt x 96.36pt>
+<images/AddMovieSTN.png, id=254, 666.3294pt x 96.36pt>
 File: images/AddMovieSTN.png Graphic file (type png)
 <use images/AddMovieSTN.png>
 Package pdftex.def Info: images/AddMovieSTN.png  used on input line 413.
@@ -858,7 +858,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 419--421
 
  []
 
-<images/Make a review HTA.png, id=259, 1274.7625pt x 863.225pt>
+<images/Make a review HTA.png, id=264, 1274.7625pt x 863.225pt>
 File: images/Make a review HTA.png Graphic file (type png)
 <use images/Make a review HTA.png>
 Package pdftex.def Info: images/Make a review HTA.png  used on input line 425.
@@ -883,7 +883,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 427--428
 
  []
 
-<images/MakeAReviewSTN.png, id=260, 579.1236pt x 327.1422pt>
+<images/MakeAReviewSTN.png, id=265, 579.1236pt x 327.1422pt>
 File: images/MakeAReviewSTN.png Graphic file (type png)
 <use images/MakeAReviewSTN.png>
 Package pdftex.def Info: images/MakeAReviewSTN.png  used on input line 431.
@@ -898,7 +898,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 436--438
 
  []
 
-<images/Comments HTA.png, id=269, 1359.0775pt x 622.325pt>
+<images/Comments HTA.png, id=274, 1359.0775pt x 622.325pt>
 File: images/Comments HTA.png Graphic file (type png)
 <use images/Comments HTA.png>
 Package pdftex.def Info: images/Comments HTA.png  used on input line 442.
@@ -913,7 +913,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
-<images/CommentsSTN.png, id=270, 572.8602pt x 337.26pt>
+<images/CommentsSTN.png, id=275, 572.8602pt x 337.26pt>
 File: images/CommentsSTN.png Graphic file (type png)
 <use images/CommentsSTN.png>
 Package pdftex.def Info: images/CommentsSTN.png  used on input line 448.
@@ -928,17 +928,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 456--460
 
  []
 
-<images/mockups/signInSignUp.png, id=285, 272.6988pt x 229.8186pt>
+<images/mockups/signInSignUp.png, id=290, 272.6988pt x 229.8186pt>
 File: images/mockups/signInSignUp.png Graphic file (type png)
 <use images/mockups/signInSignUp.png>
 Package pdftex.def Info: images/mockups/signInSignUp.png  used on input line 472.
 (pdftex.def)             Requested size: 256.07481pt x 215.8156pt.
-<images/mockups/loginSocial.png, id=286, 272.6988pt x 227.4096pt>
+<images/mockups/loginSocial.png, id=291, 272.6988pt x 227.4096pt>
 File: images/mockups/loginSocial.png Graphic file (type png)
 <use images/mockups/loginSocial.png>
 Package pdftex.def Info: images/mockups/loginSocial.png  used on input line 477.
 (pdftex.def)             Requested size: 256.07481pt x 213.55338pt.
-<images/mockups/search2.png, id=287, 622.9674pt x 187.4202pt>
+<images/mockups/search2.png, id=292, 622.9674pt x 187.4202pt>
 File: images/mockups/search2.png Graphic file (type png)
 <use images/mockups/search2.png>
 Package pdftex.def Info: images/mockups/search2.png  used on input line 486.
@@ -954,12 +954,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 481--488
  []
 
 [15 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/signInSignUp.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/loginSocial.png>]
-<images/mockups/Movie page.png, id=297, 714.67pt x 1455.4375pt>
+<images/mockups/Movie page.png, id=302, 714.67pt x 1455.4375pt>
 File: images/mockups/Movie page.png Graphic file (type png)
 <use images/mockups/Movie page.png>
 Package pdftex.def Info: images/mockups/Movie page.png  used on input line 497.
 (pdftex.def)             Requested size: 102.42836pt x 208.57903pt.
-<images/mockups/People page.png, id=298, 714.67pt x 1455.4375pt>
+<images/mockups/People page.png, id=303, 714.67pt x 1455.4375pt>
 File: images/mockups/People page.png Graphic file (type png)
 <use images/mockups/People page.png>
 Package pdftex.def Info: images/mockups/People page.png  used on input line 505.
@@ -1014,7 +1014,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
-<images/mockups/addMovie.png, id=299, 499.6266pt x 427.3566pt>
+<images/mockups/addMovie.png, id=304, 499.6266pt x 427.3566pt>
 File: images/mockups/addMovie.png Graphic file (type png)
 <use images/mockups/addMovie.png>
 Package pdftex.def Info: images/mockups/addMovie.png  used on input line 518.
@@ -1025,7 +1025,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 512--520
  []
 
 [16 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/search2.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/Movie page.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/People page.png>]
-<images/mockups/User profile.png, id=311, 714.67pt x 1455.4375pt>
+<images/mockups/User profile.png, id=316, 714.67pt x 1455.4375pt>
 File: images/mockups/User profile.png Graphic file (type png)
 <use images/mockups/User profile.png>
 Package pdftex.def Info: images/mockups/User profile.png  used on input line 526.
@@ -1035,17 +1035,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 521--528
 
  []
 
-<images/mockups/Watchlist.png, id=312, 714.67pt x 1455.4375pt>
+<images/mockups/Watchlist.png, id=317, 714.67pt x 1455.4375pt>
 File: images/mockups/Watchlist.png Graphic file (type png)
 <use images/mockups/Watchlist.png>
 Package pdftex.def Info: images/mockups/Watchlist.png  used on input line 533.
 (pdftex.def)             Requested size: 107.9591pt x 219.86078pt.
-<images/mockups/Already watched.png, id=313, 714.67pt x 1455.4375pt>
+<images/mockups/Already watched.png, id=318, 714.67pt x 1455.4375pt>
 File: images/mockups/Already watched.png Graphic file (type png)
 <use images/mockups/Already watched.png>
 Package pdftex.def Info: images/mockups/Already watched.png  used on input line 541.
 (pdftex.def)             Requested size: 109.85565pt x 223.70279pt.
-<images/mockups/Favourite.png, id=314, 714.67pt x 1455.4375pt>
+<images/mockups/Favourite.png, id=319, 714.67pt x 1455.4375pt>
 File: images/mockups/Favourite.png Graphic file (type png)
 <use images/mockups/Favourite.png>
 Package pdftex.def Info: images/mockups/Favourite.png  used on input line 549.
@@ -1060,7 +1060,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 556--558
 
  []
 
-<images/mockups/review.png, id=325, 654.2844pt x 343.0416pt>
+<images/mockups/review.png, id=330, 654.2844pt x 343.0416pt>
 File: images/mockups/review.png Graphic file (type png)
 <use images/mockups/review.png>
 Package pdftex.def Info: images/mockups/review.png  used on input line 565.
@@ -1075,7 +1075,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 568--569
 
  []
 
-<images/mockups/comment.png, id=326, 548.7702pt x 427.3566pt>
+<images/mockups/comment.png, id=331, 548.7702pt x 427.3566pt>
 File: images/mockups/comment.png Graphic file (type png)
 <use images/mockups/comment.png>
 Package pdftex.def Info: images/mockups/comment.png  used on input line 575.
@@ -1086,7 +1086,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 570--577
  []
 
 [18 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/Watchlist.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/Already watched.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/Favourite.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/review.png>]
-<images/mockups/userSettings.png, id=340, 511.6716pt x 427.3566pt>
+<images/mockups/userSettings.png, id=345, 511.6716pt x 427.3566pt>
 File: images/mockups/userSettings.png Graphic file (type png)
 <use images/mockups/userSettings.png>
 Package pdftex.def Info: images/mockups/userSettings.png  used on input line 586.
@@ -1096,23 +1096,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 579--588
 
  []
 
-<images/mockups/User setting username.png, id=341, 714.67pt x 1455.4375pt>
+<images/mockups/User setting username.png, id=346, 714.67pt x 1455.4375pt>
 File: images/mockups/User setting username.png Graphic file (type png)
 <use images/mockups/User setting username.png>
 Package pdftex.def Info: images/mockups/User setting username.png  used on input line 593.
 (pdftex.def)             Requested size: 122.91762pt x 250.30817pt.
-<images/mockups/User setting password.png, id=342, 714.67pt x 1455.4375pt>
+<images/mockups/User setting password.png, id=347, 714.67pt x 1455.4375pt>
 File: images/mockups/User setting password.png Graphic file (type png)
 <use images/mockups/User setting password.png>
 Package pdftex.def Info: images/mockups/User setting password.png  used on input line 601.
 (pdftex.def)             Requested size: 122.91762pt x 250.30817pt.
 [19 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/comment.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockups/userSettings.png>]
-<images/mockups/User setting google.png, id=354, 714.67pt x 1455.4375pt>
+<images/mockups/User setting google.png, id=359, 714.67pt x 1455.4375pt>
 File: images/mockups/User setting google.png Graphic file (type png)
 <use images/mockups/User setting google.png>
 Package pdftex.def Info: images/mockups/User setting google.png  used on input line 610.
 (pdftex.def)             Requested size: 122.91762pt x 250.30817pt.
-<images/mockups/User setting facebook.png, id=355, 714.67pt x 1455.4375pt>
+<images/mockups/User setting facebook.png, id=360, 714.67pt x 1455.4375pt>
 File: images/mockups/User setting facebook.png Graphic file (type png)
 <use images/mockups/User setting facebook.png>
 Package pdftex.def Info: images/mockups/User setting facebook.png  used on input line 618.
@@ -1122,7 +1122,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 630--635
 
  []
 
-<images/heuristicEvaluation.png, id=368, 600.2425pt x 512.91624pt>
+<images/heuristicEvaluation.png, id=373, 600.2425pt x 512.91624pt>
 File: images/heuristicEvaluation.png Graphic file (type png)
 <use images/heuristicEvaluation.png>
 Package pdftex.def Info: images/heuristicEvaluation.png  used on input line 680.
@@ -1153,7 +1153,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 691--692
  []
 
 [22 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/heuristicEvaluation.png>]
-<images/mockupSearch.png, id=389, 405.1938pt x 383.031pt>
+<images/mockupSearch.png, id=394, 405.1938pt x 383.031pt>
 File: images/mockupSearch.png Graphic file (type png)
 <use images/mockupSearch.png>
 Package pdftex.def Info: images/mockupSearch.png  used on input line 722.
@@ -1234,7 +1234,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 724--786
  []
 
 [23 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/mockupSearch.png>] [24]
-<images/mockupAdd.png, id=401, 480.3546pt x 185.493pt>
+<images/mockupAdd.png, id=406, 480.3546pt x 185.493pt>
 File: images/mockupAdd.png Graphic file (type png)
 <use images/mockupAdd.png>
 Package pdftex.def Info: images/mockupAdd.png  used on input line 799.
@@ -1309,28 +1309,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 851--854
 
  []
 
-<images/prototype1/login.png, id=412, 540.5796pt x 428.3202pt>
+<images/prototype1/login.png, id=417, 540.5796pt x 428.3202pt>
 File: images/prototype1/login.png Graphic file (type png)
 <use images/prototype1/login.png>
 Package pdftex.def Info: images/prototype1/login.png  used on input line 858.
 (pdftex.def)             Requested size: 358.50317pt x 284.05815pt.
-<images/prototype1/registration.png, id=413, 682.2288pt x 286.671pt>
+<images/prototype1/registration.png, id=418, 682.2288pt x 286.671pt>
 File: images/prototype1/registration.png Graphic file (type png)
 <use images/prototype1/registration.png>
 Package pdftex.def Info: images/prototype1/registration.png  used on input line 865.
 (pdftex.def)             Requested size: 512.14963pt x 215.21268pt.
-<images/prototype1/movieInfo.png, id=414, 666.3294pt x 371.9496pt>
+<images/prototype1/movieInfo.png, id=419, 666.3294pt x 371.9496pt>
 File: images/prototype1/movieInfo.png Graphic file (type png)
 <use images/prototype1/movieInfo.png>
 Package pdftex.def Info: images/prototype1/movieInfo.png  used on input line 872.
 (pdftex.def)             Requested size: 512.14963pt x 285.89128pt.
 [27 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype1/login.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype1/registration.png>]
-<images/prototype1/addBtn.png, id=426, 540.5796pt x 428.3202pt>
+<images/prototype1/addBtn.png, id=431, 540.5796pt x 428.3202pt>
 File: images/prototype1/addBtn.png Graphic file (type png)
 <use images/prototype1/addBtn.png>
 Package pdftex.def Info: images/prototype1/addBtn.png  used on input line 882.
 (pdftex.def)             Requested size: 358.50317pt x 284.05815pt.
-<images/prototype1/addToList.png, id=427, 666.3294pt x 371.9496pt>
+<images/prototype1/addToList.png, id=432, 666.3294pt x 371.9496pt>
 File: images/prototype1/addToList.png Graphic file (type png)
 <use images/prototype1/addToList.png>
 Package pdftex.def Info: images/prototype1/addToList.png  used on input line 887.
@@ -1340,30 +1340,125 @@ Underfull \hbox (badness 10000) in paragraph at lines 929--937
 
  []
 
-[30] [31] [32]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 955.
+<images/experiment/searchTab.png, id=449, 199.4652pt x 429.2838pt>
+File: images/experiment/searchTab.png Graphic file (type png)
+<use images/experiment/searchTab.png>
+Package pdftex.def Info: images/experiment/searchTab.png  used on input line 945.
+(pdftex.def)             Requested size: 122.91762pt x 264.54181pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--963
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--963
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--963
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--963
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--963
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--963
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--963
+
+ []
+
+<images/experiment/searchCheckBox.png, id=450, 199.4652pt x 429.2838pt>
+File: images/experiment/searchCheckBox.png Graphic file (type png)
+<use images/experiment/searchCheckBox.png>
+Package pdftex.def Info: images/experiment/searchCheckBox.png  used on input line 968.
+(pdftex.def)             Requested size: 122.91762pt x 264.54181pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 974--986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 974--986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 974--986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 974--986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 974--986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 974--986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 974--986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 942--987
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 942--987
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 942--987
+
+ []
+
+[30] [31 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchTab.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchCheckBox.png>] [32]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1005.
  [33]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 955.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1005.
  (/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 955.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 955.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1005.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1005.
 Package rerunfilecheck Info: File `report_HCI.out' has not changed.
-(rerunfilecheck)             Checksum: 35B110FC9852C2C3B7E407C0DDE03646;1609.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 955.
+(rerunfilecheck)             Checksum: 8FD4EDABFA2BDC658339481ED39DC8D4;1674.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1005.
  ) 
 Here is how much of TeX's memory you used:
- 7965 strings out of 480608
- 120630 string characters out of 5903631
+ 7982 strings out of 480608
+ 121110 string characters out of 5903631
  391458 words of memory out of 5000000
- 23497 multiletter control sequences out of 15000+600000
+ 23508 multiletter control sequences out of 15000+600000
  543302 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,10n,45p,302b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (35 pages, 6142022 bytes).
+Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (35 pages, 6279636 bytes).
 PDF statistics:
- 523 PDF objects out of 1000 (max. 8388607)
- 371 compressed objects within 4 object streams
- 136 named destinations out of 1000 (max. 500000)
- 461 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 535 PDF objects out of 1000 (max. 8388607)
+ 379 compressed objects within 4 object streams
+ 139 named destinations out of 1000 (max. 500000)
+ 479 words of extra memory for PDF output out of 10000 (max. 10000000)
 
