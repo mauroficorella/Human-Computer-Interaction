@@ -267,7 +267,8 @@ class _CommentsPageState extends State<CommentsPage> {
       ),
       body: Container(
         child: CommentBox(
-          userImage: picturePath,
+          backgroundImage: getBackgroundImage(), 
+          //userImage: picturePath,
           child: commentChild(reviewsList, reviewCommentsList, size),
           labelText: 'Write a comment...',
           withBorder: false,

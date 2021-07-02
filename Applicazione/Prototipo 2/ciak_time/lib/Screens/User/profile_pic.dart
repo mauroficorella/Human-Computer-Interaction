@@ -89,3 +89,5 @@ CircleAvatar getCircleAvatar(Size size, bool isFromGallery) {
   }
   return profilePicture;
 }
+
+

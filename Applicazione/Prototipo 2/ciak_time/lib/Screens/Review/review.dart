@@ -285,7 +285,7 @@ class ConfirmReview extends StatelessWidget {
                           () {
                             var value = {
                               'name': userlogged,
-                              'pic': picturePath,
+                              'pic': changeProfilePicPath(),
                               'message': reviewController.text,
                               'rate': newRating,
                               'likes': 0,

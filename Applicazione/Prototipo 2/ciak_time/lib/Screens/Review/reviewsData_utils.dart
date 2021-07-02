@@ -1,5 +1,9 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
+
+import '../../constants.dart';
+
 List possibleUsers = [
   {
     'name': 'Maria',
@@ -627,4 +631,14 @@ List generateRandomComments(commentsNumber) {
     });
   }
   return commentsList;
+}
+
+ImageProvider<Object> getBackgroundReviewImage(username, picPath) {
+  if (isFromGallery && username == userlogged) {
+    return FileImage(image);
+  } else if (username == userlogged) {
+    return AssetImage(changeProfilePicPath());
+  } else {
+    return NetworkImage(picPath);
+  }
 }
