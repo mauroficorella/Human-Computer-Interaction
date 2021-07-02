@@ -478,7 +478,7 @@ buildFlutterToast(list) {
     msg: movieSelectedFromHome.title + list,
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.BOTTOM,
-    timeInSecForIosWeb: 3,
+    timeInSecForIosWeb: 4,
     backgroundColor: kPrimaryLightColor,
     textColor: Colors.black,
     fontSize: 16.0,

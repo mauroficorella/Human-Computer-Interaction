@@ -4,8 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
-
-
 class ProfilePic extends StatefulWidget {
   const ProfilePic({
     Key key,
@@ -16,8 +14,6 @@ class ProfilePic extends StatefulWidget {
 }
 
 class _ProfilePicState extends State<ProfilePic> {
- 
-
   final picker = ImagePicker();
 
   Future getImage() async {
@@ -25,17 +21,11 @@ class _ProfilePicState extends State<ProfilePic> {
 
     setState(() {
       if (pickedFile != null) {
-        image= File(pickedFile.path);
+        image = File(pickedFile.path);
         isFromGallery = true;
-        
-      } else {
-        
-      }
+      } else {}
     });
   }
-
-  
-  
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +58,8 @@ class _ProfilePicState extends State<ProfilePic> {
                     ),
                   ),
                   Flexible(
-                      child: image != null
-                          ? Image.file(image)
-                          : Text('no Image')),
+                      child:
+                          image != null ? Image.file(image) : Text('no Image')),
                 ],
               ),
             ),
@@ -79,23 +68,24 @@ class _ProfilePicState extends State<ProfilePic> {
       ),
     );
   }
-
-  
 }
+
 CircleAvatar getCircleAvatar(Size size, bool isFromGallery) {
-    if (isFromGallery) {
-      
-      return CircleAvatar(
-        backgroundImage: FileImage(image),
-        backgroundColor: Colors.white,
-        radius: size.height * 0.1,
-      );
-    } else {
-      
-      return CircleAvatar(
-        backgroundImage: AssetImage(changeProfilePicPath()),
-        backgroundColor: Colors.white,
-        radius: size.height * 0.1,
-      );
-    }
+  if (isFromGallery) {
+    profilePicture = CircleAvatar(
+      backgroundImage: FileImage(image),
+      backgroundColor: Colors.white,
+      radius: size.height * 0.1,
+    );
+    picturePath = image.path;
+    print(picturePath);
+  } else {
+    profilePicture = CircleAvatar(
+      backgroundImage: AssetImage(changeProfilePicPath()),
+      backgroundColor: Colors.white,
+      radius: size.height * 0.1,
+    );
+    picturePath = changeProfilePicPath();
   }
+  return profilePicture;
+}

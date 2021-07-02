@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/User/profile_pic.dart';
 
 import 'package:ciak_time/components/rounded_button.dart';
@@ -32,12 +33,10 @@ class UnMatchValidator extends TextFieldValidator {
 }
 
 class IsMatchValidator extends TextFieldValidator {
-  
   // pass the error text to the super constructor
-  IsMatchValidator(
-      {String errorText = 'Password and confirm password must be equal',
-      })
-      : super(errorText);
+  IsMatchValidator({
+    String errorText = 'Password and confirm password must be equal',
+  }) : super(errorText);
 
   // return false if you want the validator to return error
   // message when the value is empty.
@@ -64,7 +63,6 @@ class IsNotMatchValidator extends TextFieldValidator {
 
   @override
   bool isValid(String value) {
-    
     // return true if the value is valid according the your condition
     return value != oldPassword;
   }
@@ -221,7 +219,8 @@ class _UserSettingsState extends State<UserSettings> {
                                           ),
                                         ),
                                         Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Container(
                                               margin: EdgeInsets.symmetric(
@@ -276,7 +275,6 @@ class _UserSettingsState extends State<UserSettings> {
                                                 ),
                                               ),
                                             ),
-                                            
                                             Container(
                                               margin: EdgeInsets.symmetric(
                                                   vertical: 10),
@@ -319,7 +317,12 @@ class _UserSettingsState extends State<UserSettings> {
                                                       usernameController
                                                           .clear();
                                                       Navigator.pop(context);
-                                                    } else {}
+                                                    } else {
+                                                      showOkAlertDialog(
+                                                          context: context,
+                                                          title:
+                                                              'You have to specify a new username');
+                                                    }
                                                   },
                                                   child: Text(
                                                     'SAVE',
@@ -757,7 +760,8 @@ class _UserSettingsState extends State<UserSettings> {
                                           ),
                                         ),
                                         Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Container(
                                               margin: EdgeInsets.symmetric(
@@ -816,7 +820,6 @@ class _UserSettingsState extends State<UserSettings> {
                                                 ),
                                               ),
                                             ),
-                                            
                                             Container(
                                               margin: EdgeInsets.symmetric(
                                                   vertical: 10),
@@ -881,7 +884,12 @@ class _UserSettingsState extends State<UserSettings> {
                                                               .clear();
                                                         });
                                                         Navigator.pop(context);
-                                                      } else {}
+                                                      } else {
+                                                        showOkAlertDialog(
+                                                            context: context,
+                                                            title:
+                                                                'You have to specify a new password');
+                                                      }
                                                     }
                                                   },
                                                   child: Text(

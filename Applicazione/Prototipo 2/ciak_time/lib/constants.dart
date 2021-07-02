@@ -27,6 +27,11 @@ Color loginColor = Colors.grey[300];
 Color loginTextColor = Colors.grey;
 
 bool isUserLogged = false;
+bool noPressed = false;
+
+CircleAvatar profilePicture;
+
+String picturePath = "https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg";
 
 Widget home;
 
@@ -125,98 +130,6 @@ bool isFromGallery = false;
 String tabSelected = "Movie";
 
 Widget content = CardsWidget();
-
-List reviewsData = [
-  {
-    'name': 'Maria',
-    'pic':
-        'https://github.com/pixelastic/fakeusers/blob/master/pictures/women/60.jpg?raw=true',
-    'message':
-        'What a surprise! To be really honest, I had very low positive thoughts about this movie.',
-    'rate': 4.5,
-    'likes': 5,
-    'comments': 8
-  },
-  {
-    'name': 'Geremia',
-    'pic':
-        'https://github.com/pixelastic/fakeusers/blob/master/pictures/algolia/men/jeremy.png?raw=true',
-    'message':
-        'Good movie. Some reviews say the story is predictable but I disagree.',
-    'rate': 4.0,
-    'likes': 8,
-    'comments': 4
-  },
-  {
-    'name': 'Stella',
-    'pic':
-        'https://github.com/pixelastic/fakeusers/blob/master/pictures/women/26.jpg?raw=true',
-    'message': 'Really good movie. I loved it. The music is awesome.',
-    'rate': 5.0,
-    'likes': 15,
-    'comments': 3
-  },
-  {
-    'name': 'Francesco',
-    'pic':
-        'https://github.com/pixelastic/fakeusers/blob/master/pictures/algolia/men/lucas.png?raw=true',
-    'message': 'This movie is boring and pointless.',
-    'rate': 2.0,
-    'likes': 2,
-    'comments': 1
-  },
-];
-
-List filedata = [
-  {
-    'name': 'Fabio',
-    'pic':
-        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'message': 'I love this movie too!'
-  },
-  {
-    'name': 'Alessandra',
-    'pic':
-        'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
-    'message': 'I completely agree with you.'
-  },
-  {
-    'name': 'George',
-    'pic':
-        'https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70',
-    'message': 'Very cool acting.'
-  },
-  {
-    'name': 'Grace',
-    'pic':
-        'https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXNpYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
-    'message': 'I disagree, they could have done better.'
-  },
-  {
-    'name': 'Massimiliano',
-    'pic':
-        'https://www.elitesingles.co.uk/wp-content/uploads/sites/59/2019/11/2b_en_articleslide_sm2-350x264.jpg',
-    'message': 'Great performance of the actors!'
-  },
-  {
-    'name': 'Jenny',
-    'pic':
-        'http://nadiazheng.com/wp-content/uploads/2015/12/Montreal-portrait-photography-linked-professional-headshot-profile-nadia-zheng.jpg',
-    'message': 'You\'re right, this movie is perfect.'
-  },
-  {
-    'name': 'Anna',
-    'pic':
-        'https://expertphotography.com/wp-content/uploads/2018/10/cool-profile-pictures-retouching-1.jpg',
-    'message': 'Great story! Great movie!'
-  },
-  {
-    'name': 'Mary',
-    'pic':
-        'https://expertphotography.com/wp-content/uploads/2018/10/cool-profile-pictures-aperture.jpg',
-    'message': "You're completely right!"
-  },
-];
 
 List googleAccountsData = [
   {

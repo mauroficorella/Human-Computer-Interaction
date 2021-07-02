@@ -1,9 +1,9 @@
 import 'dart:async';
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/Review/reviewsData_utils.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class InsertReview extends StatefulWidget {
   const InsertReview({Key key, @required this.title, @required this.movieId})
@@ -19,10 +19,10 @@ class InsertReview extends StatefulWidget {
 class _InsertReviewState extends State<InsertReview> {
   FutureOr onGoBack(dynamic value) {
     final args = ModalRoute.of(context).settings.arguments as ScreenArguments;
-    if (args.fromWhere == "/insertreviewfromreviews") {
+    if (args.fromWhere == "/insertreviewfromreviews" && noPressed == false) {
       Navigator.pop(context);
     }
-    if (args.fromWhere == "/insertreviewfrommovie") {
+    if (args.fromWhere == "/insertreviewfrommovie" && noPressed == false) {
       Navigator.popAndPushNamed(context, "/reviewslist");
     }
   }
@@ -154,8 +154,16 @@ class _InsertReviewState extends State<InsertReview> {
                           },
                         ).then(onGoBack);
                       } else {
-                        Fluttertoast.showToast(
-                            msg: 'You cannot publish an empty review');
+                        if (reviewController.text.isEmpty) {
+                          showOkAlertDialog(
+                              context: context,
+                              title: 'You cannot publish an empty review');
+                        } else if (newRating == 0) {
+                          showOkAlertDialog(
+                              context: context,
+                              title:
+                                  'You cannot publish a review without rating the movie');
+                        }
                       }
                     },
                     child: Text(
@@ -249,6 +257,7 @@ class ConfirmReview extends StatelessWidget {
                       ),
                       onPressed: () {
                         Navigator.pop(context);
+                        noPressed = true;
                       },
                       label: Text(
                         "NO",
@@ -271,6 +280,7 @@ class ConfirmReview extends StatelessWidget {
                         padding: EdgeInsets.all(0.0),
                       ),
                       onPressed: () {
+                        noPressed = false;
                         setState(
                           () {
                             var value = {

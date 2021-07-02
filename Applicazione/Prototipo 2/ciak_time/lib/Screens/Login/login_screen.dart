@@ -457,6 +457,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                        primary: Colors.transparent,
                       minimumSize:
                           Size(size.width * 0.1, size.height * 0.005),
                       padding: EdgeInsets.all(0.0),
