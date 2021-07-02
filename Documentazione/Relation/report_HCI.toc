@@ -64,7 +64,14 @@
 \contentsline {paragraph}{Task 2:}{30}{section*.43}%
 \contentsline {paragraph}{Task 3:}{30}{section*.44}%
 \contentsline {subsection}{\numberline {7.2}Controlled experiment}{31}{subsection.7.2}%
-\contentsline {paragraph}{Task 1:}{31}{section*.45}%
-\contentsline {subsubsection}{\numberline {7.2.1}ANOVA}{31}{subsubsection.7.2.1}%
-\contentsline {section}{\numberline {8}Prototype 2: final prototype}{32}{section.8}%
-\contentsline {section}{\numberline {9}NOME}{33}{section.9}%
+\contentsline {paragraph}{Task:}{32}{section*.45}%
+\contentsline {subsubsection}{\numberline {7.2.1}ANOVA}{32}{subsubsection.7.2.1}%
+\contentsline {section}{\numberline {8}Prototype 2}{33}{section.8}%
+\contentsline {section}{\numberline {9}Final version}{34}{section.9}%
+\contentsline {paragraph}{Login}{34}{section*.46}%
+\contentsline {paragraph}{Registration}{34}{section*.47}%
+\contentsline {paragraph}{Home}{34}{section*.48}%
+\contentsline {paragraph}{Search}{34}{section*.49}%
+\contentsline {paragraph}{User}{34}{section*.50}%
+\contentsline {paragraph}{Movie}{34}{section*.51}%
+\contentsline {paragraph}{Person}{34}{section*.52}%

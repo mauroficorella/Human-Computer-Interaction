@@ -16,6 +16,8 @@ bottom = 15mm]{geometry}
 \usepackage{pifont}
 \usepackage{array}
 \usepackage[hidelinks]{hyperref}
+\numberwithin{figure}{section}
+\usepackage[dvipsnames]{xcolor}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -931,76 +933,112 @@ Regarding \textit{Task 1}, some users, while performing this task, had some diff
 the three dots at the end of the plot instead the "View more" button, in order to read the entire plot.
 Conversely, regarding the other tasks, we notice that our subjects did not encounter any problem to accomplish them.\\
 In general, we have obtained satisfactory results and therefore we asked the users to freely explore the application in order 
-to collect additional advices to further improve it.\\
-In particular, they made us notice that the comments page had not so many recalls to comment pages they were used to. 
-In fact, in our comments page there were no references to the review they were linked to.
+to collect additional advices to further improve it.\\\\
+\textcolor{blue}{In particular, they made us notice that the comments page had not so many recalls to comment pages they were used to. 
+In fact, in our comments page there were no references to the review they were linked to.}\\\\
+In particular, the gave us some feedback regarding the following features:
+\begin{itemize}
+	\item {The comments page had not so many recalls to comment pages they were used to. 
+	In fact, in our comments page there were no references to the review they were linked to.\\
+	\textcolor{red}{Inoltre ci hanno detto che si aspettavano il commento inserito in basso}}
+	\item {\textcolor{red}{Sulla ricerca delle persone, aggiungere se è un attore o un regista sotto al nome}}
+	\item {\textcolor{red}{Riguardo all'aggiunta dei film nelle liste ci è stato suggerito di mettere 
+	la r in maiuscolo in modo da avere "Add/Remove movie" invece di "Add/remove movie". Inoltre ci è
+	stato suggerito di mettere un popup che ti avvisa che il film è stato effettivamente aggiunto alla lista
+	perchè con il toast non si leggeva molto bene e inoltre con la possibilità di essere rimandato alla
+	pagine dell'utente per visualizzare le liste}}
+\end{itemize}
 
 
 \subsection{Controlled experiment}
 
+%TODO scrivere cos'è controlled experiment 
 
-\begin{minipage}{0.3\textwidth}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.8\textwidth]{images/experiment/searchTab.png}\\
-		\caption{Version 1}
-	\end{figure}
-\end{minipage}
-\hspace{0.1\linewidth}
-\begin{minipage}{0.3\textwidth}
-	\textbf{Time:}\\\\
-	100\\
-	88\\
-	65\\
-	60\\
-	90\\
-	81\\
-	110\\
-	93\\
-	87\\
-	78\\
-	\mbox{}\\\\\\\\\\\\
-\end{minipage}
-\mbox{}\\\\\\\\
-\begin{minipage}{0.3\textwidth}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.8\textwidth]{images/experiment/searchCheckBox.png}\\
-		\caption{Version 2}
-	\end{figure}
-\end{minipage}
-\hspace{0.1\linewidth}
-\begin{minipage}{0.3\textwidth}
-	\textbf{Time:}\\\\
-	100\\
-	88\\
-	65\\
-	60\\
-	90\\
-	81\\
-	110\\
-	93\\
-	87\\
-	78\\
-	\mbox{}\\\\\\\\\\\\
-\end{minipage}
+%TODO rivedere 
+We used  controlled experiment in order to evaluate two different solutions at the level of graphical interface. 
+In particular we had two alternatives for the searching page in order to distinguish the search between
+movie and person. 
+More specifically we realized these two versions in the following ways:
+\begin{itemize}
+	\item \textbf{Version 1}: With a "tab bar" 
+	\item \textbf{Version 2}: With a "checkbox"
+\end{itemize}
 
+\begin{center}
+	\begin{minipage}{0.3\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{images/experiment/searchTab.png}\\
+			\caption{Version 1}
+			\label{fig:version1}
+		\end{figure}
+	\end{minipage}
+	\hspace{0.1\linewidth}
+	\begin{minipage}{0.3\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{images/experiment/searchCheckBox.png}\\
+			\caption{Version 2}
+			\label{fig:version2}
+		\end{figure}
+	\end{minipage}
+\end{center}
+\mbox{}\\\\
+\noindent
+These two different alternatives are the independent variables.\\\\
+For the experiment, we define the hypothesis and the null hypothesis:
+\begin{itemize}
+	\item \textbf{Hypothesis}: Users will operate quicker with the Version 1 in Figure \ref{fig:version1} than the Version 2 in Figure \ref{fig:version2}. 
+	\item \textbf{Null hypothesis}: There will be no speed difference between the two above mentioned versions.
+\end{itemize}
+Also we have as dependent variable the time that the subjects took to perform the following task:
 
-\paragraph{Task 1:} \textit{}
+\paragraph{Task:} \textit{You find the actress Emma Watson very good, so you would like
+get more information about her filmography.}\\ %TODO ricontrollare
+
+\noindent %TODO numero soggetti vedere se è da cambiare
+For this experiment we used 10 subjects that had an age in a range between twenty - thirty years old that 
+fits the age chosen in our user requirements.
 
 \subsubsection{ANOVA}
 
-% CAPITOLO 7 -------------------------------------------------------------------------
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/experiment/searchCheckBox.png}\\
+		\caption{ANOVA}
+		\label{fig:anova}
+	\end{figure}
+\end{center}
+
+
+% Prototype 2 -------------------------------------------------------------------------
 
 \newpage
 
-\section{Prototype 2: final prototype}
+\section{Prototype 2}
 
-% CAPITOLO 8 -------------------------------------------------------------------------
+Correzioni fatte in base alla valutazione dell'utente
+
+% Final version -------------------------------------------------------------------------
 
 \newpage
 
-\section{NOME}
+\section{Final version}
+
+\paragraph{Login}
+
+\paragraph{Registration}
+
+\paragraph{Home}
+
+\paragraph{Search}
+
+\paragraph{User}
+
+\paragraph{Movie}
+
+\paragraph{Person}
 
 \end{document}
 

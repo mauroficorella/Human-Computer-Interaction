@@ -112,6 +112,12 @@ INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/dvipsnam.def
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux
@@ -121,6 +127,8 @@ INPUT /usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -339,6 +347,8 @@ INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/
 INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchTab.png
 INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchTab.png
 INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchTab.png
+INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchCheckBox.png
+INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchCheckBox.png
 INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchCheckBox.png
 INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchCheckBox.png
 INPUT /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/experiment/searchCheckBox.png
