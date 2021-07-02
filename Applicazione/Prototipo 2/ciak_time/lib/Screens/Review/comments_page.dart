@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/Review/reviewsData_utils.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
@@ -411,13 +409,5 @@ class _CommentsPageState extends State<CommentsPage> {
     );
 
     return isCommentConfirmed;
-  }
-
-  getProfileImage(username, path) {
-    if (userlogged == username) {
-      return AssetImage(path);
-    } else {
-      return NetworkImage(path);
-    }
   }
 }

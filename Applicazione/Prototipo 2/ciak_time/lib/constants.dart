@@ -11,6 +11,14 @@ const kPrimaryColor = Color(0xFF6F35A5);
 const kPrimaryLightColor = Color(0xFFF1E6FF);
 Color navBarColor = Colors.deepPurpleAccent[100];
 
+getProfileImage(username, path) {
+    if (userlogged == username) {
+      return AssetImage(path);
+    } else {
+      return NetworkImage(path);
+    }
+  }
+
 Color buttonModifyUserColor = kPrimaryColor;
 Color buttonModifyUserTextColor = Colors.white;
 
