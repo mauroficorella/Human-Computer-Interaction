@@ -55,15 +55,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
             elevation: 0.0,
             leading: TextButton.icon(
               style: TextButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        primary: Colors.transparent,
-                        //elevation: 0.0,
-                        /*minimumSize:
+                backgroundColor: Colors.transparent,
+                primary: Colors.transparent,
+                //elevation: 0.0,
+                /*minimumSize:
                             Size(size.width * 0.1, size.height * 0.005),
                         padding: EdgeInsets.all(0.0),*/
-                      ),
+              ),
               onPressed: () {
-                
                 Navigator.pop(context);
               },
               icon: new Icon(Icons.arrow_back_ios, color: kPrimaryColor),
@@ -208,10 +207,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             });
 
                             userlogged = userregistered;
-                            Fluttertoast.showToast(
-                                msg: 'User successfully registered');
-                            Navigator.popUntil(
-                                context, ModalRoute.withName('/'));
+                            userregistered = '';
+                            passwordRegistration = '';
+                            passwordRegistrationConfirm = '';
+                            email = '';
+                            
+                            showOkAlertDialog(
+                                    context: context,
+                                    title: 'Registration successfull')
+                                .then((value) {
+                              Navigator.popUntil(
+                                  context, ModalRoute.withName('/'));
+                            });
+                            
                           } else {
                             showOkAlertDialog(
                                 context: context,
@@ -247,7 +255,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ),
                     TextButton(
-                      
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.transparent,
                         primary: Colors.transparent,
@@ -255,8 +262,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             Size(size.width * 0.1, size.height * 0.005),
                         padding: EdgeInsets.all(0.0),
                       ),
-                      
-                      
                       onPressed: () {
                         Navigator.push(
                           context,

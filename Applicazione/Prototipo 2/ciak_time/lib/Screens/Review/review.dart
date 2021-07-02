@@ -284,9 +284,8 @@ class ConfirmReview extends StatelessWidget {
                         setState(
                           () {
                             var value = {
-                              'name': 'Vittoria',
-                              'pic':
-                                  'https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg',
+                              'name': userlogged,
+                              'pic': changeProfilePicPath(),
                               'message': reviewController.text,
                               'rate': newRating,
                               'likes': 0,

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:ciak_time/Screens/Review/comments_page.dart';
 import 'package:ciak_time/Screens/Review/reviewsData_utils.dart';
+import 'package:ciak_time/Screens/User/profile_pic.dart';
 import 'package:ciak_time/components/rating.dart';
-
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -308,7 +308,7 @@ class CircleAvatarText extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: Colors.white,
-          backgroundImage: NetworkImage(currentReviews[index]['pic']),
+          backgroundImage: getBackgroundReviewImage(currentReviews[index]['name'], currentReviews[index]['pic']),
           radius: size.width * 0.06,
         ),
         SizedBox(
@@ -325,4 +325,5 @@ class CircleAvatarText extends StatelessWidget {
       ],
     );
   }
+  
 }

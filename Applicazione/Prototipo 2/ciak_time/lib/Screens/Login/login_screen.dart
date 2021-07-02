@@ -3,8 +3,6 @@ import 'package:ciak_time/Screens/Login/components/background.dart';
 import 'package:ciak_time/Screens/Login/components/or_divider.dart';
 import 'package:ciak_time/Screens/Signup/signup_screen.dart';
 import 'package:ciak_time/Screens/navbar.dart';
-import 'package:ciak_time/components/already_have_an_account_check.dart';
-
 import 'package:ciak_time/components/rounded_input_field.dart';
 import 'package:ciak_time/components/rounded_password_field.dart';
 import 'package:ciak_time/components/social_icon.dart';
@@ -28,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Background(
         child: SingleChildScrollView(
           child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,  
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               //SizedBox(height: size.height * 0.02,),
               Text(
@@ -43,7 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 "assets/icons/movie.svg",
                 height: size.height * 0.15,
               ),
-              SizedBox(height: size.height * 0.03,),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
               Container(
                 width: size.width * 0.75,
                 child: Text(
@@ -76,8 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: size.height * 0.025,
                 child: TextButton(
                   style: TextButton.styleFrom(
-                    minimumSize:
-                        Size(size.width * 0.1, size.height * 0.005),
+                    backgroundColor: Colors.transparent,
+                    primary: Colors.transparent,
+                    minimumSize: Size(size.width * 0.1, size.height * 0.005),
                     padding: EdgeInsets.all(0.0),
                   ),
                   onPressed: () {},
@@ -100,15 +101,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(29),
                   child: FlatButton(
-                    padding: EdgeInsets.symmetric(
-                        vertical: 15, horizontal: 40),
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                     color: changeLoginColor(),
                     onPressed: () async {
                       var connectivityResult =
                           await (Connectivity().checkConnectivity());
                       for (var i = 0; i < users.length; i++) {
-                        if ((connectivityResult ==
-                                    ConnectivityResult.mobile ||
+                        if ((connectivityResult == ConnectivityResult.mobile ||
                                 connectivityResult ==
                                     ConnectivityResult.wifi) &&
                             (username == users[i]['username'] &&
@@ -123,25 +122,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           ).then((value) {
                             setState(() {
                               isUserLogged = true;
-                              FocusManager.instance.primaryFocus
-                                  .unfocus();
+                              FocusManager.instance.primaryFocus.unfocus();
                               loginUsernameController.clear();
 
                               loginPasswordController.clear();
                             });
                           });
                         } else {
-                          if (connectivityResult !=
-                                  ConnectivityResult.mobile &&
-                              connectivityResult !=
-                                  ConnectivityResult.wifi) {
+                          if (connectivityResult != ConnectivityResult.mobile &&
+                              connectivityResult != ConnectivityResult.wifi) {
                             showOkAlertDialog(
                                 context: context,
                                 title: "Connectivity error",
                                 message:
                                     "You need to turn on Internet on your device to continue.");
-                          } else if ((username !=
-                                  users[i]['username'] ||
+                          } else if ((username != users[i]['username'] ||
                               password != users[i]['password'])) {
                             showOkAlertDialog(
                                 context: context,
@@ -209,13 +204,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                         child: ListView.builder(
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
-                                          itemCount:
-                                              googleAccountsData.length,
+                                          itemCount: googleAccountsData.length,
                                           itemBuilder: (BuildContext context,
                                                   int index) =>
                                               Padding(
-                                            padding:
-                                                const EdgeInsets.all(3.0),
+                                            padding: const EdgeInsets.all(3.0),
                                             child: Column(
                                               children: [
                                                 GestureDetector(
@@ -267,8 +260,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         children: [
                                                           Text(
                                                             googleAccountsData[
-                                                                    index]
-                                                                ['name'],
+                                                                index]['name'],
                                                             style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
@@ -276,15 +268,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                                           ),
                                                           Text(
                                                             googleAccountsData[
-                                                                    index]
-                                                                ['mail'],
+                                                                index]['mail'],
                                                             style: TextStyle(
                                                                 color: Colors
-                                                                        .grey[
-                                                                    600],
-                                                                fontSize: size
-                                                                        .height *
-                                                                    0.015),
+                                                                    .grey[600],
+                                                                fontSize:
+                                                                    size.height *
+                                                                        0.015),
                                                           ),
                                                         ],
                                                       )
@@ -292,8 +282,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   ),
                                                 ),
                                                 Divider(
-                                                  color: googleAccountsData[
-                                                      index]['dividercolor'],
+                                                  color:
+                                                      googleAccountsData[index]
+                                                          ['dividercolor'],
                                                 )
                                               ],
                                             ),
@@ -312,8 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             Text(
                                               "Add another account",
                                               style: TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.bold),
+                                                  fontWeight: FontWeight.bold),
                                             )
                                           ],
                                         ),
@@ -458,9 +448,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.transparent,
-                        primary: Colors.transparent,
-                      minimumSize:
-                          Size(size.width * 0.1, size.height * 0.005),
+                      primary: Colors.transparent,
+                      minimumSize: Size(size.width * 0.1, size.height * 0.005),
                       padding: EdgeInsets.all(0.0),
                     ),
                     onPressed: () {

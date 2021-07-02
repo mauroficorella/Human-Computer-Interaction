@@ -11,6 +11,14 @@ const kPrimaryColor = Color(0xFF6F35A5);
 const kPrimaryLightColor = Color(0xFFF1E6FF);
 Color navBarColor = Colors.deepPurpleAccent[100];
 
+getProfileImage(username, path) {
+  if (userlogged == username) {
+    return AssetImage(path);
+  } else {
+    return NetworkImage(path);
+  }
+}
+
 Color buttonModifyUserColor = kPrimaryColor;
 Color buttonModifyUserTextColor = Colors.white;
 
@@ -31,7 +39,8 @@ bool noPressed = false;
 
 CircleAvatar profilePicture;
 
-String picturePath = "https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg";
+String picturePath =
+    "https://shop.krystmedia.at/wp-content/uploads/2020/04/avatar-1.jpg";
 
 Widget home;
 
@@ -114,6 +123,74 @@ String favouriteListTitle = "Add to favourite list";
 List<int> filteredMoviesList = [];
 
 double newRating = 0;
+
+ImageProvider<Object> getBackgroundImage() {
+  if (isFromGallery) {
+    return FileImage(image);
+  } else {
+    return AssetImage(changeProfilePicPath());
+  }
+}
+
+/*ImageProvider<Object> getBackgroundImage(username, isFromGallery, picPath, size) {
+  if (isFromGallery) {
+    //return FileImage (user che ha cambiato nome)
+    /*return CircleAvatar(
+      backgroundImage: FileImage(image),
+      backgroundColor: Colors.white,
+      radius: size.height * 0.1,
+    );*/
+    return FileImage(image);
+  } else {
+    if (username == userlogged) {
+      //return AssetImage (vittoria o utente registrato senza immagine)
+      /*return CircleAvatar(
+        backgroundImage: AssetImage(changeProfilePicPath()),
+        backgroundColor: Colors.white,
+        radius: size.height * 0.1,
+      );*/
+      return AssetImage(changeProfilePicPath());
+    } else {
+      //return NetworkImage (recensori fake)
+      /*return CircleAvatar(
+        backgroundImage: NetworkImage(picPath),
+        backgroundColor: Colors.white,
+        radius: size.height * 0.1,
+      );*/
+      return NetworkImage(picPath);
+    }
+  }
+}*/
+
+/*CircleAvatar getBackgroundImage(username, isFromGallery, picPath, size) {
+  if (isFromGallery) {
+    //return FileImage (user che ha cambiato nome)
+    return CircleAvatar(
+      backgroundImage: FileImage(image),
+      backgroundColor: Colors.white,
+      radius: size.height * 0.1,
+    );
+    //return FileImage(image);
+  } else {
+    if (username == userlogged) {
+      //return AssetImage (vittoria o utente registrato senza immagine)
+      return CircleAvatar(
+        backgroundImage: AssetImage(changeProfilePicPath()),
+        backgroundColor: Colors.white,
+        radius: size.height * 0.1,
+      );
+      //return AssetImage(changeProfilePicPath());
+    } else {
+      //return NetworkImage (recensori fake)
+      return CircleAvatar(
+        backgroundImage: NetworkImage(picPath),
+        backgroundColor: Colors.white,
+        radius: size.height * 0.1,
+      );
+      //return NetworkImage(picPath);
+    }
+  }
+}*/
 
 String changeProfilePicPath() {
   if (username == users[0]['username']) {
@@ -219,3 +296,7 @@ Color getColor(Set<MaterialState> states) {
   }
   return Colors.red;
 }
+
+
+//TODO: Status bar -> diventa viola sulla pagina del film
+//TODO: Comments page -> quando si pubblica il commento da errore e non cambia l'immagine

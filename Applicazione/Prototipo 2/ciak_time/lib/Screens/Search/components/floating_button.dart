@@ -50,7 +50,7 @@ class _FloatingButtonState extends State<FloatingButton> {
             () {
               showDialog(
                 context: context,
-                barrierDismissible: false,
+                barrierDismissible: true,
                 builder: (_) {
                   return StatefulBuilder(
                     builder: (context, setState) {
@@ -62,13 +62,28 @@ class _FloatingButtonState extends State<FloatingButton> {
                             children: <Widget>[
                               Container(
                                 width: size.width * 0.75,
-                                child: Text(
-                                  "Order By:",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: size.height * 0.03,
-                                      fontFamily: 'Quicksand-Medium',
-                                      color: kPrimaryColor),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Order By:",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: size.height * 0.03,
+                                          fontFamily: 'Quicksand-Medium',
+                                          color: kPrimaryColor),
+                                    ),
+                                    /*SizedBox(
+                                      width: size.width * 0.33,
+                                    ),*/
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: Icon(Icons.close),
+                                    ),
+                                  ],
                                 ),
                               ),
                               SizedBox(
