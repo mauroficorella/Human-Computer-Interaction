@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  2 JUL 2021 12:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  2 JUL 2021 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1419,29 +1419,70 @@ File: images/experiment/searchCheckBox.png Graphic file (type png)
 Package pdftex.def Info: images/experiment/searchCheckBox.png  used on input line 1008.
 (pdftex.def)             Requested size: 204.85672pt x 440.90958pt.
 [32] [33]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1043.
- [34]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1043.
+<images/prototype2/login.png, id=478, 200.4288pt x 429.2838pt>
+File: images/prototype2/login.png Graphic file (type png)
+<use images/prototype2/login.png>
+Package pdftex.def Info: images/prototype2/login.png  used on input line 1037.
+(pdftex.def)             Requested size: 112.72429pt x 241.43878pt.
+<images/prototype2/loginGoogle.png, id=479, 199.4652pt x 429.2838pt>
+File: images/prototype2/loginGoogle.png Graphic file (type png)
+<use images/prototype2/loginGoogle.png>
+Package pdftex.def Info: images/prototype2/loginGoogle.png  used on input line 1045.
+(pdftex.def)             Requested size: 112.72429pt x 242.60475pt.
+<images/prototype2/loginFacebook.png, id=480, 199.4652pt x 429.2838pt>
+File: images/prototype2/loginFacebook.png Graphic file (type png)
+<use images/prototype2/loginFacebook.png>
+Package pdftex.def Info: images/prototype2/loginFacebook.png  used on input line 1053.
+(pdftex.def)             Requested size: 113.0856pt x 243.38423pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
+
+ []
+
+<images/prototype2/registration.png, id=481, 133.4586pt x 285.7074pt>
+File: images/prototype2/registration.png Graphic file (type png)
+<use images/prototype2/registration.png>
+Package pdftex.def Info: images/prototype2/registration.png  used on input line 1067.
+(pdftex.def)             Requested size: 112.72429pt x 241.32657pt.
+<images/prototype2/infoPass.png, id=482, 134.4222pt x 286.671pt>
+File: images/prototype2/infoPass.png Graphic file (type png)
+<use images/prototype2/infoPass.png>
+Package pdftex.def Info: images/prototype2/infoPass.png  used on input line 1075.
+(pdftex.def)             Requested size: 112.72429pt x 240.40831pt.
+<images/prototype2/infoConfirmPass.png, id=483, 134.4222pt x 286.671pt>
+File: images/prototype2/infoConfirmPass.png Graphic file (type png)
+<use images/prototype2/infoConfirmPass.png>
+Package pdftex.def Info: images/prototype2/infoConfirmPass.png  used on input line 1083.
+(pdftex.def)             Requested size: 112.72429pt x 240.40831pt.
+[34 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/login.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/loginGoogle.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/loginFacebook.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/registration.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/infoPass.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/infoConfirmPass.png>]
+<images/prototype2/home.png, id=503, 200.4288pt x 429.2838pt>
+File: images/prototype2/home.png Graphic file (type png)
+<use images/prototype2/home.png>
+Package pdftex.def Info: images/prototype2/home.png  used on input line 1094.
+(pdftex.def)             Requested size: 117.79222pt x 252.2927pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1110.
+ [35 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/home.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1110.
  (/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1043.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1043.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1110.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1110.
 Package rerunfilecheck Info: File `report_HCI.out' has not changed.
 (rerunfilecheck)             Checksum: FDC0CCC0767B9EA0907260C9655A92C0;1666.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1043.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1110.
  ) 
 Here is how much of TeX's memory you used:
- 8539 strings out of 480608
- 128203 string characters out of 5903631
+ 8589 strings out of 480608
+ 129631 string characters out of 5903631
  406528 words of memory out of 5000000
- 24043 multiletter control sequences out of 15000+600000
+ 24078 multiletter control sequences out of 15000+600000
  543302 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,10n,45p,302b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (36 pages, 6280361 bytes).
+Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (37 pages, 7056883 bytes).
 PDF statistics:
- 551 PDF objects out of 1000 (max. 8388607)
- 394 compressed objects within 4 object streams
- 148 named destinations out of 1000 (max. 500000)
- 479 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 583 PDF objects out of 1000 (max. 8388607)
+ 410 compressed objects within 5 object streams
+ 157 named destinations out of 1000 (max. 500000)
+ 514 words of extra memory for PDF output out of 10000 (max. 10000000)
 

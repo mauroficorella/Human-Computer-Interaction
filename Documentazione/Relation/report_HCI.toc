@@ -70,8 +70,9 @@
 \contentsline {section}{\numberline {9}Final version}{34}{section.9}%
 \contentsline {paragraph}{Login}{34}{section*.46}%
 \contentsline {paragraph}{Registration}{34}{section*.47}%
-\contentsline {paragraph}{Home}{34}{section*.48}%
-\contentsline {paragraph}{Search}{34}{section*.49}%
-\contentsline {paragraph}{User}{34}{section*.50}%
-\contentsline {paragraph}{Movie}{34}{section*.51}%
-\contentsline {paragraph}{Person}{34}{section*.52}%
+\contentsline {paragraph}{Home}{35}{section*.48}%
+\contentsline {paragraph}{Search}{35}{section*.49}%
+\contentsline {paragraph}{User}{35}{section*.50}%
+\contentsline {paragraph}{Movie}{35}{section*.51}%
+\contentsline {paragraph}{Review and comment}{35}{section*.52}%
+\contentsline {paragraph}{Person}{35}{section*.53}%
