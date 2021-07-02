@@ -285,8 +285,7 @@ class ConfirmReview extends StatelessWidget {
                           () {
                             var value = {
                               'name': userlogged,
-                              'pic':
-                                  'assets/images/vittoria.png',
+                              'pic': picturePath,
                               'message': reviewController.text,
                               'rate': newRating,
                               'likes': 0,
