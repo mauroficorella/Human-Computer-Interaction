@@ -38,7 +38,6 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
     Size size = MediaQuery.of(context).size;
     if (widget.queryString == "") {
       return CardsWidget();
-      
     }
 
     final bloc = SearchResultsBloc(widget.queryString);
@@ -194,11 +193,24 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
               SizedBox(
                 width: size.width * 0.05,
               ),
-              Text(
-                snapshot.data.results[index].name,
-                style: TextStyle(
-                    fontFamily: 'Quicksand-Regular',
-                    fontSize: size.width * 0.05),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    snapshot.data.results[index].name,
+                    style: TextStyle(
+                        fontFamily: 'Quicksand-Regular',
+                        fontSize: size.width * 0.05),
+                  ),
+                  Text(
+                    getKnownFor(snapshot, index),
+                    style: TextStyle(
+                        fontFamily: 'Quicksand',
+                        fontSize: size.width * 0.035,
+                        color: Colors.grey[700]),
+                  ),
+                ],
               ),
             ],
           ),
@@ -221,5 +233,17 @@ class _SearchMovieResultsListState extends State<SearchMovieResultsList> {
     } else {
       return 'https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif';
     }
+  }
+
+  String getKnownFor(snapshot, index) {
+    String knownFor;
+    if (snapshot.data.results[index].knownForDepartment == 'Acting') {
+      knownFor = 'Actor';
+    } else if (snapshot.data.results[index].knownForDepartment == 'Directing') {
+      knownFor = 'Movie Director';
+    } else {
+      knownFor = snapshot.data.results[index].knownForDepartment;
+    }
+    return knownFor;
   }
 }
