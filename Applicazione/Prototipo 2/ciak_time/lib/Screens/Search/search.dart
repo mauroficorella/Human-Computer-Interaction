@@ -2,8 +2,6 @@ import 'package:ciak_time/Screens/Search/components/search_results_list.dart';
 import 'package:ciak_time/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
-
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class Search extends StatefulWidget {
@@ -12,7 +10,6 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  static const historyLength = 5;
 
   List<String> filteredSearchHistory;
 
@@ -34,7 +31,7 @@ class _SearchState extends State<Search> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(kPrimaryColor);
+    
     Size size = MediaQuery.of(context).size;
 
     return DefaultTabController(
@@ -46,10 +43,11 @@ class _SearchState extends State<Search> {
           return Stack(children: [
             FloatingSearchAppBar(
               alwaysOpened: true,
-              color: navBarColor,//Colors.deepPurple[300],
-              elevation: 10.0,
+              color: kPrimaryColor,
+              elevation: 15.0,
               liftOnScrollElevation: 10.0,
               colorOnScroll: kPrimaryColor,
+              hideKeyboardOnDownScroll: true,
               onFocusChanged: (isFocused) {
                 setState(() {
                   content = new SearchResultsListView(
@@ -59,9 +57,9 @@ class _SearchState extends State<Search> {
                 });
               },
               accentColor: Colors.amber,
-              iconColor: Colors.black,
-              hintStyle: TextStyle(color: kPrimaryColor),
-              titleStyle: TextStyle(color: Colors.black),
+              iconColor: Colors.white,
+              hintStyle: TextStyle(color: navBarColor),
+              titleStyle: TextStyle(color: Colors.white),
               controller: controller,
               automaticallyImplyBackButton: false,
               actions: [
@@ -113,7 +111,7 @@ class _SearchState extends State<Search> {
               body: Column(
                 children: <Widget>[
                   Material(
-                    color: kPrimaryColor,
+                    color: tabBarColor,
                     child: TabBar(
                       onTap: (index) {
                         if (index == 0) {
@@ -123,8 +121,10 @@ class _SearchState extends State<Search> {
                         }
                       },
                       indicatorColor: Colors.amber,
-                      unselectedLabelColor: navBarColor,
+                      unselectedLabelColor: kPrimaryLightColor,
                       labelColor: Colors.amber,
+                      unselectedLabelStyle: TextStyle(fontSize: size.height * 0.015),
+                      labelStyle: TextStyle(fontSize: size.height * 0.02, fontWeight: FontWeight.bold),
                       tabs: [
                         Tab(
                             icon: Row(

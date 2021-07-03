@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:ciak_time/Screens/User/profile_pic.dart';
-
 import 'package:ciak_time/components/rounded_button.dart';
 import 'package:ciak_time/components/social_icon.dart';
 import 'package:ciak_time/components/text_field_container.dart';

@@ -53,26 +53,26 @@
 \contentsline {subsection}{\numberline {5.2}Cognitive Walkthrough}{23}{subsection.5.2}%
 \contentsline {paragraph}{Task 1 - Search the movie “Harry Potter and the Deathly Hallows - Part 2” to see the movie details.}{23}{section*.36}%
 \contentsline {paragraph}{Task 2 - Add a popular movie to the watchlist.}{25}{section*.37}%
-\contentsline {section}{\numberline {6}Prototype 1}{27}{section.6}%
-\contentsline {paragraph}{Login}{27}{section*.38}%
-\contentsline {paragraph}{Registration}{27}{section*.39}%
-\contentsline {paragraph}{Movie information}{27}{section*.40}%
-\contentsline {paragraph}{Add movie to a list}{28}{section*.41}%
-\contentsline {section}{\numberline {7}User Based Evaluation}{30}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Think Aloud}{30}{subsection.7.1}%
-\contentsline {paragraph}{Task 1:}{30}{section*.42}%
-\contentsline {paragraph}{Task 2:}{30}{section*.43}%
-\contentsline {paragraph}{Task 3:}{30}{section*.44}%
-\contentsline {subsection}{\numberline {7.2}Controlled experiment}{31}{subsection.7.2}%
-\contentsline {paragraph}{Task:}{32}{section*.45}%
-\contentsline {subsubsection}{\numberline {7.2.1}ANOVA}{32}{subsubsection.7.2.1}%
-\contentsline {section}{\numberline {8}Prototype 2}{33}{section.8}%
-\contentsline {section}{\numberline {9}Final version}{34}{section.9}%
-\contentsline {paragraph}{Login}{34}{section*.46}%
-\contentsline {paragraph}{Registration}{34}{section*.47}%
-\contentsline {paragraph}{Home}{35}{section*.48}%
-\contentsline {paragraph}{Search}{35}{section*.49}%
-\contentsline {paragraph}{User}{35}{section*.50}%
-\contentsline {paragraph}{Movie}{35}{section*.51}%
-\contentsline {paragraph}{Review and comment}{35}{section*.52}%
-\contentsline {paragraph}{Person}{35}{section*.53}%
+\contentsline {section}{\numberline {6}Prototype 1}{28}{section.6}%
+\contentsline {paragraph}{Login}{28}{section*.38}%
+\contentsline {paragraph}{Registration}{28}{section*.39}%
+\contentsline {paragraph}{Movie information}{28}{section*.40}%
+\contentsline {paragraph}{Add movie to a list}{29}{section*.41}%
+\contentsline {section}{\numberline {7}User Based Evaluation}{31}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Think Aloud}{31}{subsection.7.1}%
+\contentsline {paragraph}{Task 1:}{31}{section*.42}%
+\contentsline {paragraph}{Task 2:}{31}{section*.43}%
+\contentsline {paragraph}{Task 3:}{31}{section*.44}%
+\contentsline {subsection}{\numberline {7.2}Controlled experiment}{32}{subsection.7.2}%
+\contentsline {paragraph}{Task:}{33}{section*.45}%
+\contentsline {subsubsection}{\numberline {7.2.1}ANOVA}{33}{subsubsection.7.2.1}%
+\contentsline {section}{\numberline {8}Prototype 2}{34}{section.8}%
+\contentsline {section}{\numberline {9}Final version}{35}{section.9}%
+\contentsline {paragraph}{Login}{35}{section*.46}%
+\contentsline {paragraph}{Registration}{35}{section*.47}%
+\contentsline {paragraph}{Home}{36}{section*.48}%
+\contentsline {paragraph}{Search}{36}{section*.49}%
+\contentsline {paragraph}{User}{36}{section*.50}%
+\contentsline {paragraph}{Movie}{36}{section*.51}%
+\contentsline {paragraph}{Review and comment}{36}{section*.52}%
+\contentsline {paragraph}{Person}{36}{section*.53}%

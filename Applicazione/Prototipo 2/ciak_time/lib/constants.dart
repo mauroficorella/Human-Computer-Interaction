@@ -10,6 +10,7 @@ import 'models/person.dart';
 const kPrimaryColor = Color(0xFF6F35A5);
 const kPrimaryLightColor = Color(0xFFF1E6FF);
 Color navBarColor = Colors.deepPurpleAccent[100];
+Color tabBarColor = Color(0xffa16ad4);
 
 getProfileImage(username, path) {
   if (userlogged == username) {
@@ -296,7 +297,6 @@ Color getColor(Set<MaterialState> states) {
   }
   return Colors.red;
 }
-
 
 //TODO: Status bar -> diventa viola sulla pagina del film
 //TODO: Comments page -> quando si pubblica il commento da errore e non cambia l'immagine

@@ -27,7 +27,7 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
       child: TextFormField(
         controller: loginUsernameController,
         onChanged: widget.onChanged,
-        validator: (value) {
+        /*validator: (value) {
           
           for (var i = 0; i < users.length; i++) {
             
@@ -44,9 +44,9 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
 
           }
           
-        },
+        },*/
         
-        autovalidateMode: AutovalidateMode.onUserInteraction,
+        //autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           icon: Icon(
             widget.icon,

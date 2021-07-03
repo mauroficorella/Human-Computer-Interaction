@@ -46,7 +46,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
                   border: InputBorder.none,
                 ),
                 keyboardType: TextInputType.visiblePassword,
-                validator: (value) {
+                /*validator: (value) {
                   for (var i = 0; i < users.length; i++) {
                     if (username == users[i]['username']) {
                       return MatchValidator(errorText: 'Incorrect password')
@@ -57,7 +57,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
                     }
                   }
                 },
-                autovalidateMode: AutovalidateMode.onUserInteraction,
+                autovalidateMode: AutovalidateMode.onUserInteraction,*/
               ),
               /*IconButton(
                 icon: isHidden

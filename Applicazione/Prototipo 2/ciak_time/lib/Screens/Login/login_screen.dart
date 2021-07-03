@@ -487,6 +487,36 @@ class _LoginScreenState extends State<LoginScreen> {
   Color changeLoginColor() {
     setState(() {
       for (var i = 0; i < users.length; i++) {
+        if (username.isNotEmpty && password.isNotEmpty) {
+          loginColor = kPrimaryColor;
+          break;
+        } else {
+          loginColor = Colors.grey[300];
+        }
+      }
+    });
+
+    return loginColor;
+  }
+
+  Color changeLoginTextColor() {
+    setState(() {
+      for (var i = 0; i < users.length; i++) {
+        if (username.isNotEmpty && password.isNotEmpty) {
+          loginTextColor = Colors.white;
+          break;
+        } else {
+          loginTextColor = Colors.grey;
+        }
+      }
+    });
+
+    return loginTextColor;
+  }
+
+  /*Color changeLoginColor() {
+    setState(() {
+      for (var i = 0; i < users.length; i++) {
         if (username != '' &&
             password != '' &&
             username == users[i]['username'] &&
@@ -518,5 +548,5 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     return loginTextColor;
-  }
+  }*/
 }
