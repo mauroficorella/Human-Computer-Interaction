@@ -1,9 +1,9 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:ciak_time/Screens/Review/comment_box.dart';
 import 'package:ciak_time/Screens/Review/reviewsData_utils.dart';
 import 'package:ciak_time/Screens/Review/reviews_page.dart';
 import 'package:ciak_time/components/rating.dart';
 import 'package:ciak_time/constants.dart';
-import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 
 class CommentsPage extends StatefulWidget {
