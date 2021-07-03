@@ -307,6 +307,8 @@ class _UserSettingsState extends State<UserSettings> {
                                                         userlogged !=
                                                             usermodified) {
                                                       setState(() {
+                                                        previousUsername =
+                                                            userlogged;
                                                         userlogged =
                                                             usermodified;
                                                       });

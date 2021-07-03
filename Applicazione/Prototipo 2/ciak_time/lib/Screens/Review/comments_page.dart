@@ -22,9 +22,16 @@ class _CommentsPageState extends State<CommentsPage> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
   String comment;
+  ScrollController _scrollController = new ScrollController();
 
-  Widget commentChild(reviewsList, commentsList, size) {
-    if (reviewsList[widget.reviewIndex]['comments'] == 0) {
+  Widget commentChild(size, index) {
+    updateCommentList(
+        index,
+        widget
+            .reviewIndex); //serve per quando si cambia username e si ha già commentato qualcosa
+    if (savedReviewsLists[index]["reviewsList"][widget.reviewIndex]
+            ["comments"] ==
+        0) {
       return Column(
         children: [
           Container(
@@ -197,9 +204,12 @@ class _CommentsPageState extends State<CommentsPage> {
           ),
           Expanded(
             child: ListView(
+              controller: _scrollController,
               children: [
                 for (var i = 0;
-                    i < reviewsList[widget.reviewIndex]['comments'];
+                    i <
+                        savedReviewsLists[index]["reviewsList"]
+                            [widget.reviewIndex]["comments"];
                     i++)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(2.0, 0.0, 2.0, 0.0),
@@ -215,17 +225,34 @@ class _CommentsPageState extends State<CommentsPage> {
                             child: CircleAvatar(
                               backgroundColor: Colors.transparent,
                               radius: 50,
-                              backgroundImage: getProfileImage(
+                              /*backgroundImage: getProfileImage(
                                   commentsList[i]['name'],
-                                  commentsList[i]['pic']),
+                                  commentsList[i]['pic']),*/
+                              backgroundImage: getBackgroundReviewImage(
+                                  savedReviewsLists[index]["reviewsList"]
+                                          [widget.reviewIndex]["commentsList"]
+                                      [i]['name'],
+                                  savedReviewsLists[index]["reviewsList"]
+                                          [widget.reviewIndex]["commentsList"]
+                                      [i]['pic']),
                             ),
+
                             //NetworkImage(commentsList[i]['pic'])),
                           ),
                           title: Text(
-                            commentsList[i]['name'],
+                            /*getCommentUsername(
+                                savedReviewsLists[index]["reviewsList"]
+                                        [widget.reviewIndex]["commentsList"][i]
+                                    ['name'],
+                                index,
+                                i),*/
+                            savedReviewsLists[index]["reviewsList"]
+                                [widget.reviewIndex]["commentsList"][i]['name'],
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          subtitle: Text(commentsList[i]['message']),
+                          subtitle: Text(savedReviewsLists[index]["reviewsList"]
+                                  [widget.reviewIndex]["commentsList"][i]
+                              ['message']),
                         ),
                         Divider(
                           color: Colors.grey,
@@ -241,11 +268,28 @@ class _CommentsPageState extends State<CommentsPage> {
     }
   }
 
+  /*String getCommentUsername(username, reviewIndex, commentIndex) {
+    print("previoususername  = " + previousUsername + " username: " + username);
+    if (username == previousUsername) {
+      savedReviewsLists[reviewIndex]["reviewsList"][widget.reviewIndex]
+          ["commentsList"][commentIndex]['name'] = userlogged;
+      return userlogged;
+    } else {
+      return savedReviewsLists[reviewIndex]["reviewsList"][widget.reviewIndex]
+          ["commentsList"][commentIndex]['name'];
+    }
+  }*/
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    List reviewsList = getGeneratedReviews(widget.movieId);
-    List reviewCommentsList = reviewsList[widget.reviewIndex]["commentsList"];
+    int index = getGeneratedReviewsIndex(widget.movieId);
+    //List reviewsList = savedReviewsLists[index]["reviewsList"]
+    //List reviewsList = getGeneratedReviews(widget.movieId); //come era prima
+
+    //List reviewCommentsList = savedReviewsLists[index]["reviewsList"][widget.reviewIndex]["commentsList"]
+
+    //List reviewCommentsList = reviewsList[widget.reviewIndex]["commentsList"];
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -267,19 +311,19 @@ class _CommentsPageState extends State<CommentsPage> {
       ),
       body: Container(
         child: CommentBox(
-          backgroundImage: getBackgroundImage(), 
-          //userImage: picturePath,
-          child: commentChild(reviewsList, reviewCommentsList, size),
+          backgroundImage: getBackgroundImage(),
+          child: commentChild(size, index),
           labelText: 'Write a comment...',
           withBorder: false,
-          //errorText: "Comment cannot be empty",
           sendButtonMethod: () async {
             comment = commentController.text;
+
             if (comment == '') {
               showOkAlertDialog(
                   context: context,
                   title: 'You cannot publish an empty comment');
             } else {
+              FocusScope.of(context).unfocus();
               await commentConfirmed(size).then((_) {
                 if (formKey.currentState.validate() && isCommentConfirmed) {
                   commentController.clear();
@@ -291,24 +335,39 @@ class _CommentsPageState extends State<CommentsPage> {
                       'pic': picturePath,
                       'message': comment,
                     };
-                    if (reviewsList[widget.reviewIndex]["commentsList"]
+                    if (savedReviewsLists[index]["reviewsList"]
+                                [widget.reviewIndex]["commentsList"]
                             .length ==
                         0) {
-                      reviewsList[widget.reviewIndex]["commentsList"]
+                      savedReviewsLists[index]["reviewsList"]
+                              [widget.reviewIndex]["commentsList"]
                           .insert(0, value);
                     } else {
-                      reviewsList[widget.reviewIndex]["commentsList"].insert(
-                          reviewsList[widget.reviewIndex]["commentsList"]
-                                  .length -
-                              1,
-                          value);
+                      savedReviewsLists[index]["reviewsList"]
+                              [widget.reviewIndex]["commentsList"]
+                          .insert(
+                              savedReviewsLists[index]["reviewsList"]
+                                          [widget.reviewIndex]["commentsList"]
+                                      .length -
+                                  1,
+                              value);
+                      _scrollController.animateTo(
+                          _scrollController.position.maxScrollExtent,
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.easeOut);
                     }
+
+                    savedReviewsLists[index]["reviewsList"][widget.reviewIndex]
+                        ["comments"] += 1;
+                    print(savedReviewsLists[index]["reviewsList"]
+                        [widget.reviewIndex]["commentsList"]);
                   });
-                  reviewsList[widget.reviewIndex]["comments"] += 1;
-                  if (reviewsList.isNotEmpty) {
+                  print("Scrolling");
+
+                  /*if (savedReviewsLists[index]["reviewsList"].isNotEmpty) {
                     savedReviewsLists[widget.reviewIndex]['commentsList'] =
-                        reviewsList[widget.reviewIndex]["commentsList"];
-                  }
+                        savedReviewsLists[index]["reviewsList"][widget.reviewIndex]["commentsList"];
+                  }*/
                 } else {}
               });
             }

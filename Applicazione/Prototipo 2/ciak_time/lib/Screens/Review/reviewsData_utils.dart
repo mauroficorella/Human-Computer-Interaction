@@ -1,8 +1,7 @@
 import 'dart:math';
 
+import 'package:ciak_time/constants.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
 
 List possibleUsers = [
   {
@@ -601,6 +600,16 @@ List getGeneratedReviews(movieId) {
   return null;
 }
 
+int getGeneratedReviewsIndex(movieId) {
+  for (var i = 0; i < savedReviewsLists.length; i++) {
+    if (savedReviewsLists[i]["movieId"] == movieId) {
+      return i;
+    }
+  }
+
+  return null;
+}
+
 int isMovieAlreadyOpened(movieId) {
   for (var i = 0; i < savedReviewsLists.length; i++) {
     if (savedReviewsLists[i]["movieId"] == movieId) {
@@ -640,5 +649,28 @@ ImageProvider<Object> getBackgroundReviewImage(username, picPath) {
     return AssetImage(changeProfilePicPath());
   } else {
     return NetworkImage(picPath);
+  }
+}
+
+updateCommentList(index, reviewIndex) {
+  for (var i = 0;
+      i <
+          savedReviewsLists[index]["reviewsList"][reviewIndex]["commentsList"]
+              .length;
+      i++) {
+    if (savedReviewsLists[index]["reviewsList"][reviewIndex]["commentsList"][i]
+            ['name'] ==
+        previousUsername) {
+      savedReviewsLists[index]["reviewsList"][reviewIndex]["commentsList"][i]
+          ['name'] = userlogged;
+    }
+  }
+}
+
+void updateCurrentReviews() {
+  for (var i = 0; i < currentReviews.length; i++) {
+    if (currentReviews[i]["name"] == previousUsername) {
+      currentReviews[i]["name"] = userlogged;
+    }
   }
 }

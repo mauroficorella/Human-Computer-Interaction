@@ -238,6 +238,7 @@ String oldPassword = '';
 String review;
 
 String userlogged = 'Vittoria';
+String previousUsername = '';
 String usermodified = 'Vittoria';
 String userregistered = '';
 String email = '';

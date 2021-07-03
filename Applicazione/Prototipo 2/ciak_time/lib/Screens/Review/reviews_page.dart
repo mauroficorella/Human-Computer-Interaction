@@ -101,7 +101,8 @@ class ReviewWidget extends StatefulWidget {
   const ReviewWidget({
     Key key,
     @required this.size,
-    @required this.index, @required this.movieId,
+    @required this.index,
+    @required this.movieId,
   }) : super(key: key);
 
   final Size size;
@@ -129,6 +130,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    updateCurrentReviews();
     return Column(
       children: [
         Container(
@@ -308,7 +310,8 @@ class CircleAvatarText extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: Colors.white,
-          backgroundImage: getBackgroundReviewImage(currentReviews[index]['name'], currentReviews[index]['pic']),
+          backgroundImage: getBackgroundReviewImage(
+              currentReviews[index]['name'], currentReviews[index]['pic']),
           radius: size.width * 0.06,
         ),
         SizedBox(
@@ -325,5 +328,4 @@ class CircleAvatarText extends StatelessWidget {
       ],
     );
   }
-  
 }
