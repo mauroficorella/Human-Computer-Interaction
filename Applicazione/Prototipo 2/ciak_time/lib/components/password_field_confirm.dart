@@ -57,7 +57,7 @@ class _RegistrationPasswordFieldConfirm
               TextFormField(
                 onChanged: widget.onChanged,
                 controller: passwordController,
-                validator: passwordConfirmValidator,
+                validator: IsMatchValidator(string: passwordRegistration),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 obscureText: isHidden,
                 decoration: InputDecoration(

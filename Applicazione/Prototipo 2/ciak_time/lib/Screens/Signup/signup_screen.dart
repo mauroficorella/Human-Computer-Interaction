@@ -302,7 +302,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             userregistered != users[i]['username'] &&
             regexMail.hasMatch(email) &&
             regexPassword.hasMatch(passwordRegistration) &&
-            regexPassword.hasMatch(passwordRegistrationConfirm) &&
+            
             passwordRegistration == passwordRegistrationConfirm &&
             email.isNotEmpty &&
             passwordRegistration.isNotEmpty &&
@@ -320,15 +320,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Color _setRegistrationButtonTextColor() {
     setState(() {
       for (var i = 0; i < users.length; i++) {
-        if (userregistered.isNotEmpty &&
+        if (userregistered != '' &&
             userregistered != users[i]['username'] &&
             regexMail.hasMatch(email) &&
             regexPassword.hasMatch(passwordRegistration) &&
-            regexPassword.hasMatch(passwordRegistrationConfirm) &&
+          
             passwordRegistration == passwordRegistrationConfirm &&
-            email.isNotEmpty &&
-            passwordRegistration.isNotEmpty &&
-            passwordRegistrationConfirm.isNotEmpty) {
+            email != '' &&
+            passwordRegistration != '' &&
+            passwordRegistrationConfirm != '') {
           buttonRegisterColor = Colors.white;
         } else {
           buttonRegisterColor = Colors.grey;
