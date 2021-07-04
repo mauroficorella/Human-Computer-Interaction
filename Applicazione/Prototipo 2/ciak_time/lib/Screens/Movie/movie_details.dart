@@ -19,7 +19,6 @@ class MovieDetails extends StatefulWidget {
 class _MovieDetailsState extends State<MovieDetails> {
   @override
   Widget build(BuildContext context) {
-    
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -45,9 +44,7 @@ class _MovieDetailsState extends State<MovieDetails> {
         centerTitle: true,
         title: Text(
           "Movie info",
-          
           style: TextStyle(
-            
             fontFamily: 'Quicksand-Medium',
           ),
         ),
@@ -89,7 +86,6 @@ class _MovieDetailsState extends State<MovieDetails> {
                         SizedBox(height: size.height * 0.01),
                         Text(
                           widget.movieSelected.overview,
-                          
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: size.height * 0.02,
@@ -160,23 +156,19 @@ class _MovieDetailsState extends State<MovieDetails> {
                             label: "Cast",
                             assertIcon: "assets/icons/actor.svg"),
                         SizedBox(height: size.height * 0.005),
-                        Container(
-                            height: size.height * 0.2,
-                            child: MovieCastList(
-                              movieSelected: widget.movieSelected,
-                              fromWhere: widget.fromWhere,
-                            )),
+                        MovieCastList(
+                          movieSelected: widget.movieSelected,
+                          fromWhere: widget.fromWhere,
+                        ),
                         IconTextBold(
                             size: size,
                             label: "Movie director",
                             assertIcon: "assets/icons/director.svg"),
                         SizedBox(height: size.height * 0.005),
-                        Container(
-                            height: size.height * 0.2,
-                            child: MovieDirectorsList(
-                              movieSelected: widget.movieSelected,
-                              fromWhere: widget.fromWhere,
-                            )),
+                        MovieDirectorsList(
+                          movieSelected: widget.movieSelected,
+                          fromWhere: widget.fromWhere,
+                        ),
                       ],
                     ),
                   ),

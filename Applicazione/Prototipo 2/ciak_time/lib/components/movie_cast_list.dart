@@ -76,15 +76,16 @@ class MovieCastList extends StatelessWidget {
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
       },
       child: CastCard(
-          imageUrl: imagePath, personName: snapshot.data.cast[index].name),
+          imageUrl: imagePath, personName: snapshot.data.cast[index].name, character: snapshot.data.cast[index].character,),
     );
   }
 
   Widget buildList(AsyncSnapshot<MovieCastModel> snapshot, size) {
     if (snapshot.data.cast.length != 0) {
       return Container(
-        height: size.height * 0.26,
+        height: size.height * 0.23,
         child: ListView.builder(
+          shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             itemCount: snapshot.data.cast.length,
             itemBuilder: (BuildContext context, int index) {

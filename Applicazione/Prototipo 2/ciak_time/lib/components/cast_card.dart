@@ -5,10 +5,12 @@ class CastCard extends StatelessWidget {
     Key key,
     @required this.imageUrl,
     @required this.personName,
+    this.character,
   }) : super(key: key);
 
   final String imageUrl;
   final String personName;
+  final String character;
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +51,31 @@ class CastCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: size.height * 0.016,
               fontFamily: 'Quicksand',
-              
             ),
           ),
         ),
+        getCharacter(size),
       ],
     );
+  }
+
+  getCharacter(size) {
+    if (character != null) {
+      return Container(
+        width: size.width * 0.2,
+        child: Text(
+          character,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
+            fontSize: size.height * 0.013,
+            fontFamily: 'Quicksand',
+          ),
+        ),
+      );
+    } else {
+      return Container();
+    }
   }
 }
