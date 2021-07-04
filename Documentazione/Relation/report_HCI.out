@@ -1,0 +1,26 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Requirement analysis}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Competitor analysis}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{User analysis}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.2.1}{User Profile}{subsection.2.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Persona 1 - Vittoria}{subsection.2.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Persona 2 - Emanuele}{subsection.2.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Questionnaire analysis}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Conclusions}{subsection.2.3}% 9
+\BOOKMARK [1][-]{section.3}{Task analysis: HTA and STN}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Login}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Search for a movie or a person}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Add movie to a list}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.4}{Make a review}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.5}{Comment other users\220 reviews }{section.3}% 15
+\BOOKMARK [1][-]{section.4}{Prototype 0: mockups}{}% 16
+\BOOKMARK [1][-]{section.5}{Expert Based Evaluation}{}% 17
+\BOOKMARK [2][-]{subsection.5.1}{Heuristic Evaluation}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.2}{Cognitive Walkthrough}{section.5}% 19
+\BOOKMARK [1][-]{section.6}{Prototype 1}{}% 20
+\BOOKMARK [1][-]{section.7}{User Based Evaluation}{}% 21
+\BOOKMARK [2][-]{subsection.7.1}{Think Aloud}{section.7}% 22
+\BOOKMARK [2][-]{subsection.7.2}{Controlled experiment}{section.7}% 23
+\BOOKMARK [3][-]{subsubsection.7.2.1}{ANOVA}{subsection.7.2}% 24
+\BOOKMARK [1][-]{section.8}{Prototype 2}{}% 25
+\BOOKMARK [1][-]{section.9}{Final version}{}% 26

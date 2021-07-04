@@ -852,7 +852,7 @@ Expert evaluation:\\\\
 \section{Prototype 1}
 
 After having received the expert evaluation, we have made some corrections based on it.\\
-More specifically
+More specifically, regarding the \textbf{Heuristic Evaluation}, we have made the following corrections:
 \paragraph{Login}\mbox{}\\\\
 In the login screen we have added “Forgot password?” button in order to let the user restore his password
 if he forgot it.
@@ -874,31 +874,67 @@ showing/hiding his password.
 \paragraph{Movie information}
 \mbox{}\\\\
 Regarding the movie, in the mockups we had a lot of informations concentrated in a single movie page. For this reason
-we have left in the principal movie page only the relevant informations, and we have moved in the new “Movie info” page, accessible
+we have left in the main movie page only the relevant informations, and we have moved in the new “Movie info” page, accessible
 by tapping on “View more $\rightarrow$”, all the other informations.\\
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{images/prototype1/movieInfo.png}\\
+	\includegraphics[width=0.85\textwidth]{images/prototype1/movieInfo.png}\\
 	\caption{“Movie” and “Movie info” pages}
 \end{figure}
 
-%TODO mettere screen della conferma recensioni
-
 \noindent
-Mettere correzioni basate sul Cognitive Walkthrough
+The user can arrive in the same page (for example in “Movie” page or “Person” page) from different sections,
+so we have supported wayfinding by letting the back button change depending on the previous page as
+we can see in the example below:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/prototype1/wayfinding.png}\\
+	\caption{Wayfinding support added to all pages}
+\end{figure}
+
+\paragraph{Reviews}\mbox{}\\\\
+Finally, regarding the page to make a review, we added a popup when the user tap on “Save” button in 
+order to support error prevention. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{images/prototype1/confirmReview.png}\\
+	\caption{Confirm review popup added}
+\end{figure}
+
+\mbox{}\\
+\noindent %TODO vedere
+Instead, regarding the \textbf{Cognitive Walkthrough}, we made the following corrections:
 \paragraph{Add movie to a list}
-\mbox{}
+\mbox{}\\\\
+Regarding the task that allows users to add a movie to a list, we created a single button “Add/remove movie”
+instead of the two “+” and “heart icon” buttons, because it could not be clear that they are needed to reach the goal,
+as we can see in the Figure \ref{addBtn}.
+Also, we added a toast (Figure \ref{toastAddMovie}) that notifies users that the movie is added or removed from a list.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{images/prototype1/addBtn.png}\\
-	\caption{Bottone di add btn modificato - scrivere}
+	\includegraphics[width=0.55\textwidth]{images/prototype1/addBtn.png}\\
+	\caption{“+” and “heart icon” buttons modified}
+	\label{addBtn}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{images/prototype1/addToList.png}\\
-	\caption{Bottone di add btn modificato - scrivere}
+	\includegraphics[width=0.8\textwidth]{images/prototype1/addToList.png}\\
+	\caption{Toast added}
+	\label{toastAddMovie}
 \end{figure}
+
+\paragraph{Search}\mbox{}\\\\
+Since not experienced users could not recognize the “Filter” icon, we modified and repositioned the 
+“Filter” button in order to make it clearer.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/prototype1/filters.png}\\
+	\caption{“Filters” button modified}
+\end{figure}
+
 
 % User Based Evaluation -------------------------------------------------------------------------
 
@@ -941,22 +977,16 @@ to the search page in order to do other searches.}
 \mbox{}\\\\
 Regarding \textit{Task 1}, some users, while performing this task, had some difficulties, because they tried to tap on 
 the three dots at the end of the plot instead the "View more" button, in order to read the entire plot.
-Conversely, regarding the other tasks, we notice that our subjects did not encounter any problem to accomplish them.\\
+Conversely, regarding the other tasks, we notice that our subjects did not encounter any problem to accomplish them.\\\\\\
 In general, we have obtained satisfactory results and therefore we asked the users to freely explore the application in order 
-to collect additional advices to further improve it.\\\\
-\textcolor{blue}{In particular, they made us notice that the comments page had not so many recalls to comment pages they were used to. 
-In fact, in our comments page there were no references to the review they were linked to.}\\\\
-In particular, the gave us some feedback regarding the following features:
+to collect additional advices to further improve it.\\\\\\\\
+In particular, they gave us some feedback regarding the following features:
 \begin{itemize}
-	\item {The comments page had not so many recalls to comment pages they were used to. 
-	In fact, in our comments page there were no references to the review they were linked to.\\
-	\textcolor{red}{Inoltre ci hanno detto che si aspettavano il commento inserito in basso}}
-	\item {\textcolor{red}{Sulla ricerca delle persone, aggiungere se è un attore o un regista sotto al nome}}
-	\item {\textcolor{red}{Riguardo all'aggiunta dei film nelle liste ci è stato suggerito di mettere 
-	la r in maiuscolo in modo da avere "Add/Remove movie" invece di "Add/remove movie". Inoltre ci è
-	stato suggerito di mettere un popup che ti avvisa che il film è stato effettivamente aggiunto alla lista
-	perchè con il toast non si leggeva molto bene e inoltre con la possibilità di essere rimandato alla
-	pagine dell'utente per visualizzare le liste}}
+	\item {Search between movies and persons should be separated.}
+	\item {On person search results they would prefer to have specified whether a person is an actor or 
+	a movie director.}
+	\item {On the “Movie info” page they would prefer to have specified who is the character that a certain
+	actor plays in that movie.}
 \end{itemize}
 
 
@@ -1015,11 +1045,13 @@ fits the age chosen in our user requirements.
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.4\textwidth]{images/experiment/searchCheckBox.png}\\
+		\includegraphics[width=1\textwidth]{images/anova.png}\\
 		\caption{ANOVA}
 		\label{fig:anova}
 	\end{figure}
 \end{center}
+
+\noindent
 
 
 % Prototype 2 -------------------------------------------------------------------------
