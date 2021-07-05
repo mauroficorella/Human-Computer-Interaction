@@ -68,13 +68,15 @@
 \contentsline {subsection}{\numberline {7.2}Controlled experiment}{33}{subsection.7.2}%
 \contentsline {paragraph}{Task:}{34}{section*.47}%
 \contentsline {subsubsection}{\numberline {7.2.1}ANOVA}{34}{subsubsection.7.2.1}%
-\contentsline {section}{\numberline {8}Prototype 2}{35}{section.8}%
-\contentsline {section}{\numberline {9}Final version}{36}{section.9}%
-\contentsline {paragraph}{Login}{36}{section*.48}%
-\contentsline {paragraph}{Registration}{36}{section*.49}%
-\contentsline {paragraph}{Home}{37}{section*.50}%
-\contentsline {paragraph}{Search}{37}{section*.51}%
-\contentsline {paragraph}{User}{37}{section*.52}%
-\contentsline {paragraph}{Movie}{37}{section*.53}%
-\contentsline {paragraph}{Review and comment}{37}{section*.54}%
-\contentsline {paragraph}{Person}{37}{section*.55}%
+\contentsline {section}{\numberline {8}Prototype 2}{36}{section.8}%
+\contentsline {paragraph}{Movie}{36}{section*.48}%
+\contentsline {paragraph}{Search}{37}{section*.49}%
+\contentsline {section}{\numberline {9}Final version}{38}{section.9}%
+\contentsline {paragraph}{Login}{38}{section*.50}%
+\contentsline {paragraph}{Registration}{38}{section*.51}%
+\contentsline {paragraph}{Home}{39}{section*.52}%
+\contentsline {paragraph}{Search}{39}{section*.53}%
+\contentsline {paragraph}{User}{39}{section*.54}%
+\contentsline {paragraph}{Movie}{39}{section*.55}%
+\contentsline {paragraph}{Review and comment}{39}{section*.56}%
+\contentsline {paragraph}{Person}{39}{section*.57}%

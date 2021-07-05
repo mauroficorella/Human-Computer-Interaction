@@ -976,7 +976,7 @@ to the search page in order to do other searches.}
 
 \mbox{}\\\\
 Regarding \textit{Task 1}, some users, while performing this task, had some difficulties, because they tried to tap on 
-the three dots at the end of the plot instead the "View more" button, in order to read the entire plot.
+the three dots at the end of the plot instead the “View more” button, in order to read the entire plot.
 Conversely, regarding the other tasks, we notice that our subjects did not encounter any problem to accomplish them.\\\\\\
 In general, we have obtained satisfactory results and therefore we asked the users to freely explore the application in order 
 to collect additional advices to further improve it.\\\\\\\\
@@ -992,12 +992,11 @@ In particular, they gave us some feedback regarding the following features:
 
 \subsection{Controlled experiment}
 
-%TODO scrivere cos'è controlled experiment 
-
-%TODO rivedere 
+A controlled experiment is an experiment in which all factors are held constant except for one: 
+the independent variable.\\\\
 We used  controlled experiment in order to evaluate two different solutions at the level of graphical interface. 
 In particular we had two alternatives for the searching page in order to distinguish the search between
-movie and person. 
+movie and person, as it has been suggested by the users during the interviews.
 More specifically we realized these two versions in the following ways:
 \begin{itemize}
 	\item \textbf{Version 1}: With a "tab bar" 
@@ -1034,24 +1033,43 @@ For the experiment, we define the hypothesis and the null hypothesis:
 Also we have as dependent variable the time that the subjects took to perform the following task:
 
 \paragraph{Task:} \textit{You find the actress Emma Watson very good, so you would like
-get more information about her filmography.}\\ %TODO ricontrollare
+get more information about her filmography.}\\ 
 
-\noindent %TODO numero soggetti vedere se è da cambiare
-For this experiment we used 10 subjects that had an age in a range between twenty - thirty years old that 
+\noindent 
+For this experiment we used 10 subjects that had an age in a range between twenty - thirty years old, that 
 fits the age chosen in our user requirements.
+We used \textit{within-groups} method, meaning that each subject tested each alternative.
+With this method there is the problem of transfer learning; so, in order to avoid this problem, 
+we have shown to half of the subjects first Version 1 and then Version 2, and to the other 
+half first Version 2 and then Version 1.
 
 \subsubsection{ANOVA}
+
+Once we have collected the time values from the subjects while performing the task with the two
+different versions, we need to analyze them in order to disprove the null hypothesis and to see
+if we can confirm our hypothesis.
+For doing that, we used ANOVA, a statistical technique that analyzed variance based on the 
+F-test. We easily computed ANOVA with Microsoft Excel and, in the following Figure (\ref{fig:anova}),
+we show the obtained results.
 
 \begin{center}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\textwidth]{images/anova.png}\\
-		\caption{ANOVA}
+		\caption{ANOVA result}
 		\label{fig:anova}
 	\end{figure}
 \end{center}
 
-\noindent
+\noindent\mbox{}\\\\
+Since F $>$ F crit (7.7 $>$ 4.4), we can reject the null hypothesis and use these data to understand 
+if the first interface (Figure \ref{fig:version1}) is much easier and more immediate to use with respect to the second 
+one (Figure \ref{fig:version2}).\\
+After that, we also asked to the subjects a brief comment on the experience and they told us 
+that they prefer the first interface because is much more intuitive and also because, even though the 
+second version let them see the results for both movies and persons at the same time, they don't care 
+about it because, when they perform the search, they have very clear in  mind whether they are searching 
+for a movie or a person.
 
 
 % Prototype 2 -------------------------------------------------------------------------
@@ -1060,7 +1078,58 @@ fits the age chosen in our user requirements.
 
 \section{Prototype 2}
 
-Correzioni fatte in base alla valutazione dell'utente
+After the evaluation through user partecipation, we have made some corrections based on it.\\
+More specifically, we made the main changes for “Movie” and “Search” pages.
+
+\paragraph{Movie}\mbox{}\\\\
+From the \textbf{Think aloud}, we noticed that the users had some difficulties to read the plot because
+they tried to tap on the three dots at the end of the plot instead of the “View more” button, 
+in order to read the entire plot. So we modified the interface in order to allow them to expand the 
+plot by tapping on “Read more”.
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/prototype2/movie.png}\\
+		\caption{“Movie” page}
+	\end{figure}
+\end{center}
+\vspace*{-0.5cm}
+\noindent
+Conversely, from the \textbf{interviews}, some users suggested us to specify who is the character
+that a certain actor plays in the movie; so we decided to add this information.
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/prototype2/movieInfo.png}\\
+		\caption{“Movie info” page}
+	\end{figure}
+\end{center}
+\vspace*{-1.5cm}
+\paragraph{Search}\mbox{}\\\\
+From the \textbf{interviews}, the subjects told us that they would have preferred to have the possibility
+to distinguish search's results between movies and persons instead of obtaining the results of movies and 
+persons together. Moreover, from \textbf{Controlled experiment}, we noticed that, for the users, 
+the interface with “tab bar” was more intuitive and effective, so we decided to keep this version
+of the interface.
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/prototype2/search.png}\\
+		\caption{“Search” page modified with a “tab bar”}
+	\end{figure}
+\end{center}
+\vspace*{-0.5cm}
+\noindent
+Finally, also here, from the \textbf{interviews}, the users told us that they would have preferred 
+to see whether a searched person was an actor or a movie director.
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/prototype2/searchPerson.png}\\
+		\caption{Information about persons added}
+	\end{figure}
+\end{center}
 
 % Final version -------------------------------------------------------------------------
 
