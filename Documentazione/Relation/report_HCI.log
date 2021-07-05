@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  5 JUL 2021 12:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.4.1)  5 JUL 2021 14:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1526,70 +1526,221 @@ File: images/prototype2/searchPerson.png Graphic file (type png)
 Package pdftex.def Info: images/prototype2/searchPerson.png  used on input line 1129.
 (pdftex.def)             Requested size: 307.2929pt x 225.10417pt.
 [37 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/search.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/searchPerson.png>]
-<images/prototype2/login.png, id=530, 200.4288pt x 429.2838pt>
-File: images/prototype2/login.png Graphic file (type png)
-<use images/prototype2/login.png>
-Package pdftex.def Info: images/prototype2/login.png  used on input line 1148.
+<images/final/login.png, id=530, 200.4288pt x 429.2838pt>
+File: images/final/login.png Graphic file (type png)
+<use images/final/login.png>
+Package pdftex.def Info: images/final/login.png  used on input line 1148.
 (pdftex.def)             Requested size: 112.72429pt x 241.43878pt.
-<images/prototype2/loginGoogle.png, id=531, 199.4652pt x 429.2838pt>
-File: images/prototype2/loginGoogle.png Graphic file (type png)
-<use images/prototype2/loginGoogle.png>
-Package pdftex.def Info: images/prototype2/loginGoogle.png  used on input line 1156.
+<images/final/loginGoogle.png, id=531, 199.4652pt x 429.2838pt>
+File: images/final/loginGoogle.png Graphic file (type png)
+<use images/final/loginGoogle.png>
+Package pdftex.def Info: images/final/loginGoogle.png  used on input line 1156.
 (pdftex.def)             Requested size: 112.72429pt x 242.60475pt.
-<images/prototype2/loginFacebook.png, id=532, 199.4652pt x 429.2838pt>
-File: images/prototype2/loginFacebook.png Graphic file (type png)
-<use images/prototype2/loginFacebook.png>
-Package pdftex.def Info: images/prototype2/loginFacebook.png  used on input line 1164.
+<images/final/loginFacebook.png, id=532, 199.4652pt x 429.2838pt>
+File: images/final/loginFacebook.png Graphic file (type png)
+<use images/final/loginFacebook.png>
+Package pdftex.def Info: images/final/loginFacebook.png  used on input line 1164.
 (pdftex.def)             Requested size: 113.0856pt x 243.38423pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1170--1171
 
  []
 
-<images/prototype2/registration.png, id=533, 133.4586pt x 285.7074pt>
-File: images/prototype2/registration.png Graphic file (type png)
-<use images/prototype2/registration.png>
-Package pdftex.def Info: images/prototype2/registration.png  used on input line 1178.
+<images/final/registration.png, id=533, 133.4586pt x 285.7074pt>
+File: images/final/registration.png Graphic file (type png)
+<use images/final/registration.png>
+Package pdftex.def Info: images/final/registration.png  used on input line 1178.
 (pdftex.def)             Requested size: 112.72429pt x 241.32657pt.
-<images/prototype2/infoPass.png, id=534, 134.4222pt x 286.671pt>
-File: images/prototype2/infoPass.png Graphic file (type png)
-<use images/prototype2/infoPass.png>
-Package pdftex.def Info: images/prototype2/infoPass.png  used on input line 1186.
+<images/final/infoPass.png, id=534, 134.4222pt x 286.671pt>
+File: images/final/infoPass.png Graphic file (type png)
+<use images/final/infoPass.png>
+Package pdftex.def Info: images/final/infoPass.png  used on input line 1186.
 (pdftex.def)             Requested size: 112.72429pt x 240.40831pt.
-<images/prototype2/infoConfirmPass.png, id=535, 134.4222pt x 286.671pt>
-File: images/prototype2/infoConfirmPass.png Graphic file (type png)
-<use images/prototype2/infoConfirmPass.png>
-Package pdftex.def Info: images/prototype2/infoConfirmPass.png  used on input line 1194.
+<images/final/infoConfirmPass.png, id=535, 134.4222pt x 286.671pt>
+File: images/final/infoConfirmPass.png Graphic file (type png)
+<use images/final/infoConfirmPass.png>
+Package pdftex.def Info: images/final/infoConfirmPass.png  used on input line 1194.
 (pdftex.def)             Requested size: 112.72429pt x 240.40831pt.
-[38 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/login.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/loginGoogle.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/loginFacebook.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/registration.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/infoPass.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/infoConfirmPass.png>]
-<images/prototype2/home.png, id=554, 200.4288pt x 429.2838pt>
-File: images/prototype2/home.png Graphic file (type png)
-<use images/prototype2/home.png>
-Package pdftex.def Info: images/prototype2/home.png  used on input line 1205.
+[38 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/login.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/loginGoogle.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/loginFacebook.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/registration.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/infoPass.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/infoConfirmPass.png>]
+<images/final/home.png, id=554, 200.4288pt x 429.2838pt>
+File: images/final/home.png Graphic file (type png)
+<use images/final/home.png>
+Package pdftex.def Info: images/final/home.png  used on input line 1205.
 (pdftex.def)             Requested size: 117.79222pt x 252.2927pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1221.
- [39 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/prototype2/home.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1221.
+<images/final/search.png, id=555, 172.4844pt x 371.9496pt>
+File: images/final/search.png Graphic file (type png)
+<use images/final/search.png>
+Package pdftex.def Info: images/final/search.png  used on input line 1217.
+(pdftex.def)             Requested size: 122.91527pt x 265.06792pt.
+<images/final/searchPeople.png, id=556, 173.448pt x 371.9496pt>
+File: images/final/searchPeople.png Graphic file (type png)
+<use images/final/searchPeople.png>
+Package pdftex.def Info: images/final/searchPeople.png  used on input line 1225.
+(pdftex.def)             Requested size: 122.91527pt x 263.58661pt.
+<images/final/searchMovie.png, id=557, 173.448pt x 371.9496pt>
+File: images/final/searchMovie.png Graphic file (type png)
+<use images/final/searchMovie.png>
+Package pdftex.def Info: images/final/searchMovie.png  used on input line 1235.
+(pdftex.def)             Requested size: 112.72429pt x 241.73032pt.
+
+Underfull \hbox (badness 3525) in paragraph at lines 1236--1236
+[]\OT1/cmr/m/n/12 Figure 9.10: []Movie search
+ []
+
+<images/final/filters.png, id=558, 173.448pt x 371.9496pt>
+File: images/final/filters.png Graphic file (type png)
+<use images/final/filters.png>
+Package pdftex.def Info: images/final/filters.png  used on input line 1243.
+(pdftex.def)             Requested size: 112.72429pt x 241.73032pt.
+<images/final/searchEmma.png, id=559, 173.448pt x 371.9496pt>
+File: images/final/searchEmma.png Graphic file (type png)
+<use images/final/searchEmma.png>
+Package pdftex.def Info: images/final/searchEmma.png  used on input line 1251.
+(pdftex.def)             Requested size: 112.72429pt x 241.73032pt.
+
+Underfull \hbox (badness 2277) in paragraph at lines 1252--1252
+[]\OT1/cmr/m/n/12 Figure 9.12: []Person search
+ []
+
+[39 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/home.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/search.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/searchPeople.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1257--1258
+
+ []
+
+<images/final/user.png, id=572, 174.4116pt x 371.9496pt>
+File: images/final/user.png Graphic file (type png)
+<use images/final/user.png>
+Package pdftex.def Info: images/final/user.png  used on input line 1264.
+(pdftex.def)             Requested size: 117.79222pt x 251.20837pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1269--1270
+
+ []
+
+<images/final/userSetting.png, id=573, 174.4116pt x 371.9496pt>
+File: images/final/userSetting.png Graphic file (type png)
+<use images/final/userSetting.png>
+Package pdftex.def Info: images/final/userSetting.png  used on input line 1276.
+(pdftex.def)             Requested size: 117.79222pt x 251.20837pt.
+[40 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/searchMovie.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/filters.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/searchEmma.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/user.png>]
+<images/final/changeUsernamePass.png, id=587, 323.7696pt x 315.0972pt>
+File: images/final/changeUsernamePass.png Graphic file (type png)
+<use images/final/changeUsernamePass.png>
+Package pdftex.def Info: images/final/changeUsernamePass.png  used on input line 1285.
+(pdftex.def)             Requested size: 235.59225pt x 229.28342pt.
+<images/final/connectSocial.png, id=588, 323.7696pt x 316.0608pt>
+File: images/final/connectSocial.png Graphic file (type png)
+<use images/final/connectSocial.png>
+Package pdftex.def Info: images/final/connectSocial.png  used on input line 1293.
+(pdftex.def)             Requested size: 235.59225pt x 229.98459pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+
+ []
+
+<images/final/watchlist.png, id=589, 174.4116pt x 371.9496pt>
+File: images/final/watchlist.png Graphic file (type png)
+<use images/final/watchlist.png>
+Package pdftex.def Info: images/final/watchlist.png  used on input line 1307.
+(pdftex.def)             Requested size: 112.72429pt x 240.39658pt.
+<images/final/watched.png, id=590, 173.448pt x 371.9496pt>
+File: images/final/watched.png Graphic file (type png)
+<use images/final/watched.png>
+Package pdftex.def Info: images/final/watched.png  used on input line 1315.
+(pdftex.def)             Requested size: 112.72429pt x 241.73032pt.
+<images/final/favourite.png, id=591, 173.448pt x 371.9496pt>
+File: images/final/favourite.png Graphic file (type png)
+<use images/final/favourite.png>
+Package pdftex.def Info: images/final/favourite.png  used on input line 1323.
+(pdftex.def)             Requested size: 112.72429pt x 241.73032pt.
+[41 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/userSetting.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/changeUsernamePass.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/connectSocial.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1329--1330
+
+ []
+
+<images/final/movie.png, id=604, 173.448pt x 373.395pt>
+File: images/final/movie.png Graphic file (type png)
+<use images/final/movie.png>
+Package pdftex.def Info: images/final/movie.png  used on input line 1337.
+(pdftex.def)             Requested size: 122.91527pt x 264.61092pt.
+<images/final/movieInfo.png, id=605, 173.448pt x 373.395pt>
+File: images/final/movieInfo.png Graphic file (type png)
+<use images/final/movieInfo.png>
+Package pdftex.def Info: images/final/movieInfo.png  used on input line 1345.
+(pdftex.def)             Requested size: 122.91527pt x 264.61092pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1351--1352
+
+ []
+
+<images/final/actor.png, id=606, 173.448pt x 371.9496pt>
+File: images/final/actor.png Graphic file (type png)
+<use images/final/actor.png>
+Package pdftex.def Info: images/final/actor.png  used on input line 1359.
+(pdftex.def)             Requested size: 122.91527pt x 263.58661pt.
+<images/final/filmography.png, id=607, 173.448pt x 371.9496pt>
+File: images/final/filmography.png Graphic file (type png)
+<use images/final/filmography.png>
+Package pdftex.def Info: images/final/filmography.png  used on input line 1367.
+(pdftex.def)             Requested size: 122.91527pt x 263.58661pt.
+[42 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/watchlist.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/watched.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/favourite.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/movie.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/movieInfo.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1373--1374
+
+ []
+
+<images/final/reviewPage.png, id=624, 174.4116pt x 371.9496pt>
+File: images/final/reviewPage.png Graphic file (type png)
+<use images/final/reviewPage.png>
+Package pdftex.def Info: images/final/reviewPage.png  used on input line 1381.
+(pdftex.def)             Requested size: 112.72429pt x 240.39658pt.
+<images/final/insertReview.png, id=625, 173.448pt x 371.9496pt>
+File: images/final/insertReview.png Graphic file (type png)
+<use images/final/insertReview.png>
+Package pdftex.def Info: images/final/insertReview.png  used on input line 1389.
+(pdftex.def)             Requested size: 112.72429pt x 241.73032pt.
+<images/final/comment.png, id=626, 173.448pt x 373.395pt>
+File: images/final/comment.png Graphic file (type png)
+<use images/final/comment.png>
+Package pdftex.def Info: images/final/comment.png  used on input line 1397.
+(pdftex.def)             Requested size: 112.72429pt x 242.6697pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1404.
+[43 </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/actor.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/filmography.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/reviewPage.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/insertReview.png> </Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/images/final/comment.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1404.
  (/Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1221.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1221.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1404.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1404.
 Package rerunfilecheck Info: File `report_HCI.out' has not changed.
 (rerunfilecheck)             Checksum: FDC0CCC0767B9EA0907260C9655A92C0;1666.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1221.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1404.
  ) 
 Here is how much of TeX's memory you used:
- 8651 strings out of 480608
- 131182 string characters out of 5903631
+ 8785 strings out of 480608
+ 134347 string characters out of 5903631
  406645 words of memory out of 5000000
- 24118 multiletter control sequences out of 15000+600000
+ 24213 multiletter control sequences out of 15000+600000
  543302 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,10n,45p,309b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,10n,45p,309b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (41 pages, 8868040 bytes).
+Output written on /Users/martina/Desktop/Human-Computer-Interaction/Documentazione/Relation/report_HCI.pdf (45 pages, 11184732 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 446 compressed objects within 5 object streams
- 172 named destinations out of 1000 (max. 500000)
- 554 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 722 PDF objects out of 1000 (max. 8388607)
+ 485 compressed objects within 5 object streams
+ 197 named destinations out of 1000 (max. 500000)
+ 649 words of extra memory for PDF output out of 10000 (max. 10000000)
 

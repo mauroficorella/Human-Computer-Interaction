@@ -76,7 +76,9 @@
 \contentsline {paragraph}{Registration}{38}{section*.51}%
 \contentsline {paragraph}{Home}{39}{section*.52}%
 \contentsline {paragraph}{Search}{39}{section*.53}%
-\contentsline {paragraph}{User}{39}{section*.54}%
-\contentsline {paragraph}{Movie}{39}{section*.55}%
-\contentsline {paragraph}{Review and comment}{39}{section*.56}%
-\contentsline {paragraph}{Person}{39}{section*.57}%
+\contentsline {paragraph}{User}{40}{section*.54}%
+\contentsline {paragraph}{User settings}{41}{section*.55}%
+\contentsline {paragraph}{Movie lists}{42}{section*.56}%
+\contentsline {paragraph}{Movie}{42}{section*.57}%
+\contentsline {paragraph}{Person}{43}{section*.58}%
+\contentsline {paragraph}{Review and comment}{43}{section*.59}%
