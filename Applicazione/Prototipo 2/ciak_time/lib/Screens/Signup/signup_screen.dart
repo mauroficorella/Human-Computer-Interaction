@@ -190,11 +190,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: _setRegistrationButtonColor(),
                       onPressed: () {
                         setState(() {
-                          FocusManager.instance.primaryFocus.unfocus();
-
-                          loginUsernameController.clear();
-
-                          loginPasswordController.clear();
                           if (email != '' &&
                               userregistered != '' &&
                               passwordRegistration != '' &&
@@ -207,19 +202,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             });
 
                             userlogged = userregistered;
-                            userregistered = '';
-                            passwordRegistration = '';
-                            passwordRegistrationConfirm = '';
-                            email = '';
                             
+
                             showOkAlertDialog(
                                     context: context,
                                     title: 'Registration successfull')
                                 .then((value) {
+                                  userregistered = '';
+                            passwordRegistration = '';
+                            passwordRegistrationConfirm = '';
+                            email = '';
+                              FocusManager.instance.primaryFocus.unfocus();
+
+                              loginUsernameController.clear();
+
+                              loginPasswordController.clear();
                               Navigator.popUntil(
                                   context, ModalRoute.withName('/'));
                             });
-                            
                           } else {
                             showOkAlertDialog(
                                 context: context,
@@ -302,7 +302,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             userregistered != users[i]['username'] &&
             regexMail.hasMatch(email) &&
             regexPassword.hasMatch(passwordRegistration) &&
-            
             passwordRegistration == passwordRegistrationConfirm &&
             email.isNotEmpty &&
             passwordRegistration.isNotEmpty &&
@@ -324,7 +323,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             userregistered != users[i]['username'] &&
             regexMail.hasMatch(email) &&
             regexPassword.hasMatch(passwordRegistration) &&
-          
             passwordRegistration == passwordRegistrationConfirm &&
             email != '' &&
             passwordRegistration != '' &&
