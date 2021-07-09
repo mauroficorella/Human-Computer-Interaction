@@ -112,6 +112,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ConnectivityResult.wifi) &&
                             (username == users[i]['username'] &&
                                 password == users[i]['password'])) {
+                          error = false;
+                          userlogged = username;
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -128,6 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               loginPasswordController.clear();
                             });
                           });
+                          break;
                         } else {
                           if (connectivityResult != ConnectivityResult.mobile &&
                               connectivityResult != ConnectivityResult.wifi) {
@@ -136,15 +139,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                 title: "Connectivity error",
                                 message:
                                     "You need to turn on Internet on your device to continue.");
-                          } else if ((username != users[i]['username'] ||
-                              password != users[i]['password'])) {
-                            showOkAlertDialog(
-                                context: context,
-                                title: "Login error",
-                                message:
-                                    "You need to insert the correct credentials in order to login.");
+                          } else if (((username != users[i]['username'] ||
+                                  password != users[i]['password']) &&
+                              i == users.length - 1)) {
+                            error = true;
                           }
                         }
+                      }
+                      print(error);
+                      if (error || (username == '' || password == '')) {
+                        showOkAlertDialog(
+                            context: context,
+                            title: "Login error",
+                            message:
+                                "You need to insert the correct credentials in order to login.");
                       }
                     },
                     child: Text(
@@ -461,11 +469,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
                       ).then((value) {
-                        FocusManager.instance.primaryFocus.unfocus();
+                        setState(() {
+                          FocusManager.instance.primaryFocus.unfocus();
 
-                        loginUsernameController.clear();
+                          loginUsernameController.clear();
 
-                        loginPasswordController.clear();
+                          loginPasswordController.clear();
+                          username = '';
+                          password = '';
+                        });
                       });
                     },
                     child: Text("Sign Up",
@@ -487,7 +499,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Color changeLoginColor() {
     setState(() {
       for (var i = 0; i < users.length; i++) {
-        if (username.isNotEmpty && password.isNotEmpty) {
+        if (username != '' && password != '') {
           loginColor = kPrimaryColor;
           break;
         } else {
@@ -502,7 +514,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Color changeLoginTextColor() {
     setState(() {
       for (var i = 0; i < users.length; i++) {
-        if (username.isNotEmpty && password.isNotEmpty) {
+        if (username != '' && password != '') {
           loginTextColor = Colors.white;
           break;
         } else {
@@ -513,40 +525,4 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return loginTextColor;
   }
-
-  /*Color changeLoginColor() {
-    setState(() {
-      for (var i = 0; i < users.length; i++) {
-        if (username != '' &&
-            password != '' &&
-            username == users[i]['username'] &&
-            password == users[i]['password']) {
-          loginColor = kPrimaryColor;
-          break;
-        } else {
-          loginColor = Colors.grey[300];
-        }
-      }
-    });
-
-    return loginColor;
-  }
-
-  Color changeLoginTextColor() {
-    setState(() {
-      for (var i = 0; i < users.length; i++) {
-        if (username != '' &&
-            password != '' &&
-            username == users[i]['username'] &&
-            password == users[i]['password']) {
-          loginTextColor = Colors.white;
-          break;
-        } else {
-          loginTextColor = Colors.grey;
-        }
-      }
-    });
-
-    return loginTextColor;
-  }*/
 }

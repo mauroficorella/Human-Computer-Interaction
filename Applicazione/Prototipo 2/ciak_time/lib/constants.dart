@@ -37,6 +37,7 @@ Color loginTextColor = Colors.grey;
 
 bool isUserLogged = false;
 bool noPressed = false;
+bool error = false;
 
 CircleAvatar profilePicture;
 

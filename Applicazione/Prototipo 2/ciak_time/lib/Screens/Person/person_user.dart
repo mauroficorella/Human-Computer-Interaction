@@ -78,7 +78,7 @@ class _PersonUserState extends State<PersonUser> {
                             "Filmography",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: size.height * 0.03,
+                              fontSize: size.height * 0.023,
                               fontFamily: 'Quicksand-Medium',
                             ),
                           ),
