@@ -75,7 +75,7 @@ CircleAvatar getCircleAvatar(Size size, bool isFromGallery) {
     profilePicture = CircleAvatar(
       backgroundImage: FileImage(image),
       backgroundColor: Colors.white,
-      radius: size.height * 0.1,
+      radius: size.height * 0.08,
     );
     picturePath = image.path;
     print(picturePath);
@@ -83,7 +83,7 @@ CircleAvatar getCircleAvatar(Size size, bool isFromGallery) {
     profilePicture = CircleAvatar(
       backgroundImage: AssetImage(changeProfilePicPath()),
       backgroundColor: Colors.white,
-      radius: size.height * 0.1,
+      radius: size.height * 0.08,
     );
     picturePath = changeProfilePicPath();
   }

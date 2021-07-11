@@ -116,9 +116,7 @@ class CardList extends StatelessWidget {
           ],
         ),
         getListContent(context),
-        SizedBox(
-          height: size.height * 0.01,
-        ),
+        
       ],
     );
   }

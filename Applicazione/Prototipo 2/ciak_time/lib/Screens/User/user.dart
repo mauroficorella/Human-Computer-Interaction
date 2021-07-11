@@ -58,7 +58,7 @@ class _UserState extends State<User> {
               userlogged,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: size.height * 0.05,
+                fontSize: size.height * 0.03,
                 fontFamily: 'Quicksand-Medium',
               ),
             ),
